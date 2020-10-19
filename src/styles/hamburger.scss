@@ -1,0 +1,83 @@
+@import "../styles/media-queries";
+@import "./hamburgers/hamburgers";
+
+.hamburger {
+  position: relative;
+  //display: none;
+  //position: fixed;
+  //right: 5px;
+  //top: 0px;
+  z-index: 3002;
+  //height: 50px;
+  //padding: 13px 0px !important;
+  padding: 0 10px;
+
+
+  .hamburger-box {
+    // width: 30px;
+
+    //height: 20px;
+    height: 12px;
+    width: 30px;
+    margin-right: 10px;
+
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      width: 30px;
+      height: 2px;
+      background-color: #bfbfbf;
+      //float: left;
+
+      border-radius: 1.5px;
+    }
+
+    .hamburger-inner {
+      width: 20px;
+      right: 0px;
+    }
+
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      right: 0px;
+    }
+  }
+
+  .hamburger-label {
+    color: #bfbfbf;
+    color: #ffffff;
+
+    float: right;
+    font-size: .7rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    //display: flex;
+    margin: 0px 0px 0 0;
+  }
+}
+
+.hamburger.is-active {
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    background-color: #bfbfbf;
+  }
+
+  .hamburger-inner {
+    width: 30px;
+  }
+
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    margin-left: 0px;
+  }
+}
+
+@include respond-below(sm) {
+  .hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,360 @@
+@import "./scss";
+@import "./reset";
+@import "./checkbox-radios";
+
+body {
+  background-color: #ededed;
+  background-color: #ffffff;
+  background-color: $pageBgColor;
+  ;
+  //background-color: #253240;
+
+  @include respond-below(sm) {
+    //  margin: 50px 0 0 0;
+  }
+}
+
+
+::selection {
+  background-color: #B3D7FE;
+  color: #837373;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0;
+  bottom: 0px;
+  z-index: 0;
+  opacity: .33;
+}
+
+#gatsby-announcer {
+  color: #ffffff !important;
+}
+
+.section-layout {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.section-layout-wide {
+  max-width: 100%;
+  margin: 0px;
+}
+
+.fourOfour {
+  display: block;
+  margin: 120px auto;
+  width: fit-content;
+  text-align: center;
+  color: #ffffff;
+
+  h1,
+  p {
+    color: $whiteText;
+  }
+
+  a {
+    margin-top: 60px;
+    padding: 1.2rem 4rem;
+  }
+}
+
+p {
+  color: $txtColor;
+
+}
+
+a,
+a:link,
+a:hover {
+  color: $txtColor;
+  color: $primaryColor;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primaryColor;
+  text-decoration: underline;
+}
+
+
+button.buttonPrimary,
+button.buttonPrimaryGhost,
+button.buttonPrimaryDark,
+button.buttonSecondary button.buttonTertiary,
+
+.buttonPrimary,
+.buttonPrimaryGhost,
+.buttonPrimaryDark,
+.buttonSecondary,
+.buttonTertiary {
+  padding: 1em 2em;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-width: 0;
+  letter-spacing: .075rem;
+  // background-color: $tertiaryColorA;
+  background-color: $primaryColor;
+  color: #ffffff !important;
+  box-shadow: 0px 0px 5px 0px rgba(35, 35, 35, 0.5);
+}
+
+button.buttonPrimaryGhost,
+.buttonPrimaryGhost {
+  background-color: #25324091;
+  border: 1px solid $primaryColor;
+
+}
+
+
+button.buttonPrimaryDark,
+.buttonPrimaryDark {
+  background-color: $ctaColorDark;
+}
+
+button:hover.buttonPrimary,
+button:hover.buttonPrimaryGhost,
+button:hover.buttonPrimaryDark,
+.buttonPrimary:hover,
+.buttonPrimaryGhost:hover,
+.buttonPrimaryDark:hover {
+  color: #ffffff;
+  box-shadow: 0px 1px 10px 0px rgba(35, 35, 35, 0.5);
+  text-decoration: none;
+  //color: #ffffff;
+}
+
+
+// Btn Secondary
+button.buttonSecondary,
+.buttonSecondary,
+button.buttonSecondary:focus,
+.buttonSecondary:focus {
+  padding: 0.5em 1.2em;
+  border: 1px solid #3d5269;
+  border-bottom: 2px solid #3d5269;
+  background-color: #283746;
+}
+
+button.buttonSecondary.isActive,
+.buttonSecondary.isActive {
+  border: 1px solid $primaryColor;
+  border-bottom: 2px solid $primaryColor;
+  background-color: $primaryColor;
+}
+
+button.buttonSecondary:hover,
+.buttonSecondary:hover {
+  border: 1px solid $primaryColor;
+  border-bottom: 2px solid $primaryColor;
+  //background-color: transparent;
+}
+
+// Btn Tertiary
+button.buttonTertiary,
+.buttonTertiary,
+button.buttonTertiary:focus,
+.buttonTertiary:focus {
+  padding: 1em 2em;
+  color: $txtColor;
+  border: 1px solid $txtColor;
+  //border-bottom: 2px solid $txtColor;
+  background-color: #ffffff;
+}
+
+button.buttonTertiary.isActive,
+.buttonTertiary.isActive {
+  border: 1px solid $txtColor;
+  //border-bottom: 2px solid $txtColor;
+  background-color: #ffffff;
+}
+
+button.buttonTertiary:hover,
+.buttonTertiary:hover {
+  border: 1px solid $txtColor;
+  //border-bottom: 2px solid $txtColor;
+  //background-color: transparent;
+}
+
+.fourOfour {
+  display: block;
+  margin: 60px auto;
+  width: fit-content;
+  text-align: center;
+  color: #ffffff;
+
+  h1 {
+    padding-top: 120px;
+  }
+
+
+  a,
+  a:link,
+  a:hover {
+    margin-top: 60px;
+    padding: 1.2rem 4rem;
+    color: $txtColor;
+    text-decoration: none;
+  }
+}
+
+#SRLLightbox {
+  z-index: 10000;
+}
+
+#SRLLightbox {
+
+
+  @include respond-below(sm) {
+    //top:50px !important;
+    bottom: 0px !important
+  }
+
+  .SRLStage {
+    @include respond-below(sm) {
+
+      //top:50px !important;
+      button.SRLPrevButton,
+      button.SRLNextButton,
+      button.SRLCloseButton,
+      button.SRLZoomOutButton {
+        display: block;
+        height: 42px;
+        width: 42px;
+      }
+    }
+  }
+
+  .SRLElementContainer {
+    z-index: 10;
+  }
+}
+
+.medium-zoom-overlay {
+  z-index: 100000;
+  background: #ffffff;
+}
+
+.medium-zoom-image {
+  // border: 1px solid #ffffff !important;
+  // border-radius: 3px;
+
+  // overflow: hidden;
+
+
+  // transform: none;
+}
+
+.medium-zoom-image--opened {
+  z-index: 100001;
+  box-shadow: 0 0 10px 0 #5f5b5b9e !important;
+
+
+}
+
+
+
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #99dfbe;
+
+  position: fixed;
+  z-index: 100005;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #99dfbe, 0 0 5px #99dfbe;
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+
+  border: solid 2px transparent;
+  border-top-color: #99dfbe;
+  border-left-color: #99dfbe;
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

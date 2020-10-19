@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="341" height="341" viewBox="0 0 341 341">
+  <g fill="none" fill-rule="evenodd" transform="matrix(0 -1 1 0 0 341)">
+    <polygon fill="#972363" points="168 0 0 168 168 168"/>
+    <polygon fill="#B42A76" points="0 0 0 168 168 0"/>
+    <polygon fill="#53A3C1" points="173 173 341 341 341 173" transform="rotate(-90 257 257)"/>
+    <polygon fill="#68C9EE" points="173 341 341 341 173 173" transform="rotate(-90 257 257)"/>
+    <polygon fill="#C6756D" points="173 0 173 168 341 168"/>
+    <polygon fill="#F9CC6D" points="173 0 341 168 341 0"/>
+  </g>
+</svg>

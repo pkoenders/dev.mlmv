@@ -1,0 +1,53 @@
+@import "src/styles/scss";
+
+.ourVisionMission {
+    margin: 120px auto;
+
+    @include respond-below(lg) {
+        margin: 60px 0 5px 0;
+    }
+
+    text-align: center;
+
+    hr {
+        margin: 45px 0;
+        background-color: #efeff0;
+    }
+
+    div.ourVisionMissionWrapper {
+        max-width: 1200px;
+        margin: 0px auto;
+
+
+        div {
+            width: 50%;
+            margin: 0 auto;
+
+            @include respond-below(md) {
+                width: 75%;
+                padding: 0 15px;
+            }
+
+            @include respond-below(sm) {
+                width: 100%;
+                padding: 0 30px;
+            }
+
+            p {
+                padding: 0;
+                text-align: left;
+
+                // font-family: 'Vollkorn', serif;
+                // font-size: 1.4rem;
+                // line-height: 1.8rem;
+                a {
+                    color: $primaryColor;
+                }
+
+                a:hover {
+                    text-decoration: underline !important;
+                }
+            }
+        }
+    }
+}

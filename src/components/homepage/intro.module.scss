@@ -1,0 +1,62 @@
+@import "src/styles/scss";
+
+div.intro {
+    width: auto;
+    margin: 80px 10% 90px 20%;
+    //background-color: #253240;
+
+
+    svg {
+        vertical-align: middle;
+        width: 150px;
+        height: auto;
+        margin: -11px 0 -60px -110px;
+    }
+
+    >span {
+        display: block;
+        position: relative;
+        width: 15px;
+        height: 15px;
+        margin-bottom: 15px;
+        background-color: $primaryColor;
+    }
+
+    >span:before,
+    >span:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        right: -15px;
+        bottom: 0px;
+        background-color: $secondaryColor;
+    }
+
+    >span:after {
+        width: 5px;
+        height: 5px;
+        right: -25px;
+        background-color: $tertiaryColor;
+    }
+
+
+    h1 {
+
+        line-height: 3.2rem;
+
+        svg {
+            width: 30px;
+            margin: -5px -5px 5px -28px;
+        }
+
+        strong {
+            font-size: 2.6rem;
+            letter-spacing: -.1rem;
+            margin: 0 0 0 -1.5px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="210" height="210" viewBox="0 0 210 210">
+  <defs>
+    <path id="icon-open-external.inline-b" d="M3173.46422,488 L3251,488 L3251,565.535776 L3228.6239,565.535776 L3228.6239,525.987326 L3119.86567,634.745562 L3104.25444,619.134332 L3213.01267,510.376096 L3173.46422,510.376096 L3173.46422,488 Z M3228.60417,665.604167 L3228.60417,588 L3251,588 L3251,665.604167 C3251,671.506975 3248.74308,676.715258 3244.22917,681.229167 C3239.71525,685.743078 3234.507,688 3228.60417,688 L3073.39583,688 C3067.1458,688 3061.85072,685.743078 3057.51042,681.229167 C3053.17012,676.715258 3051,671.506975 3051,665.604167 L3051,510.395833 C3051,504.493 3053.17012,499.28475 3057.51042,494.770833 C3061.85072,490.256917 3067.1458,488 3073.39583,488 L3151,488 L3151,510.395833 L3073.39583,510.395833 L3073.39583,665.604167 L3228.60417,665.604167 Z"/>
+    <filter id="icon-open-external.inline-a" width="107.5%" height="107.5%" x="-3.8%" y="-3.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.151770105 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(-3046 -483)">
+    <use fill="#000" filter="url(#icon-open-external.inline-a)" xlink:href="#icon-open-external.inline-b"/>
+    <use fill="#B42A76" xlink:href="#icon-open-external.inline-b"/>
+  </g>
+</svg>
