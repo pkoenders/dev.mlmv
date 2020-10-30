@@ -8,51 +8,49 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
     {
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {posttype: {eq: "project"}}}) {
+      allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
         edges {
-          previous {
-            frontmatter {
-              slug
-              title
-              coverimage {
-                childImageSharp {
-                  fixed {
-                    src
-                  }
-                }
-              }
-            }
-          }
-          next {
-            frontmatter {
-              title
-              slug
-              coverimage {
-                childImageSharp {
-                  fixed {
-                    src
-                  }
-                }
-              }
-            }
-          }
           node {
-            frontmatter {
-              category
-              date
-              intro
-              posttype
-              slug
-              title
-              url
-              coverimage {
-                childImageSharp {
-                  fixed {
-                    src
-                  }
+            order
+            slug {
+              current
+            }
+            peerSupporterFullName {
+              mi
+              hi
+              en
+              sm
+            }
+            peerSupporterFriendlyName {
+              mi
+              hi
+              en
+              sm
+            }
+            coverImage {
+              asset {
+                fluid {
+                  src
                 }
               }
-              addtohomepage
+            }
+          }
+
+          previous {
+            slug{
+              current
+            }
+            peerSupporterFullName {
+              en
+            }
+          }
+
+          next {
+            slug {
+              current
+            }
+            peerSupporterFullName {
+              en
             }
           }
         }
@@ -65,22 +63,22 @@ exports.createPages = ({ graphql, actions }) => {
         reject(results.error)
       }
 
-      const portfolioItems = results.data.allMarkdownRemark.edges
-      portfolioItems.forEach((portfolioItem, index) => {
-        const next = index === portfolioItems.length - 1 ? null : portfolioItems[index + 1].node
-        const previous = index === 0 ? null : portfolioItems[index - 1].node
+      const peerSupportersItems = results.data.allSanityPeerSupporters.edges
+      peerSupportersItems.forEach((peerSupportersItem, index) => {
+        const next = index === peerSupportersItems.length - 1 ? null : peerSupportersItems[index + 1].node
+        const previous = index === 0 ? null : peerSupportersItems[index - 1].node
 
 
-        const thisPortfolioItem = portfolioItem
+        const thisPeerSupportersItem = peerSupportersItem
 
         createPage({
-          thisPortfolioItem,
-          path: `/projects/${portfolioItem.node.frontmatter.slug}`,
+          thisPeerSupportersItem,
+          path: `/peer-supporters/${peerSupportersItem.node.slug.current}`,
 
-          component: path.resolve(`./src/templates/projectsMD.js`),
+          component: path.resolve(`./src/templates/peerSupporter.js`),
           context: {
-            slug: portfolioItem.node.frontmatter.slug,
-            pathItem: thisPortfolioItem,
+            slug: peerSupportersItem.node.slug.current,
+            pathItem: thisPeerSupportersItem,
 
             previous,
             next,
@@ -91,59 +89,3 @@ exports.createPages = ({ graphql, actions }) => {
     }).then(resolve)
   })
 }
-
-
-
-// /**
-//  * Implement Gatsby's Node APIs in this file.
-//  *
-//  * See: https://www.gatsbyjs.org/docs/node-apis/
-//  */
-
-// // You can delete this file if you're not using it
-
-
-// exports.createPages = async ({ actions, graphql, reporter }) => {
-//   const { createPage } = actions
-
-//   const projectsMD = require.resolve(`./src/templates/projectsMD.js`)
-//   const projectsNetlifyCMS = require.resolve(`./src/templates/projectsNetlifyCMS.js`)
-
-//   const result = await graphql(`
-//       {
-//         allMarkdownRemark(
-//           sort: { order: DESC, fields: [frontmatter___date] }
-//           filter: {frontmatter: {category: {}, posttype: {eq: "project"}}}
-//         ) {
-//           edges {
-//             node {
-//               frontmatter {
-//                 posttype
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `)
-
-//   // Handle errors
-//   if (result.errors) {
-//     reporter.panicOnBuild(`Error while running GraphQL query.`)
-//     return
-//   }
-
-
-//   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-//     if (node.frontmatter.posttype === 'project') {
-//       createPage({
-//         path: node.frontmatter.slug,
-//         component: projectsMD,
-//         context: {
-//           // additional data can be passed via context
-//           slug: node.frontmatter.slug,
-//         },
-//       })
-//     }
-//   })
-// }

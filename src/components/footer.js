@@ -9,6 +9,7 @@ const Footer = () => {
     query FooterQuery {
       site {
         siteMetadata {
+          title,
           author,
           year
         }
@@ -20,13 +21,12 @@ const Footer = () => {
     <>
 
       <footer className={footerStyles.footer}>
-        <canvas className="footerAnim" width="32" height="32" />
-        {/* <FooterBGround /> */}
         <Link to="/" title="Homepage" >
           <span>Go to the homepage</span>
-          <IconCreativeTech />
+          {/* <IconCreativeTech /> */}
         </Link>
-        <p>© {new Date().getFullYear()} - {data.site.siteMetadata.author}</p>
+        <p>Footer content here</p>
+        <p>© {new Date().getFullYear()} - {data.site.siteMetadata.title}</p>
       </footer>
     </>
   )

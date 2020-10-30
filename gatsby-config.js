@@ -3,8 +3,8 @@ module.exports = {
   /* Your site config here */
 
   siteMetadata: {
-    title: `Peter Koenders`,
-    description: `Portfolio | Peter Koenders`,
+    title: `My Life My Voice`,
+    description: `Connecting the disables community to Peer Supporters | My Life My Voice`,
     siteUrl: "https://pkoenders.netlify.app", // No trailing slash allowed!
     // defaultImage: "/images/svg/logo-pixl.inline.svg", // Path to your image you placed in the 'static' folder
     defaultImage: "/images/pkoenders.png", // Path to your image you placed in the 'static' folder
@@ -13,6 +13,23 @@ module.exports = {
     year: "2020",
   },
   plugins: [
+
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `97psedqm`,
+        dataset: `mlmv-dev`,
+        // a token with read permissions is required
+        // if you have a private dataset
+        token: process.env.SANITY_TOKEN,
+
+        // If the Sanity GraphQL API was deployed using `--tag <name>`,
+        // use `graphqlTag` to specify the tag name. Defaults to `default`.
+        graphqlTag: 'default',
+      },
+    },
+
+
 
     {
       resolve: `gatsby-plugin-nprogress`,
@@ -34,12 +51,6 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        enableIdentityWidget: true,
-      }
-    },
 
     `gatsby-plugin-sass`,
 
@@ -119,13 +130,6 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/src/content/netlifycms/`,
-      },
-    },
 
     //`gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

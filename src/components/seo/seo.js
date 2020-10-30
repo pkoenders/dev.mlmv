@@ -25,6 +25,7 @@ const SEO = ({ title, description, image, article }) => {
 
   return (
     <Helmet>
+      <meta name="robots" content="noindex"></meta>
       <html lang="en" />
 
       {seo.title && <title>{seo.title}</title>}
