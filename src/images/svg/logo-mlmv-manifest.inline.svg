@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="602" height="604" viewBox="0 0 602 604">
+  <g fill="none" fill-rule="evenodd" transform="translate(0 .616)">
+    <g transform="matrix(0 -1 1 0 0 602.384)">
+      <polygon points="35 37 567 37 567 569 35 569"/>
+      <circle cx="301" cy="301" r="301"/>
+    </g>
+    <g fill-rule="nonzero" transform="translate(129 149)">
+      <polygon fill="#2AF24B" points="217 306 217 249.429 67.463 249.429 67.463 0 0 0 0 306"/>
+      <polygon fill="#F22AE2" points="243.219 306 345 0 275.428 0 206.285 215.143 205.426 215.143 137.143 0 68 0 167.205 306"/>
+    </g>
+  </g>
+</svg>
