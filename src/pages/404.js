@@ -48,7 +48,7 @@ const NotFoundPage = ({ location }) => {
         <div className={'fourOfour'}>
           <h1>Oh purr-leaze !</h1>
           <p>It appears that Zoe has hidden this page.</p>
-          <Link className={'buttonPrimaryGhost'} to="/">Go back to my portfolio</Link>
+          <Link className={'buttonPrimaryGhost'} to="/">Go back to my My Life My Voice</Link>
         </div>
 
       </Layout>

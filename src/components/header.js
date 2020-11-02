@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 //import Img from 'gatsby-image'
 //import PlaceImage from './image/image'
-// import IconCreativeTech from "../images/svg/logo-pixl.inline.svg"
+import LogoMLMVHeader from "../images/svg/logo-mlmv.inline.svg"
 import '../styles/index.scss'
 import "../styles/hamburger.scss"
 import "./header.scss"
@@ -15,8 +15,8 @@ const Header = ({ data, location }) => {
         {location.pathname.split('/')[1] !== ""
           ? <Link to="/" title="Link to homepage">
             <span>Link to homepage</span>
-            <p>MLMV Logo here</p>
-            {/* <IconCreativeTech alt={"Logo - Link to homepage"} /> */}
+            {/* <p>MLMV Logo here</p> */}
+            <LogoMLMVHeader alt={"Logo MLMV - Link to homepage"} />
           </Link>
           : ""
         }
@@ -31,11 +31,12 @@ const Header = ({ data, location }) => {
           </div>
 
           <ul>
-            <li><Link to="/" title="Homepage" >Peter Koenders</Link></li>
-            <li><Link to="/mlmv" >MLMV Test Page</Link></li>
+            <li><Link to="/" title="My Life My Voice Homepage" >My Life My Voice</Link></li>
             <li><Link to="/peer-supporters" >Peer Supporters</Link></li>
-            <li><Link to="/projects" >My projects</Link></li>
             <li><Link to="/contact" >Contact us</Link></li>
+            <li><Link to="/about" >About My Life My Voice</Link></li>
+            <li><Link to="/accessiblity" >Website accessiblity</Link></li>
+            <li><Link to="/terms-and-use" >Terms of use</Link></li>
           </ul>
 
         </div>

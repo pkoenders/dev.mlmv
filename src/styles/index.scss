@@ -4,8 +4,8 @@
 
 body {
   background-color: #ededed;
-  background-color: #ffffff;
-  background-color: $pageBgColor;
+  // background-color: #ffffff;
+  // background-color: $pageBgColor;
   ;
   //background-color: #253240;
 
@@ -34,11 +34,6 @@ canvas {
 
 #gatsby-announcer {
   color: #ffffff !important;
-}
-
-.section-layout {
-  max-width: 1200px;
-  margin: 0px auto;
 }
 
 .section-layout-wide {

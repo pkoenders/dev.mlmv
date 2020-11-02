@@ -13,8 +13,8 @@ const ContactForm = () => {
 
                 <div className={contactStyles.contactForm}>
                     <IconWave />
-                    <p>I would love to be contacted to discuss work commissions or just hear your thoughts and ideas.</p>
-                    <p>You can text or call me <a href="tel:+64 21 155 1085"><IconPhone className={contactStyles.contactIconPhone} />+64 21 155 1085</a>. Alternatively, complete the following form for email enquires. Thanks.</p>
+                    <p>We would love to be contacted to discuss how we can help you or just hear your thoughts and ideas.</p>
+                    <p>You can text or call me <a href="tel:+64 XX XXX XXXX"><IconPhone className={contactStyles.contactIconPhone} />+64 XXX XXX XXXX</a>. Alternatively, complete the following form for email enquires. Thanks.</p>
                     <div className={contactStyles.contactFormInput}>
                         <form
                             name="pkoenders-contact"

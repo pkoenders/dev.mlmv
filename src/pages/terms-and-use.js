@@ -1,14 +1,12 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
 import SEO from '../components/seo/seo'
 
-
-const MlmvIndex = ({ location }) => {
-
+const MlmvTerms = ({ location }) => {
   const data = useStaticQuery(graphql`
-    query MlmvPage {
+    query MlmvTerms {
       site {
         siteMetadata {
           title
@@ -20,19 +18,17 @@ const MlmvIndex = ({ location }) => {
   return (
     <>
       <SEO
-        title={'Tēnā koe, Welcome My Life My Voice - ' + data.site.siteMetadata.title}
-        description={'A website to connect Peer Supportes to the disabled community.'}
+        title={'MLMV Terms of use - My Life My Voice | ' + data.site.siteMetadata.title}
+        description={'All about My Life My Voice terms of website use.'}
       />
       <Layout location={location}>
         <DefaultSection>
-          <h1>MLMV Homepage</h1>
+          <h1>MV Terms of use</h1>
           <p>This is placement page that needs to be designed and built</p>
-
-          <Link to="/peer-supporters" >Search for Peer Supportrs</Link>
         </DefaultSection>
       </Layout>
     </>
   )
 }
 
-export default MlmvIndex
+export default MlmvTerms
