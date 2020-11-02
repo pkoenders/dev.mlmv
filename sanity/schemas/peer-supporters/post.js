@@ -21,22 +21,10 @@ export default {
     },
 
     {
-      name: 'peerSupporterFriendlyName',
-      title: 'Peer supporter first name',
-      description: 'Peer supporter friendly name',
-      type: 'localeString',
-      // validation: Rule => [
-      //   Rule.required().min(10).error('A title of min. 10 characters is required'),
-      //   Rule.max(50).warning('Shorter titles are usually better')
-      // ],
-      validation: Rule =>
-        Rule.fields({
-          en: fieldRule => fieldRule.required().min(2).error('A title of min. 2 characters is required'),
-        }),
+      name: 'peerSupporterActive',
+      title: 'Is this peer supporter active?',
+      type: 'boolean'
     },
-
-
-
 
     {
       name: 'slug',
@@ -56,6 +44,34 @@ export default {
         Rule.fields({
           en: fieldRule => fieldRule.required().min(2).error('A title of min. 2 characters is required'),
         }),
+    },
+
+    {
+      name: 'peerSupporterFriendlyName',
+      title: 'Peer supporter first name',
+      description: 'Peer supporter friendly name',
+      type: 'localeString',
+      // validation: Rule => [
+      //   Rule.required().min(10).error('A title of min. 10 characters is required'),
+      //   Rule.max(50).warning('Shorter titles are usually better')
+      // ],
+      validation: Rule =>
+        Rule.fields({
+          en: fieldRule => fieldRule.required().min(2).error('A title of min. 2 characters is required'),
+        }),
+    },
+
+    {
+      name: 'peerSupporterEmail',
+      title: 'Peer supporter email address',
+      type: 'string',
+      // validation: Rule => [
+      //   Rule.required().min(10).error('A title of min. 10 characters is required'),
+      //   Rule.max(50).warning('Shorter titles are usually better')
+      // ],
+      validation: Rule => [
+        Rule.required().min(2).error('A title of min. 2 characters is required'),
+      ],
     },
 
     {

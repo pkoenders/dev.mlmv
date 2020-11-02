@@ -2,6 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
+import SectionContact from "../components/homepage/contact"
 import SEO from '../components/seo/seo'
 
 
@@ -25,11 +26,13 @@ const MlmvIndex = ({ location }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <h1>MLMV Homepage</h1>
+          <h1>My Life My Voice homepage</h1>
           <p>This is placement page that needs to be designed and built</p>
 
           <Link to="/peer-supporters" >Search for Peer Supporters</Link>
         </DefaultSection>
+
+        <SectionContact />
       </Layout>
     </>
   )

@@ -1,9 +1,10 @@
 import React from 'react'
-import contactStyles from './contact.module.scss'
+import { Link } from "gatsby"
+import contactStyles from '../homepage/contact.module.scss'
 import IconSuccess from "../../images/svg/icon-contact-success.inline.svg"
 
 
-const contactFormSucess = () => {
+const PeerContactFormSucess = () => {
 
     return (
         <section className={contactStyles.contactFormSectionSuccess + ' section-layout-wide'}>
@@ -14,8 +15,10 @@ const contactFormSucess = () => {
                     <p>We have received your message and will reply to you soon.</p>
                 </div>
             </div>
+            <Link to="/peer-supporters" >Go back to peer supporters</Link>
+            <Link to="/" >Go back to the homepage</Link>
         </section>
     )
 }
 
-export default contactFormSucess
+export default PeerContactFormSucess

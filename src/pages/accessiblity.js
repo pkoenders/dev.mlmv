@@ -23,7 +23,7 @@ const MlmvAccessibility = ({ location }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <h1>MV Accessibility</h1>
+          <h1>MLMV Accessibility</h1>
           <p>This is placement page that needs to be designed and built</p>
         </DefaultSection>
       </Layout>

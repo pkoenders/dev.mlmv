@@ -2,12 +2,12 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import SectionContactSuccess from "../components/homepage/contact-success"
+import PeerSectionContactSuccess from "../components/peer-supporters/contact-success"
 
-const ContactSuccess = ({ location }) => {
+const PeerContactSuccess = ({ location }) => {
 
   const data = useStaticQuery(graphql`
-    query ContactSuccessData {
+    query PeerContactSuccessData {
       site {
         siteMetadata {
           title
@@ -32,14 +32,14 @@ const ContactSuccess = ({ location }) => {
       </style>
       <SEO
         title={'Contact success | ' + data.site.siteMetadata.title}
-        description={'I have received your message and will reply to you soon.'}
+        description={'We have received your message and will reply to you soon.'}
 
       />
       <Layout location={location}>
-        <SectionContactSuccess />
+        <PeerSectionContactSuccess />
       </Layout >
     </>
   )
 }
 
-export default ContactSuccess
+export default PeerContactSuccess

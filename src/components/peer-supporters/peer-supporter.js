@@ -5,6 +5,7 @@ import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
+import contactStyles from '../homepage/contact.module.scss'
 // import BlockContent from '@sanity/block-content-to-react'
 // import IconOpenExternal from "../../images/svg/icon-open-external.inline.svg"
 import IconNext from "../../images/svg/icon-next.inline.svg"
@@ -169,6 +170,74 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
                   </li>
                 ))}
               </ul>
+
+              <p>Contact {peerData.peerSupporterFullName.en}</p>
+              <div className={contactStyles.contactFormInput}>
+                <form
+                  name="peer-supporter-contact-form"
+                  method="post"
+                  action="../peer-contact-success"
+                  netlify-honeypot="bot-field"
+                  data-netlify="true"
+
+                >
+                  <input type="hidden" name="bot-field" />
+                  <input type="hidden" name="form-name" value="peer-supporter-contact-form" />
+                  <input type="hidden" name="peer-name" value="{peerData.peerSupporterFullName.en}" />
+                  <input type="hidden" name="peer-email" value="{peerData.peerSupporterEmail}" />
+                  <p>
+                    <label htmlFor="name">
+                      <span>Your name (required)</span>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        id="name"
+                        required
+                      />
+                    </label>
+                  </p>
+                  <p>
+                    <label htmlFor="email">
+                      <span>Your email address (required)</span>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Your email address"
+                        id="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        required
+                      />
+                    </label>
+                  </p>
+                  <p>
+                    <label htmlFor="subject">
+                      <span>Subject</span>
+                      <input
+                        type="text"
+                        name="subject"
+                        id="subject" />
+                    </label>
+                  </p>
+                  <p>
+                    <label htmlFor="message">
+                      <span>Message</span>
+                      <textarea
+                        name="message"
+                        id="message"
+                        rows="5" />
+                    </label>
+                  </p>
+                  <p>
+                    <button
+                      type="submit"
+                      className="buttonPrimary">Submit form</button>
+                  </p>
+                </form>
+              </div>
+
+
+
 
             </div>
             {/* <div className={projectStyles.contentInner}>

@@ -23,7 +23,7 @@ const MlmvTerms = ({ location }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <h1>MV Terms of use</h1>
+          <h1>MLMV Terms of use</h1>
           <p>This is placement page that needs to be designed and built</p>
         </DefaultSection>
       </Layout>

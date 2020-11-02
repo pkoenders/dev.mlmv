@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="602" height="602" viewBox="0 0 602 602">
-  <g fill="none" fill-rule="evenodd" transform="rotate(-90 301 301)">
-    <rect width="532" height="532" x="35" y="37"/>
-    <circle cx="301" cy="301" r="301"/>
-    <g transform="rotate(-180 237.5 238)">
-      <polygon fill="#972363" points="172 0 0 172 172 172"/>
-      <polygon fill="#B42A76" points="0 0 0 172 172 0"/>
-    </g>
-    <g transform="rotate(-90 301 -2)">
-      <polygon fill="#53A3C1" points="0 0 172 172 172 0" transform="rotate(-90 86 86)"/>
-      <polygon fill="#68C9EE" points="0 172 172 172 0 0" transform="rotate(-90 86 86)"/>
-    </g>
-    <g transform="rotate(-90 212.5 86.5)">
-      <polygon fill="#C6756D" points="0 0 0 172 172 172"/>
-      <polygon fill="#F9CC6D" points="0 0 172 172 172 0"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="602" height="602"><g fill="none" fill-rule="evenodd" transform="rotate(-90 301 301)"><path d="M35 37H567V569H35z"/><circle cx="301" cy="301" r="301"/><g transform="rotate(-180 237.5 238)"><path fill="#972363" d="M172 0L0 172 172 172z"/><path fill="#B42A76" d="M0 0L0 172 172 0z"/></g><g transform="rotate(-90 301 -2)"><path fill="#53A3C1" transform="rotate(-90 86 86)" d="M0 0L172 172 172 0z"/><path fill="#68C9EE" transform="rotate(-90 86 86)" d="M0 172L172 172 0 0z"/></g><g transform="rotate(-90 212.5 86.5)"><path fill="#C6756D" d="M0 0L0 172 172 172z"/><path fill="#F9CC6D" d="M0 0L172 172 172 0z"/></g></g></svg>

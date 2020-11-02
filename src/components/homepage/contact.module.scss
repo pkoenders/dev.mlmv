@@ -6,8 +6,13 @@
 
     padding: $globalSecionPadding;
 
-    background: rgb(194, 242, 247);
-    background: linear-gradient(176deg, rgba(194, 242, 247, 1) 0%, rgba(150, 198, 202, 1) 100%);
+    //background: rgb(194, 242, 247);
+    //background: linear-gradient(176deg, rgba(194, 242, 247, 1) 0%, rgba(150, 198, 202, 1) 100%);
+
+    background: rgb(225,242,42);
+background: linear-gradient(180deg, rgba(225,242,42,1) 0%, rgba(192,207,41,1) 67%);
+    // background-color: #f2952a;
+// background-color: #e1f22a;
 
     @include respond-below(md) {
         padding: 45px 15px 20px 15px;

@@ -23,7 +23,7 @@ const MlmvAbout = ({ location }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <h1>About MLMV</h1>
+          <h1>About My Life My Voice</h1>
           <p>This is placement page that needs to be designed and built</p>
         </DefaultSection>
       </Layout>

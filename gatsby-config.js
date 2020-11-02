@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `My Life My Voice`,
     description: `Connecting the disables community to Peer Supporters | My Life My Voice`,
-    siteUrl: "https://pkoenders.netlify.app", // No trailing slash allowed!
+    siteUrl: "https://dev-mlmv.netlify.app", // No trailing slash allowed!
     // defaultImage: "/images/svg/logo-pixl.inline.svg", // Path to your image you placed in the 'static' folder
     defaultImage: "/images/pkoenders.png", // Path to your image you placed in the 'static' folder
 
@@ -174,14 +174,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Portfolio | Peter Koenders`,
-        short_name: `Peter Koenders`,
+        name: `My Life My Voice`,
+        short_name: `MLMV`,
         start_url: `/`,
         background_color: `#253240`,
         theme_color: `#253240`,
         lang: `en`,
         display: `standalone`,
-        icon: `src/images/svg/logo-pixl-manifest.inline.svg`, // This path is relative to the root of the site.
+        icon: `src/images/svg/logo-mlmv-manifest.inline.svg`, // This path is relative to the root of the site.
         icon_options: {
           purpose: `maskable`,
         },

@@ -19,6 +19,8 @@ const ListPeerSupporters = () => {
             edges {
                 node {
                     order
+                    peerSupporterActive
+                    peerSupporterEmail
                     slug {
                         current
                     }
@@ -135,6 +137,7 @@ const ListPeerSupporters = () => {
     const posts = hasSearchResults ? filteredData : allPosts
 
 
+
     return (
         <>
             <section className={peerListStyles.latestProjectsSection + ' section-layout-wide'}>
@@ -155,55 +158,63 @@ const ListPeerSupporters = () => {
                         {/* {data.allSanityPeerSupporters.edges.map((edge, i) => { */}
                         {posts.map((edge, i) => {
 
-                            // const {excerpt} = node
-                            // const {slug} = node.fields
-                            // const description = node.peerShortDescription.en
-                            // const title = node.peerSupporterFullName.en
+                            const peerSupporterActive = edge.node.peerSupporterActive
+
+                            if (
+                                peerSupporterActive === true
+                            ) {
+
+                                // const {excerpt} = node
+                                // const {slug} = node.fields
+                                // const description = node.peerShortDescription.en
+                                // const title = node.peerSupporterFullName.en
 
 
-                            // const slug = edge.node.slug.current
-                            // const slug = edge.node.slug.current
+                                // const slug = edge.node.slug.current
+                                // const slug = edge.node.slug.current
 
-                            return (
-                                <li
-                                    key={i}
-                                    //data-sal="fade"
-                                    data-sal-duration="300"
-                                    data-sal-easing="ease"
-                                //className={''}
-                                >
-                                    <Link to={`/peer-supporters/${edge.node.slug.current}`}>
-                                        {/* <Img
+                                return (
+                                    <li
+                                        key={i}
+                                        //data-sal="fade"
+                                        data-sal-duration="300"
+                                        data-sal-easing="ease"
+                                    //className={''}
+                                    >
+                                        <Link to={`/peer-supporters/${edge.node.slug.current}`}>
+                                            {/* <Img
                                     alt={edge.node.frontmatter.title}
                                     fluid={edge.node.frontmatter.coverimage.childImageSharp.fluid}
                                     loading="lazy"
                                 /> */}
-                                        <Img
-                                            fluid={edge.node.coverImage.asset.fluid}
-                                            loading="lazy"
-                                        />
+                                            <Img
+                                                fluid={edge.node.coverImage.asset.fluid}
+                                                loading="lazy"
+                                            />
 
-                                        <span>
+                                            <span>
 
-                                            <h3>{edge.node.peerSupporterFullName.en}</h3>
-                                            <p>{edge.node.peerShortDescription.en}</p>
+                                                <h3>{edge.node.peerSupporterFullName.en}</h3>
+                                                <p>{edge.node.peerShortDescription.en}</p>
 
 
-                                            <p>{edge.node.peerSupporterFriendlyName.en} can help with</p>
-                                            <ul>
-                                                {edge.node.tags.map((thisEdge, i) => (
-                                                    <li key={i}>
-                                                        <span>{thisEdge.tagsTitle.en}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                                <p>{edge.node.peerSupporterFriendlyName.en} can help with</p>
+                                                <ul>
+                                                    {edge.node.tags.map((thisEdge, i) => (
+                                                        <li key={i}>
+                                                            <span>{thisEdge.tagsTitle.en}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
 
-                                            {/* <p>{edge.node.frontmatter.intro}</p> */}
-                                        </span>
-                                    </Link>
-                                </li>
-                            )
-
+                                                {/* <p>{edge.node.frontmatter.intro}</p> */}
+                                            </span>
+                                        </Link>
+                                    </li>
+                                )
+                            } else {
+                                return false
+                            }
                         })}
                     </ul>
                 </div>
