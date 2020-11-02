@@ -183,8 +183,8 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
                 >
                   <input type="hidden" name="bot-field" />
                   <input type="hidden" name="form-name" value="peer-supporter-contact-form" />
-                  <input type="hidden" name="peer-name" value="{peerData.peerSupporterFullName.en}" />
-                  <input type="hidden" name="peer-email" value="{peerData.peerSupporterEmail}" />
+                  <input type="hidden" name="for-peer-name" value={peerData.peerSupporterFullName.en} />
+                  <input type="hidden" name="for-peer-email" value={peerData.peerSupporterEmail} />
                   <p>
                     <label htmlFor="name">
                       <span>Your name (required)</span>

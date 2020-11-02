@@ -10,9 +10,12 @@ export const query = graphql`
       peerSupporterFullName {
         en
       }
+
       peerSupporterFriendlyName {
         en
       }
+
+      peerSupporterEmail
 
       coverImage {
         asset {
