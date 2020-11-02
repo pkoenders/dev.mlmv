@@ -8,7 +8,7 @@ const ContactForm = () => {
 
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
-            <h2>Contact me</h2>
+            <h2>Contact us</h2>
             <div className={contactStyles.contactFormWrapper}>
 
                 <div className={contactStyles.contactForm}>
