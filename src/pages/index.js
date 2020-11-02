@@ -28,7 +28,7 @@ const MlmvIndex = ({ location }) => {
           <h1>MLMV Homepage</h1>
           <p>This is placement page that needs to be designed and built</p>
 
-          <Link to="/peer-supporters" >Search for Peer Supportrs</Link>
+          <Link to="/peer-supporters" >Search for Peer Supporters</Link>
         </DefaultSection>
       </Layout>
     </>
