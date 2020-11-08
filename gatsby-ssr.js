@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+
+import { wrapWithI18nProvider } from "./src/components/wrapWithI18nProvider";
+export const wrapPageElement = wrapWithI18nProvider;

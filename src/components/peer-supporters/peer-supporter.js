@@ -1,24 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
 import contactStyles from '../homepage/contact.module.scss'
-// import BlockContent from '@sanity/block-content-to-react'
 // import IconOpenExternal from "../../images/svg/icon-open-external.inline.svg"
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
 
-
-
 //export default function ProjectTemplate({ data }) {
-const PeerSupporterTemplate = ({ props, data, pageContext }) => {
+const PeerSupporterTemplate = ({ data, pageContext }) => {
 
-
-
+  const { t, i18n } = useTranslation("peerSupporter")
   const Metadata = useStaticQuery(graphql`
       query peerSupportersData {
         site {
@@ -28,34 +25,20 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
         }
       }
   `)
-
-
   // console.log(pageContext)
-
-
   const { sanityPeerSupporters } = data // data.markdownRemark holds your post data
   const peerData = sanityPeerSupporters
+  //const { next, previous } = data
+  const { next, previous } = data
+  console.log(peerData.next)
+  // const next = peerData.next
+  // const previous = peerData.previous
 
+  //const next = pageContext.next
+  //const previous = pageContext.previous
 
-
-  // const { sanityPeerSupportersBody } = props
-  // const peerBody = sanityPeerSupportersBody
-  // const link = frontmatter.url
-  // const { next, previous } = pageContext
-
-  // console.log('peerData =' + peerData)
-
-
-
-  //const { markdownRemark } = data // data.markdownRemark holds your post data
-  //const { markdownRemark } = data.allSanityPeerSupporters.edges.node // data.markdownRemark holds your post data
-  // const { frontmatter, html } = markdownRemark
-  //const link = "http://" + frontmatter.url
-  // const link = frontmatter.url
-
-  const { next, previous } = pageContext
-
-
+  console.log("previous = " + previous)
+  console.log("next = " + next)
   return (
     <>
       <style type="text/css">
@@ -73,36 +56,30 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
       //image={frontmatter.coverimage.childImageSharp.fluid.src}
       />
       <section className={peerSupporterStyles.sectionPeerSupporter + ' section-layout-wide'}>
-
-
-
         <div className={peerSupporterStyles.prevNext + ' projects-nav'}>
           <div>
             {previous &&
               <Link
                 className={peerSupporterStyles.prev}
-                to={`/peer-supporters/${previous.slug.current}`}
+                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
               >
                 <IconPrev />
                 <span>Previous</span>
-
               </Link>
             }
 
             <Link
               className={peerSupporterStyles.prev}
-              to={`/peer-supporters/`}
+              to={`/${i18n.language}/peer-supporters/`}
             >
               <IconUp />
               <span>Back to Peer supporters list</span>
-
             </Link>
-
 
             {next &&
               <Link
                 className={peerSupporterStyles.next}
-                to={`/peer-supporters/${next.slug.current}`}
+                to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
               >
                 <span>Next</span>
                 <IconNext />
@@ -111,17 +88,11 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
           </div>
         </div>
 
-
         <div className={peerSupporterStyles.sectionPeerSupporterWrapper}>
-
           <div className={peerSupporterStyles.content}>
             <div className={peerSupporterStyles.header}>
 
-              <h1>{peerData.peerSupporterFullName.en}</h1>
-
-              {/* {peerData.peerSupporterFriendlyName.en &&
-                <p>{peerData.peerSupporterFriendlyName.en}</p>
-              } */}
+              <h1>{peerData.peerSupporterFullName.translate}</h1>
 
               <Img style={{ maxWidth: '300px' }}
                 fluid={peerData.coverImage.asset.fluid}
@@ -138,25 +109,20 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
 
               <p>Gender: <span>{peerData.gender.genderTitle}</span></p>
 
-              <p>Short Description: <span>{peerData.peerShortDescription.en}</span></p>
+              <p>Short Description: <span>{peerData.peerShortDescription.translate}</span></p>
 
-              {/* <div>
-                <BlockContent blocks={peerData.body.en._rawChildren} />
-              </div> */}
               <div>
-                <p>Long Description:  </p><span>
-                  <BlockContent blocks={peerData.peerLongDescription._rawEn} />
+                <p>Long Description: </p>
+                <span>
+                  <BlockContent blocks={peerData.peerLongDescription.localized} />
+                  {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
                 </span>
-
               </div>
 
-
-              {/* {_rawChildren && <BlockContent blocks={_rawChildren} />} */}
-
-              <p>{peerData.peerSupporterFriendlyName.en} can help with</p>
+              <p>{peerData.peerSupporterFriendlyName.translate} can help with</p>
               <ul>
-                {peerData.categories.map((edge, i) => (
-                  <li key={i}>
+                {peerData.categories.map((edge, catid) => (
+                  <li key={catid}>
                     <span>{edge.categoriesTitle.en}</span>
                   </li>
                 ))}
@@ -164,14 +130,14 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
 
               <p>Tags</p>
               <ul>
-                {peerData.tags.map((edge, i) => (
-                  <li key={i}>
+                {peerData.tags.map((edge, tagid) => (
+                  <li key={tagid}>
                     <span>{edge.tagsTitle.en}</span>
                   </li>
                 ))}
               </ul>
 
-              <p>Contact {peerData.peerSupporterFullName.en}</p>
+              <p>Contact {peerData.peerSupporterFullName.translate}</p>
               <div className={contactStyles.contactFormInput}>
                 <form
                   name="peer-supporter-contact-form"
@@ -236,16 +202,7 @@ const PeerSupporterTemplate = ({ props, data, pageContext }) => {
                 </form>
               </div>
 
-
-
-
             </div>
-            {/* <div className={projectStyles.contentInner}>
-              <div
-                className={projectStyles.contentMD}
-                dangerouslySetInnerHTML={{ __html: html }}>
-              </div>
-            </div>  */}
           </div>
         </div>
       </section>

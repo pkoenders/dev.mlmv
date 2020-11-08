@@ -4,19 +4,16 @@ import Layout from "../components/layout"
 import PeerSupporterPage from "../components/peer-supporters/peer-supporter"
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $language: String, $locale: JSON) {
     sanityPeerSupporters(slug: { current: { eq: $slug } }) {
      
       peerSupporterFullName {
-        en
+        translate(language: $language)
       }
-
       peerSupporterFriendlyName {
-        en
+        translate(language: $language)
       }
-
       peerSupporterEmail
-
       coverImage {
         asset {
             fluid(maxWidth: 600) {
@@ -24,14 +21,10 @@ export const query = graphql`
               }
           }
       }
-
       publishedAt(formatString: "DD MMMM YYYY")
-
       gender{
         genderTitle
       }
-
-    
       location {
         location{
           en
@@ -48,31 +41,15 @@ export const query = graphql`
         }
       }
       peerShortDescription {
-        en
+        translate(language: $language)
       }
       peerLongDescription {
-        _rawEn(resolveReferences: {maxDepth: 10})
-
-        en {
-          _rawChildren(resolveReferences: {maxDepth: 10})
-         
-        }
+        localized(language: $locale)
       }
     }
   }
 `
-
-//import latestProjectsStyles from '../components/homepage/latest-projects.module.scss'
-
-// export default function Template({
-//   data, pageContext // this prop will be injected by the GraphQL query below.
-// }) {
-// const { markdownRemark } = data // data.markdownRemark holds your post data
-// const { frontmatter, html } = markdownRemark
-
-
 const PeerSupporterTemplate = ({ data, pageContext, location }) => {
-
   return (
     <>
       <Layout location={location}>
@@ -81,7 +58,6 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
     </>
   )
 }
-
 export default PeerSupporterTemplate
 
 

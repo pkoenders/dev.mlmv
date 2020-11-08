@@ -1,71 +1,21 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 import peerListStyles from './peer-list.module.scss'
-
-// if (peerResults === undefined) {
-//     var peerResults = 1
-//     console.log("Reset peerResults = " + peerResults)
-// }
-
 
 var peerResults = true
 
 
-const ListPeerSupporters = () => {
-    const data = useStaticQuery(graphql`
-    query PeerSupportersQuery {
-        allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
-            edges {
-                node {
-                    order
-                    peerSupporterActive
-                    peerSupporterEmail
-                    slug {
-                        current
-                    }
-                    peerSupporterFullName {
-                        mi
-                        hi
-                        en
-                        sm
-                    }
-                    peerSupporterFriendlyName {
-                        mi
-                        hi
-                        en
-                        sm
-                    }
+const ListPeerSupporters = ({ data }) => {
 
-                    peerShortDescription {
-                        mi
-                        hi
-                        en
-                        sm
-                      }
+    const { t, i18n } = useTranslation("peerSupporters")
 
-                    tags {
-                        
-                        tagsTitle {
-                            en
-                        }
-                    }
+    const { allSanityPeerSupporters, language } = data // data.markdownRemark holds your post data
+    const peerListData = allSanityPeerSupporters
+    const translate = language
 
-
-                    coverImage {
-                        asset {
-                            fluid(maxWidth: 600) {
-                                ...GatsbySanityImageFluid
-                              }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    `)
-
-    const allPosts = data.allSanityPeerSupporters.edges
+    const allPosts = peerListData.edges
     const emptyQuery = ""
 
     const [state, setState] = useState({
@@ -80,15 +30,15 @@ const ListPeerSupporters = () => {
         const query = event.target.value
         //const { data } = props
 
-        const posts = data.allSanityPeerSupporters.edges || []
+        const posts = peerListData.edges || []
         const filteredData = posts.filter(post => {
 
-            const description = post.node.peerShortDescription.en
-            const title = post.node.peerSupporterFullName.en
+            const description = post.node.peerShortDescription.translate
+            const title = post.node.peerSupporterFullName.translate
 
             var tagList = ''
             if (post.node.tags) {
-                post.node.tags.map((thisEdge, i) => (
+                post.node.tags.map((thisEdge, tagID) => (
                     tagList += thisEdge.tagsTitle.en + ' '
                 ))
             }
@@ -141,14 +91,14 @@ const ListPeerSupporters = () => {
     return (
         <>
             <section className={peerListStyles.latestProjectsSection + ' section-layout-wide'}>
-                <h2>Peer supporters</h2>
+                <h2>{t("peerSupporters:title")}</h2>
                 <div className={peerListStyles.wrapper}>
                     <input
                         className="peerFilterInput"
                         id="peerFilterInput"
                         type="text"
                         aria-label="Search"
-                        placeholder="Type keywords to filter Peer supporters..."
+                        placeholder={t("peerSupporters:filterPlaceholder")}
                         onChange={handleInputChange}
                     />
 
@@ -156,32 +106,27 @@ const ListPeerSupporters = () => {
 
                     <ul className={'peerListings'}>
                         {/* {data.allSanityPeerSupporters.edges.map((edge, i) => { */}
-                        {posts.map((edge, i) => {
+                        {posts.map((edge, postID) => {
 
                             const peerSupporterActive = edge.node.peerSupporterActive
+
+                            console.log("translate 2 = " + translate)
 
                             if (
                                 peerSupporterActive === true
                             ) {
 
-                                // const {excerpt} = node
-                                // const {slug} = node.fields
-                                // const description = node.peerShortDescription.en
-                                // const title = node.peerSupporterFullName.en
-
-
-                                // const slug = edge.node.slug.current
-                                // const slug = edge.node.slug.current
-
                                 return (
                                     <li
-                                        key={i}
+                                        key={postID}
                                         //data-sal="fade"
                                         data-sal-duration="300"
                                         data-sal-easing="ease"
                                     //className={''}
                                     >
-                                        <Link to={`/peer-supporters/${edge.node.slug.current}`}>
+
+
+                                        <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`}>
                                             {/* <Img
                                     alt={edge.node.frontmatter.title}
                                     fluid={edge.node.frontmatter.coverimage.childImageSharp.fluid}
@@ -194,20 +139,18 @@ const ListPeerSupporters = () => {
 
                                             <span>
 
-                                                <h3>{edge.node.peerSupporterFullName.en}</h3>
-                                                <p>{edge.node.peerShortDescription.en}</p>
+                                                <h3>{edge.node.peerSupporterFullName.translate}</h3>
+                                                <p>{edge.node.peerShortDescription.translate}</p>
 
 
-                                                <p>{edge.node.peerSupporterFriendlyName.en} can help with</p>
+                                                <p>{edge.node.peerSupporterFriendlyName.translate} can help with</p>
                                                 <ul>
-                                                    {edge.node.tags.map((thisEdge, i) => (
-                                                        <li key={i}>
+                                                    {edge.node.tags.map((thisEdge, tagID) => (
+                                                        <li key={tagID}>
                                                             <span>{thisEdge.tagsTitle.en}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
-
-                                                {/* <p>{edge.node.frontmatter.intro}</p> */}
                                             </span>
                                         </Link>
                                     </li>

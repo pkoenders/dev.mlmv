@@ -29,6 +29,8 @@
     "gatsby-source-sanity-transform-images": "0.0.7",
     "gatsby-transformer-remark": "^2.8.28",
     "gatsby-transformer-sharp": "^2.5.14",
+    "i18next": "^19.8.3",
+    "i18next-fs-backend": "^1.0.7",
     "medium-zoom": "^1.0.6",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
@@ -37,6 +39,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^5.7.2",
+    "react-i18next": "^11.7.3",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

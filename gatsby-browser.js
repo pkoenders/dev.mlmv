@@ -11,6 +11,9 @@
 
 //import mediumZoom from 'medium-zoom'
 
+import { wrapWithI18nProvider } from "./src/components/wrapWithI18nProvider";
+export const wrapPageElement = wrapWithI18nProvider;
+
 export const onServiceWorkerUpdateReady = () => {
     const answer = window.confirm(
         `This application has been updated. ` +
@@ -22,9 +25,6 @@ export const onServiceWorkerUpdateReady = () => {
     }
 }
 
-
-
-
 export const onRouteUpdate = () => {
 
     // Load page
@@ -35,11 +35,6 @@ export const onRouteUpdate = () => {
 
     //     background: '#ffffff',
     // })
-
-
-
-
-
 }
 
 function ready() {
@@ -50,6 +45,8 @@ function ready() {
     document.querySelector(".headerNavWrapper").style.top = "0";
     mobileNav()
     canvasAnin()
+
+
 
 }
 

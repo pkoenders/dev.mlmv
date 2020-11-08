@@ -32,7 +32,7 @@ const PeerSupporters = ({ location }) => {
       // description={'Listing all UI/UX and Graphic Design projects.'}
       />
       <Layout location={location}>
-        <SectionPeerSupporters />
+        {/* <SectionPeerSupporters /> */}
       </Layout >
     </>
   )
