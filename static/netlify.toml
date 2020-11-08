@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/"
-  to = "/en"
+  from = "https://dev-mlmv.netlify.app"
+  to = "https://dev-mlmv.netlify.app/en"
   status = 301
   force = true
   query = {path = ":path"} #  apply this rule for /old-path?path=example
