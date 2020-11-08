@@ -17,7 +17,7 @@ const Header = ({ data, location }) => {
   console.log("location.pathname = " + location.pathname)
 
 
-  var pathArray = window.location.pathname.split('/');
+  var pathArray = location.pathname.split('/');
   var newPathname = "";
   for (var i = 2; i < pathArray.length; i++) {
     newPathname += "/";
