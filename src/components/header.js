@@ -13,15 +13,11 @@ const Header = ({ data, location }) => {
 
   const { t, i18n } = useTranslation("common")
 
-
-  console.log("location.pathname = " + location.pathname)
-
-
-  var pathArray = location.pathname.split('/');
-  var newPathname = "";
+  const pathArray = location.pathname.split('/')
+  var newPathName = ""
   for (var i = 2; i < pathArray.length; i++) {
-    newPathname += "/";
-    newPathname += pathArray[i];
+    newPathName += "/";
+    newPathName += pathArray[i];
   }
 
   //const newLocation = location.pathname.split('/')[2]
@@ -41,8 +37,8 @@ const Header = ({ data, location }) => {
 
 
         <ul>
-          <li><Link to={`/en${newPathname}`} title="Switch Language to English - New Zealand" >English - New Zealand</Link></li>
-          <li><Link to={`/mi${newPathname}`} title="Switch Language to Maori">Maori</Link></li>
+          <li><Link to={`/en${newPathName}`} title="Switch Language to English - New Zealand" >English - New Zealand</Link></li>
+          <li><Link to={`/mi${newPathName}`} title="Switch Language to Maori">Maori</Link></li>
         </ul>
 
 
