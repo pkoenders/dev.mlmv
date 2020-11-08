@@ -194,6 +194,7 @@ module.exports = {
     // `gatsby-plugin-offline`,
 
 
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-client-side-redirect` // keep it in last in list
 
   ],
