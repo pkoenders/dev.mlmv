@@ -3,3 +3,15 @@
   to = "https://dev-mlmv.netlify.app/en/"
   force = true
   conditions = {Language = ["en"]}
+
+[[redirects]]
+  from = "https://dev-mlmv.netlify.app/index"
+  to = "https://dev-mlmv.netlify.app/en/index"
+  force = true
+  conditions = {Language = ["en"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  force = true
+  conditions = {Language = ["en"]}
