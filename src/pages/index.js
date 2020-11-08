@@ -2,7 +2,7 @@ import React from "react"
 
 
 const MlmvIndex = ({ location }) => {
-  location = location.pathname + `/en`
+  window.location = location.pathname + `/en`
   return (
     <>
 
