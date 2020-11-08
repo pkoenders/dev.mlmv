@@ -3,5 +3,4 @@
   to = "/en"
   status = 301
   force = true
-  query = {path = ":path"} 
-  conditions = {Language = ["en"]}
+  # conditions = {Language = ["en"]}
