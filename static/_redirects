@@ -1,5 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/   /en/
-/index  /en/index
-https://dev-mlmv.netlify.app/   https://dev-mlmv.netlify.app/en/
-https://dev-mlmv.netlify.app/index   https://dev-mlmv.netlify.app/en/index
+/   /en
