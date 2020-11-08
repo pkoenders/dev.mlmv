@@ -3,4 +3,4 @@
 /   /en
 /index  /en
 https://dev-mlmv.netlify.app/   https://dev-mlmv.netlify.app/en
-https://dev-mlmv.netlify.app/index   https://dev-mlmv.netlify.app/en
+https://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/en:splat 301!
