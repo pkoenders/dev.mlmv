@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "https://dev-mlmv.netlify.app/*"
-  to = "https://dev-mlmv.netlify.app/en"
-  status = 301
-  force = true
+  from = "/"
+  to = "/en"
+  status = 301!
+  force = false
   conditions = {Language = ["en"]}
