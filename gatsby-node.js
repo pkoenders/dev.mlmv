@@ -1,11 +1,10 @@
 const fs = require("fs")
 const path = require('path')
 const i18next = require("i18next")
-const { createFilePath } = require(`gatsby-source-filesystem`)
+// const { createFilePath } = require(`gatsby-source-filesystem`)
 const nodeFsBackend = require("i18next-fs-backend")
 
 const allLanguages = ["en", "mi"]
-
 
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
@@ -15,19 +14,6 @@ exports.createPages = async ({
   graphql,
   actions: { createPage, createRedirect },
 }) => {
-
-  // Index Page
-  // const homeTemplate = path.resolve(`src/templates/Home.js`)
-  // await buildI18nPages(
-  //   null,
-  //   (_, language) => ({
-  //     path: "/" + language, // (1)
-  //     component: homeTemplate,
-  //     context: {},
-  //   }),
-  //   ["common", "home"],
-  //   createPage
-  // )
 
   // Index Page
   const indexTemplate = path.resolve(`src/templates/index.js`)
@@ -328,21 +314,6 @@ exports.createPages = async ({
     createPage
   )
 
-  // 404 page
-  // const errorTemplate = path.resolve(`src/templates/404.js`)
-  // await buildI18nPages(
-  //   null,
-  //   (_, language) => ({
-  //     path: `/${language}/404`,
-  //     component: errorTemplate,
-  //     context: {},
-  //   }),
-  //   ["common", "404"],
-  //   createPage
-  // )
-
-
-
   await build404Pages(createPage)
 
   createRedirect({ fromPath: "/", toPath: "/en", isPermanent: true })
@@ -465,4 +436,3 @@ exports.createResolvers = ({ createResolvers }) => {
 
   })
 }
-
