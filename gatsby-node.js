@@ -329,17 +329,17 @@ exports.createPages = async ({
   )
 
   // 404 page
-  const errorTemplate = path.resolve(`src/templates/404.js`)
-  await buildI18nPages(
-    null,
-    (_, language) => ({
-      path: `/${language}/404`,
-      component: errorTemplate,
-      context: {},
-    }),
-    ["common", "404"],
-    createPage
-  )
+  // const errorTemplate = path.resolve(`src/templates/404.js`)
+  // await buildI18nPages(
+  //   null,
+  //   (_, language) => ({
+  //     path: `/${language}/404`,
+  //     component: errorTemplate,
+  //     context: {},
+  //   }),
+  //   ["common", "404"],
+  //   createPage
+  // )
 
 
 
