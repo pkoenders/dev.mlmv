@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
+import LogoMLMV from "../images/svg/logo-mlmv.inline.svg"
 
 const IndexPage = ({ location }) => {
   const { t, i18n } = useTranslation("index")
@@ -25,11 +26,11 @@ const IndexPage = ({ location }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-
+          <LogoMLMV />
           <h1>{t("index:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
 
-          <Link to={`/${i18n.language}/peer-supporters`} >Search for Peer Supporters</Link>
+          <Link to={`/${i18n.language}/peer-supporters`} >Visit our Peer Supporters</Link>
 
         </DefaultSection>
       </Layout>

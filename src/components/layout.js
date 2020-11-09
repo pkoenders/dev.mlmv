@@ -32,7 +32,7 @@ const Layout = ({ children, location }) => {
         <div className={layoutStyles.content}>
           <main>{children}</main>
         </div>
-        <Footer />
+        <Footer location={location} />
       </div>
     </>
   )

@@ -21,17 +21,18 @@ const Header = ({ data, location }) => {
     newPathName += pathArray[i];
   }
 
+  // const currentlocation.pathname.split('/')[1]
   //const newLocation = location.pathname.split('/')[2]
 
   return (
     <>
       <header className="headerNavWrapper fillBground" style={{ top: 0 + 'px' }}>
 
-        {location.pathname.split('/')[1] !== ""
+        {location.pathname !== "/" + i18n.language
           ? <Link to={`/${i18n.language}`} title="Link to homepage">
             <span>Link to homepage</span>
             {/* <p>MLMV Logo here</p> */}
-            <LogoMLMVHeader alt={"Logo MLMV - Link to homepage"} />
+            <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
           </Link>
           : ""
         }
