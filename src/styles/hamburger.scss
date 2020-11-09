@@ -19,7 +19,7 @@
     //height: 20px;
     height: 12px;
     width: 30px;
-    margin-right: 10px;
+    margin-right: 0px;
 
 
     .hamburger-inner,
@@ -35,12 +35,12 @@
 
     .hamburger-inner {
       width: 20px;
-      right: 0px;
+      left: 0px;
     }
 
     .hamburger-inner::before,
     .hamburger-inner::after {
-      right: 0px;
+      left: 0px;
     }
   }
 
@@ -48,13 +48,13 @@
     color: #bfbfbf;
     color: #ffffff;
 
-    float: right;
+    float: left;
     font-size: .7rem;
     font-weight: 300;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     //display: flex;
-    margin: 0px 0px 0 0;
+    margin: 0px 8px 0 0;
   }
 }
 

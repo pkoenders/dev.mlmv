@@ -44,28 +44,16 @@ header.headerNavWrapper {
     //background-color: $headerBgColor;
     transition: all 0.4s;
 
-    .hamburgerContainer {
+    button {
       position: absolute;
-      display: flex;
       align-self: center;
       padding: 5px 15px;
       height: 60px;
-      right: 0px;
+      right: 15px;
       border: none;
-
-      button {
-        align-self: center;
-        cursor: pointer;
-        padding-right: 0px;
-      }
-
-      h1 {
-        margin: 0;
-
-        a {
-          color: #ffffff;
-        }
-      }
+      align-self: center;
+      cursor: pointer;
+      padding-right: 0px;
     }
 
     ul {
@@ -88,58 +76,74 @@ header.headerNavWrapper {
       display: block;
       // visibility: visible;
       list-style: none;
-      padding: 0;
-      margin: 0;
-      top: 80px;
+      padding: 0 0 0 0px;
+      margin: 0 0 0 auto;
+      top: 60px;
       position: relative;
       right: 15px;
+      width: fit-content;
+      border-left: 1px solid #868686;
 
       li {
         clear: both;
 
+
         a,
         p,
-        span {
+        span,
+        button {
+
+          background-color: transparent;
           font-size: 1.4rem;
-          line-height: 1.5rem;
+          line-height: 1.2rem;
+          height: auto;
+          right: auto;
           color: #ffffff;
           opacity: .85;
-          padding: 10px 0;
+          padding: 10px 0 10px 30px;
           position: relative;
           width: fit-content;
-          text-align: right;
-          float: right;
+          text-align: left;
+          //float: left;
           display: block;
+          cursor: pointer;
         }
 
         svg {
           padding: 0;
-          margin-right: 8px;
+          margin: 0 0 -1px 8px;
           height: 1.1rem;
           width: auto;
         }
 
-        a:hover {
+        a:hover,
+        span:hover {
           text-decoration: none !important;
         }
 
-        a:after {
+        a:after,
+        button:after {
           content: '';
           position: absolute;
-          bottom: 5px;
+          bottom: 0px;
           display: block;
           background: $primaryColor;
           border-radius: 1.5px;
-          background: #bfbfbf;
+          background: #868686;
           height: 2px;
           width: 0;
-          right: 0px;
+          left: 0px;
           transition: width 150ms ease-in-out;
         }
 
-        a:hover:after {
+        a:hover:after,
+        button:hover:after {
           width: 100%;
         }
+      }
+
+      li.breakNav {
+        margin-bottom: 30px;
       }
 
       li.status {

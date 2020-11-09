@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next"
 
 import LogoMLMVHeader from "../images/svg/logo-mlmv.inline.svg"
 import IconTick from "../images/svg/icon-tick.inline.svg"
+import IconClose from "../images/svg/icon-close.inline.svg"
 import '../styles/index.scss'
 import "../styles/hamburger.scss"
 import "./header.scss"
@@ -21,47 +22,43 @@ const Header = ({ data, location }) => {
     newPathName += pathArray[i];
   }
 
-  // const currentlocation.pathname.split('/')[1]
-  //const newLocation = location.pathname.split('/')[2]
-
   return (
     <>
-      <header className="headerNavWrapper fillBground" style={{ top: 0 + 'px' }}>
+      <header className="headerNavWrapper fillBground" style={{ top: 0 + 'px' }} aria-label="Main heading">
 
         {location.pathname !== "/" + i18n.language
           ? <Link to={`/${i18n.language}`} title="Link to homepage">
             <span>Link to homepage</span>
-            {/* <p>MLMV Logo here</p> */}
-            <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+            <LogoMLMVHeader role="link" alt={"Logo My Life my Voice - Link to homepage"} />
           </Link>
           : ""
         }
 
-        <nav className="header-nav">
-          <div className="hamburgerContainer">
-            <button className="hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="navigation" aria-expanded="false">
-              <span className="hamburger-box">
-                <span className="hamburger-inner"></span>
-              </span>
-              <span className="hamburger-label">Menu</span>
-            </button>
-          </div>
+        <nav className="header-nav" role="navigation">
 
-          <ul>
-            <li><Link to={`/${i18n.language}`} title="My Life My Voice Homepage" >My Life My Voice</Link></li>
-            <li><Link to={`/${i18n.language}/peer-supporters`} >Peer Supporters</Link></li>
-            <li><Link to={`/${i18n.language}/contact`} >Contact us</Link></li>
-            <li><Link to={`/${i18n.language}/about`} >About My Life My Voice</Link></li>
-            <li><Link to={`/${i18n.language}/terms-and-use`} >Terms of use</Link></li>
-            <li><Link to={`/${i18n.language}/accessibility`} >Website accessiblity</Link></li>
+          <button className="hamburger hamburger--squeeze" type="button" tabIndex="0" aria-label="Open and Close navigation menu" aria-controls="mainNavigation" aria-expanded="false">
+            <span className="hamburger-label">Menu</span>
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
+
+          <ul id="mainNavigation" aria-label="Open and Close navigation menu" role="menu">
+            <li role="none"><Link to={`/${i18n.language}`} role="menuitem" tabIndex="0" title="Link to Homepage">My Life My Voice</Link></li>
+            <li role="none"><Link to={`/${i18n.language}/peer-supporters`} role="menuitem" tabIndex="0" title="Link to Peer Supporters">Peer Supporters</Link></li>
+            <li role="none"><Link to={`/${i18n.language}/contact`} role="menuitem" tabIndex="0" title="Link to Contact us">Contact us</Link></li>
+            <li role="none"><Link to={`/${i18n.language}/about`} role="menuitem" tabIndex="0" title="Link to About My Life My Voice">About My Life My Voice</Link></li>
+            <li role="none"><Link to={`/${i18n.language}/terms-and-use`} role="menuitem" tabIndex="0" title="Link to Terms of use">Terms of use</Link></li>
+            <li role="none" className="breakNav"><Link to={`/${i18n.language}/accessibility`} role="menuitem" tabIndex="0" title="Link to Website accessiblity">Website accessiblity</Link></li>
             {i18n.language === "en"
-              ? <li><Link to={`/en${newPathName}`} hrefLang="en" title="Selected language is English(NZ)" ><IconTick alt={"Tick icon to indicate selected language"} />English(NZ)</Link></li>
-              : <li><Link to={`/en${newPathName}`} hrefLang="en" title="Switch language to English(NZ)" >English(NZ)</Link></li>
+              ? <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Selected language is English(NZ)" >English(NZ)<IconTick alt={"Tick icon to indicate selected language"} /></Link></li>
+              : <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Switch language to English(NZ)" >English(NZ)</Link></li>
             }
             {i18n.language === "mi"
-              ? <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Selected language is  Māori"><IconTick alt={"Tick icon to indicate selected language"} />Māori</Link></li>
-              : <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Switch language to Māori">Māori</Link></li>
+              ? <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="0" title="Selected language is  Māori">Māori<IconTick alt={"Tick icon to indicate selected language"} /></Link></li>
+              : <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="-0" title="Switch language to Māori">Māori</Link></li>
             }
+            <li role="none"><button aria-label="Close navigation menu" role="menuitem" tabIndex="0">Close menu<IconClose alt={"Close icon to indicate close menu"} /></button></li>
           </ul>
         </nav>
       </header >

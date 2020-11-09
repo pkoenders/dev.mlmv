@@ -105,24 +105,32 @@ function runCanvasAnin(animItem) {
 }
 
 function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo) {
-    hamBurgerBtn.addEventListener("click", function () {
-        if (!headerDiv.classList.contains("open")) {
-            headerDiv.classList.add("open", "fillBground")
-            hamBurgerBtn.classList.add("is-active")
-        } else {
-            headerDiv.classList.remove("open", "fillBground")
-            hamBurgerBtn.classList.remove("is-active")
-        }
+
+    "focus click".split(" ").forEach(function (e) {
+        hamBurgerBtn.addEventListener(e, function () {
+            //console.log("hamburger clicked!")
+            if (!headerDiv.classList.contains("open")) {
+                headerDiv.classList.add("open", "fillBground")
+                hamBurgerBtn.classList.add("is-active")
+                hamBurgerBtn.setAttribute("aria-expanded", "true")
+            } else {
+                headerDiv.classList.remove("open", "fillBground")
+                hamBurgerBtn.classList.remove("is-active")
+                hamBurgerBtn.setAttribute("aria-expanded", "false")
+            }
+        });
     });
 
     headerDivNav.addEventListener("click", function () {
         headerDiv.classList.remove("open", "fillBground")
         hamBurgerBtn.classList.remove("is-active")
+        hamBurgerBtn.setAttribute("aria-expanded", "false")
     });
 
     headerDivLogo.addEventListener("click", function () {
         headerDiv.classList.remove("open", "fillBground")
         hamBurgerBtn.classList.remove("is-active")
+        hamBurgerBtn.setAttribute("aria-expanded", "false")
     });
 
 }
