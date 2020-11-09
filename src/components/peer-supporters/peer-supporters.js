@@ -90,19 +90,22 @@ const ListPeerSupporters = ({ data }) => {
 
     return (
         <>
-            <section className={peerListStyles.latestProjectsSection + ' section-layout-wide'}>
-                <h2>{t("peerSupporters:title")}</h2>
+            <section className={peerListStyles.peerResults + ' section-layout-wide'}>
+                <h1>{t("peerSupporters:title")}</h1>
                 <div className={peerListStyles.wrapper}>
-                    <input
-                        className="peerFilterInput"
-                        id="peerFilterInput"
-                        type="text"
-                        aria-label="Search"
-                        placeholder={t("peerSupporters:filterPlaceholder")}
-                        onChange={handleInputChange}
-                    />
 
-                    {peerResults === false && <h3>Sorry, there are no results for '<strong>{document.querySelector("#peerFilterInput").value}</strong>', try another keyword</h3>}
+
+                    <div className={peerListStyles.peerFilterInput} ><label htmlFor="Filter Supporters"></label>
+                        <input
+                            //className={peerListStyles.peerFilterInput}
+                            id="peerFilterInput"
+                            type="text"
+                            name="Filter Supporters"
+                            placeholder={t("peerSupporters:filterPlaceholder")}
+                            onChange={handleInputChange}
+                        />
+                        {peerResults === false && <h3>{t("peerSupporters:filterNoResultsPart1")} '<strong>{document.querySelector("#peerFilterInput").value}</strong>' {t("peerSupporters:filterNoResultsPart2")}</h3>}
+                    </div>
 
                     <ul className={'peerListings'}>
                         {/* {data.allSanityPeerSupporters.edges.map((edge, i) => { */}

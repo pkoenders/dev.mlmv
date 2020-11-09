@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import LogoMLMVHeader from "../images/svg/logo-mlmv.inline.svg"
+import IconTick from "../images/svg/icon-tick.inline.svg"
 import '../styles/index.scss'
 import "../styles/hamburger.scss"
 import "./header.scss"
@@ -35,15 +36,7 @@ const Header = ({ data, location }) => {
           : ""
         }
 
-
-        <ul>
-          <li><Link to={`/en${newPathName}`} title="Switch Language to English - New Zealand" >English - New Zealand</Link></li>
-          <li><Link to={`/mi${newPathName}`} title="Switch Language to Maori">Maori</Link></li>
-        </ul>
-
-
-
-        <div className="header-nav">
+        <nav className="header-nav">
           <div className="hamburgerContainer">
             <button className="hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="navigation" aria-expanded="false">
               <span className="hamburger-box">
@@ -58,11 +51,18 @@ const Header = ({ data, location }) => {
             <li><Link to={`/${i18n.language}/peer-supporters`} >Peer Supporters</Link></li>
             <li><Link to={`/${i18n.language}/contact`} >Contact us</Link></li>
             <li><Link to={`/${i18n.language}/about`} >About My Life My Voice</Link></li>
-            <li><Link to={`/${i18n.language}/accessibility`} >Website accessiblity</Link></li>
             <li><Link to={`/${i18n.language}/terms-and-use`} >Terms of use</Link></li>
+            <li><Link to={`/${i18n.language}/accessibility`} >Website accessiblity</Link></li>
+            {i18n.language === "en"
+              ? <li><Link to={`/en${newPathName}`} hrefLang="en" title="Selected language is English(NZ)" ><IconTick alt={"Tick icon to indicate selected language"} />English(NZ)</Link></li>
+              : <li><Link to={`/en${newPathName}`} hrefLang="en" title="Switch language to English(NZ)" >English(NZ)</Link></li>
+            }
+            {i18n.language === "mi"
+              ? <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Selected language is  Māori"><IconTick alt={"Tick icon to indicate selected language"} />Māori</Link></li>
+              : <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Switch language to Māori">Māori</Link></li>
+            }
           </ul>
-
-        </div>
+        </nav>
       </header >
     </>
   )

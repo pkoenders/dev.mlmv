@@ -1,12 +1,14 @@
 @import "src/styles/scss";
 
 section.sectionPeerSupporter {
+    // background: rgb(151, 219, 246);
+ // background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
     .prevNext {
         z-index: 100;
         transition: all .25s linear;
         position: sticky;
         padding: 20px 0 10px 0;
-        background: #b4cae0;
+        background: #87c8e2;
         top: 50px;
         border-bottom: 1px solid #ffffff;
 

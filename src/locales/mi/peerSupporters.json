@@ -1,4 +1,6 @@
 {
   "title": "Peer supportes (mi)",
-  "filterPlaceholder": "Type keywords to filter Peer supporters...(mi)"
+  "filterPlaceholder": "Type a keyword here to filter the Peer supporters list (mi)",
+  "filterNoResultsPart1": "Sorry, there are no results for ",
+  "filterNoResultsPart2": "try another keyword (mi)"
 }

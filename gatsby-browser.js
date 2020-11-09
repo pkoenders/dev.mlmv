@@ -105,42 +105,24 @@ function runCanvasAnin(animItem) {
 }
 
 function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo) {
-
-
     hamBurgerBtn.addEventListener("click", function () {
-        //headerDiv.scrollTop = 0
-        //console.log('Hamburger Clicked')
-
         if (!headerDiv.classList.contains("open")) {
             headerDiv.classList.add("open", "fillBground")
             hamBurgerBtn.classList.add("is-active")
-
-            // headerNavWrapper.classList.add("fillBground")
-            //headerNavWrapper.style.zIndex = "100004";
-
-            // window.onscroll = function () {
-            //     headerWrapper.style.top = "0";
-            // }
-
         } else {
             headerDiv.classList.remove("open", "fillBground")
             hamBurgerBtn.classList.remove("is-active")
-            //headerNavWrapper.style.zIndex = "100000";
         }
-
-
     });
 
     headerDivNav.addEventListener("click", function () {
         headerDiv.classList.remove("open", "fillBground")
         hamBurgerBtn.classList.remove("is-active")
-        //headerNavWrapper.style.zIndex = "100000";
     });
 
     headerDivLogo.addEventListener("click", function () {
         headerDiv.classList.remove("open", "fillBground")
         hamBurgerBtn.classList.remove("is-active")
-        //headerNavWrapper.style.zIndex = "100000";
     });
 
 }
@@ -151,17 +133,11 @@ function mobileNav() {
     const hamBurgerBtn = document.querySelector(".hamburger")
     const headerDiv = document.querySelector(".header-nav")
     const headerDivNav = document.querySelector(".header-nav ul ")
-
     const contentStart = document.querySelector(".contentStart");
-
-
     var prevScrollpos = 0;
     // No errors
     var projectsNav = document.querySelector('.projects-nav');
-
     //console.log('prevScrollpos = ' + prevScrollpos)
-
-
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if ((prevScrollpos >= currentScrollPos) || (hamBurgerBtn.classList.contains("is-active"))) {
@@ -176,8 +152,6 @@ function mobileNav() {
                 projectsNav.style.top = "-10px";
             }
         }
-
-
 
         if (contentStart) {
             var rect = contentStart.getBoundingClientRect()
@@ -195,6 +169,5 @@ function mobileNav() {
         }
         prevScrollpos = currentScrollPos;
     }
-
     toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo)
 }

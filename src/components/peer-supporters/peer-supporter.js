@@ -44,9 +44,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       <style type="text/css">
         {`
         body  {
-          background-color: #efeff0;
-          background: rgb(255,255,255);
-          background: linear-gradient(158deg, rgba(255,255,255,1) 0%, rgba(186,186,186,1) 100%);
+          background: rgb(151, 219, 246);
+          background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
         }
       `}
       </style>

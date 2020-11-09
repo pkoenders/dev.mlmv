@@ -6,7 +6,6 @@
 }
 
 header.headerNavWrapper {
-
   display: flex !important;
   position: fixed;
   flex-direction: row;
@@ -32,39 +31,18 @@ header.headerNavWrapper {
       display: none;
     }
 
-    //width: 100%;
-
-
-
     svg {
-      // background-color: #ffffff94;
-      // background-color: $headerBgColor;
-      // padding: 15px 25px 10px 25px;
       padding: 15px;
       height: 60px;
       width: auto;
-      // border: 1px solid #ffffff94;
-      // border-top: none;
-      // border-left: none;
-      // border-right: none;
-      // border-bottom: none;
     }
   }
 
-  div.header-nav {
-
+  nav.header-nav {
     z-index: 1001;
-
-
     min-width: 130px;
-
     //background-color: $headerBgColor;
-    // max-width: 960px;
-    // border: 1px solid #ffffff94;
-    // border-top: none;
     transition: all 0.4s;
-
-    // border-right: none;
 
     .hamburgerContainer {
       position: absolute;
@@ -75,14 +53,10 @@ header.headerNavWrapper {
       right: 0px;
       border: none;
 
-
-
-
       button {
         align-self: center;
         cursor: pointer;
         padding-right: 0px;
-
       }
 
       h1 {
@@ -90,7 +64,6 @@ header.headerNavWrapper {
 
         a {
           color: #ffffff;
-
         }
       }
     }
@@ -98,15 +71,11 @@ header.headerNavWrapper {
     ul {
       display: none;
       // visibility: hidden;
-      // opacity: 0;
-      // transition: visibility 0s, opacity 1.5s linear;
     }
   }
 
-  div.header-nav.open {
+  nav.header-nav.open {
     position: absolute;
-
-
     top: 0px;
     right: 0px;
     bottom: 0px;
@@ -115,28 +84,23 @@ header.headerNavWrapper {
     max-width: 100%;
     border: none;
 
-
-
     ul {
       display: block;
       // visibility: visible;
-      // opacity: 1;
       list-style: none;
       padding: 0;
       margin: 0;
       top: 80px;
-      position: absolute;
+      position: relative;
       right: 15px;
-      left: 15px;
 
       li {
-        // float: right;
         clear: both;
 
         a,
         p,
         span {
-          font-size: 1.5rem;
+          font-size: 1.4rem;
           line-height: 1.5rem;
           color: #ffffff;
           opacity: .85;
@@ -146,6 +110,13 @@ header.headerNavWrapper {
           text-align: right;
           float: right;
           display: block;
+        }
+
+        svg {
+          padding: 0;
+          margin-right: 8px;
+          height: 1.1rem;
+          width: auto;
         }
 
         a:hover {
@@ -173,12 +144,10 @@ header.headerNavWrapper {
 
       li.status {
         padding-top: 30px;
-
       }
     }
 
     div {
-      //float: right;
       clear: right;
       width: auto;
       direction: ltr;

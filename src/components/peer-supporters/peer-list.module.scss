@@ -1,16 +1,8 @@
 @import "src/styles/scss";
 
-.latestProjectsSection {
-    background-color: #efeff0;
-    background-color: #657688;
-    background-color: #efeff0;
-    background-color: #253240;
-
-    // background: rgb(65, 87, 111);
-    // background: radial-gradient(circle, rgba(65, 87, 111, 1) 0%, rgba(37, 50, 64, 1) 100%);
-
-    background: rgb(288, 288, 288);
-    background: linear-gradient(174deg, rgba(288, 288, 288, 1) 0%, rgba(208, 208, 210, 1) 83%);
+.peerResults {
+    // background: rgb(151, 219, 246);
+ // background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
 
 
     padding: $globalSecionPadding;
@@ -19,7 +11,7 @@
         padding: 45px 0 5px 0;
     }
 
-    h2 {
+    h1 {
         text-align: center;
         //color: #ffffff;
     }
@@ -28,14 +20,27 @@
         max-width: 1200px;
         margin: 0 auto;
 
+        .peerFilterInput {
+            padding: 0 30px 30px;
+
+            input,
+            input:focus {
+                padding: 15px;
+                border: none !important;
+                border-bottom: 2px solid $headerBgColor !important;
+                background-color: #03122315 !important;
+            }
+
+            input:focus {
+                background-color: #ffffff !important;
+            }
+        }
+
         p {
             width: 50%;
             color: #ffffff;
             margin: 30px auto;
-
-
         }
-
 
         ul {
 
@@ -68,14 +73,20 @@
 
 
             position: relative;
-            flex-basis: calc(50% - 60px);
+            flex-basis: calc(33% - 60px);
 
             @include respond-below(md) {
-                flex-basis: calc(50% - 30px);
-                margin: 15px;
+                flex-basis: calc(44% - 15px);
+                //margin: 15px;
             }
 
             @include respond-below(sm) {
+                flex-basis: calc(45% - 15px);
+                //border-bottom: 1px solid #d8d8d8;
+                //margin-bottom: 30px;
+            }
+
+            @include respond-below(xs) {
                 flex-basis: calc(100% - 15px);
                 // border-bottom: 1px solid #d8d8d8;
                 margin-bottom: 30px;
@@ -83,9 +94,6 @@
 
             margin: 15px 30px 30px 30px;
 
-            @include respond-below(sm) {
-                // margin: 15px 7.5px;
-            }
 
             vertical-align: top;
             // border-radius: $globalBorderRadiusA;
