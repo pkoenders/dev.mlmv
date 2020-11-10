@@ -103,20 +103,29 @@ function runCanvasAnin(animItem) {
 
 function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo) {
 
-    "focus click".split(" ").forEach(function (e) {
+
+    // Add our event listeners
+    //hamBurgerBtn.addEventListener('click', toggleMenu, false);
+    //hamBurgerBtn.addEventListener('focus', toggleMenu, false);
+
+    "click focus".split(" ").forEach(function (e) {
         hamBurgerBtn.addEventListener(e, function () {
             //console.log("hamburger clicked!")
             if (!headerDiv.classList.contains("open")) {
                 headerDiv.classList.add("open", "fillBground")
                 hamBurgerBtn.classList.add("is-active")
                 hamBurgerBtn.setAttribute("aria-expanded", "true")
+                //e.stopImmediatePropagation()
             } else {
                 headerDiv.classList.remove("open", "fillBground")
                 hamBurgerBtn.classList.remove("is-active")
                 hamBurgerBtn.setAttribute("aria-expanded", "false")
+                //e.stopImmediatePropagation()
             }
         });
     });
+
+
 
     headerDivNav.addEventListener("click", function () {
         headerDiv.classList.remove("open", "fillBground")
