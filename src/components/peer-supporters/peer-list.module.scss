@@ -2,7 +2,7 @@
 
 .peerResults {
     // background: rgb(151, 219, 246);
- // background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
+    // background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
 
 
     padding: $globalSecionPadding;
@@ -34,6 +34,45 @@
             input:focus {
                 background-color: #ffffff !important;
             }
+        }
+
+        .peerFilterTags {
+            p {}
+
+            ul {
+                width: auto;
+                margin-top: 8px;
+
+                li {
+                    width: auto;
+                    display: block;
+                    flex: none;
+                    margin: 4px;
+                    color: #ffffff;
+                    background-color: #004661;
+                    padding: 4px 20px;
+                    border-radius: 999em;
+                    cursor: pointer;
+
+                    span {
+                        vertical-align: middle;
+                        pointer-events: none;
+                        user-select: none;
+                    }
+
+                    svg {
+                        height: .8rem;
+                        width: 20px;
+                        margin: 4px 8px 4px -4px;
+                        //vertical-align: middle;
+                        vertical-align: middle;
+                        pointer-events: none;
+                        // display: none;
+                    }
+
+                }
+            }
+
         }
 
         p {
@@ -174,11 +213,16 @@
                             width: auto;
                             display: block;
                             flex: none;
-                            margin: 0px 0px 0px 0px;
+                            margin: 4px;
+                            color: #004661;
+                            border: 1px solid #004661;
+                            background-color: transparent;
+                            padding: 4px 20px;
+                            border-radius: 999em;
+                        }
 
-                            span {
-                                padding: 8px;
-                            }
+                        li.selected {
+                            font-weight: bold;
                         }
                     }
 

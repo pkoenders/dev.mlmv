@@ -3,31 +3,70 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 import peerListStyles from './peer-list.module.scss'
+import IconSelected from "../../images/svg/icon-tick.inline.svg"
+// import IconUnSelected from "../../images/svg/icon-close.inline.svg"
+import IconUnSelected from "../../images/svg/icon-add.inline.svg"
 
 var peerResults = true
 
 
+//class TemplateWrapper extends Component {
 const ListPeerSupporters = ({ data }) => {
+
+    const listAllSanityTags = useStaticQuery(graphql`
+        {
+        allSanityTags {
+            edges {
+                node {
+                    tagsTitle {
+                        en
+                        }
+                    }
+                }
+            }
+        }
+        `)
+
 
     const { t, i18n } = useTranslation("peerSupporters")
 
     const { allSanityPeerSupporters, language } = data // data.markdownRemark holds your post data
     const peerListData = allSanityPeerSupporters
-    const translate = language
-
     const allPosts = peerListData.edges
-    const emptyQuery = ""
 
+    const allSanityTags = listAllSanityTags.allSanityTags.edges
+
+    const emptyQuery = ""
     const [state, setState] = useState({
         filteredData: [],
         query: emptyQuery,
-
     })
+    let tagSelectList = []
+    const handleTagSelect = event => {
 
+        const tagItem = event.target
+        const filterValue = event.target.id
+        // console.log("tagTarget = " + event)
+        // !tagItem.classList.contains("selected")
+        //     ? tagItem.classList.add("selected")
+        //     : tagItem.classList.remove("selected")
 
-    const handleInputChange = event => {
+        if (!tagItem.classList.contains("selected")) {
+            tagItem.classList.add("selected")
+            tagSelectList.push(filterValue)
+        } else {
+            tagItem.classList.remove("selected")
+            tagSelectList = tagSelectList.filter(item => item !== filterValue)
+        }
+        // console.log("filetValue = " + filterValue)
+        //console.log("tagSelectList = " + tagSelectList)
+        //handleInputChange(filterValue);
+    }
+    const handleInputFilter = event => {
         //console.log(event.target.value)
         const query = event.target.value
+        //const query = filterValue
+        //const query = event.value
         //const { data } = props
 
         const posts = peerListData.edges || []
@@ -86,7 +125,10 @@ const ListPeerSupporters = ({ data }) => {
     const hasSearchResults = filteredData && query !== emptyQuery
     const posts = hasSearchResults ? filteredData : allPosts
 
-
+    // var btnClass = classNames('btn', className, {
+    //     'btn-pressed': state.isPressed,
+    //     'btn-over': !state.isPressed && state.isHovered
+    // });
 
     return (
         <>
@@ -95,25 +137,52 @@ const ListPeerSupporters = ({ data }) => {
                 <div className={peerListStyles.wrapper}>
 
 
-                    <div className={peerListStyles.peerFilterInput} ><label htmlFor="Filter Supporters"></label>
+                    <div className={peerListStyles.peerFilterInput} ><label htmlFor="FilterSupporters"></label>
                         <input
                             //className={peerListStyles.peerFilterInput}
                             id="peerFilterInput"
                             type="text"
-                            name="Filter Supporters"
+                            name="FilterSupporters"
+                            role="search"
                             placeholder={t("peerSupporters:filterPlaceholder")}
-                            onChange={handleInputChange}
+                            onChange={handleInputFilter}
                         />
                         {peerResults === false && <h3>{t("peerSupporters:filterNoResultsPart1")} '<strong>{document.querySelector("#peerFilterInput").value}</strong>' {t("peerSupporters:filterNoResultsPart2")}</h3>}
                     </div>
 
-                    <ul className={'peerListings'}>
+                    <div className={peerListStyles.peerFilterTags}>
+                        <p>Filter by tag name</p>
+                        <ul >
+                            {allSanityTags.map((allTagsEdge, allTagsID) => {
+                                return (
+
+                                    <li key={allTagsID} onClick={handleTagSelect} id={allTagsEdge.node.tagsTitle.en} className={'tagListItem'} >
+                                        <IconSelected aria-hidden="true" />
+                                        <IconUnSelected aria-hidden="true" />
+                                        <span>{allTagsEdge.node.tagsTitle.en}</span>
+
+
+
+                                        {/* {!isActive &&
+                                            <IconSelected />
+                                        }
+                                        {isActive &&
+                                            <IconUnSelected />
+                                        } */}
+                                    </li>
+                                )
+                            }
+                            )}
+                        </ul>
+                    </div>
+
+                    <ul>
                         {/* {data.allSanityPeerSupporters.edges.map((edge, i) => { */}
                         {posts.map((edge, postID) => {
 
                             const peerSupporterActive = edge.node.peerSupporterActive
 
-                            console.log("translate 2 = " + translate)
+                            //console.log("translate 2 = " + translate)
 
                             if (
                                 peerSupporterActive === true
@@ -141,16 +210,17 @@ const ListPeerSupporters = ({ data }) => {
                                             />
 
                                             <span>
-
                                                 <h3>{edge.node.peerSupporterFullName.translate}</h3>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
 
+                                                {/* <p>{edge.node.peerSupporterFriendlyName.translate} can help with</p> */}
+                                                <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
 
-                                                <p>{edge.node.peerSupporterFriendlyName.translate} can help with</p>
-                                                <ul>
+                                                {/* some_string.partition(' ')[0] */}
+                                                <ul >
                                                     {edge.node.tags.map((thisEdge, tagID) => (
                                                         <li key={tagID}>
-                                                            <span>{thisEdge.tagsTitle.en}</span>
+                                                            {thisEdge.tagsTitle.en}
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -166,7 +236,7 @@ const ListPeerSupporters = ({ data }) => {
                 </div>
             </section >
         </>
-    )
+    );
 }
 
 export default ListPeerSupporters

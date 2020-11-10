@@ -45,9 +45,6 @@ function ready() {
     document.querySelector(".headerNavWrapper").style.top = "0";
     mobileNav()
     canvasAnin()
-
-
-
 }
 
 function canvasAnin() {

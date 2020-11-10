@@ -371,3 +371,33 @@ button.buttonTertiary:hover,
     transform: rotate(360deg);
   }
 }
+
+
+
+.tagListItem {
+  opacity: .66;
+
+  svg {
+    display: none;
+  }
+
+  svg:nth-child(2) {
+    opacity: .66;
+    display: inline-block;
+  }
+}
+
+.tagListItem.selected {
+  opacity: 1;
+  background-color: #031223 !important;
+  box-shadow: $globalBoxShadowA;
+
+  svg {
+    display: inline-block;
+
+  }
+
+  svg:nth-child(2) {
+    display: none;
+  }
+}
