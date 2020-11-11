@@ -108,7 +108,7 @@ function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, heade
     //hamBurgerBtn.addEventListener('click', toggleMenu, false);
     //hamBurgerBtn.addEventListener('focus', toggleMenu, false);
 
-    "click focus".split(" ").forEach(function (e) {
+    "onfocus click".split(" ").forEach(function (e) {
         hamBurgerBtn.addEventListener(e, function () {
             //console.log("hamburger clicked!")
             if (!headerDiv.classList.contains("open")) {
@@ -122,6 +122,7 @@ function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, heade
                 hamBurgerBtn.setAttribute("aria-expanded", "false")
                 //e.stopImmediatePropagation()
             }
+            //e.stopImmediatePropagation()
         });
     });
 
