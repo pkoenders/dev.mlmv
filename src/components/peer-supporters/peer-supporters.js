@@ -8,14 +8,15 @@ import IconSelected from "../../images/svg/icon-tick.inline.svg"
 import IconUnSelected from "../../images/svg/icon-add.inline.svg"
 
 var peerResults = true
-
+// var filterValue = ""
+// var tagSelectList = ""
 
 //class TemplateWrapper extends Component {
 const ListPeerSupporters = ({ data }) => {
-
+    const { t, i18n } = useTranslation("peerSupporters")
     const listAllSanityTags = useStaticQuery(graphql`
-        {
-        allSanityTags {
+    query {
+        allSanityTags(sort: {order: ASC, fields: tagsTitle___en}) {
             edges {
                 node {
                     tagsTitle {
@@ -27,9 +28,6 @@ const ListPeerSupporters = ({ data }) => {
         }
         `)
 
-
-    const { t, i18n } = useTranslation("peerSupporters")
-
     const { allSanityPeerSupporters, language } = data // data.markdownRemark holds your post data
     const peerListData = allSanityPeerSupporters
     const allPosts = peerListData.edges
@@ -37,38 +35,47 @@ const ListPeerSupporters = ({ data }) => {
     const allSanityTags = listAllSanityTags.allSanityTags.edges
 
     const emptyQuery = ""
+    var filterValue = ""
+    var tagSelectList = ""
     const [state, setState] = useState({
         filteredData: [],
-        query: emptyQuery,
+        query: emptyQuery
     })
-    let tagSelectList = []
+    //var tagSelectList = []
+
     const handleTagSelect = event => {
-
         const tagItem = event.target
-        const filterValue = event.target.id
-        // console.log("tagTarget = " + event)
-        // !tagItem.classList.contains("selected")
-        //     ? tagItem.classList.add("selected")
-        //     : tagItem.classList.remove("selected")
-
+        const tagItemValue = event.target.id + ' '
         if (!tagItem.classList.contains("selected")) {
+            var tagList = document.querySelectorAll(".tagList > li")
+            for (var i = 0; i < tagList.length; i++) {
+                tagList[i].classList.remove("selected")
+            }
             tagItem.classList.add("selected")
-            tagSelectList.push(filterValue)
+            tagSelectList = tagSelectList.concat(tagItemValue)
         } else {
             tagItem.classList.remove("selected")
-            tagSelectList = tagSelectList.filter(item => item !== filterValue)
+            tagSelectList = tagSelectList.replace(tagItemValue, '');
         }
-        // console.log("filetValue = " + filterValue)
-        //console.log("tagSelectList = " + tagSelectList)
-        //handleInputChange(filterValue);
+        //filterValue = tagSelectList
+
+        console.log("tagSelectList (passing) = " + tagSelectList)
+        filterList()
+
     }
     const handleInputFilter = event => {
-        //console.log(event.target.value)
-        const query = event.target.value
-        //const query = filterValue
-        //const query = event.value
-        //const { data } = props
+        filterValue = event.target.value
+        filterList()
+    }
 
+    //const handleInputFilter = event => {
+    function filterList() {
+        //console.log(event.target.value)
+        //const query = event.target.value
+        //filterValue = tagSelectList
+        //console.log("tagSelectList (passed) = " + tagSelectList)
+        const query = filterValue + tagSelectList
+        console.log("query = " + query)
         const posts = peerListData.edges || []
         const filteredData = posts.filter(post => {
 
@@ -82,9 +89,7 @@ const ListPeerSupporters = ({ data }) => {
                 ))
             }
             const tags = tagList
-
-            // console.log("title = " + title)
-            // console.log("tags = " + tags)
+            //console.log("query(input) = " + query)
 
             return (
                 description.toLowerCase().includes(query.toLowerCase()) ||
@@ -105,7 +110,7 @@ const ListPeerSupporters = ({ data }) => {
     }
 
     function updateLayout(filteredData) {
-        //console.log('filteredData = ', filteredData)
+        console.log('filteredData = ', filteredData)
         if (filteredData.length == 0) {
             peerResults = false
         } else {
@@ -118,13 +123,9 @@ const ListPeerSupporters = ({ data }) => {
             }
         }
     }
-
-
-
     const { filteredData, query } = state
     const hasSearchResults = filteredData && query !== emptyQuery
     const posts = hasSearchResults ? filteredData : allPosts
-
     // var btnClass = classNames('btn', className, {
     //     'btn-pressed': state.isPressed,
     //     'btn-over': !state.isPressed && state.isHovered
@@ -147,28 +148,18 @@ const ListPeerSupporters = ({ data }) => {
                             placeholder={t("peerSupporters:filterPlaceholder")}
                             onChange={handleInputFilter}
                         />
-                        {peerResults === false && <h3>{t("peerSupporters:filterNoResultsPart1")} '<strong>{document.querySelector("#peerFilterInput").value}</strong>' {t("peerSupporters:filterNoResultsPart2")}</h3>}
+                        {peerResults === false && <h3>{t("peerSupporters:filterNoResultsPart1")} '<strong>{document.querySelector("#peerFilterInput").value} {query}</strong>' {t("peerSupporters:filterNoResultsPart2")}</h3>}
                     </div>
 
                     <div className={peerListStyles.peerFilterTags}>
                         <p>Filter by tag name</p>
-                        <ul >
+                        <ul className={'tagList'} >
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 return (
-
                                     <li key={allTagsID} onClick={handleTagSelect} id={allTagsEdge.node.tagsTitle.en} className={'tagListItem'} >
                                         <IconSelected aria-hidden="true" />
                                         <IconUnSelected aria-hidden="true" />
                                         <span>{allTagsEdge.node.tagsTitle.en}</span>
-
-
-
-                                        {/* {!isActive &&
-                                            <IconSelected />
-                                        }
-                                        {isActive &&
-                                            <IconUnSelected />
-                                        } */}
                                     </li>
                                 )
                             }
@@ -177,12 +168,9 @@ const ListPeerSupporters = ({ data }) => {
                     </div>
 
                     <ul>
-                        {/* {data.allSanityPeerSupporters.edges.map((edge, i) => { */}
                         {posts.map((edge, postID) => {
 
                             const peerSupporterActive = edge.node.peerSupporterActive
-
-                            //console.log("translate 2 = " + translate)
 
                             if (
                                 peerSupporterActive === true
