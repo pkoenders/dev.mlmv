@@ -37,7 +37,7 @@ canvas {
 }
 
 
-.skipLink-text {
+.skipLink {
   position: absolute;
   left: -999px;
   width: 1px;
@@ -375,29 +375,33 @@ button.buttonTertiary:hover,
 
 
 .tagListItem {
-  opacity: .66;
+  //opacity: .66;
 
-  svg {
-    display: none;
-  }
+  span {
+    svg {
+      display: none;
+    }
 
-  svg:nth-child(2) {
-    opacity: .66;
-    display: inline-block;
+    svg:nth-child(2) {
+      opacity: .66;
+      display: inline-block;
+    }
   }
 }
 
 .tagListItem.selected {
   opacity: 1;
-  background-color: #031223 !important;
+  background-color: $headerBgColor !important;
   box-shadow: $globalBoxShadowA;
 
-  svg {
-    display: inline-block;
+  span {
+    svg {
+      display: inline-block;
 
-  }
+    }
 
-  svg:nth-child(2) {
-    display: none;
+    svg:nth-child(2) {
+      display: none;
+    }
   }
 }

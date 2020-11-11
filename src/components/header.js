@@ -27,7 +27,7 @@ const Header = ({ data, location }) => {
       <header className="headerNavWrapper fillBground" style={{ top: 0 + 'px' }} aria-label="Main heading">
 
         {location.pathname !== "/" + i18n.language
-          ? <Link to={`/${i18n.language}`} title="Link to homepage">
+          ? <Link to={`/${i18n.language}`} role="presentation" tabIndex="0">
             <span>Link to homepage</span>
             <LogoMLMVHeader role="link" alt={"Logo My Life my Voice - Link to homepage"} />
           </Link>
@@ -36,7 +36,7 @@ const Header = ({ data, location }) => {
 
         <nav className="header-nav" role="navigation">
 
-          <button className="hamburger hamburger--squeeze" type="button" tabIndex="0" aria-label="Open and Close navigation menu" aria-controls="mainNavigation" aria-expanded="false">
+          <button className="hamburger hamburger--squeeze" type="button" tabIndex="0" aria-label="Open and Close navigation menu" aria-controls="mainNavigation" aria-expanded="false" aria-pressed="false">
             <span className="hamburger-label">Menu</span>
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
@@ -51,14 +51,14 @@ const Header = ({ data, location }) => {
             <li role="none"><Link to={`/${i18n.language}/terms-and-use`} role="menuitem" tabIndex="0" title="Link to Terms of use">Terms of use</Link></li>
             <li role="none" className="breakNav"><Link to={`/${i18n.language}/accessibility`} role="menuitem" tabIndex="0" title="Link to Website accessiblity">Website accessiblity</Link></li>
             {i18n.language === "en"
-              ? <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Selected language is English(NZ)" >English(NZ)<IconTick alt={"Tick icon to indicate selected language"} /></Link></li>
+              ? <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Selected language is English(NZ)" >English(NZ)<IconTick aria-hidden="true" /></Link></li>
               : <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Switch language to English(NZ)" >English(NZ)</Link></li>
             }
             {i18n.language === "mi"
-              ? <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="0" title="Selected language is  Māori">Māori<IconTick alt={"Tick icon to indicate selected language"} /></Link></li>
+              ? <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="0" title="Selected language is  Māori">Māori<IconTick aria-hidden="true" /></Link></li>
               : <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="-0" title="Switch language to Māori">Māori</Link></li>
             }
-            <li role="none"><button aria-label="Close navigation menu" role="menuitem" tabIndex="0">Close menu<IconClose alt={"Close icon to indicate close menu"} /></button></li>
+            <li role="none"><button aria-label="Close navigation menu" role="menuitem" tabIndex="0">Close menu<IconClose aria-hidden="true" /></button></li>
           </ul>
         </nav>
       </header >

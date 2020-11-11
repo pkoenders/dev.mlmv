@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import SectionPeerSupporters from "../components/peer-supporters/peer-supporters"
@@ -67,6 +67,9 @@ const PeerSupportersTemplate = ({ data, pageContext, location }) => {
         body  {
           background: rgb(151, 219, 246);
           background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
+          background: #eaeef1;
+          background-color: #110239;
+          ;
         }
         .section-layout-wide {
           margin-top:60px !important;

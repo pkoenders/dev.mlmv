@@ -108,18 +108,20 @@ function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, heade
     //hamBurgerBtn.addEventListener('click', toggleMenu, false);
     //hamBurgerBtn.addEventListener('focus', toggleMenu, false);
 
-    "onfocus click".split(" ").forEach(function (e) {
+    "onfocus onKeyPress click".split(" ").forEach(function (e) {
         hamBurgerBtn.addEventListener(e, function () {
             //console.log("hamburger clicked!")
             if (!headerDiv.classList.contains("open")) {
                 headerDiv.classList.add("open", "fillBground")
                 hamBurgerBtn.classList.add("is-active")
                 hamBurgerBtn.setAttribute("aria-expanded", "true")
+                hamBurgerBtn.setAttribute("aria-pressed", "true")
                 //e.stopImmediatePropagation()
             } else {
                 headerDiv.classList.remove("open", "fillBground")
                 hamBurgerBtn.classList.remove("is-active")
                 hamBurgerBtn.setAttribute("aria-expanded", "false")
+                hamBurgerBtn.setAttribute("aria-pressed", "false")
                 //e.stopImmediatePropagation()
             }
             //e.stopImmediatePropagation()
