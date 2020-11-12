@@ -44,8 +44,11 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       <style type="text/css">
         {`
         body  {
-          background: rgb(151, 219, 246);
-          background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
+           //background: rgb(151, 219, 246);
+           //background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
+          //background-color: #291361;
+          background-color: #ffffff;
+
         }
       `}
       </style>
@@ -87,7 +90,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
           </div>
         </div>
 
-        <div className={peerSupporterStyles.sectionPeerSupporterWrapper}>
+        <div className={peerSupporterStyles.sectionPeerSupporterWrapper + ' section-layout-wide'}>
           <div className={peerSupporterStyles.content}>
             <div className={peerSupporterStyles.header}>
 

@@ -36,6 +36,8 @@
                 line-height: 1.0rem;
                 font-weight: 500;
                 border-bottom: 2px solid $headerBgColor !important;
+                //border-bottom: 2px solid #FF00E9 !important;
+
                 color: $headerBgColor;
                 background-color: #03122315 !important;
                 background-color: #2f82c129 !important;
@@ -99,7 +101,7 @@
                     outline: none;
                     padding: 7.5px 15px;
                     border-radius: 999em;
-                    border-radius: .3rem;
+                    border-radius: .2rem;
                     user-select: none;
                     cursor: pointer;
 
@@ -136,29 +138,31 @@
     background-color: #1e0e48;
 
 
-    h1 {
-        text-align: center;
-        color: #ffffff;
-        text-transform: uppercase;
-    }
 
-    span {
-        text-align: center;
-        display: block;
-        color: #ffffff;
-        font-size: 1.1rem;
-        margin: 10px 30px 0;
-
-        svg {
-            margin-top: 60px;
-            width: 200px;
-            height: auto;
-        }
-    }
 
     div.wrapper {
         max-width: 1200px;
         margin: 0 auto !important;
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        span {
+            text-align: center;
+            display: block;
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin: 10px 30px 0;
+
+            svg {
+                margin: 60px 0;
+                width: 180px;
+                height: auto;
+            }
+        }
 
         ul {
 
@@ -182,6 +186,11 @@
 
         ul li {
 
+
+            box-shadow: $globalBoxShadowA;
+            border-radius: $globalBorderRadiusA;
+            //border: 1px solid $headerBgColor;
+            //overflow: hidden;
 
             position: relative;
             flex-basis: calc(33% - 60px);
@@ -218,18 +227,18 @@
             //padding: 30px;
             a {
                 color: $txtColor !important;
-                //background-color: #ffffff;
+                background-color: #291361;
                 width: 100%;
                 height: 100%;
                 display: block;
-                //overflow: hidden;
+
 
                 >div {
 
-                    border-radius: $globalBorderRadiusA;
+
                     overflow: hidden;
-                    box-shadow: $globalBoxShadowA;
-                    border: 1px solid #ffffff;
+
+
 
                     >div {}
 
@@ -253,12 +262,13 @@
 
                 span {
                     display: block;
-                    padding: 20px 15px;
-                    //border-top: 1px solid #2e3e4f;
+                    padding: 15px;
+                    border-top: 2px solid #FF00E9;
+                    border-top: 2px solid #2AF24B;
 
                     color: #ffffff;
                     text-align: left;
-                    margin: 10px 0px 0;
+                    margin: 0px 0px 0;
 
                     //color: $primaryColor;
                     p {
@@ -289,19 +299,19 @@
                             display: block;
                             flex: none;
                             margin: 4px 8px 4px 0;
-                            color: #4ba5ca;
-                            border: 1px solid #103857;
-                            background-color: #190a42;
+                            color: #adc3d4;
+                            border: 1px solid #361884;
+                            background-color: #1e0e48;
                             padding: 1px 12px;
                             font-size: .8rem;
-                            border-radius: .5em;
+                            border-radius: .2em;
+                            box-shadow: none;
                         }
 
                         li.selected {
                             font-weight: bold;
                         }
                     }
-
                 }
             }
 

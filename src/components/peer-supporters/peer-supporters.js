@@ -13,8 +13,11 @@ import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 var peerResults = true
 // var filterValue = ""
 // var tagSelectList = ""
-const ListPeerSupporters = ({ data }) => {
+const ListPeerSupporters = ({ data, language }) => {
     const { t, i18n } = useTranslation("peerSupporters")
+    const tagsTranslate = i18n.language
+
+    //console.log("translate = " + i18n.language)
 
     const listAllSanityTags = useStaticQuery(graphql`
     query {
@@ -23,6 +26,9 @@ const ListPeerSupporters = ({ data }) => {
                 node {
                     tagsTitle {
                         en
+                        mi
+                        hi
+                        sm
                         }
                     }
                 }
@@ -96,7 +102,7 @@ const ListPeerSupporters = ({ data }) => {
             var tagList = ''
             if (post.node.tags) {
                 post.node.tags.map((thisEdge, tagID) => (
-                    tagList += thisEdge.tagsTitle.en + ' '
+                    tagList += thisEdge.tagsTitle.translate + ' '
                 ))
             }
             const tags = tagList
@@ -161,12 +167,12 @@ const ListPeerSupporters = ({ data }) => {
                         <ul className={'tagList'} role="menu">
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 return (
-                                    <li key={allTagsID} onClick={handleTagSelect} onKeyPress={handleTagSelect} id={allTagsEdge.node.tagsTitle.en} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
+                                    <li key={allTagsID} onClick={handleTagSelect} onKeyPress={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
                                         <span aria-hidden="true">
                                             <IconSelected />
                                             <IconUnSelected />
                                         </span>
-                                        {allTagsEdge.node.tagsTitle.en}
+                                        {allTagsEdge.node.tagsTitle[tagsTranslate]}
                                     </li>
                                 )
                             }
@@ -178,14 +184,13 @@ const ListPeerSupporters = ({ data }) => {
 
 
             <section className={peerListStyles.peerResults}>
-                {peerResults != false && <h1>{t("peerSupporters:title")}</h1>}
-                {peerResults === false &&
-                    <span>
-                        {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
-                        <br /><EmojiNoResult aria-hidden="true" />
-                    </span>}
-
                 <div className={peerListStyles.wrapper}>
+                    {peerResults != false && <h1>{t("peerSupporters:title")}</h1>}
+                    {peerResults === false &&
+                        <span>
+                            {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
+                            <br /><EmojiNoResult aria-hidden="true" />
+                        </span>}
                     <ul>
                         {posts.map((edge, postID) => {
                             if (
@@ -210,7 +215,7 @@ const ListPeerSupporters = ({ data }) => {
                                                 <ul >
                                                     {edge.node.tags.map((thisEdge, tagID) => (
                                                         <li key={tagID}>
-                                                            {thisEdge.tagsTitle.en}
+                                                            {thisEdge.tagsTitle.translate}
                                                         </li>
                                                     ))}
                                                 </ul>

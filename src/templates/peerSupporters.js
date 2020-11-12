@@ -31,7 +31,7 @@ export const query = graphql`
                 tags {
 
                     tagsTitle {
-                        en
+                      translate(language: $language)
                     }
                 }
 
@@ -49,7 +49,7 @@ export const query = graphql`
 }
 `
 
-const PeerSupportersTemplate = ({ data, pageContext, location }) => {
+const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
   // const peerSupportersData = useStaticQuery(graphql`
   //   query peerSupportersData {
   //     site {
@@ -83,7 +83,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location }) => {
       /> */}
 
       <Layout location={location}>
-        <SectionPeerSupporters data={data} />
+        <SectionPeerSupporters data={data} language={language} />
       </Layout >
     </>
   )

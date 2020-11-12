@@ -1,7 +1,7 @@
 {
-  "title": "Our peer supporters (en)",
-  "filterPlaceholder": "Type a keyword to filter Peer supporters. (en)",
+  "title": "Our peer supporters",
+  "filterPlaceholder": "Type a keyword to filter Peer supporters.",
   "filterNoResultsPart1": "Oops! There are no results for",
-  "filterNoResultsPart2": "Try another keyword. (en)",
-  "supporterCanHelp": "can help with (en)"
+  "filterNoResultsPart2": "Try another keyword.",
+  "supporterCanHelp": "can help with"
 }

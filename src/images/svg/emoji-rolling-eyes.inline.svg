@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="218" height="249" viewBox="0 0 218 249">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="194" height="244" viewBox="0 0 194 244">
   <defs>
     <filter id="emoji-rolling-eyes.inline-a" width="164.7%" height="164.7%" x="-32.3%" y="-32.3%" filterUnits="objectBoundingBox">
       <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
@@ -73,13 +73,14 @@
       <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.395842439 0"/>
     </filter>
     <circle id="emoji-rolling-eyes.inline-s" cx="24.5" cy="24.5" r="23.5"/>
-    <radialGradient id="emoji-rolling-eyes.inline-u" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.99799 0 .999 0)">
-      <stop offset="0%" stop-color="#3F277C"/>
-      <stop offset="100%" stop-color="#1E0E48" stop-opacity=".7"/>
+    <radialGradient id="emoji-rolling-eyes.inline-u" cx="50%" cy="50%" r="47.699%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.75042 0 .875 0)">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".12"/>
+      <stop offset="43.387%" stop-color="#FFF" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(0 20)">
-    <g filter="url(#emoji-rolling-eyes.inline-a)" transform="translate(34)">
+  <g fill="none" fill-rule="evenodd" transform="translate(-36 20)">
+    <g filter="url(#emoji-rolling-eyes.inline-a)" transform="translate(58)">
       <mask id="emoji-rolling-eyes.inline-d" fill="#fff">
         <use xlink:href="#emoji-rolling-eyes.inline-b"/>
       </mask>
@@ -119,6 +120,6 @@
         </g>
       </g>
     </g>
-    <ellipse cx="109" cy="204" fill="url(#emoji-rolling-eyes.inline-u)" rx="109" ry="25"/>
+    <path fill="url(#emoji-rolling-eyes.inline-u)" d="M133,225.559633 C149.883821,225.559633 166.032843,224.96827 180.892825,223.889725 C230.681904,220.276009 266,211.193101 266,200.559633 C266,186.752514 206.453872,175.559633 133,175.559633 C59.5461283,175.559633 0,186.752514 0,200.559633 C0,214.366752 59.5461283,225.559633 133,225.559633 Z"/>
   </g>
 </svg>
