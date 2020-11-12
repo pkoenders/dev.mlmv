@@ -48,6 +48,9 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
            //background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
           //background-color: #291361;
           background-color: #ffffff;
+          //background-color: #eeeeee;
+
+          
 
         }
       `}
@@ -57,157 +60,147 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       //description={frontmatter.intro}
       //image={frontmatter.coverimage.childImageSharp.fluid.src}
       />
-      <section className={peerSupporterStyles.sectionPeerSupporter + ' section-layout-wide'}>
-        <div className={peerSupporterStyles.prevNext + ' projects-nav'}>
-          <div>
-            {previous &&
-              <Link
-                className={peerSupporterStyles.prev}
-                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
-              >
-                <IconPrev />
-                <span>Previous</span>
-              </Link>
-            }
+      <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
 
+        <div>
+          {previous &&
             <Link
               className={peerSupporterStyles.prev}
-              to={`/${i18n.language}/peer-supporters/`}
+              to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
             >
-              <IconUp />
-              <span>Back to Peer supporters list</span>
+              <IconPrev />
+              <span>Previous</span>
             </Link>
+          }
 
-            {next &&
-              <Link
-                className={peerSupporterStyles.next}
-                to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
-              >
-                <span>Next</span>
-                <IconNext />
-              </Link>
-            }
-          </div>
+          <Link
+            className={peerSupporterStyles.prev}
+            to={`/${i18n.language}/peer-supporters/`}
+          >
+            <IconUp />
+            <span>Back to Peer supporters list</span>
+          </Link>
+
+          {next &&
+            <Link
+              className={peerSupporterStyles.next}
+              to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
+            >
+              <span>Next</span>
+              <IconNext />
+            </Link>
+          }
         </div>
+      </section>
 
-        <div className={peerSupporterStyles.sectionPeerSupporterWrapper + ' section-layout-wide'}>
-          <div className={peerSupporterStyles.content}>
-            <div className={peerSupporterStyles.header}>
+      <section className={peerSupporterStyles.peerSupporterWrapper}>
 
+        <div className={peerSupporterStyles.header}>
+          <div className={peerSupporterStyles.headerWrapper}>
+            <div className={peerSupporterStyles.headerProfileInfo}>
               <h1>{peerData.peerSupporterFullName.translate}</h1>
+              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
+              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
+              {peerData.publishedAt &&
+                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
+              }
+              <p>{peerData.peerShortDescription.translate}</p>
 
-              <Img style={{ maxWidth: '300px' }}
+            </div>
+            <div className={peerSupporterStyles.headerProfileImg}>
+              <Img
                 fluid={peerData.coverImage.asset.fluid}
                 loading="lazy"
               />
-
-              <p>Gender: <span>{peerData.gender.genderTitle}</span></p>
-
-              {peerData.publishedAt &&
-                <p>Updated: <span>{peerData.publishedAt}</span></p>
-              }
-
-              <p>Location: <span>{peerData.location.location.en}</span></p>
-
-              <p>Gender: <span>{peerData.gender.genderTitle}</span></p>
-
-              <p>Short Description: <span>{peerData.peerShortDescription.translate}</span></p>
-
-              <div>
-                <p>Long Description: </p>
-                <span>
-                  <BlockContent blocks={peerData.peerLongDescription.localized} />
-                  {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
-                </span>
-              </div>
-
-              <p>{peerData.peerSupporterFriendlyName.translate} can help with</p>
-              <ul>
-                {peerData.categories.map((edge, catid) => (
-                  <li key={catid}>
-                    <span>{edge.categoriesTitle.en}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p>Tags</p>
-              <ul>
-                {peerData.tags.map((edge, tagid) => (
-                  <li key={tagid}>
-                    <span>{edge.tagsTitle.en}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p>Contact {peerData.peerSupporterFullName.translate}</p>
-              <div className={contactStyles.contactFormInput}>
-                <form
-                  name="peer-supporter-contact-form"
-                  method="post"
-                  action="../peer-contact-success"
-                  netlify-honeypot="bot-field"
-                  data-netlify="true"
-
-                >
-                  <input type="hidden" name="bot-field" />
-                  <input type="hidden" name="form-name" value="peer-supporter-contact-form" />
-                  <input type="hidden" name="message-for" value={peerData.peerSupporterFullName.en} />
-                  <input type="hidden" name="peer-email" value={peerData.peerSupporterEmail} />
-                  <p>
-                    <label htmlFor="name">
-                      <span>Your name (required)</span>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        id="name"
-                        required
-                      />
-                    </label>
-                  </p>
-                  <p>
-                    <label htmlFor="email">
-                      <span>Your email address (required)</span>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Your email address"
-                        id="email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                        required
-                      />
-                    </label>
-                  </p>
-                  <p>
-                    <label htmlFor="subject">
-                      <span>Subject</span>
-                      <input
-                        type="text"
-                        name="subject"
-                        id="subject" />
-                    </label>
-                  </p>
-                  <p>
-                    <label htmlFor="message">
-                      <span>Message</span>
-                      <textarea
-                        name="message"
-                        id="message"
-                        rows="5" />
-                    </label>
-                  </p>
-                  <p>
-                    <button
-                      type="submit"
-                      className="buttonPrimary">Submit form</button>
-                  </p>
-                </form>
-              </div>
-
             </div>
           </div>
         </div>
-      </section>
+
+        <div className={peerSupporterStyles.content}>
+
+          <h2>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </h2>
+          <ul className={peerSupporterStyles.tags}>
+            {peerData.tags.map((edge, tagid) => (
+              <li key={tagid}>
+                <span>{edge.tagsTitle.translate}</span>
+              </li>
+            ))}
+          </ul>
+
+          <BlockContent blocks={peerData.peerLongDescription.localized} />
+          {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
+
+        </div>
+
+        <div className={peerSupporterStyles.form}>
+          <div className={peerSupporterStyles.formWrapper}>
+            <h4>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4>
+            <div className={contactStyles.contactFormInput}>
+              <form
+                name="peer-supporter-contact-form"
+                method="post"
+                action="../peer-contact-success"
+                netlify-honeypot="bot-field"
+                data-netlify="true"
+
+              >
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="form-name" value="peer-supporter-contact-form" />
+                <input type="hidden" name="message-for" value={peerData.peerSupporterFullName.en} />
+                <input type="hidden" name="peer-email" value={peerData.peerSupporterEmail} />
+                <p>
+                  <label htmlFor="name">
+                    <span>{t("supporterFormFields:name")}</span>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder={t("supporterFormFields:namePlaceholder")}
+                      id="name"
+                      required
+                    />
+                  </label>
+                </p>
+                <p>
+                  <label htmlFor="email">
+                    <span>{t("supporterFormFields:email")}</span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder={t("supporterFormFields:emailPlaceholder")}
+                      id="email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      required
+                    />
+                  </label>
+                </p>
+                <p>
+                  <label htmlFor="subject">
+                    <span>{t("supporterFormFields:subject")}</span>
+                    <input
+                      type="text"
+                      name="subject"
+                      id="subject" />
+                  </label>
+                </p>
+                <p>
+                  <label htmlFor="message">
+                    <span>{t("supporterFormFields:message")}</span>
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows="5" />
+                  </label>
+                </p>
+                <p>
+                  <button
+                    type="submit"
+                    className="buttonPrimary">Submit form</button>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section >
     </>
   )
 }

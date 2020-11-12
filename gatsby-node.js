@@ -257,7 +257,7 @@ exports.createPages = async ({
         // next: peerSupporter.data.allSanityPeerSupporters.edges[+ 1] ? peerSupporter.data.allSanityPeerSupporters.edges[+ 1].next : null
       },
     }),
-    ["common", "slug", "peerSupporter", "previous", "next"],
+    ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],
     createPage
 
   )

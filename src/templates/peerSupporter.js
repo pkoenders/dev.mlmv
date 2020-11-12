@@ -21,23 +21,23 @@ export const query = graphql`
               }
           }
       }
-      publishedAt(formatString: "DD MMMM YYYY")
+      publishedAt(formatString: "DD/MM/YYYY")
       gender{
         genderTitle
       }
       location {
         location{
-          en
+          translate(language: $language)
         }
       }
       categories{
         categoriesTitle{
-          en
+          translate(language: $language)
         }
       }
       tags{
         tagsTitle{
-          en
+          translate(language: $language)
         }
       }
       peerShortDescription {
