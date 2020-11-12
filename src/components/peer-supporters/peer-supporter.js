@@ -78,7 +78,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
             to={`/${i18n.language}/peer-supporters/`}
           >
             <IconUp />
-            <span>Back to Peer supporters list</span>
+            <span>{t("peerSupporter:backToPeerSupporters")}</span>
           </Link>
 
           {next &&
