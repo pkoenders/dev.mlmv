@@ -10,9 +10,9 @@
       </feMerge>
     </filter>
     <circle id="emoji-rolling-eyes.inline-b" cx="75" cy="75" r="75"/>
-    <radialGradient id="emoji-rolling-eyes.inline-c" cx="50%" cy="33.662%" r="93.515%" fx="50%" fy="33.662%">
-      <stop offset="0%" stop-color="#FFEE68"/>
-      <stop offset="100%" stop-color="#E96900"/>
+    <radialGradient id="emoji-rolling-eyes.inline-c" cx="50%" cy="34.87%" r="88.2%" fx="50%" fy="34.87%">
+      <stop offset="0%" stop-color="#EFFF48"/>
+      <stop offset="100%" stop-color="#F24705"/>
     </radialGradient>
     <radialGradient id="emoji-rolling-eyes.inline-e" cx="50%" cy="50%" r="50.475%" fx="50%" fy="50%">
       <stop offset="0%" stop-color="#FF00E9"/>
