@@ -6,7 +6,7 @@ import peerListStyles from './peer-list.module.scss'
 import IconSelected from "../../images/svg/icon-tick.inline.svg"
 import IconUnSelected from "../../images/svg/icon-add.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
-import EmojiNoResult from "../../images/svg/emoji-face-neutral.inline.svg"
+import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
 

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <radialGradient id="emoji-rolling-eyes.inline-a" cx="50%" cy="33.662%" r="93.515%" fx="50%" fy="33.662%">
+      <stop offset="0%" stop-color="#FFEE68"/>
+      <stop offset="100%" stop-color="#E96900"/>
+    </radialGradient>
+    <linearGradient id="emoji-rolling-eyes.inline-b" x1="50%" x2="52.318%" y1="47.591%" y2="50.611%">
+      <stop offset="0%" stop-color="#1B0005"/>
+      <stop offset="100%" stop-color="#651D0F"/>
+    </linearGradient>
+    <radialGradient id="emoji-rolling-eyes.inline-c" cx="50%" cy="50%" r="48.033%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="75.494%" stop-color="#FFF6F6" stop-opacity=".605"/>
+      <stop offset="99.801%" stop-color="#BAA9A9"/>
+      <stop offset="100%"/>
+    </radialGradient>
+    <circle id="emoji-rolling-eyes.inline-d" cx="24.5" cy="24.5" r="23.5"/>
+    <radialGradient id="emoji-rolling-eyes.inline-f" cx="50%" cy="50%" r="56.02%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#535E98"/>
+      <stop offset="100%" stop-color="#111325"/>
+    </radialGradient>
+    <linearGradient id="emoji-rolling-eyes.inline-g" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#414978"/>
+      <stop offset="100%" stop-color="#6A6670"/>
+    </linearGradient>
+    <circle id="emoji-rolling-eyes.inline-h" cx="24.5" cy="24.5" r="23.5"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="75" cy="75" r="75" fill="url(#emoji-rolling-eyes.inline-a)" fill-rule="nonzero"/>
+    <path stroke="url(#emoji-rolling-eyes.inline-b)" stroke-linecap="round" stroke-width="11" d="M52.1576562,118.702855 C52.1576562,118.702855 58.8218503,111.406517 75.3082494,109.992717 C81.1023903,109.335499 87.0521926,109.795888 93.1576562,111.373883"/>
+    <g transform="translate(16 45)">
+      <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
+      <circle cx="24.5" cy="24.5" r="24" fill="url(#emoji-rolling-eyes.inline-c)" stroke="#9C948F"/>
+      <mask id="emoji-rolling-eyes.inline-e" fill="#fff">
+        <use xlink:href="#emoji-rolling-eyes.inline-d"/>
+      </mask>
+      <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-d"/>
+      <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-e)"/>
+      <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-f)" mask="url(#emoji-rolling-eyes.inline-e)"/>
+      <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-g)" mask="url(#emoji-rolling-eyes.inline-e)"/>
+    </g>
+    <g transform="translate(85 45)">
+      <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
+      <circle cx="24.5" cy="24.5" r="24" fill="url(#emoji-rolling-eyes.inline-c)" stroke="#9C948F"/>
+      <mask id="emoji-rolling-eyes.inline-i" fill="#fff">
+        <use xlink:href="#emoji-rolling-eyes.inline-h"/>
+      </mask>
+      <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-h"/>
+      <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-i)"/>
+      <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-f)" mask="url(#emoji-rolling-eyes.inline-i)"/>
+      <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-g)" mask="url(#emoji-rolling-eyes.inline-i)"/>
+    </g>
+  </g>
+</svg>
