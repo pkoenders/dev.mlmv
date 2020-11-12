@@ -3,6 +3,7 @@
 .peerFilter {
     padding: $globalSecionPadding;
     padding: 45px 0 1px 0;
+    margin-top: 40px !important;
     background-color: turquoise;
     background-color: #c1def5;
 
@@ -20,7 +21,7 @@
         margin: 0 auto;
 
         .peerFilterInput {
-            padding: 0 30px 15px;
+            padding: 0 30px;
             position: relative;
 
             label {
@@ -29,9 +30,13 @@
 
             input,
             input:focus {
-                padding: 15px 60px 15px 15px;
+                padding: 15px 60px 15px 30px;
                 border: none !important;
+                font-size: 1.1rem;
+                line-height: 1.0rem;
+                font-weight: 600;
                 border-bottom: 2px solid $headerBgColor !important;
+                color: $headerBgColor;
                 background-color: #03122315 !important;
                 background-color: #2f82c129 !important;
             }
@@ -66,18 +71,18 @@
         }
 
         .peerFilterTags {
-            margin: 0 0 15px 0;
+            margin: 0 30px 15px;
 
             ul {
                 width: auto;
-                margin-top: 8px;
+                margin: 8px 0 0 0;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
 
                 li {
-                    font-size: 1.0rem;
-                    line-height: 1.0rem;
+                    font-size: .9rem;
+                    line-height: .9rem;
                     width: auto;
                     display: inline-block;
                     flex: none;
@@ -100,8 +105,6 @@
 
                     span {
                         pointer-events: none;
-
-                        //vertical-align: middle;
 
                         svg {
                             height: .8rem;
@@ -130,6 +133,7 @@
 .peerResults {
     padding: 30px 0 1px 0;
     background-color: #110239;
+    background-color: #1e0e48;
 
 
     h1 {
@@ -285,9 +289,9 @@
                             display: block;
                             flex: none;
                             margin: 4px 8px 4px 0;
-                            color: #487d93;
-                            border: 1px solid #487d93;
-                            background-color: transparent;
+                            color: #4ba5ca;
+                            border: 1px solid #103857;
+                            background-color: #190a42;
                             padding: 1px 12px;
                             font-size: .8rem;
                             border-radius: .5em;

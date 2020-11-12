@@ -46,7 +46,7 @@ const ListPeerSupporters = ({ data }) => {
 
     const handleTagSelect = event => {
         const tagItem = event.target
-        const tagItemValue = event.target.id + ' '
+        const tagItemValue = event.target.id + ''
         if (!tagItem.classList.contains("selected")) {
             // var tagList = document.querySelectorAll(".tagList > li")
             // for (var i = 0; i < tagList.length; i++) {
@@ -86,7 +86,7 @@ const ListPeerSupporters = ({ data }) => {
     //const handleInputFilter = event => {
     function filterList() {
         const query = filterValue + tagSelectList
-        console.log("query = " + query)
+        //console.log("query = " + query)
         const posts = peerListData.edges || []
         const filteredData = posts.filter(post => {
 
@@ -121,7 +121,7 @@ const ListPeerSupporters = ({ data }) => {
     }
 
     function updateLayout(filteredData) {
-        console.log('filteredData = ', filteredData)
+        //console.log('filteredData = ', filteredData)
         if (filteredData.length === 0) {
             peerResults = false
         } else {
@@ -142,7 +142,6 @@ const ListPeerSupporters = ({ data }) => {
             <section className={peerListStyles.peerFilter + ' section-layout-wide'}>
 
                 <div className={peerListStyles.wrapper}>
-
                     <div className={peerListStyles.peerFilterInput} >
                         <form><label htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
@@ -154,7 +153,7 @@ const ListPeerSupporters = ({ data }) => {
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
                             />
-                            <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onKeyPress={handleInputFilterReset}><IconReset aria-hidden="true" /></button>
+                            {query !== "" && <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onKeyPress={handleInputFilterReset}><IconReset aria-hidden="true" /></button>}
                         </form>
                     </div>
 
@@ -182,7 +181,7 @@ const ListPeerSupporters = ({ data }) => {
                 {peerResults != false && <h1>{t("peerSupporters:title")}</h1>}
                 {peerResults === false &&
                     <span>
-                        {t("peerSupporters:filterNoResultsPart1")} '<strong>{query}</strong>' {t("peerSupporters:filterNoResultsPart2")}
+                        {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
                         <br /><EmojiNoResult aria-hidden="true" />
                     </span>}
 

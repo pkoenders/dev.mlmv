@@ -68,11 +68,11 @@ const PeerSupportersTemplate = ({ data, pageContext, location }) => {
           background: rgb(151, 219, 246);
           background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
           background: #eaeef1;
-          background-color: #110239;
+          background-color: #1e0e48;
           ;
         }
         .section-layout-wide {
-          margin-top:60px !important;
+          margin-top:60px;
         }
       `}
       </style>
