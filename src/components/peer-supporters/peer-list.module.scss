@@ -34,7 +34,7 @@
                 border: none !important;
                 font-size: 1.1rem;
                 line-height: 1.0rem;
-                font-weight: 600;
+                font-weight: 500;
                 border-bottom: 2px solid $headerBgColor !important;
                 color: $headerBgColor;
                 background-color: #03122315 !important;
@@ -151,9 +151,8 @@
 
         svg {
             margin-top: 60px;
-            width: 120px;
+            width: 200px;
             height: auto;
-            box-shadow: $globalBoxShadowA;
         }
     }
 

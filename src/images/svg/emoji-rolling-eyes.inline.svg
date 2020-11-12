@@ -1,54 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="218" height="249" viewBox="0 0 218 249">
   <defs>
-    <radialGradient id="emoji-rolling-eyes.inline-a" cx="50%" cy="33.662%" r="93.515%" fx="50%" fy="33.662%">
+    <filter id="emoji-rolling-eyes.inline-a" width="164.7%" height="164.7%" x="-32.3%" y="-32.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <circle id="emoji-rolling-eyes.inline-b" cx="75" cy="75" r="75"/>
+    <radialGradient id="emoji-rolling-eyes.inline-c" cx="50%" cy="33.662%" r="93.515%" fx="50%" fy="33.662%">
       <stop offset="0%" stop-color="#FFEE68"/>
       <stop offset="100%" stop-color="#E96900"/>
     </radialGradient>
-    <linearGradient id="emoji-rolling-eyes.inline-b" x1="50%" x2="52.318%" y1="47.591%" y2="50.611%">
-      <stop offset="0%" stop-color="#1B0005"/>
-      <stop offset="100%" stop-color="#651D0F"/>
-    </linearGradient>
-    <radialGradient id="emoji-rolling-eyes.inline-c" cx="50%" cy="50%" r="48.033%" fx="50%" fy="50%">
-      <stop offset="0%" stop-color="#FFF"/>
-      <stop offset="75.494%" stop-color="#FFF6F6" stop-opacity=".605"/>
-      <stop offset="99.801%" stop-color="#BAA9A9"/>
-      <stop offset="100%"/>
+    <radialGradient id="emoji-rolling-eyes.inline-e" cx="50%" cy="50%" r="50.475%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FF00E9"/>
+      <stop offset="100%" stop-color="#FF00E9" stop-opacity="0"/>
     </radialGradient>
-    <circle id="emoji-rolling-eyes.inline-d" cx="24.5" cy="24.5" r="23.5"/>
-    <radialGradient id="emoji-rolling-eyes.inline-f" cx="50%" cy="50%" r="56.02%" fx="50%" fy="50%">
+    <radialGradient id="emoji-rolling-eyes.inline-h" cx="26.853%" cy="66.364%" r="113.717%" fx="26.853%" fy="66.364%" gradientTransform="matrix(.04788 .99284 -1.70364 .51162 1.386 .058)">
+      <stop offset="0%" stop-color="#7A2616"/>
+      <stop offset="100%" stop-color="#1B0005"/>
+      <stop offset="100%" stop-color="#1B0005"/>
+    </radialGradient>
+    <path id="emoji-rolling-eyes.inline-g" d="M74.380121,103.886925 C81.0570331,103.129576 87.7657078,104.022982 94.4404306,106.535337 C97.2832831,107.605383 98.7204272,110.777413 97.6503817,113.620266 C96.5803363,116.463118 93.4083057,117.900263 90.5654531,116.830217 C85.6863654,114.993736 80.9129527,114.312409 76.1867949,114.757964 L75.4968796,114.829391 C70.8127254,115.254303 66.2862365,116.698717 62.0742026,118.850174 C60.2765616,119.768387 58.6658965,120.750408 57.275381,121.723873 L56.7286379,122.113918 L56.2889193,122.440317 L55.801778,122.823973 C55.7797795,122.842296 55.7599064,122.859096 55.7421766,122.874331 C53.4383339,124.854007 49.9658559,124.591218 47.98618,122.287375 C46.006504,119.983533 46.2692931,116.511055 48.5731358,114.531379 L48.9563176,114.212598 L49.2690463,113.963734 L49.6269852,113.687685 L50.0296119,113.386072 L50.4764042,113.060517 L50.96684,112.712641 C52.7572635,111.45921 54.7990524,110.214334 57.0704895,109.05411 C62.249436,106.408766 67.8561777,104.581459 73.7895539,103.945006 L74.380121,103.886925 Z"/>
+    <filter id="emoji-rolling-eyes.inline-f" width="127.3%" height="168%" x="-13.6%" y="-24.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.991366621   0 0 0 0 0.796808478   0 0 0 0 0.359389291  0 0 0 1 0"/>
+    </filter>
+    <filter id="emoji-rolling-eyes.inline-i" width="132.7%" height="132.7%" x="-16.3%" y="-16.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 1   0 0 0 0 0.823529412   0 0 0 0 0.0666666667  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <circle id="emoji-rolling-eyes.inline-k" cx="24.5" cy="24.5" r="24.5"/>
+    <filter id="emoji-rolling-eyes.inline-j" width="118.4%" height="118.4%" x="-9.2%" y="-9.2%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" radius="1" result="shadowSpreadInner1"/>
+      <feGaussianBlur in="shadowSpreadInner1" result="shadowBlurInner1" stdDeviation="3"/>
+      <feOffset dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.395842439 0"/>
+    </filter>
+    <circle id="emoji-rolling-eyes.inline-l" cx="24.5" cy="24.5" r="23.5"/>
+    <radialGradient id="emoji-rolling-eyes.inline-n" cx="50%" cy="50%" r="56.02%" fx="50%" fy="50%">
       <stop offset="0%" stop-color="#535E98"/>
       <stop offset="100%" stop-color="#111325"/>
     </radialGradient>
-    <linearGradient id="emoji-rolling-eyes.inline-g" x1="50%" x2="50%" y1="100%" y2="0%">
+    <linearGradient id="emoji-rolling-eyes.inline-o" x1="50%" x2="50%" y1="100%" y2="0%">
       <stop offset="0%" stop-color="#414978"/>
       <stop offset="100%" stop-color="#6A6670"/>
     </linearGradient>
-    <circle id="emoji-rolling-eyes.inline-h" cx="24.5" cy="24.5" r="23.5"/>
+    <filter id="emoji-rolling-eyes.inline-p" width="132.7%" height="132.7%" x="-16.3%" y="-16.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 1   0 0 0 0 0.823529412   0 0 0 0 0.0666666667  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <circle id="emoji-rolling-eyes.inline-r" cx="24.5" cy="24.5" r="24.5"/>
+    <filter id="emoji-rolling-eyes.inline-q" width="118.4%" height="118.4%" x="-9.2%" y="-9.2%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" radius="1" result="shadowSpreadInner1"/>
+      <feGaussianBlur in="shadowSpreadInner1" result="shadowBlurInner1" stdDeviation="3"/>
+      <feOffset dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.395842439 0"/>
+    </filter>
+    <circle id="emoji-rolling-eyes.inline-s" cx="24.5" cy="24.5" r="23.5"/>
+    <radialGradient id="emoji-rolling-eyes.inline-u" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.99799 0 .999 0)">
+      <stop offset="0%" stop-color="#3F277C"/>
+      <stop offset="100%" stop-color="#1E0E48" stop-opacity=".7"/>
+    </radialGradient>
   </defs>
-  <g fill="none" fill-rule="evenodd">
-    <circle cx="75" cy="75" r="75" fill="url(#emoji-rolling-eyes.inline-a)" fill-rule="nonzero"/>
-    <path stroke="url(#emoji-rolling-eyes.inline-b)" stroke-linecap="round" stroke-width="11" d="M52.1576562,118.702855 C52.1576562,118.702855 58.8218503,111.406517 75.3082494,109.992717 C81.1023903,109.335499 87.0521926,109.795888 93.1576562,111.373883"/>
-    <g transform="translate(16 45)">
-      <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
-      <circle cx="24.5" cy="24.5" r="24" fill="url(#emoji-rolling-eyes.inline-c)" stroke="#9C948F"/>
-      <mask id="emoji-rolling-eyes.inline-e" fill="#fff">
-        <use xlink:href="#emoji-rolling-eyes.inline-d"/>
+  <g fill="none" fill-rule="evenodd" transform="translate(0 20)">
+    <g filter="url(#emoji-rolling-eyes.inline-a)" transform="translate(34)">
+      <mask id="emoji-rolling-eyes.inline-d" fill="#fff">
+        <use xlink:href="#emoji-rolling-eyes.inline-b"/>
       </mask>
-      <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-d"/>
-      <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-e)"/>
-      <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-f)" mask="url(#emoji-rolling-eyes.inline-e)"/>
-      <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-g)" mask="url(#emoji-rolling-eyes.inline-e)"/>
+      <circle cx="75" cy="75" r="75" fill="url(#emoji-rolling-eyes.inline-c)" fill-rule="nonzero" mask="url(#emoji-rolling-eyes.inline-d)"/>
+      <circle cx="133" cy="93" r="25" fill="url(#emoji-rolling-eyes.inline-e)" fill-opacity=".26" mask="url(#emoji-rolling-eyes.inline-d)"/>
+      <circle cx="17" cy="93" r="25" fill="url(#emoji-rolling-eyes.inline-e)" fill-opacity=".26" mask="url(#emoji-rolling-eyes.inline-d)"/>
+      <g fill-rule="nonzero" mask="url(#emoji-rolling-eyes.inline-d)">
+        <use fill="#000" filter="url(#emoji-rolling-eyes.inline-f)" xlink:href="#emoji-rolling-eyes.inline-g"/>
+        <use fill="url(#emoji-rolling-eyes.inline-h)" xlink:href="#emoji-rolling-eyes.inline-g"/>
+      </g>
+      <g filter="url(#emoji-rolling-eyes.inline-i)" mask="url(#emoji-rolling-eyes.inline-d)">
+        <g transform="translate(16 45)">
+          <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
+          <use fill="#000" filter="url(#emoji-rolling-eyes.inline-j)" xlink:href="#emoji-rolling-eyes.inline-k"/>
+          <circle cx="24.5" cy="24.5" r="24" stroke="#938E8C" stroke-linejoin="square"/>
+          <mask id="emoji-rolling-eyes.inline-m" fill="#fff">
+            <use xlink:href="#emoji-rolling-eyes.inline-l"/>
+          </mask>
+          <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-l"/>
+          <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-m)"/>
+          <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-n)" mask="url(#emoji-rolling-eyes.inline-m)"/>
+          <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-o)" mask="url(#emoji-rolling-eyes.inline-m)"/>
+        </g>
+      </g>
+      <g filter="url(#emoji-rolling-eyes.inline-p)" mask="url(#emoji-rolling-eyes.inline-d)">
+        <g transform="translate(85 45)">
+          <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
+          <use fill="#000" filter="url(#emoji-rolling-eyes.inline-q)" xlink:href="#emoji-rolling-eyes.inline-r"/>
+          <circle cx="24.5" cy="24.5" r="24" stroke="#938E8C" stroke-linejoin="square"/>
+          <mask id="emoji-rolling-eyes.inline-t" fill="#fff">
+            <use xlink:href="#emoji-rolling-eyes.inline-s"/>
+          </mask>
+          <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-s"/>
+          <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-t)"/>
+          <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-n)" mask="url(#emoji-rolling-eyes.inline-t)"/>
+          <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-o)" mask="url(#emoji-rolling-eyes.inline-t)"/>
+        </g>
+      </g>
     </g>
-    <g transform="translate(85 45)">
-      <circle cx="24.5" cy="24.5" r="24.5" fill="#FFF"/>
-      <circle cx="24.5" cy="24.5" r="24" fill="url(#emoji-rolling-eyes.inline-c)" stroke="#9C948F"/>
-      <mask id="emoji-rolling-eyes.inline-i" fill="#fff">
-        <use xlink:href="#emoji-rolling-eyes.inline-h"/>
-      </mask>
-      <use fill="#D8D8D8" fill-opacity="0" xlink:href="#emoji-rolling-eyes.inline-h"/>
-      <circle cx="20.5" cy="10.5" r="10.5" fill="#111325" mask="url(#emoji-rolling-eyes.inline-i)"/>
-      <circle cx="21.5" cy="12.5" r="7.5" fill="url(#emoji-rolling-eyes.inline-f)" mask="url(#emoji-rolling-eyes.inline-i)"/>
-      <circle cx="20" cy="7" r="4" fill="url(#emoji-rolling-eyes.inline-g)" mask="url(#emoji-rolling-eyes.inline-i)"/>
-    </g>
+    <ellipse cx="109" cy="204" fill="url(#emoji-rolling-eyes.inline-u)" rx="109" ry="25"/>
   </g>
 </svg>
