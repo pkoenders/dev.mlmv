@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="194" height="244" viewBox="0 0 194 244">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="218" viewBox="0 0 180 218">
   <defs>
-    <filter id="emoji-rolling-eyes.inline-a" width="164.7%" height="164.7%" x="-32.3%" y="-32.3%" filterUnits="objectBoundingBox">
+    <filter id="emoji-rolling-eyes.inline-a" width="128.7%" height="128.7%" x="-14.3%" y="-14.3%" filterUnits="objectBoundingBox">
       <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5"/>
-      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4.5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.0274509804   0 0 0 0 0   0 0 0 0 0.133333333  0 0 0 0.427119755 0"/>
       <feMerge>
         <feMergeNode in="shadowMatrixOuter1"/>
         <feMergeNode in="SourceGraphic"/>
@@ -73,13 +73,13 @@
       <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.395842439 0"/>
     </filter>
     <circle id="emoji-rolling-eyes.inline-s" cx="24.5" cy="24.5" r="23.5"/>
-    <radialGradient id="emoji-rolling-eyes.inline-u" cx="50%" cy="50%" r="47.699%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.75042 0 .875 0)">
-      <stop offset="0%" stop-color="#FFF" stop-opacity=".12"/>
-      <stop offset="43.387%" stop-color="#FFF" stop-opacity=".05"/>
-      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    <radialGradient id="emoji-rolling-eyes.inline-u" cx="50%" cy="50.742%" r="45.27%" fx="50%" fy="50.742%" gradientTransform="matrix(0 1 -.75042 0 .88 .007)">
+      <stop offset="0%" stop-color="#3A506B" stop-opacity=".429"/>
+      <stop offset="41.122%" stop-color="#3A506B" stop-opacity=".084"/>
+      <stop offset="100%" stop-color="#3A506B" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(-36 20)">
+  <g fill="none" fill-rule="evenodd" transform="translate(-43 7)">
     <g filter="url(#emoji-rolling-eyes.inline-a)" transform="translate(58)">
       <mask id="emoji-rolling-eyes.inline-d" fill="#fff">
         <use xlink:href="#emoji-rolling-eyes.inline-b"/>
@@ -120,6 +120,6 @@
         </g>
       </g>
     </g>
-    <path fill="url(#emoji-rolling-eyes.inline-u)" d="M133,225.559633 C149.883821,225.559633 166.032843,224.96827 180.892825,223.889725 C230.681904,220.276009 266,211.193101 266,200.559633 C266,186.752514 206.453872,175.559633 133,175.559633 C59.5461283,175.559633 0,186.752514 0,200.559633 C0,214.366752 59.5461283,225.559633 133,225.559633 Z"/>
+    <path fill="url(#emoji-rolling-eyes.inline-u)" d="M133,212.559633 C149.883821,212.559633 166.032843,211.96827 180.892825,210.889725 C230.681904,207.276009 266,198.193101 266,187.559633 C266,173.752514 206.453872,162.559633 133,162.559633 C59.5461283,162.559633 0,173.752514 0,187.559633 C0,201.366752 59.5461283,212.559633 133,212.559633 Z"/>
   </g>
 </svg>

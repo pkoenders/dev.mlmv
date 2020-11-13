@@ -1,7 +1,13 @@
 @import "../styles/media-queries";
 @import "./hamburgers/hamburgers";
 
+.hamburger:hover,
+.hamburger.is-active:hover {
+  opacity: 1;
+}
+
 .hamburger {
+  opacity: 0.7;
   position: relative;
   //display: none;
   //position: fixed;
@@ -27,7 +33,7 @@
     .hamburger-inner::after {
       width: 30px;
       height: 2px;
-      background-color: #bfbfbf;
+      background-color: #6FFFE9;
       //float: left;
 
       border-radius: 1.5px;
@@ -46,11 +52,11 @@
 
   .hamburger-label {
     color: #bfbfbf;
-    color: #ffffff;
+    color: #6FFFE9;
 
     float: left;
-    font-size: .7rem;
-    font-weight: 300;
+    font-size: .8rem;
+    font-weight: 400;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     //display: flex;
@@ -63,7 +69,7 @@
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
-    background-color: #bfbfbf;
+    background-color: #6FFFE9;
   }
 
   .hamburger-inner {

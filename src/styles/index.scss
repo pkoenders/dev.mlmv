@@ -128,7 +128,7 @@ button.buttonSecondary button.buttonTertiary,
   letter-spacing: .075rem;
   // background-color: $tertiaryColorA;
   background-color: $primaryColor;
-  color: #ffffff !important;
+  color: $headerBgColor !important;
   box-shadow: 0px 0px 5px 0px rgba(35, 35, 35, 0.5);
 }
 
@@ -391,7 +391,9 @@ button.buttonTertiary:hover,
 
 .tagListItem.selected {
   opacity: 1;
+  color: $headerBgColor !important;
   background-color: $headerBgColor !important;
+  background-color: #6FFFE9 !important;
   box-shadow: $globalBoxShadowA;
 
   span {

@@ -61,7 +61,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       //image={frontmatter.coverimage.childImageSharp.fluid.src}
       />
       <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
-
         <div>
           {previous &&
             <Link
@@ -93,46 +92,61 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
         </div>
       </section>
 
-      <section className={peerSupporterStyles.peerSupporterWrapper}>
-
-        <div className={peerSupporterStyles.header}>
+      <div className={peerSupporterStyles.peerSupporterWrapper}>
+        <section className={peerSupporterStyles.header}>
           <div className={peerSupporterStyles.headerWrapper}>
-            <div className={peerSupporterStyles.headerProfileInfo}>
-              <h1>{peerData.peerSupporterFullName.translate}</h1>
-              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
-              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
-              {peerData.publishedAt &&
-                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
-              }
-              <p>{peerData.peerShortDescription.translate}</p>
 
+            <div className={peerSupporterStyles.headerTitleWrapper}>
+              <div className={peerSupporterStyles.headerTitle}>
+                <span><h1>{peerData.peerSupporterFullName.translate}</h1>
+                  <div className={peerSupporterStyles.headerProfileImg}>
+                    <Img
+                      fluid={peerData.coverImage.asset.fluid}
+                      loading="lazy"
+                    />
+                  </div>
+                </span>
+                <div className={peerSupporterStyles.headerDesciption}>
+                  <p>{peerData.peerShortDescription.translate}</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ante est, cursus quis risus at, blandit porttitor est. Suspendisse potenti. </p>
+                </div>
+
+              </div>
+
+
+              <div className={peerSupporterStyles.headerInfo}>
+                <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
+                <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
+                {peerData.publishedAt &&
+                  <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
+                }
+              </div>
             </div>
-            <div className={peerSupporterStyles.headerProfileImg}>
-              <Img
-                fluid={peerData.coverImage.asset.fluid}
-                loading="lazy"
-              />
-            </div>
+
+
+
           </div>
-        </div>
+        </section>
 
-        <div className={peerSupporterStyles.content}>
+        <section className={peerSupporterStyles.content}>
+          <div className={peerSupporterStyles.contentBlock}>
+            <BlockContent blocks={peerData.peerLongDescription.localized} />
+            {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
+          </div>
 
-          <h2>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </h2>
-          <ul className={peerSupporterStyles.tags}>
-            {peerData.tags.map((edge, tagid) => (
-              <li key={tagid}>
-                <span>{edge.tagsTitle.translate}</span>
-              </li>
-            ))}
-          </ul>
+          <aside className={peerSupporterStyles.contentTags}>
+            <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p>
+            <ul>
+              {peerData.tags.map((edge, tagid) => (
+                <li key={tagid}>
+                  <span>{edge.tagsTitle.translate}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </section>
 
-          <BlockContent blocks={peerData.peerLongDescription.localized} />
-          {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
-
-        </div>
-
-        <div className={peerSupporterStyles.form}>
+        <section className={peerSupporterStyles.form}>
           <div className={peerSupporterStyles.formWrapper}>
             <h4>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4>
             <div className={contactStyles.contactFormInput}>
@@ -199,8 +213,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               </form>
             </div>
           </div>
-        </div>
-      </section >
+        </section>
+      </div >
     </>
   )
 }

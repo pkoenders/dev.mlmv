@@ -58,16 +58,54 @@ const ListPeerSupporters = ({ data, language }) => {
             // for (var i = 0; i < tagList.length; i++) {
             //     tagList[i].classList.remove("selected")
             // }
+
+
+
+            var peerResultsTag = document.querySelectorAll(".peerResultsTag")
+
+            console.log("peerResultsTag.length = " + peerResultsTag.length)
+            for (var i = 0; i < peerResultsTag.length; i++) {
+                console.log("tagList.number = " + [i])
+                console.log("tagList.id = " + peerResultsTag[i].id)
+                peerResultsTag[i].classList.remove("selected")
+                if (peerResultsTag[i].id === event.target.id) {
+                    console.log("Matched Tag!")
+                    peerResultsTag[i].classList.add("selected")
+                }
+            }
+
+
             resetTagList()
             tagItem.classList.add("selected")
             tagSelectList = tagSelectList.concat(tagItemValue)
         } else {
+            var peerResultsTag = document.querySelectorAll(".peerResultsTag")
+            for (var i = 0; i < peerResultsTag.length; i++) {
+                console.log("tagList.id = " + peerResultsTag[i].id)
+                peerResultsTag[i].classList.remove("selected")
+            }
             tagItem.classList.remove("selected")
             tagSelectList = tagSelectList.replace(tagItemValue, '');
         }
         //console.log("tagSelectList (passing) = " + tagSelectList)
         document.getElementById("peerFilterInput").value = tagSelectList;
         filterList()
+
+        // var resultsTagList = document.querySelectorAll(".peerResultsTagList > li")
+        // for (var i = 0; i < resultsTagList.length; i++) {
+        //     console.log("tagSelectList =" + tagSelectList)
+        //     console.log("tagList.id =" + resultsTagList[i].id)
+        //     if (resultsTagList[i].id === tagSelectList) {
+        //         console.log("Match!")
+
+        //         var resultsTagListTarget = document.querySelectorAll(".peerResultsTagList > li")
+        //         console.log("resultsTagListTarget = " + resultsTagListTarget.length)
+        //         for (var x = 0; x < resultsTagListTarget.length; x++) {
+        //             resultsTagListTarget[x].classList.add("selected", "Match")
+        //         }
+        //     }
+        //     //tagList[i].classList.add("selected")
+        // }
     }
 
 
@@ -105,9 +143,9 @@ const ListPeerSupporters = ({ data, language }) => {
                     tagList += thisEdge.tagsTitle.translate + ' '
                 ))
             }
+
             const tags = tagList
             //console.log("query(input) = " + query)
-
             return (
                 description.toLowerCase().includes(query.toLowerCase()) ||
                 title.toLowerCase().includes(query.toLowerCase()) ||
@@ -117,8 +155,10 @@ const ListPeerSupporters = ({ data, language }) => {
                 //         .join("")
                 //         .toLowerCase()
                 //         .includes(query.toLowerCase()))
+
             )
         })
+
         setState({
             query,
             filteredData,
@@ -140,6 +180,7 @@ const ListPeerSupporters = ({ data, language }) => {
             }
         }
     }
+
     const { filteredData, query } = state
     const hasSearchResults = filteredData && query !== emptyQuery
     const posts = hasSearchResults ? filteredData : allPosts
@@ -212,9 +253,9 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <h2>{edge.node.peerSupporterFullName.translate}</h2>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
-                                                <ul >
+                                                <ul className={'peerResultsTagList'}>
                                                     {edge.node.tags.map((thisEdge, tagID) => (
-                                                        <li key={tagID}>
+                                                        <li className={"peerResultsTag"} key={tagID} id={thisEdge.tagsTitle.translate}>
                                                             {thisEdge.tagsTitle.translate}
                                                         </li>
                                                     ))}

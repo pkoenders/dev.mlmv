@@ -82,7 +82,7 @@ header.headerNavWrapper {
       position: relative;
       right: 15px;
       width: fit-content;
-      border-left: 1px solid #868686;
+      border-left: 1px solid #6FFFE9;
 
       li {
         clear: both;
@@ -129,8 +129,8 @@ header.headerNavWrapper {
           display: block;
           background: $primaryColor;
           border-radius: 1.5px;
-          background: #868686;
-          height: 2px;
+          background: #6FFFE9;
+          height: 1px;
           width: 0;
           left: 0px;
           transition: width 150ms ease-in-out;

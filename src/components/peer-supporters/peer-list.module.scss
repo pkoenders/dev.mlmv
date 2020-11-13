@@ -2,10 +2,11 @@
 
 .peerFilter {
     padding: $globalSecionPadding;
-    padding: 45px 0 1px 0;
-    margin-top: 40px !important;
+    padding: 0px 0 1px 0;
+    margin-top: 60px !important;
     background-color: turquoise;
     background-color: #c1def5;
+    background-color: $headerBgColor;
 
     @include respond-below(lg) {
         padding: 45px 0 5px 0;
@@ -35,12 +36,13 @@
                 font-size: 1.1rem;
                 line-height: 1.0rem;
                 font-weight: 500;
-                border-bottom: 2px solid $headerBgColor !important;
-                //border-bottom: 2px solid #FF00E9 !important;
+                //border-bottom: 2px solid $headerBgColor !important;
+                border-bottom: 2px solid #6FFFE9 !important;
 
                 color: $headerBgColor;
                 background-color: #03122315 !important;
                 background-color: #2f82c129 !important;
+                background-color: #fafcfd !important;
             }
 
             input:focus {
@@ -94,6 +96,11 @@
                     background-color: #487D93;
                     background-color: #1A75BB;
                     background-color: #317BB4;
+                    background-color: #335c7b;
+                    background-color: #3A506B;
+
+
+
                     // background-color: #b704a8;
 
 
@@ -136,6 +143,8 @@
     padding: 30px 0 1px 0;
     background-color: #110239;
     background-color: #1e0e48;
+    background-color: #335c7b;
+    background-color: #0B132B;
 
 
 
@@ -187,7 +196,7 @@
         ul li {
 
 
-            box-shadow: $globalBoxShadowA;
+            // box-shadow: $globalBoxShadowA;
             border-radius: $globalBorderRadiusA;
             //border: 1px solid $headerBgColor;
             //overflow: hidden;
@@ -228,11 +237,15 @@
             a {
                 color: $txtColor !important;
                 background-color: #291361;
+                background-color: #1C2541;
+                //background-color: #6FFFE9;
                 width: 100%;
                 height: 100%;
                 display: block;
+
                 >div {
                     overflow: hidden;
+
                     img {
 
 
@@ -253,11 +266,13 @@
 
                 span {
                     display: block;
-                    padding: 15px;
-                    border-top: 2px solid #FF00E9;
-                    border-top: 2px solid #2AF24B;
+                    padding: 15px 15px 11px 15px;
+                    border-top: 1px solid #FF00E9;
+                    border-top: 1px solid #ffffff;
+                    border-top: 2px solid #6FFFE9;
+                    //border-top: 2px solid #2AF24B;
 
-                    color: #ffffff;
+                    color: #5BC0BE;
                     text-align: left;
                     margin: 0px 0px 0;
 
@@ -290,9 +305,10 @@
                             display: block;
                             flex: none;
                             margin: 4px 8px 4px 0;
-                            color: #adc3d4;
-                            border: 1px solid #361884;
+                            color: #e4e9ec;
+                            //border: 1px solid #361884;
                             background-color: #1e0e48;
+                            background-color: #3A506B;
                             padding: 1px 12px;
                             font-size: .8rem;
                             border-radius: .2em;
@@ -308,6 +324,7 @@
 
             a:hover {
                 //color: #ffffff !important;
+                //box-shadow: $globalBoxShadowA;
                 text-decoration: none !important;
                 color: $primaryColor !important;
 
