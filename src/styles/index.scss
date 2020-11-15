@@ -389,7 +389,8 @@ button.buttonTertiary:hover,
   }
 }
 
-.tagListItem.selected {
+.tagListItem.selected,
+.peerResultsTags.selected {
   opacity: 1;
   color: $headerBgColor !important;
   background-color: $headerBgColor !important;

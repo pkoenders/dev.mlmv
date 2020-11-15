@@ -11,8 +11,8 @@ import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
 var peerResults = true
-// var filterValue = ""
-// var tagSelectList = ""
+var tagSelectList = ''
+
 const ListPeerSupporters = ({ data, language }) => {
     const { t, i18n } = useTranslation("peerSupporters")
     const tagsTranslate = i18n.language
@@ -44,112 +44,142 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const emptyQuery = ""
     var filterValue = ""
-    var tagSelectList = ""
+    var allPeerResultsTags = ''
+    var tagItemValue = ""
+
     const [state, setState] = useState({
         filteredData: [],
         query: emptyQuery
     })
 
     const handleTagSelect = event => {
+        filterValue = ""
         const tagItem = event.target
-        const tagItemValue = event.target.id + ''
-        if (!tagItem.classList.contains("selected")) {
-            // var tagList = document.querySelectorAll(".tagList > li")
-            // for (var i = 0; i < tagList.length; i++) {
-            //     tagList[i].classList.remove("selected")
-            // }
+        tagItemValue = event.target.id
 
+        const peerResultsTags = document.querySelectorAll(".peerResultsTags")
 
-
-            var peerResultsTag = document.querySelectorAll(".peerResultsTag")
-
-            console.log("peerResultsTag.length = " + peerResultsTag.length)
-            for (var i = 0; i < peerResultsTag.length; i++) {
-                console.log("tagList.number = " + [i])
-                console.log("tagList.id = " + peerResultsTag[i].id)
-                peerResultsTag[i].classList.remove("selected")
-                if (peerResultsTag[i].id === event.target.id) {
-                    console.log("Matched Tag!")
-                    peerResultsTag[i].classList.add("selected")
-                }
-            }
-
-
-            resetTagList()
-            tagItem.classList.add("selected")
-            tagSelectList = tagSelectList.concat(tagItemValue)
+        if ((document.getElementById("peerFilterInput").value) !== "") {
+            handleInputFilterReset()
         } else {
-            var peerResultsTag = document.querySelectorAll(".peerResultsTag")
-            for (var i = 0; i < peerResultsTag.length; i++) {
-                console.log("tagList.id = " + peerResultsTag[i].id)
-                peerResultsTag[i].classList.remove("selected")
+            tagItem.classList.toggle("selected")
+            for (var i = 0; i < peerResultsTags.length; i++) {
+                allPeerResultsTags += peerResultsTags[i].id + ' '
             }
-            tagItem.classList.remove("selected")
-            tagSelectList = tagSelectList.replace(tagItemValue, '');
+
+            if (tagItem.classList.contains("selected")) {
+                tagSelectList = tagSelectList.concat(event.target.id + ' ')
+            } else {
+                tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
+            }
+
+            filterListBytag()
+            updateResultsTagList(peerResultsTags, event)
         }
-        //console.log("tagSelectList (passing) = " + tagSelectList)
-        document.getElementById("peerFilterInput").value = tagSelectList;
-        filterList()
-
-        // var resultsTagList = document.querySelectorAll(".peerResultsTagList > li")
-        // for (var i = 0; i < resultsTagList.length; i++) {
-        //     console.log("tagSelectList =" + tagSelectList)
-        //     console.log("tagList.id =" + resultsTagList[i].id)
-        //     if (resultsTagList[i].id === tagSelectList) {
-        //         console.log("Match!")
-
-        //         var resultsTagListTarget = document.querySelectorAll(".peerResultsTagList > li")
-        //         console.log("resultsTagListTarget = " + resultsTagListTarget.length)
-        //         for (var x = 0; x < resultsTagListTarget.length; x++) {
-        //             resultsTagListTarget[x].classList.add("selected", "Match")
-        //         }
-        //     }
-        //     //tagList[i].classList.add("selected")
-        // }
     }
 
 
     const handleInputFilter = event => {
         filterValue = event.target.value
         filterList()
+        handleTagResultsReset()
+        handleResetTagList()
+        handleResetResultsTagList()
     }
 
     const handleInputFilterReset = event => {
-        event.target.value = ""
-        handleInputFilter(event)
-        handleTagSelect(event)
-        resetTagList()
+        //event.target.value = ""
+        document.getElementById("peerFilterInput").value = "";
+        filterValue = ""
+        tagSelectList = ""
+        filterList()
+        handleTagResultsReset()
+        handleResetTagList()
+        handleResetResultsTagList()
     }
-    function resetTagList() {
+
+    function handleTagResultsReset() {
+        tagSelectList = ""
+        var peerResults = document.querySelectorAll(".peerResults > li")
+        for (var i = 0; i < peerResults.length; i++) {
+            peerResults[i].style.display = "block"
+            peerResults[i].className = ""
+        }
+    }
+
+    function handleResetTagList() {
         var tagList = document.querySelectorAll(".tagList > li")
         for (var i = 0; i < tagList.length; i++) {
             tagList[i].classList.remove("selected")
         }
     }
 
+    function handleResetResultsTagList() {
+        var tagList = document.querySelectorAll(".peerResultsTags")
+        for (var i = 0; i < tagList.length; i++) {
+            tagList[i].classList.remove("selected")
+        }
+    }
+
+    const updateResultsTagList = (peerResultsTags, event) => {
+        for (var i = 0; i < peerResultsTags.length; i++) {
+            peerResultsTags[i].id === event.target.id && peerResultsTags[i].classList.toggle("selected")
+        }
+    }
+
+    function filterListBytag() {
+
+        const query = tagSelectList
+        //console.log("query = " + query)
+        var tagListParent = document.querySelectorAll(".peerResults ul")
+        for (var i = 0; i < tagListParent.length; i++) {
+            var currentTag = String(tagItemValue.toLowerCase().replace(/\s+/g, ''))
+
+            if (tagListParent[i].innerHTML.indexOf(tagItemValue) !== -1) {
+                tagListParent[i].parentNode.parentNode.parentNode.classList.toggle(currentTag)
+                if ((tagListParent[i].parentNode.parentNode.parentNode.className) !== '') {
+                    tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                }
+            }
+
+            if ((tagListParent[i].parentNode.parentNode.parentNode.className) === '') {
+                tagListParent[i].parentNode.parentNode.parentNode.style.display = "none"
+            }
+
+            if (tagSelectList === '') {
+                tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                tagListParent[i].parentNode.parentNode.parentNode.className = ""
+            }
+        }
+    }
+
     //const handleInputFilter = event => {
     function filterList() {
-        const query = filterValue + tagSelectList
+        const query = filterValue
         //console.log("query = " + query)
         const posts = peerListData.edges || []
         const filteredData = posts.filter(post => {
 
             const description = post.node.peerShortDescription.translate
             const title = post.node.peerSupporterFullName.translate
+            console.log("title = " + title)
 
             var tagList = ''
             if (post.node.tags) {
-                post.node.tags.map((thisEdge, tagID) => (
+                post.node.tags.map((thisEdge, i) => (
                     tagList += thisEdge.tagsTitle.translate + ' '
                 ))
             }
 
             const tags = tagList
+            console.log("query = " + query)
+
             //console.log("query(input) = " + query)
             return (
                 description.toLowerCase().includes(query.toLowerCase()) ||
                 title.toLowerCase().includes(query.toLowerCase()) ||
                 tags.toLowerCase().includes(query.toLowerCase())
+
                 // (tags &&
                 //     tags
                 //         .join("")
@@ -157,8 +187,8 @@ const ListPeerSupporters = ({ data, language }) => {
                 //         .includes(query.toLowerCase()))
 
             )
-        })
 
+        })
         setState({
             query,
             filteredData,
@@ -167,23 +197,33 @@ const ListPeerSupporters = ({ data, language }) => {
     }
 
     function updateLayout(filteredData) {
-        //console.log('filteredData = ', filteredData)
+
         if (filteredData.length === 0) {
             peerResults = false
         } else {
             peerResults = true
-            var peerListings = document.querySelectorAll(".peerListings > li")
-            //console.log('peerListings = ', peerListings)
-            for (var i = 0; i < peerListings.length; i++) {
-                peerListings[i].classList.add('sal-animate');
-                //console.log('Add class - sal-animate')
-            }
         }
+
+        // if (filteredData.length === 0) {
+        //     peerResults = false
+        // } else {
+        //     peerResults = true
+        //     var peerListings = document.querySelectorAll(".peerResults > li")
+
+        //     //console.log('peerListings = ', peerListings)
+        //     for (var i = 0; i < peerListings.length; i++) {
+        //         peerListings[i].classList.add('sal-animate');
+        //         //console.log('Add class - sal-animate')
+
+        //     }
+        // }
     }
 
     const { filteredData, query } = state
     const hasSearchResults = filteredData && query !== emptyQuery
     const posts = hasSearchResults ? filteredData : allPosts
+
+
     return (
         <>
             <section className={peerListStyles.peerFilter + ' section-layout-wide'}>
@@ -205,6 +245,7 @@ const ListPeerSupporters = ({ data, language }) => {
                     </div>
 
                     <nav className={peerListStyles.peerFilterTags} role="navigation">
+                        <span className={peerListStyles.or}>{t("peerSupporters:selectATag")}</span>
                         <ul className={'tagList'} role="menu">
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 return (
@@ -226,13 +267,13 @@ const ListPeerSupporters = ({ data, language }) => {
 
             <section className={peerListStyles.peerResults}>
                 <div className={peerListStyles.wrapper}>
-                    {peerResults != false && <h1>{t("peerSupporters:title")}</h1>}
-                    {peerResults === false &&
+                    {peerResults === true && <h1>{t("peerSupporters:title")}</h1>}
+                    {!peerResults !== false &&
                         <span>
                             {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
                             <br /><EmojiNoResult aria-hidden="true" />
                         </span>}
-                    <ul>
+                    <ul className={"peerResults"}>
                         {posts.map((edge, postID) => {
                             if (
                                 edge.node.peerSupporterActive === true
@@ -243,6 +284,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                         //data-sal="fade"
                                         data-sal-duration="300"
                                         data-sal-easing="ease"
+                                        className={""}
                                     >
                                         <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`}>
                                             <Img
@@ -253,9 +295,9 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <h2>{edge.node.peerSupporterFullName.translate}</h2>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
-                                                <ul className={'peerResultsTagList'}>
+                                                <ul>
                                                     {edge.node.tags.map((thisEdge, tagID) => (
-                                                        <li className={"peerResultsTag"} key={tagID} id={thisEdge.tagsTitle.translate}>
+                                                        <li className={"peerResultsTags"} key={tagID} id={thisEdge.tagsTitle.translate} >
                                                             {thisEdge.tagsTitle.translate}
                                                         </li>
                                                     ))}

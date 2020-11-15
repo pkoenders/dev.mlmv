@@ -80,6 +80,15 @@ exports.createPages = async ({
                 }
               }
             }
+
+            tags {
+              tagsTitle {
+                en
+                mi
+                sm
+                hi
+              }
+            }
           }
 
           previous {
@@ -123,7 +132,7 @@ exports.createPages = async ({
     createPage
   )
 
-  //Peer Suporter Pages (Templates)
+  //Peer Supporter Pages (Templates)
   const peerSupporterTemplate = path.resolve(`./src/templates/peerSupporter.js`)
   const peerSupporter = await graphql(`
     {
