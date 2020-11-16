@@ -42,7 +42,40 @@
             padding: 15px 30px 0;
             position: relative;
 
-            label.filterLabel {}
+            padding: 15px 30px 0;
+
+            @include respond-below(md) {
+                padding: 15px 15px 0;
+            }
+
+            @include respond-below(sm) {
+                padding: 15px 15px 0;
+            }
+
+            @include respond-below(xs) {
+                padding: 15px 15px 0;
+            }
+
+            label.filterLabel {
+                // position: absolute;
+                // //display: block;
+                // top: 32px;
+
+                // @include respond-below(sm) {
+                //     left: 15px;
+                //     right: 60px;
+                // }
+
+                // color: #6FFFE9;
+                // background-color: transparent;
+                // font-weight: 400;
+                // font-size: 1.0rem;
+                // line-height: 1.0rem;
+                // padding: 0px 12px;
+                // transition: top .25s ease-in;
+                // white-space: nowrap;
+                // overflow: hidden;
+            }
 
 
             input[type=search] {
@@ -50,7 +83,12 @@
                 z-index: 1;
 
                 background-color: #3A506B;
-                padding: 15px 60px 15px 30px;
+                padding: 15px 60px 15px 15px;
+
+                @include respond-below(md) {
+                    padding: 15px 30px 15px 15px;
+                }
+
                 border: none !important;
                 font-size: 1.1rem;
                 line-height: 1.0rem;
@@ -80,7 +118,13 @@
             .filterSearchIconAlt {
                 position: absolute;
                 top: 25px;
-                right: 55px;
+                right: 45px;
+
+                @include respond-below(md) {
+                    right: 30px;
+                }
+
+
                 background-color: transparent;
                 padding: 0;
                 border: none;
@@ -122,6 +166,19 @@
         .peerFilterTags {
             margin: 0 30px 0px;
 
+            @include respond-below(md) {
+                margin: 0 15px;
+            }
+
+            @include respond-below(sm) {
+                margin: 0 15px;
+            }
+
+            @include respond-below(xs) {
+                margin: 0 15px;
+            }
+
+
             ul {
                 width: auto;
                 margin: 0px 0 0 0;
@@ -151,7 +208,8 @@
 
                     border: 1px solid transparent;
                     outline: none;
-                    padding: 7.5px 15px;
+                    //padding: 7.5px 15px;
+                    padding: 6.5px 8.5px;
                     border-radius: 999em;
                     border-radius: .2rem;
                     user-select: none;
@@ -162,11 +220,12 @@
 
                         svg {
                             height: .8rem;
-                            width: 20px;
-                            margin: 0px 8px 1px -4px;
+                            height: auto;
+                            width: 12px;
+                            margin: 0px 5px 1px -2px;
                             pointer-events: none;
                             vertical-align: middle;
-                            // display: none;
+                            //display: none;
                         }
                     }
                 }

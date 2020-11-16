@@ -59,11 +59,16 @@ const ListPeerSupporters = ({ data, language }) => {
         const tagItem = event.target
         tagItemValue = event.target.id
 
-        const peerResultsTags = document.querySelectorAll(".peerResultsTags")
+        //
+        //handleInputFilterReset()
 
+        const peerResultsTags = document.querySelectorAll(".peerResultsTags")
         if ((document.getElementById("peerFilterInput").value) !== "") {
             handleInputFilterReset()
+
         } else {
+
+            // handleInputFilterReset()
             tagItem.classList.toggle("selected")
             for (var i = 0; i < peerResultsTags.length; i++) {
                 allPeerResultsTags += peerResultsTags[i].id + ' '
@@ -75,16 +80,19 @@ const ListPeerSupporters = ({ data, language }) => {
                 tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
             }
 
-            filterListBytag()
-            updateResultsTagList(peerResultsTags, event)
+
         }
+        filterListByTag()
+        updateResultsTagList(peerResultsTags, event)
+
+
     }
 
 
     const handleInputFilter = event => {
         filterValue = event.target.value
 
-        filterList()
+        filterListByInput()
         handleTagResultsReset()
         handleResetTagList()
         handleResetResultsTagList()
@@ -105,8 +113,11 @@ const ListPeerSupporters = ({ data, language }) => {
         //event.target.value = ""
         document.getElementById("peerFilterInput").value = ""
         filterValue = ""
-        tagSelectList = ""
-        filterList()
+        //tagSelectList = ""
+
+        filterListByInput()
+        //filterListByTag()
+
         handleTagResultsReset()
         handleResetTagList()
         handleResetResultsTagList()
@@ -173,8 +184,8 @@ const ListPeerSupporters = ({ data, language }) => {
         }
     }
 
-    function filterListBytag() {
-
+    function filterListByTag() {
+        // handleInputFilterReset()
         const query = tagSelectList
         //console.log("query = " + query)
         var tagListParent = document.querySelectorAll(".peerResults ul")
@@ -200,10 +211,11 @@ const ListPeerSupporters = ({ data, language }) => {
                 tagListParent[i].parentNode.parentNode.parentNode.className = ""
             }
         }
+
     }
 
     //const handleInputFilter = event => {
-    function filterList() {
+    function filterListByInput() {
         const query = filterValue
         //console.log("query = " + query)
         const posts = peerListData.edges || []
@@ -304,7 +316,7 @@ const ListPeerSupporters = ({ data, language }) => {
                         <ul className={'tagList'} role="menu">
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 return (
-                                    <li key={allTagsID} onClick={handleTagSelect} onKeyPress={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
+                                    <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUP={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
                                         <span aria-hidden="true">
                                             <IconSelected />
                                             <IconUnSelected />
