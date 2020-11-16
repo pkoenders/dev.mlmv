@@ -97,8 +97,7 @@
             }
 
 
-            input[type=search]:focus,
-            input[type=search].focus {
+            input[type=search]:focus {
                 color: $headerBgColor;
                 background-color: #ffffff;
                 outline: none;
@@ -109,8 +108,10 @@
             }
 
             input[type=search]::-webkit-input-placeholder {
-                color: transparent
+                color: transparent;
             }
+
+
 
 
             button.filterReset,
@@ -262,7 +263,8 @@
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: .075rem;
-            margin: 0 0 15px 0;
+            margin: 0 30px 15px 30px;
+
         }
 
         span {

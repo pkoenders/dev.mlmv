@@ -270,31 +270,31 @@ textarea {
   resize: none;
 }
 
-input:hover,
-input:focus,
-textarea:hover,
-textarea:focus,
-select:hover,
-select:focus,
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  $tertiaryColor: #1AACE5;
-  border: 1px solid $tertiaryColor !important;
-  border-bottom: 2px solid $tertiaryColor !important;
-  border-radius: 2px;
-  outline: none;
-  -webkit-text-fill-color: $txtColor;
-  //-webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
-  transition: background-color 5000s ease-in-out 0s;
-  //font-size: 0.9em !important;
-}
+// input:hover,
+// input:focus,
+// textarea:hover,
+// textarea:focus,
+// select:hover,
+// select:focus,
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//   $tertiaryColor: #778185;
+//   border: 1px solid $tertiaryColor !important;
+//   border-bottom: 2px solid $tertiaryColor !important;
+//   border-radius: 2px;
+//   outline: none;
+//   -webkit-text-fill-color: $txtColor;
+//   //-webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+//   transition: background-color 5000s ease-in-out 0s;
+//   //font-size: 0.9em !important;
+// }
 
 button:hover,
 button:focus {
@@ -364,6 +364,7 @@ h1 {
   //text-transform: uppercase;
   font-size: 1.8rem;
   line-height: 2.6rem;
+  line-height: 1.7rem;
 
 }
 

@@ -411,7 +411,7 @@ button.buttonTertiary:hover,
 
 label.filterLabel {
   position: absolute;
-  width: fit-content;
+  width: auto;
   top: 32px;
   left: 45px;
   right: 60px;
@@ -433,6 +433,7 @@ label.filterLabel {
 
 label.filterLabel.focus {
   position: absolute;
+  width: fit-content;
 
   top: -2px;
   //left: 30px;

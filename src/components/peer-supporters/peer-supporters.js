@@ -12,7 +12,7 @@ import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
 
-var peerResults = true
+var peerResultsShow = true
 var tagSelectList = ''
 
 const ListPeerSupporters = ({ data, language }) => {
@@ -44,6 +44,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const allSanityTags = listAllSanityTags.allSanityTags.edges
 
+
     const emptyQuery = ""
     var filterValue = ""
     var allPeerResultsTags = ''
@@ -65,10 +66,7 @@ const ListPeerSupporters = ({ data, language }) => {
         const peerResultsTags = document.querySelectorAll(".peerResultsTags")
         if ((document.getElementById("peerFilterInput").value) !== "") {
             handleInputFilterReset()
-
         } else {
-
-            // handleInputFilterReset()
             tagItem.classList.toggle("selected")
             for (var i = 0; i < peerResultsTags.length; i++) {
                 allPeerResultsTags += peerResultsTags[i].id + ' '
@@ -79,13 +77,9 @@ const ListPeerSupporters = ({ data, language }) => {
             } else {
                 tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
             }
-
-
         }
         filterListByTag()
         updateResultsTagList(peerResultsTags, event)
-
-
     }
 
 
@@ -159,7 +153,7 @@ const ListPeerSupporters = ({ data, language }) => {
         tagSelectList = ""
         var peerResults = document.querySelectorAll(".peerResults > li")
         for (var i = 0; i < peerResults.length; i++) {
-            peerResults[i].style.display = "block"
+            // peerResults[i].style.display = "block"
             peerResults[i].className = ""
         }
     }
@@ -185,7 +179,7 @@ const ListPeerSupporters = ({ data, language }) => {
     }
 
     function filterListByTag() {
-        // handleInputFilterReset()
+
         const query = tagSelectList
         //console.log("query = " + query)
         var tagListParent = document.querySelectorAll(".peerResults ul")
@@ -207,10 +201,11 @@ const ListPeerSupporters = ({ data, language }) => {
 
             if (tagSelectList === '') {
                 //tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
-                tagListParent[i].parentNode.parentNode.parentNode.classList.add("hide")
-                tagListParent[i].parentNode.parentNode.parentNode.className = ""
+                tagListParent[i].parentNode.parentNode.parentNode.classList.remove("hide")
+                //tagListParent[i].parentNode.parentNode.parentNode.className = ""
             }
         }
+
 
     }
 
@@ -260,9 +255,14 @@ const ListPeerSupporters = ({ data, language }) => {
     function updateLayout(filteredData) {
 
         if (filteredData.length === 0) {
-            peerResults = false
+            peerResultsShow = false
+            document.querySelector(".presentPeerResultsShow").style.display = "block"
+            document.querySelector(".presentPeerTitleShow").style.display = "none"
+
         } else {
-            peerResults = true
+            peerResultsShow = true
+            document.querySelector(".presentPeerResultsShow").style.display = "none"
+            document.querySelector(".presentPeerTitleShow").style.display = "block"
         }
 
         // if (filteredData.length === 0) {
@@ -334,12 +334,12 @@ const ListPeerSupporters = ({ data, language }) => {
 
             <section className={peerListStyles.peerResults}>
                 <div className={peerListStyles.wrapper}>
-                    {peerResults === true && <h1>{t("peerSupporters:title")}</h1>}
-                    {!peerResults !== false &&
-                        <span>
-                            {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
-                            <br /><EmojiNoResult aria-hidden="true" />
-                        </span>}
+                    <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1>
+
+                    <span className={'presentPeerResultsShow'} style={{ display: 'none' }}>
+                        {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
+                        <br /><EmojiNoResult aria-hidden="true" />
+                    </span>
                     <ul className={"peerResults"}>
                         {posts.map((edge, postID) => {
                             if (
