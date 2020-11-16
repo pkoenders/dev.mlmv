@@ -420,7 +420,7 @@ label.filterLabel {
   font-weight: 400;
   font-size: 1.0rem;
   padding: 2px 12px;
-  transition: top .25s ease-in-out;
+  transition: top .25s ease-in;
 }
 
 label.filterLabel.focus {
@@ -445,4 +445,12 @@ svg.filterSearchIcon.hide,
 svg.filterSearchIconAlt.hide {
   display: none;
 
+}
+
+.peerResults li {
+  display: block;
+}
+
+.peerResults li.hide {
+  display: none;
 }

@@ -188,6 +188,17 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   </label>
                 </p>
                 <p>
+                  <label htmlFor="contactNumber">
+                    <span>{t("supporterFormFields:contactNumber")}</span>
+                    <input
+                      type="text"
+                      name="contactNumber"
+                      id="contactNumber"
+                    />
+                  </label>
+                </p>
+
+                <p>
                   <label htmlFor="subject">
                     <span>{t("supporterFormFields:subject")}</span>
                     <input

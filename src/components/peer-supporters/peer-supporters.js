@@ -184,16 +184,19 @@ const ListPeerSupporters = ({ data, language }) => {
             if (tagListParent[i].innerHTML.indexOf(tagItemValue) !== -1) {
                 tagListParent[i].parentNode.parentNode.parentNode.classList.toggle(currentTag)
                 if ((tagListParent[i].parentNode.parentNode.parentNode.className) !== '') {
-                    tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                    //tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                    tagListParent[i].parentNode.parentNode.parentNode.classList.remove("hide")
                 }
             }
 
             if ((tagListParent[i].parentNode.parentNode.parentNode.className) === '') {
-                tagListParent[i].parentNode.parentNode.parentNode.style.display = "none"
+                // tagListParent[i].parentNode.parentNode.parentNode.style.display = "none"
+                tagListParent[i].parentNode.parentNode.parentNode.classList.add("hide")
             }
 
             if (tagSelectList === '') {
-                tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                //tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
+                tagListParent[i].parentNode.parentNode.parentNode.classList.add("hide")
                 tagListParent[i].parentNode.parentNode.parentNode.className = ""
             }
         }
