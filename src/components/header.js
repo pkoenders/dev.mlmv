@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import LogoMLMVHeader from "../images/svg/logo-mlmv.inline.svg"
-import IconTick from "../images/svg/icon-tick.inline.svg"
+import IconTick from "../images/svg/icon-tick-nav.inline.svg"
 import IconClose from "../images/svg/icon-close.inline.svg"
 import '../styles/index.scss'
 import "../styles/hamburger.scss"

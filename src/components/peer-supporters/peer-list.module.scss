@@ -9,13 +9,17 @@
     background-color: $headerBgColor;
 
     @include respond-below(lg) {
-        padding: 45px 0 5px 0;
+        padding: 7.5px 0 5px 0;
     }
 
     h1,
     span.or {
         text-align: center;
         color: #ffffff;
+    }
+
+    h1 {
+        letter-spacing: .5rem;
     }
 
     span.or {
@@ -26,8 +30,8 @@
         line-height: 1;
         opacity: .75;
         font-weight: 300;
-        letter-spacing: .075rem;
-        text-transform: uppercase;
+        //letter-spacing: .075rem;
+        //text-transform: uppercase;
     }
 
     div.wrapper {
@@ -35,48 +39,76 @@
         margin: 0 auto;
 
         .peerFilterInput {
-            padding: 0 30px;
+            padding: 15px 30px 0;
             position: relative;
 
-            label {
-                display: none;
-            }
+            label.filterLabel {}
 
-            input,
-            input:focus {
+
+            input[type=search] {
+                color: #ffffff;
+                z-index: 1;
+
+                background-color: #3A506B;
                 padding: 15px 60px 15px 30px;
                 border: none !important;
                 font-size: 1.1rem;
                 line-height: 1.0rem;
                 font-weight: 500;
-                //border-bottom: 2px solid $headerBgColor !important;
                 border-bottom: 2px solid #6FFFE9 !important;
+            }
 
+
+            input[type=search]:focus,
+            input[type=search].focus {
                 color: $headerBgColor;
-                background-color: #03122315 !important;
-                background-color: #2f82c129 !important;
-                background-color: #fafcfd !important;
+                background-color: #ffffff;
+                outline: none;
             }
 
-            input:focus {
-                background-color: #ffffff !important;
+            input[type=search]::placeholder {
+                color: transparent;
             }
 
-            button {
+            input[type=search]::-webkit-input-placeholder {
+                color: transparent
+            }
+
+
+            button.filterReset,
+            .filterSearchIcon,
+            .filterSearchIconAlt {
                 position: absolute;
-                top: 15px;
-                right: 45px;
+                top: 25px;
+                right: 55px;
                 background-color: transparent;
                 padding: 0;
                 border: none;
+                z-index: 10000;
                 cursor: pointer;
+                height: 26px;
+                width: auto;
 
 
                 svg {
-                    height: 26px;
+                    height: inherit;
                     width: auto;
                 }
             }
+
+            .filterSearchIcon,
+            .filterSearchIconAlt {
+                pointer-events: none;
+            }
+
+            button.filterReset.hide,
+            .filterSearchIcon.hide,
+            .filterSearchIconAlt.hide {
+                display: none;
+
+            }
+
+
 
             span {
                 text-align: center;
@@ -88,7 +120,7 @@
         }
 
         .peerFilterTags {
-            margin: 0 30px 15px;
+            margin: 0 30px 0px;
 
             ul {
                 width: auto;
@@ -153,7 +185,7 @@
 
 
 .peerResults {
-    padding: 30px 0 1px 0;
+    padding: 15px 0 1px 0;
     background-color: #110239;
     background-color: #1e0e48;
     background-color: #335c7b;
@@ -170,6 +202,8 @@
             text-align: center;
             color: #ffffff;
             text-transform: uppercase;
+            letter-spacing: .075rem;
+            margin: 0 0 15px 0;
         }
 
         span {
@@ -201,7 +235,7 @@
             padding: 0px;
 
             @include respond-below(sm) {
-                padding: 7.5px;
+                //padding: 7.5px;
             }
 
         }
@@ -218,18 +252,17 @@
             flex-basis: calc(33% - 60px);
 
             @include respond-below(md) {
-                flex-basis: calc(44% - 15px);
-                //margin: 15px;
+                flex-basis: calc(47% - 7.5px);
+                margin: 15px;
             }
 
             @include respond-below(sm) {
-                flex-basis: calc(45% - 15px);
-                //border-bottom: 1px solid #d8d8d8;
-                //margin-bottom: 30px;
+                flex-basis: calc(46% - 7.5px);
+                margin: 15px;
             }
 
             @include respond-below(xs) {
-                flex-basis: calc(100% - 15px);
+                flex-basis: calc(100% - 7.5px);
                 // border-bottom: 1px solid #d8d8d8;
                 margin-bottom: 30px;
             }

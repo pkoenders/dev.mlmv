@@ -6,6 +6,8 @@ import peerListStyles from './peer-list.module.scss'
 import IconSelected from "../../images/svg/icon-tick.inline.svg"
 import IconUnSelected from "../../images/svg/icon-add.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
+import IconSearch from "../../images/svg/icon-search.inline.svg"
+import IconSearchAlt from "../../images/svg/icon-search-alt.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
@@ -81,21 +83,65 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const handleInputFilter = event => {
         filterValue = event.target.value
+
         filterList()
         handleTagResultsReset()
         handleResetTagList()
         handleResetResultsTagList()
+        handleSearchIcon()
     }
 
+    function handleInputFilterPreSet() {
+        const inputValue = document.getElementById("peerFilterInput")
+        console.log("inputValue = " + inputValue.value)
+        if (inputValue.value !== "") {
+            inputValue.classList.add('focus')
+        } else {
+            inputValue.classList.remove('focus')
+        }
+
+    }
     const handleInputFilterReset = event => {
         //event.target.value = ""
-        document.getElementById("peerFilterInput").value = "";
+        document.getElementById("peerFilterInput").value = ""
         filterValue = ""
         tagSelectList = ""
         filterList()
         handleTagResultsReset()
         handleResetTagList()
         handleResetResultsTagList()
+        handleInputLabelStatusBlur()
+        document.querySelector(".filterSearchIcon").classList.remove('hide')
+    }
+
+    function handleInputLabelStatusFocus() {
+        handleSearchIcon()
+        document.querySelector(".filterLabel").classList.add('focus')
+    }
+    function handleInputLabelStatusBlur() {
+        //
+        const inputValue = document.getElementById("peerFilterInput")
+        const inputLabel = document.querySelector(".filterLabel")
+        if (inputValue.value === "") {
+            inputValue.classList.remove('focus')
+            inputLabel.classList.remove('focus')
+            handleSearchIcon()
+        }
+    }
+
+    function handleSearchIcon() {
+        if (filterValue === "") {
+            document.querySelector(".filterSearchIcon").classList.toggle('hide')
+            document.querySelector(".filterSearchIconAlt").classList.toggle('hide')
+            document.querySelector(".filterReset").classList.add('hide')
+        }
+        if (filterValue !== "") {
+            document.querySelector(".filterSearchIcon").classList.add('hide')
+            document.querySelector(".filterSearchIconAlt").classList.add('hide')
+            document.querySelector(".filterReset").classList.remove('hide')
+
+
+        }
     }
 
     function handleTagResultsReset() {
@@ -230,7 +276,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
                 <div className={peerListStyles.wrapper}>
                     <div className={peerListStyles.peerFilterInput} >
-                        <form><label htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                        <form><label className={peerListStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
                                 //className={peerListStyles.peerFilterInput}
                                 id="peerFilterInput"
@@ -239,8 +285,14 @@ const ListPeerSupporters = ({ data, language }) => {
                                 role="search"
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
+                                onFocus={handleInputLabelStatusFocus}
+                                onBlur={handleInputLabelStatusBlur}
                             />
-                            {query !== "" && <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onKeyPress={handleInputFilterReset}><IconReset aria-hidden="true" /></button>}
+                            {/* {query !== "" && <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyUp={handleInputFilterReset}><IconReset aria-hidden="true" /></button>} */}
+                            <button className={peerListStyles.filterReset + ' filterReset hide'} aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyUp={handleInputFilterReset}><IconReset aria-hidden="true" /></button>
+
+                            <IconSearchAlt className={peerListStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
+                            <IconSearch className={peerListStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
                         </form>
                     </div>
 

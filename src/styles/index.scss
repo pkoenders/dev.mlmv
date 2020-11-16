@@ -408,3 +408,41 @@ button.buttonTertiary:hover,
     }
   }
 }
+
+label.filterLabel {
+  //display: none;
+  position: absolute;
+  display: block;
+  top: 25px;
+  left: 45px;
+  color: #6FFFE9;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 1.0rem;
+  padding: 2px 12px;
+  transition: top .25s ease-in-out;
+}
+
+label.filterLabel.focus {
+  position: absolute;
+  top: -8px;
+  left: 60px;
+  font-size: .8rem;
+  font-weight: 300;
+  color: #ffffffbd;
+  background-color: $headerBgColor;
+
+}
+
+input#peerFilterInput.focus[type=search] {
+  color: $headerBgColor;
+  background-color: #ffffff;
+  outline: none;
+}
+
+button.filterReset.hide,
+svg.filterSearchIcon.hide,
+svg.filterSearchIconAlt.hide {
+  display: none;
+
+}
