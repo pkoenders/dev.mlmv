@@ -112,7 +112,11 @@ div.peerSupporterWrapper {
 
                     // background: $headerBgColor;
 
-                    background: #D7E7EF;
+
+                    background: rgb(215, 231, 239);
+                    background: linear-gradient(180deg, rgba(215, 231, 239, 1) 80%, rgba(200, 219, 228, 1) 100%);
+
+                    //background: #D7E7EF;
                     border-radius: 4px 4px 0 0;
 
 
