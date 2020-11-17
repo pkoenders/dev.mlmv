@@ -23,7 +23,7 @@ header.headerNavWrapper {
   height: 60px;
 
   a {
-    margin: 0;
+    margin: 3px 0 0 3px;
     display: flex;
     z-index: 1003;
 
@@ -38,6 +38,18 @@ header.headerNavWrapper {
     }
   }
 
+  a:focus {
+    outline: none;
+  }
+
+  a:focus-visible {
+    @include focusVisibleForDark;
+  }
+
+  a:-moz-focusring {
+    @include focusVisibleForDark;
+  }
+
   nav.header-nav {
     z-index: 1001;
     min-width: 130px;
@@ -47,13 +59,27 @@ header.headerNavWrapper {
     button {
       position: absolute;
       align-self: center;
-      padding: 5px 15px;
+      padding: 2px 12px;
       height: 60px;
-      right: 15px;
+      top: 3px;
+
+      right: 3px;
       border: none;
       align-self: center;
       cursor: pointer;
-      padding-right: 0px;
+      //@at-rootpadding-right: 0px;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button:focus-visible {
+      @include focusVisibleForDark;
+    }
+
+    button:-moz-focusring {
+      @include focusVisibleForDark;
     }
 
     ul {
@@ -88,6 +114,7 @@ header.headerNavWrapper {
         clear: both;
 
 
+
         a,
         p,
         span,
@@ -100,7 +127,8 @@ header.headerNavWrapper {
           right: auto;
           color: #ffffff;
           opacity: .85;
-          padding: 10px 0 10px 30px;
+          padding: 10px 30px 10px 30px;
+          margin-left: 3px;
           position: relative;
           width: fit-content;
           text-align: left;
@@ -132,7 +160,7 @@ header.headerNavWrapper {
           background: #6FFFE9;
           height: 1px;
           width: 0;
-          left: 0px;
+          left: -3px;
           transition: width 150ms ease-in-out;
         }
 
@@ -140,6 +168,32 @@ header.headerNavWrapper {
         button:hover:after {
           width: 100%;
         }
+
+        a:focus {
+          outline: none;
+        }
+
+        button:focus {
+          outline: none;
+        }
+
+        /* Optional: Customize .focus-visible */
+        a:focus-visible {
+          @include focusVisibleForDark;
+        }
+
+        button:focus-visible {
+          @include focusVisibleForDark;
+        }
+
+        button:-moz-focusring {
+          @include focusVisibleForDark;
+        }
+
+        a:-moz-focusring {
+          @include focusVisibleForDark;
+        }
+
       }
 
       li.breakNav {
@@ -149,6 +203,7 @@ header.headerNavWrapper {
       li.status {
         padding-top: 30px;
       }
+
     }
 
     div {

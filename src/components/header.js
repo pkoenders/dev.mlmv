@@ -44,21 +44,109 @@ const Header = ({ data, location }) => {
           </button>
 
           <ul id="mainNavigation" aria-label="Open and Close navigation menu" role="menu">
-            <li role="none"><Link to={`/${i18n.language}`} role="menuitem" tabIndex="0" title="Link to Homepage">My Life My Voice</Link></li>
-            <li role="none"><Link to={`/${i18n.language}/peer-supporters`} role="menuitem" tabIndex="0" title="Link to Peer Supporters">Peer Supporters</Link></li>
-            <li role="none"><Link to={`/${i18n.language}/contact`} role="menuitem" tabIndex="0" title="Link to Contact us">Contact us</Link></li>
-            <li role="none"><Link to={`/${i18n.language}/about`} role="menuitem" tabIndex="0" title="Link to About My Life My Voice">About My Life My Voice</Link></li>
-            <li role="none"><Link to={`/${i18n.language}/terms-and-use`} role="menuitem" tabIndex="0" title="Link to Terms of use">Terms of use</Link></li>
-            <li role="none" className="breakNav"><Link to={`/${i18n.language}/accessibility`} role="menuitem" tabIndex="0" title="Link to Website accessiblity">Website accessiblity</Link></li>
+            <li role="none">
+              <Link
+                to={`/${i18n.language}`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to Homepage">
+                My Life My Voice
+              </Link>
+            </li>
+            <li role="none">
+              <Link
+                to={`/${i18n.language}/peer-supporters`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to Peer Supporters">
+                Peer Supporters
+                </Link>
+            </li>
+            <li role="none">
+              <Link
+                to={`/${i18n.language}/contact`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to Contact us">
+                Contact us
+                </Link>
+            </li>
+            <li role="none">
+              <Link
+                to={`/${i18n.language}/about`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to About My Life My Voice">
+                About My Life My Voice
+                </Link>
+            </li>
+            <li role="none">
+              <Link
+                to={`/${i18n.language}/terms-and-use`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to Terms of use">Terms of use
+              </Link>
+            </li>
+            <li role="none" className="breakNav">
+              <Link
+                to={`/${i18n.language}/accessibility`}
+                role="menuitem"
+                tabIndex="0"
+                title="Link to Website accessiblity">
+                Website accessiblity
+                </Link>
+            </li>
             {i18n.language === "en"
-              ? <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Selected language is English(NZ)" >English(NZ)<IconTick aria-hidden="true" /></Link></li>
-              : <li role="none"><Link to={`/en${newPathName}`} hrefLang="en" role="menuitem" tabIndex="0" title="Switch language to English(NZ)" >English(NZ)</Link></li>
+              ? <li role="none">
+                <Link
+                  to={`/en${newPathName}`}
+                  hrefLang="en" role="menuitem"
+                  tabIndex="0"
+                  title="Selected language is English(NZ)" >English(NZ)
+                <IconTick aria-hidden="true" />
+                </Link>
+              </li>
+              : <li role="none">
+                <Link
+                  to={`/en${newPathName}`}
+                  hrefLang="en"
+                  role="menuitem"
+                  tabIndex="0"
+                  title="Switch language to English(NZ)" >
+                  English(NZ)
+                  </Link>
+              </li>
             }
             {i18n.language === "mi"
-              ? <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="0" title="Selected language is  Māori">Māori<IconTick aria-hidden="true" /></Link></li>
-              : <li role="none"><Link to={`/mi${newPathName}`} hrefLang="mi" role="menuitem" tabIndex="-0" title="Switch language to Māori">Māori</Link></li>
+              ? <li role="none">
+                <Link
+                  to={`/mi${newPathName}`}
+                  hrefLang="mi"
+                  role="menuitem"
+                  tabIndex="0"
+                  title="Selected language is  Māori">
+                  Māori<IconTick aria-hidden="true" />
+                </Link>
+              </li>
+              : <li role="none">
+                <Link
+                  to={`/mi${newPathName}`}
+                  hrefLang="mi"
+                  role="menuitem"
+                  tabIndex="0"
+                  title="Switch language to Māori">
+                  Māori
+                  </Link>
+              </li>
             }
-            <li role="none"><button aria-label="Close navigation menu" role="menuitem" tabIndex="0">Close menu<IconClose aria-hidden="true" /></button></li>
+            <li role="none">
+              <button
+                aria-label="Close navigation menu"
+                role="menuitem" tabIndex="0">Close menu
+                  <IconClose aria-hidden="true" />
+              </button>
+            </li>
           </ul>
         </nav>
       </header >

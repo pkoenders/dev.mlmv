@@ -23,6 +23,15 @@ $footerBgColor: #0B132B;
 
 $altColorA: #3c5168bf;
 
+
+// .focusVisibleForDark {
+//     outline: #6FFFE9 solid 3px;
+// }
+
+@mixin focusVisibleForDark {
+    outline: #6FFFE9 solid 3px !important;
+}
+
 $globalSecionPadding: 45px 0 90px 0;
 $globalBorderRadiusA: 3px;
 $globalBorderRadiusB: 15px;

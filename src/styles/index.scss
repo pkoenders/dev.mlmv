@@ -37,21 +37,18 @@ canvas {
 }
 
 
-.skipLink {
+a.skipLink {
+  background: #ffffff;
+  height: 30px;
+  left: 50%;
+  padding: 8px;
   position: absolute;
-  left: -999px;
-  width: 1px;
-  height: 1px;
-  top: auto;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
 
-  &:focus {
-    //color: $background-color;
-    display: inline-block;
-    height: auto;
-    width: auto;
-    position: static;
-    margin: auto;
-  }
+a.skipLink:focus {
+  transform: translateY(0%);
 }
 
 .section-layout-wide {
@@ -383,7 +380,7 @@ button.buttonTertiary:hover,
     }
 
     svg:nth-child(2) {
-      opacity: .25;
+      opacity: .5;
       display: inline-block;
     }
   }

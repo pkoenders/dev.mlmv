@@ -3,8 +3,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 import peerListStyles from './peer-list.module.scss'
-import IconSelected from "../../images/svg/icon-tick.inline.svg"
-import IconUnSelected from "../../images/svg/icon-add.inline.svg"
+import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
+import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import IconSearchAlt from "../../images/svg/icon-search-alt.inline.svg"
@@ -24,6 +24,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
     //console.log("translate = " + i18n.language)
 
+    // Query all the tags. 
     const listAllSanityTags = useStaticQuery(graphql`
     query {
         allSanityTags(sort: {order: ASC, fields: tagsTitle___en}) {
@@ -41,11 +42,12 @@ const ListPeerSupporters = ({ data, language }) => {
         }
         `)
 
+    const allSanityTags = listAllSanityTags.allSanityTags.edges
+
+    // Sinch we are creating a Template for language support, get Peer Supports data from node gatsby Node
     const { allSanityPeerSupporters } = data // data.markdownRemark holds your post data
     const peerListData = allSanityPeerSupporters
     const allPosts = peerListData.edges
-
-    const allSanityTags = listAllSanityTags.allSanityTags.edges
 
     // Check if the tags filtering list has matching tags in the results. 
     // It is possible to create a tag in Sanity and not attached to a Peer supporter.
@@ -76,42 +78,59 @@ const ListPeerSupporters = ({ data, language }) => {
         //console.log("emptyTags = " + emptyTags)
     }
 
+    // Set up some variables...
+
     const emptyQuery = ""
     var filterValue = ""
-    var allPeerResultsTags = ''
     var tagItemValue = ""
+    var allPeerResultsTags = ''
 
+    // State for our query
     const [state, setState] = useState({
         filteredData: [],
         query: emptyQuery
     })
 
+
+    // First deal with the tag select, When user click on tag list to filter the results query
     const handleTagSelect = event => {
+        //Reset any (input) filter values 
         filterValue = ""
+
+        //Get the tag data passed from the event click etc
         const tagItem = event.target
         tagItemValue = event.target.id
 
-        //
-        //handleInputFilterReset()
-
+        // Get our Peer Results Tags
         const peerResultsTags = document.querySelectorAll(".peerResultsTags")
         if ((document.getElementById("peerFilterInput").value) !== "") {
+
+            // If the input fiels still has data in it, lets clear that
             handleInputFilterReset()
+
         } else {
+            // Toggle our tag so it looks selected!
             tagItem.classList.toggle("selected")
             for (var i = 0; i < peerResultsTags.length; i++) {
+                //Create a list of all Peer results tags that match selected
                 allPeerResultsTags += peerResultsTags[i].id + ' '
             }
 
             if (tagItem.classList.contains("selected")) {
+                // If we toggle on tag, then add item from list 
                 tagSelectList = tagSelectList.concat(event.target.id + ' ')
             } else {
+                // If we toggle off tag, then remove item from list 
                 tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
             }
 
+            //Then update the Peer results tags
+            updateResultsTagList(peerResultsTags, event)
+
         }
+        // And update our Peer results 
         filterListByTag()
-        updateResultsTagList(peerResultsTags, event)
+
     }
 
 
@@ -296,20 +315,6 @@ const ListPeerSupporters = ({ data, language }) => {
             document.querySelector(".presentPeerResultsShow").style.display = "none"
             document.querySelector(".presentPeerTitleShow").style.display = "block"
         }
-
-        // if (filteredData.length === 0) {
-        //     peerResults = false
-        // } else {
-        //     peerResults = true
-        //     var peerListings = document.querySelectorAll(".peerResults > li")
-
-        //     //console.log('peerListings = ', peerListings)
-        //     for (var i = 0; i < peerListings.length; i++) {
-        //         peerListings[i].classList.add('sal-animate');
-        //         //console.log('Add class - sal-animate')
-
-        //     }
-        // }
     }
 
     const { filteredData, query } = state
@@ -326,6 +331,7 @@ const ListPeerSupporters = ({ data, language }) => {
                         <form><label className={peerListStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
                                 //className={peerListStyles.peerFilterInput}
+                                tabindex="0"
                                 id="peerFilterInput"
                                 type="search"
                                 name="FilterSupporters"
@@ -336,7 +342,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                 onBlur={handleInputLabelStatusBlur}
                             />
                             {/* {query !== "" && <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyUp={handleInputFilterReset}><IconReset aria-hidden="true" /></button>} */}
-                            <button className={peerListStyles.filterReset + ' filterReset hide'} aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyUp={handleInputFilterReset}><IconReset aria-hidden="true" /></button>
+                            <button className={peerListStyles.filterReset + ' filterReset hide'} aria-label="Clear keyword input field" type="reset" value="reset" tabindex="0" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyDown={handleInputFilterReset}><IconReset aria-hidden="true" /></button>
 
                             <IconSearchAlt className={peerListStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
                             <IconSearch className={peerListStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
@@ -345,16 +351,30 @@ const ListPeerSupporters = ({ data, language }) => {
 
                     <nav className={peerListStyles.peerFilterTags} role="navigation">
                         <span className={peerListStyles.or}>{t("peerSupporters:selectATag")}</span>
-                        <ul className={'tagList'} role="menu">
+                        <ul
+                            className={'tagList'}
+                            role="menu"
+                        >
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 if (
                                     !allTagsEdge.node.tagsTitle[tagsTranslate].includes(emptyTags)
                                 ) {
                                     return (
-                                        <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUp={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
+                                        <li
+                                            key={allTagsID}
+                                            id={allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            className={'tagListItem focus-visible'}
+                                            aria-label="Filter peer supports list"
+                                            aria-pressed="false"
+                                            role="menuitem"
+                                            tabIndex="0"
+                                            onMouseDown={handleInputFilterPreSet}
+                                            onMouseUp={handleInputFilterReset, handleTagSelect}
+                                            onKeyPress={handleTagSelect}
+                                        >
                                             <span aria-hidden="true">
-                                                <IconSelected />
-                                                <IconUnSelected />
+                                                <IconTagSelected />
+                                                <IconTagUnSelected />
                                             </span>
                                             {allTagsEdge.node.tagsTitle[tagsTranslate]}
                                         </li>
