@@ -39,6 +39,8 @@ exports.createPages = async ({
             slug {
               current
             }
+
+            
             peerSupporterFullName {
               en
               mi
@@ -126,9 +128,10 @@ exports.createPages = async ({
       component: peerSupportersTemplate,
       context: {
         peerSupporters: node.id,
+        tags: node.tags.tagsTitle,
       },
     }),
-    ["common", "peerSupporters"],
+    ["common", "tags", "peerSupporters"],
     createPage
   )
 
@@ -143,6 +146,8 @@ exports.createPages = async ({
             slug {
               current
             }
+
+
             peerSupporterFullName {
               en
               mi

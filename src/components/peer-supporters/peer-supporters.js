@@ -9,6 +9,7 @@ import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import IconSearchAlt from "../../images/svg/icon-search-alt.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
+import { node } from "prop-types"
 
 
 
@@ -18,6 +19,7 @@ var tagSelectList = ''
 const ListPeerSupporters = ({ data, language }) => {
     const { t, i18n } = useTranslation("peerSupporters")
     const tagsTranslate = i18n.language
+    const translate = i18n.language
 
     //console.log("translate = " + i18n.language)
 
@@ -43,6 +45,24 @@ const ListPeerSupporters = ({ data, language }) => {
     const allPosts = peerListData.edges
 
     const allSanityTags = listAllSanityTags.allSanityTags.edges
+
+
+    var allTagList = ""
+    allSanityTags.map((allTagsEdge) => {
+        allTagList = allTagList + ' ' + allTagsEdge.node.tagsTitle[tagsTranslate]
+    }
+    )
+    console.log("allTagList =" + allTagList)
+
+    var allResultsTagList = ""
+    allPosts.map((allResults) => {
+        allResults.node.tags.map((tagList) => {
+            allResultsTagList = allResultsTagList + ' ' + tagList.tagsTitle.translate
+        }
+        )
+    }
+    )
+    console.log("allResultsTagList =" + allResultsTagList)
 
 
     const emptyQuery = ""
@@ -122,6 +142,7 @@ const ListPeerSupporters = ({ data, language }) => {
     function handleInputLabelStatusFocus() {
         handleSearchIcon()
         document.querySelector(".filterLabel").classList.add('focus')
+        document.querySelector(".filterSearchIcon").classList.add('hide')
     }
     function handleInputLabelStatusBlur() {
         //
@@ -144,8 +165,6 @@ const ListPeerSupporters = ({ data, language }) => {
             document.querySelector(".filterSearchIcon").classList.add('hide')
             document.querySelector(".filterSearchIconAlt").classList.add('hide')
             document.querySelector(".filterReset").classList.remove('hide')
-
-
         }
     }
 
@@ -316,7 +335,7 @@ const ListPeerSupporters = ({ data, language }) => {
                         <ul className={'tagList'} role="menu">
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 return (
-                                    <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUP={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
+                                    <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUp={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
                                         <span aria-hidden="true">
                                             <IconSelected />
                                             <IconUnSelected />
