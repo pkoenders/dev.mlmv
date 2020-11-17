@@ -15,6 +15,7 @@ import { node } from "prop-types"
 
 var peerResultsShow = true
 var tagSelectList = ''
+var emptyTags = []
 
 const ListPeerSupporters = ({ data, language }) => {
     const { t, i18n } = useTranslation("peerSupporters")
@@ -46,24 +47,34 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const allSanityTags = listAllSanityTags.allSanityTags.edges
 
+    // Check if the tags filtering list has matching tags in the results. 
+    // It is possible to create a tag in Sanity and not attached to a Peer supporter.
+    // We don't want return an empty result   
+    checkForEmptyTags()
+    function checkForEmptyTags() {
 
-    var allTagList = ""
-    allSanityTags.map((allTagsEdge) => {
-        allTagList = allTagList + ' ' + allTagsEdge.node.tagsTitle[tagsTranslate]
-    }
-    )
-    console.log("allTagList =" + allTagList)
-
-    var allResultsTagList = ""
-    allPosts.map((allResults) => {
-        allResults.node.tags.map((tagList) => {
-            allResultsTagList = allResultsTagList + ' ' + tagList.tagsTitle.translate
+        // Get the Tag list
+        var allTagList = []
+        allSanityTags.map((allTagsEdge) => {
+            allTagList.push(allTagsEdge.node.tagsTitle[tagsTranslate])
         }
         )
+        // Get the results Tag list
+        var allResultsTagList = []
+        allPosts.map((allResults) => {
+            allResults.node.tags.map((tagList) => {
+                allResultsTagList.push(tagList.tagsTitle.translate)
+            }
+            )
+        }
+        )
+        // And compare, retieve the missed matched (empty tags)
+        // Now will check for 'emptyTags' when we write the tags filter out
+        emptyTags = allTagList.filter(function (el) {
+            return allResultsTagList.indexOf(el) < 0;
+        });
+        //console.log("emptyTags = " + emptyTags)
     }
-    )
-    console.log("allResultsTagList =" + allResultsTagList)
-
 
     const emptyQuery = ""
     var filterValue = ""
@@ -97,6 +108,7 @@ const ListPeerSupporters = ({ data, language }) => {
             } else {
                 tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
             }
+
         }
         filterListByTag()
         updateResultsTagList(peerResultsTags, event)
@@ -132,8 +144,9 @@ const ListPeerSupporters = ({ data, language }) => {
         filterListByInput()
         //filterListByTag()
 
-        handleTagResultsReset()
+
         handleResetTagList()
+        handleTagResultsReset()
         handleResetResultsTagList()
         handleInputLabelStatusBlur()
         document.querySelector(".filterSearchIcon").classList.remove('hide')
@@ -220,8 +233,8 @@ const ListPeerSupporters = ({ data, language }) => {
 
             if (tagSelectList === '') {
                 //tagListParent[i].parentNode.parentNode.parentNode.style.display = "block"
-                tagListParent[i].parentNode.parentNode.parentNode.classList.remove("hide")
-                //tagListParent[i].parentNode.parentNode.parentNode.className = ""
+                //tagListParent[i].parentNode.parentNode.parentNode.classList.remove("hide")
+                tagListParent[i].parentNode.parentNode.parentNode.className = ""
             }
         }
 
@@ -334,17 +347,20 @@ const ListPeerSupporters = ({ data, language }) => {
                         <span className={peerListStyles.or}>{t("peerSupporters:selectATag")}</span>
                         <ul className={'tagList'} role="menu">
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
-                                return (
-                                    <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUp={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
-                                        <span aria-hidden="true">
-                                            <IconSelected />
-                                            <IconUnSelected />
-                                        </span>
-                                        {allTagsEdge.node.tagsTitle[tagsTranslate]}
-                                    </li>
-                                )
-                            }
-                            )}
+                                if (
+                                    !allTagsEdge.node.tagsTitle[tagsTranslate].includes(emptyTags)
+                                ) {
+                                    return (
+                                        <li key={allTagsID} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset, handleTagSelect} onKeyUp={handleTagSelect} id={allTagsEdge.node.tagsTitle[tagsTranslate]} className={'tagListItem'} aria-label="Filter peer supports list" role="menuitem" tabIndex="0">
+                                            <span aria-hidden="true">
+                                                <IconSelected />
+                                                <IconUnSelected />
+                                            </span>
+                                            {allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                        </li>
+                                    )
+                                }
+                            })}
                         </ul>
                     </nav>
                 </div>

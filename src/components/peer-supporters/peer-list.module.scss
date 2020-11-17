@@ -94,10 +94,12 @@
                 line-height: 1.0rem;
                 font-weight: 500;
                 border-bottom: 2px solid #6FFFE9 !important;
+
             }
 
 
             input[type=search]:focus {
+                transition: background-color .25s linear;
                 color: $headerBgColor;
                 background-color: #ffffff;
                 outline: none;
