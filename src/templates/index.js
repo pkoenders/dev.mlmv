@@ -32,7 +32,7 @@ const IndexPage = ({ location }) => {
           <h1>{t("index:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
 
-          <Link to={`/${i18n.language}/peer-supporters`} >Visit our Peer Supporters</Link>
+          <Link to={`/${i18n.language}/peer-supporters`} className={'buttonPrimary'} >Visit our Peer Supporters</Link>
 
 
         </DefaultSection>

@@ -26,7 +26,7 @@ const HomepageHeaderImage = () => {
     }
   `)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} className="homepageHeaderImg contentStart" />
+  return <Img fluid={data.placeholderImage.childImageSharp.fluid} className={'homepageHeaderImg contentStart'} />
 }
 
 export default HomepageHeaderImage
