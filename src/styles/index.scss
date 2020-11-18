@@ -462,3 +462,18 @@ svg.filterSearchIconAlt.hide {
 .peerResults li.hide {
   display: none;
 }
+
+
+.homepageHeaderImg {
+  max-height: 650px;
+  vertical-align: top;
+  margin-top: 60px;
+
+  picture {
+    //object-position: top !important;
+
+    img {
+      object-position: top !important;
+    }
+  }
+}

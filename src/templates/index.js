@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
+import HeaderImg from "../components/homepage/homePageHeaderImg"
 import DefaultSection from "../components/defaultSection"
 import LogoMLMV from "../images/svg/logo-mlmv.inline.svg"
 
@@ -25,7 +26,9 @@ const IndexPage = ({ location }) => {
         description={'A website to connect Peer Supportes to the disabled community.'}
       />
       <Layout location={location}>
+        <HeaderImg />
         <DefaultSection>
+
           <LogoMLMV />
           <h1>{t("index:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
