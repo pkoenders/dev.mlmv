@@ -174,7 +174,7 @@ function mobileNav() {
             var rect = contentStart.getBoundingClientRect()
             headerNavWrapper.classList.remove("fillBground")
             //console.log(rect.top);
-            if (rect.top <= 61) {
+            if (rect.bottom <= 61) {
                 headerNavWrapper.classList.add("fillBground")
             } else {
                 headerNavWrapper.classList.remove("fillBground")
@@ -185,6 +185,17 @@ function mobileNav() {
             currentScrollPos = 0;
         }
         prevScrollpos = currentScrollPos;
+    }
+
+    if (contentStart) {
+        var rect = contentStart.getBoundingClientRect()
+        headerNavWrapper.classList.remove("fillBground")
+        //console.log(rect.top);
+        if (rect.bottom <= 61) {
+            headerNavWrapper.classList.add("fillBground")
+        } else {
+            headerNavWrapper.classList.remove("fillBground")
+        }
     }
     toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo)
 }

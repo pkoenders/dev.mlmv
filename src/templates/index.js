@@ -28,12 +28,12 @@ const IndexPage = ({ location }) => {
       <Layout location={location}>
         <HeaderImg />
         <DefaultSection>
-
-          <LogoMLMV />
+          <LogoMLMV style={{ margin: '-351 0 0 0', position: 'absolute' }} />
           <h1>{t("index:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
 
           <Link to={`/${i18n.language}/peer-supporters`} >Visit our Peer Supporters</Link>
+
 
         </DefaultSection>
       </Layout>
