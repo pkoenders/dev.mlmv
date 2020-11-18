@@ -9,9 +9,7 @@ import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import IconSearchAlt from "../../images/svg/icon-search-alt.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
-import { node } from "prop-types"
-
-
+//import { node } from "prop-types"
 
 var peerResultsShow = true
 var tagSelectList = ''
@@ -413,7 +411,8 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 fluid={edge.node.coverImage.asset.fluid}
                                                 loading="lazy"
                                             />
-                                            <span>
+                                            <span className={peerListStyles.resultsContentImgOverlay}></span>
+                                            <span className={peerListStyles.resultsContentWrapper}>
                                                 <h2>{edge.node.peerSupporterFullName.translate}</h2>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
@@ -440,4 +439,3 @@ const ListPeerSupporters = ({ data, language }) => {
 }
 
 export default ListPeerSupporters
-

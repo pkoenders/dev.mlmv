@@ -61,35 +61,41 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       //image={frontmatter.coverimage.childImageSharp.fluid.src}
       />
       <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
-        <div>
+        <nav aria-label="Navigate to previous page or nexxt page" role="menu">
           {previous &&
             <Link
+              role="menuitem"
+              tabIndex="0"
               className={peerSupporterStyles.prev}
               to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
             >
-              <IconPrev />
+              <IconPrev aria-hidden="true" />
               <span>Previous</span>
             </Link>
           }
 
           <Link
+            role="menuitem"
+            tabIndex="0"
             className={peerSupporterStyles.prev}
             to={`/${i18n.language}/peer-supporters/`}
           >
-            <IconUp />
+            <IconUp aria-hidden="true" />
             <span>{t("peerSupporter:backToPeerSupporters")}</span>
           </Link>
 
           {next &&
             <Link
+              role="menuitem"
+              tabIndex="0"
               className={peerSupporterStyles.next}
               to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
             >
               <span>Next</span>
-              <IconNext />
+              <IconNext aria-hidden="true" />
             </Link>
           }
-        </div>
+        </nav>
       </section>
 
       <div className={peerSupporterStyles.peerSupporterWrapper}>
@@ -114,13 +120,25 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               </div>
 
 
-              <div className={peerSupporterStyles.headerInfo}>
+              {/* <div className={peerSupporterStyles.headerInfo}>
                 <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
                 <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
                 {peerData.publishedAt &&
                   <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
                 }
-              </div>
+              </div> */}
+
+              <aside className={peerSupporterStyles.contentTags}>
+                {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
+                <ul>
+                  {peerData.tags.map((edge, tagid) => (
+                    <li key={tagid}>
+                      <span>{edge.tagsTitle.translate}</span>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+
             </div>
 
 
@@ -132,17 +150,23 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
           <div className={peerSupporterStyles.contentBlock}>
             <BlockContent blocks={peerData.peerLongDescription.localized} />
             {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
+
+
+
           </div>
 
-          <aside className={peerSupporterStyles.contentTags}>
-            <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p>
-            <ul>
+          <aside className={peerSupporterStyles.contentAside}>
+
+            <p>Some possible aside content here?</p>
+            <p>Possibly associations/alignments, links, video or images?</p>
+            {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
+            {/* <ul>
               {peerData.tags.map((edge, tagid) => (
                 <li key={tagid}>
                   <span>{edge.tagsTitle.translate}</span>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </aside>
         </section>
 
@@ -223,6 +247,17 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 </p>
               </form>
             </div>
+
+
+            <div className={peerSupporterStyles.peerUpdateInfo}>
+              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
+              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
+              {peerData.publishedAt &&
+                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
+              }
+            </div>
+
+
           </div>
         </section>
       </div >

@@ -215,6 +215,7 @@
                     // background-color: #335c7b;
                     // background-color: #3A506B;
                     background-color: #D7E7EF;
+                    background-color: #9fc9d9;
 
 
 
@@ -386,12 +387,11 @@
                 >div {
                     overflow: hidden;
 
+
                     img {
-
-
                         display: block;
                         width: 100% !important;
-                        height: auto !important;
+                        height: 100% !important;
                         margin: 0;
                         border-radius: 0px;
                         transition: all 0.2s ease-in-out !important;
@@ -404,7 +404,24 @@
                     }
                 }
 
-                span {
+                span.resultsContentImgOverlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    // right: 0;
+                    // bottom: 0;
+                    display: block;
+                    width: 100%;
+                    // height: auto !important;
+                    padding: 100% 0 0 0;
+                    margin: 0;
+                    // height: inherit;
+                    background: rgb(11, 19, 43);
+                    background: linear-gradient(45deg, rgba(11, 19, 43, 1) 0%, rgba(11, 19, 43, 0) 50%);
+                    opacity: .66;
+                }
+
+                span.resultsContentWrapper {
                     display: block;
                     padding: 15px 15px 11px 15px;
                     border-top: 1px solid #FF00E9;
