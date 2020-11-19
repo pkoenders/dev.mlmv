@@ -48,6 +48,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
            //background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
           //background-color: #291361;
           background-color: #ffffff;
+         // background-color: #0C142A;
           //background-color: #eeeeee;
 
           
@@ -157,8 +158,17 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
           <aside className={peerSupporterStyles.contentAside}>
 
+            <div className={peerSupporterStyles.peerUpdateInfo}>
+              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
+              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
+              {peerData.publishedAt &&
+                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
+              }
+            </div>
+
             <p>Some possible aside content here?</p>
             <p>Possibly associations/alignments, links, video or images?</p>
+
             {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
             {/* <ul>
               {peerData.tags.map((edge, tagid) => (
@@ -167,6 +177,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 </li>
               ))}
             </ul> */}
+
           </aside>
         </section>
 
@@ -247,16 +258,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 </p>
               </form>
             </div>
-
-
-            <div className={peerSupporterStyles.peerUpdateInfo}>
-              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
-              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
-              {peerData.publishedAt &&
-                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
-              }
-            </div>
-
 
           </div>
         </section>

@@ -350,7 +350,7 @@ div.peerSupporterWrapper {
             flex-basis: 33.3%;
 
             @include respond-below(sm) {
-                order: 0;
+                //order: 0;
                 //flex-grow: 1;
                 //flex-shrink: 1;
                 flex-basis: 100%;
@@ -369,7 +369,7 @@ div.peerSupporterWrapper {
                 // font-weight: bold;
 
                 @include respond-below(sm) {
-                    display: none;
+                    //display: none;
                 }
             }
 
@@ -433,7 +433,7 @@ div.peerSupporterWrapper {
                 }
 
                 button[type=submit] {
-                    float: right;
+                    //float: right;
                 }
 
                 input,

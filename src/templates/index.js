@@ -28,7 +28,7 @@ const IndexPage = ({ location }) => {
       <Layout location={location}>
         <HeaderImg />
         <DefaultSection>
-          <LogoMLMV style={{ margin: '-351 0 0 0', position: 'absolute' }} />
+          <LogoMLMV style={{ margin: '-200 0 0 0', position: 'absolute' }} />
           <h1>{t("index:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
 
