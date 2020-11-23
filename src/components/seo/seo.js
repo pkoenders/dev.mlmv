@@ -28,6 +28,9 @@ const SEO = ({ title, description, image, article }) => {
       <meta name="robots" content="noindex"></meta>
       <html lang="en" />
 
+      {/* Need to define hreflang - See - https://web.dev/hreflang/?utm_source=lighthouse&utm_medium=devtools */}
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hreflang="x-default" />
+
       {seo.title && <title>{seo.title}</title>}
       {seo.description && <meta name="description" content={seo.description} />}
 
