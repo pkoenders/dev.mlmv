@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-// import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next"
 import footerStyles from './footer.module.scss'
 //import FooterBGround from "../images/svg/footer.inline.svg"
 import LogoMLMVFooter from "../images/svg/logo-mlmv-footer.inline.svg"
@@ -8,7 +8,7 @@ import LogoMLMVFooter from "../images/svg/logo-mlmv-footer.inline.svg"
 const Footer = ({ location }) => {
 
   // const { t, i18n } = useTranslation("common")
-  // const { i18n } = useTranslation("common")
+  const { i18n } = useTranslation("common")
 
   // const pathArray = location.pathname.split('/')
   // var newPathName = ""
@@ -33,7 +33,7 @@ const Footer = ({ location }) => {
     <>
 
       <footer className={footerStyles.footer}>
-        <Link to="/" title="Homepage" >
+        <Link to={`/${i18n.language}`} title="Homepage" >
           <span>Go to the homepage</span>
           <LogoMLMVFooter />
         </Link>
