@@ -25,7 +25,7 @@ const SEO = ({ title, description, image, article }) => {
 
   return (
     <Helmet>
-      <meta name="robots" content="noindex"></meta>
+      <meta name="robots" content="index"></meta>
       <html lang="en" />
 
       {/* Need to define hreflang - See - https://web.dev/hreflang/?utm_source=lighthouse&utm_medium=devtools */}
