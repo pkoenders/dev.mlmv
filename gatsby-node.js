@@ -25,7 +25,7 @@ exports.createPages = async ({
       component: indexTemplate,
       context: {},
     }),
-    ["common", "indexPage"],
+    ["common", "index"],
     createPage
   )
 

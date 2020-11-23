@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
-http://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/:splat
+# http://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/:splat
 /   /en 301!
 # /page-data/index/page-data.json  /en/page-data/index/page-data.json 301!
 # https://dev-mlmv.netlify.app/   https://dev-mlmv.netlify.app/en/ 301!
