@@ -32,7 +32,7 @@ const SEO = ({ title, description, image, article }) => {
       {/* <link rel="alternate" hreflang="en" href={`${siteUrl}${pathname}`} />
       <link rel="alternate" hreflang="mi" href={`${siteUrl}${pathname}`} /> */}
 
-      <link rel="canonical" href="https://dev-mlmv.netlify.app/en" />
+      {/* <link rel="canonical" href="https://dev-mlmv.netlify.app/en" /> */}
 
       {seo.title && <title>{seo.title}</title>}
       {seo.description && <meta name="description" content={seo.description} />}
