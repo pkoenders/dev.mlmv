@@ -21,6 +21,7 @@ exports.createPages = async ({
     null,
     (_, language) => ({
       path: "/" + language,
+      path: `/${language}`,
       component: indexTemplate,
       context: {},
     }),
