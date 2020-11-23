@@ -2,3 +2,5 @@
 /   /en 301!
 # /page-data/index/page-data.json  /en/page-data/index/page-data.json 301!
 # https://dev-mlmv.netlify.app/   https://dev-mlmv.netlify.app/en 301!
+
+http://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/* 301!
