@@ -9,14 +9,14 @@
 import { wrapWithI18nProvider } from "./src/components/wrapWithI18nProvider";
 export const wrapPageElement = wrapWithI18nProvider;
 
-import React from 'react';
+// import React from 'react';
 
-// Hack: appease the Lighthouse PWA audit, even though a real noscript tag
-// exists in the Layout component.
-export const onRenderBody = ({ setPreBodyComponents }) => {
-    setPreBodyComponents([
-        <noscript key="lighthouse-noscript" hidden>
-            Please enable JavaScript.
-    </noscript>,
-    ]);
-};
+// // Hack: appease the Lighthouse PWA audit, even though a real noscript tag
+// // exists in the Layout component.
+// export const onRenderBody = ({ setPreBodyComponents }) => {
+//     setPreBodyComponents([
+//         <noscript key="lighthouse-noscript" hidden>
+//             Please enable JavaScript.
+//     </noscript>,
+//     ]);
+// };
