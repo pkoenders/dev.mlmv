@@ -8,3 +8,11 @@
 
 import { wrapWithI18nProvider } from "./src/components/wrapWithI18nProvider";
 export const wrapPageElement = wrapWithI18nProvider;
+
+const React = require('react')
+
+exports.onRenderBody = ({ setPreBodyComponents }) => {
+    setPreBodyComponents([
+        <noscript key="noscript">Your browser does not support JavaScript!</noscript>,
+    ])
+}
