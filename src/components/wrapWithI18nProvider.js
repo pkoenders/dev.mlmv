@@ -33,7 +33,19 @@ export function wrapWithI18nProvider({ element, props }) {
                                     href={'https://dev-mlmv.netlify.app' + link.path}
                                 />
                             ))}
+
+                        {props.pageContext &&
+                            props.pageContext.alternateLinks &&
+                            props.pageContext.alternateLinks.map(link => (
+                                <link
+                                    key={link}
+                                    rel="canonical"
+                                    href={'https://dev-mlmv.netlify.app' + link.path}
+                                />
+                            ))}
                     </Helmet>
+
+
                 }
                 {element}
             </AlternateLinksContext.Provider>
