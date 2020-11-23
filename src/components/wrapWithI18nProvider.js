@@ -34,7 +34,7 @@ export function wrapWithI18nProvider({ element, props }) {
                                 />
                             ))}
 
-                        {props.pageContext &&
+                        {/* {props.pageContext &&
                             props.pageContext.alternateLinks &&
                             props.pageContext.alternateLinks.map(link => (
                                 <link
@@ -42,7 +42,7 @@ export function wrapWithI18nProvider({ element, props }) {
                                     rel="canonical"
                                     href={'https://dev-mlmv.netlify.app' + link.path}
                                 />
-                            ))}
+                            ))} */}
                     </Helmet>
 
 
