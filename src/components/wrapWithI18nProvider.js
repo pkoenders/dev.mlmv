@@ -30,7 +30,7 @@ export function wrapWithI18nProvider({ element, props }) {
                                     key={link}
                                     rel="alternate"
                                     hrefLang={link.language}
-                                    href={link.path}
+                                    href={'https://dev-mlmv.netlify.app' + link.path}
                                 />
                             ))}
                     </Helmet>
