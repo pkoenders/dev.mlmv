@@ -29,7 +29,8 @@ const SEO = ({ title, description, image, article }) => {
       <html lang="en" />
 
       {/* Need to define hreflang - See - https://web.dev/hreflang/?utm_source=lighthouse&utm_medium=devtools */}
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hreflang="x-default" />
+      <link rel="alternate" hreflang="en" href={`${siteUrl}${pathname}`} />
+      <link rel="alternate" hreflang="mi" href={`${siteUrl}${pathname}`} />
 
       {seo.title && <title>{seo.title}</title>}
       {seo.description && <meta name="description" content={seo.description} />}
