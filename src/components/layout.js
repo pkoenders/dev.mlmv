@@ -19,6 +19,9 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
+      <noscript key="lighthouse-noscript" hidden>
+        Please enable JavaScript.
+      </noscript>
       <a className={"skipLink"} href="#mainContent" tabIndex="0">Skip to main content</a>
       <div id="layoutModule" className={layoutStyles.container} >
         <Header siteTitle={data.site.siteMetadata.title} location={location} />
