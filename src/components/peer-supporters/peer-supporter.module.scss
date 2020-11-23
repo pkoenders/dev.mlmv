@@ -271,34 +271,7 @@ div.peerSupporterWrapper {
                         }
                     }
                 }
-
-
-                // .headerInfo {
-                //     @include respond-below(sm) {
-                //         display: none;
-                //     }
-
-                //     //margin-top: 15px;
-                //     padding: 30px 0 30px 30px;
-                //     order: 1;
-                //     flex-shrink: 0;
-                //     flex-basis: 33.3%;
-                //     align-self: center;
-
-                //     p {
-                //         color: inherit;
-                //         margin-bottom: .1rem;
-
-                //         span {
-                //             //opacity: .66;
-                //             font-weight: 300;
-                //             margin-right: 8px;
-                //         }
-                //     }
-                // }
             }
-
-
         }
     }
 
@@ -344,7 +317,7 @@ div.peerSupporterWrapper {
 
         }
 
-        .contentAside {
+        .contentComplementary {
             order: 1;
             //flex-shrink: 0;
             flex-basis: 33.3%;
@@ -401,7 +374,7 @@ div.peerSupporterWrapper {
 
             // display: flex;
             //flex-direction: row;
-            h4 {
+            h3 {
                 color: #ffffff;
                 font-size: 1.6rem;
             }

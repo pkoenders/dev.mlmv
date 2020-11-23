@@ -28,17 +28,20 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   // console.log(pageContext)
   const { sanityPeerSupporters } = data // data.markdownRemark holds your post data
   const peerData = sanityPeerSupporters
-  //const { next, previous } = data
-  const { next, previous } = data
-  console.log(peerData.next)
+  const { next, previous } = pageContext
+
+  //const { next, previous } = pageContext
+  //console.log(peerData.next)
   // const next = peerData.next
   // const previous = peerData.previous
 
   //const next = pageContext.next
   //const previous = pageContext.previous
 
-  console.log("previous = " + previous)
-  console.log("next = " + next)
+  // console.log("previous = " + next.slug.current)
+  // console.log("next = " + previous.slug.current)
+
+
   return (
     <>
       <style type="text/css">
@@ -57,45 +60,50 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       `}
       </style>
       <SEO
-        title={peerData.peerSupporterFullName.en + ' - Peer Supporter | ' + Metadata.site.siteMetadata.title}
-      //description={frontmatter.intro}
+        title={peerData.peerSupporterFullName.translate + ' - Peer Supporters | ' + Metadata.site.siteMetadata.title}
+        description={peerData.peerShortDescription.translate}
       //image={frontmatter.coverimage.childImageSharp.fluid.src}
       />
       <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
-        <nav aria-label="Navigate to previous page or nexxt page" role="menu">
-          {previous &&
+        <nav aria-label="Navigate to previous page or next page" role="navigation" >
+          <div role="menu">
+            {previous &&
+              <Link
+                aria-label="Link to previous page"
+                role="menuitem"
+                tabIndex="0"
+                className={peerSupporterStyles.prev}
+                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
+              >
+                <IconPrev aria-hidden="true" />
+                <span>Previous</span>
+              </Link>
+            }
+
             <Link
+              aria-label={t("peerSupporter:backToPeerSupporters")}
               role="menuitem"
               tabIndex="0"
               className={peerSupporterStyles.prev}
-              to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
+              to={`/${i18n.language}/peer-supporters/`}
             >
-              <IconPrev aria-hidden="true" />
-              <span>Previous</span>
+              <IconUp aria-hidden="true" />
+              <span>{t("peerSupporter:backToPeerSupporters")}</span>
             </Link>
-          }
 
-          <Link
-            role="menuitem"
-            tabIndex="0"
-            className={peerSupporterStyles.prev}
-            to={`/${i18n.language}/peer-supporters/`}
-          >
-            <IconUp aria-hidden="true" />
-            <span>{t("peerSupporter:backToPeerSupporters")}</span>
-          </Link>
-
-          {next &&
-            <Link
-              role="menuitem"
-              tabIndex="0"
-              className={peerSupporterStyles.next}
-              to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
-            >
-              <span>Next</span>
-              <IconNext aria-hidden="true" />
-            </Link>
-          }
+            {next &&
+              <Link
+                aria-label="Link to next page"
+                role="menuitem"
+                tabIndex="0"
+                className={peerSupporterStyles.next}
+                to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
+              >
+                <span>Next</span>
+                <IconNext aria-hidden="true" />
+              </Link>
+            }
+          </div>
         </nav>
       </section>
 
@@ -129,7 +137,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 }
               </div> */}
 
-              <aside className={peerSupporterStyles.contentTags}>
+              <div className={peerSupporterStyles.contentTags}>
                 {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
                 <ul>
                   {peerData.tags.map((edge, tagid) => (
@@ -138,7 +146,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                     </li>
                   ))}
                 </ul>
-              </aside>
+              </div>
 
             </div>
 
@@ -156,7 +164,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
           </div>
 
-          <aside className={peerSupporterStyles.contentAside}>
+          <div className={peerSupporterStyles.contentComplementary}>
 
             <div className={peerSupporterStyles.peerUpdateInfo}>
               <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
@@ -178,12 +186,12 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               ))}
             </ul> */}
 
-          </aside>
+          </div>
         </section>
 
         <section className={peerSupporterStyles.form}>
           <div className={peerSupporterStyles.formWrapper}>
-            <h4>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4>
+            <h3>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h3>
             <div className={contactStyles.contactFormInput}>
               <form
                 name="peer-supporter-contact-form"

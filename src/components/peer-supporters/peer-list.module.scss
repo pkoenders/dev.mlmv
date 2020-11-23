@@ -207,14 +207,14 @@
             }
 
 
-            ul {
+            >div {
                 width: auto;
                 margin: 0px 0 0 0;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
 
-                li {
+                button {
                     font-size: .9rem;
                     line-height: .9rem;
                     width: auto;
@@ -262,21 +262,21 @@
                     }
                 }
 
-                li:hover {
+                button:hover {
                     box-shadow: $globalBoxShadowA;
                     border: 1px solid $headerBgColor;
                 }
 
-                li:focus {
+                button:focus {
                     outline: none;
                 }
 
                 /* Optional: Customize .focus-visible */
-                li:focus-visible {
+                button:focus-visible {
                     @include focusVisibleForDark;
                 }
 
-                li:-moz-focusring {
+                button:-moz-focusring {
                     @include focusVisibleForDark;
                 }
             }

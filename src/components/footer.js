@@ -1,21 +1,21 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
+// import { useTranslation } from "react-i18next"
 import footerStyles from './footer.module.scss'
 //import FooterBGround from "../images/svg/footer.inline.svg"
-import LogoMLMVFooter from "../images/svg/logo-mlmv.inline.svg"
-import IconTick from "../images/svg/icon-tick.inline.svg"
+import LogoMLMVFooter from "../images/svg/logo-mlmv-footer.inline.svg"
 
 const Footer = ({ location }) => {
 
-  const { t, i18n } = useTranslation("common")
+  // const { t, i18n } = useTranslation("common")
+  // const { i18n } = useTranslation("common")
 
-  const pathArray = location.pathname.split('/')
-  var newPathName = ""
-  for (var i = 2; i < pathArray.length; i++) {
-    newPathName += "/";
-    newPathName += pathArray[i];
-  }
+  // const pathArray = location.pathname.split('/')
+  // var newPathName = ""
+  // for (var i = 2; i < pathArray.length; i++) {
+  //   newPathName += "/";
+  //   newPathName += pathArray[i];
+  // }
 
   const data = useStaticQuery(graphql`
     query FooterQuery {

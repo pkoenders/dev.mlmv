@@ -6,7 +6,8 @@ import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
 
 const AccessibilityPage = ({ location }) => {
-  const { t, i18n } = useTranslation("accessibility")
+  // const { t, i18n } = useTranslation("accessibility")
+  const { i18n } = useTranslation("accessibility")
   const IndexData = useStaticQuery(graphql`
     query AccessibilityPage {
       site {

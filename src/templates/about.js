@@ -6,7 +6,8 @@ import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
 
 const AboutPage = ({ location }) => {
-  const { t, i18n } = useTranslation("about")
+  //const { t, i18n } = useTranslation("about")
+  const { i18n } = useTranslation("about")
   const IndexData = useStaticQuery(graphql`
     query AboutPage {
       site {

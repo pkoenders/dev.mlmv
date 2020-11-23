@@ -11,14 +11,14 @@ import IconSearchAlt from "../../images/svg/icon-search-alt.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 //import { node } from "prop-types"
 
-var peerResultsShow = true
+//var peerResultsShow = true
 var tagSelectList = ''
 var emptyTags = []
 
 const ListPeerSupporters = ({ data, language }) => {
     const { t, i18n } = useTranslation("peerSupporters")
     const tagsTranslate = i18n.language
-    const translate = i18n.language
+    //const translate = i18n.language
 
     //console.log("translate = " + i18n.language)
 
@@ -55,14 +55,15 @@ const ListPeerSupporters = ({ data, language }) => {
 
         // Get the Tag list
         var allTagList = []
-        allSanityTags.map((allTagsEdge) => {
+        allSanityTags.forEach((allTagsEdge) => {
             allTagList.push(allTagsEdge.node.tagsTitle[tagsTranslate])
         }
+            //
         )
         // Get the results Tag list
         var allResultsTagList = []
-        allPosts.map((allResults) => {
-            allResults.node.tags.map((tagList) => {
+        allPosts.forEach((allResults) => {
+            allResults.node.tags.forEach((tagList) => {
                 allResultsTagList.push(tagList.tagsTitle.translate)
             }
             )
@@ -81,7 +82,7 @@ const ListPeerSupporters = ({ data, language }) => {
     const emptyQuery = ""
     var filterValue = ""
     var tagItemValue = ""
-    var allPeerResultsTags = ''
+    // 
 
     // State for our query
     const [state, setState] = useState({
@@ -97,7 +98,10 @@ const ListPeerSupporters = ({ data, language }) => {
 
         //Get the tag data passed from the event click etc
         const tagItem = event.target
-        tagItemValue = event.target.id
+        // tagItemValue = event.target.id
+        tagItemValue = event.target.innerText
+        // console.log("tagItemValue = " + tagItemValue)
+
 
         // Get our Peer Results Tags
         const peerResultsTags = document.querySelectorAll(".peerResultsTags")
@@ -109,17 +113,19 @@ const ListPeerSupporters = ({ data, language }) => {
         } else {
             // Toggle our tag so it looks selected!
             tagItem.classList.toggle("selected")
-            for (var i = 0; i < peerResultsTags.length; i++) {
-                //Create a list of all Peer results tags that match selected
-                allPeerResultsTags += peerResultsTags[i].id + ' '
-            }
+
+            // var allPeerResultsTags = ''
+            // for (var i = 0; i < peerResultsTags.length; i++) {
+            //     //Create a list of all Peer results tags that match selected
+            //     allPeerResultsTags += peerResultsTags[i].innerText + ' '
+            // }
 
             if (tagItem.classList.contains("selected")) {
                 // If we toggle on tag, then add item from list 
-                tagSelectList = tagSelectList.concat(event.target.id + ' ')
+                tagSelectList = tagSelectList.concat(event.target.innerText + ' ')
             } else {
                 // If we toggle off tag, then remove item from list 
-                tagSelectList = tagSelectList.replace(event.target.id + ' ', '')
+                tagSelectList = tagSelectList.replace(event.target.innerText + ' ', '')
             }
 
             //Then update the Peer results tags
@@ -144,7 +150,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
     function handleInputFilterPreSet() {
         const inputValue = document.getElementById("peerFilterInput")
-        console.log("inputValue = " + inputValue.value)
+        //console.log("inputValue = " + inputValue.value)
         if (inputValue.value !== "") {
             inputValue.classList.add('focus')
         } else {
@@ -163,6 +169,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
 
         handleResetTagList()
+
         handleTagResultsReset()
         handleResetResultsTagList()
         handleInputLabelStatusBlur()
@@ -208,7 +215,7 @@ const ListPeerSupporters = ({ data, language }) => {
     }
 
     function handleResetTagList() {
-        var tagList = document.querySelectorAll(".tagList > li")
+        var tagList = document.querySelectorAll(".tagList  button")
         for (var i = 0; i < tagList.length; i++) {
             tagList[i].classList.remove("selected")
         }
@@ -223,13 +230,13 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const updateResultsTagList = (peerResultsTags, event) => {
         for (var i = 0; i < peerResultsTags.length; i++) {
-            peerResultsTags[i].id === event.target.id && peerResultsTags[i].classList.toggle("selected")
+            peerResultsTags[i].innerText === event.target.innerText && peerResultsTags[i].classList.toggle("selected")
         }
     }
 
     function filterListByTag() {
 
-        const query = tagSelectList
+        //const query = tagSelectList
         //console.log("query = " + query)
         var tagListParent = document.querySelectorAll(".peerResults ul")
         for (var i = 0; i < tagListParent.length; i++) {
@@ -304,12 +311,12 @@ const ListPeerSupporters = ({ data, language }) => {
     function updateLayout(filteredData) {
 
         if (filteredData.length === 0) {
-            peerResultsShow = false
+            // peerResultsShow = false
             document.querySelector(".presentPeerResultsShow").style.display = "block"
             document.querySelector(".presentPeerTitleShow").style.display = "none"
 
         } else {
-            peerResultsShow = true
+            //peerResultsShow = true
             document.querySelector(".presentPeerResultsShow").style.display = "none"
             document.querySelector(".presentPeerTitleShow").style.display = "block"
         }
@@ -326,48 +333,57 @@ const ListPeerSupporters = ({ data, language }) => {
 
                 <div className={peerListStyles.wrapper}>
                     <div className={peerListStyles.peerFilterInput} >
-                        <form><label className={peerListStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                        <form role="search">
+                            <label className={peerListStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
                                 //className={peerListStyles.peerFilterInput}
-                                tabindex="0"
+                                tabIndex="0"
                                 id="peerFilterInput"
                                 type="search"
                                 name="FilterSupporters"
-                                role="search"
+
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
                                 onFocus={handleInputLabelStatusFocus}
                                 onBlur={handleInputLabelStatusBlur}
                             />
-                            {/* {query !== "" && <button aria-label="Clear keyword input field" type="reset" value="reset" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyUp={handleInputFilterReset}><IconReset aria-hidden="true" /></button>} */}
-                            <button className={peerListStyles.filterReset + ' filterReset hide'} aria-label="Clear keyword input field" type="reset" value="reset" tabindex="0" onClick={handleInputFilterReset} onMouseDown={handleInputFilterPreSet} onMouseUp={handleInputFilterReset} onKeyDown={handleInputFilterReset}><IconReset aria-hidden="true" /></button>
-
+                            <button
+                                className={peerListStyles.filterReset + ' filterReset hide'}
+                                aria-label="Clear keyword input field"
+                                type="reset"
+                                value="reset"
+                                tabIndex="0"
+                                onClick={handleInputFilterReset}
+                                onMouseDown={handleInputFilterPreSet}
+                                onMouseUp={handleInputFilterReset}
+                                onKeyDown={handleInputFilterReset}>
+                                <IconReset aria-hidden="true" />
+                            </button>
                             <IconSearchAlt className={peerListStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
                             <IconSearch className={peerListStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
                         </form>
                     </div>
 
-                    <nav className={peerListStyles.peerFilterTags} role="navigation">
+                    <div className={peerListStyles.peerFilterTags} aria-label="Filter by tags">
                         <span className={peerListStyles.or}>{t("peerSupporters:selectATag")}</span>
-                        <ul
+                        <div
                             className={'tagList'}
-                            role="menu"
                         >
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 if (
                                     !allTagsEdge.node.tagsTitle[tagsTranslate].includes(emptyTags)
                                 ) {
                                     return (
-                                        <li
+                                        <button
                                             key={allTagsID}
-                                            id={allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            //id={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             className={'tagListItem focus-visible'}
                                             aria-label="Filter peer supports list"
-                                            aria-pressed="false"
-                                            role="menuitem"
+                                            //role="menuitem"
                                             tabIndex="0"
                                             onMouseDown={handleInputFilterPreSet}
-                                            onMouseUp={handleInputFilterReset, handleTagSelect}
+                                            //onMouseUp={handleInputFilterReset, handleTagSelect}
+                                            onMouseUp={handleTagSelect}
                                             onKeyPress={handleTagSelect}
                                         >
                                             <span aria-hidden="true">
@@ -375,12 +391,13 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <IconTagUnSelected />
                                             </span>
                                             {allTagsEdge.node.tagsTitle[tagsTranslate]}
-                                        </li>
+                                        </button>
                                     )
                                 }
+                                return null;
                             })}
-                        </ul>
-                    </nav>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -418,7 +435,11 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
                                                 <ul>
                                                     {edge.node.tags.map((thisEdge, tagID) => (
-                                                        <li className={"peerResultsTags"} key={tagID} id={thisEdge.tagsTitle.translate} >
+                                                        <li
+                                                            className={"peerResultsTags"}
+                                                            key={tagID}
+                                                        // id={thisEdge.tagsTitle.translate}
+                                                        >
                                                             {thisEdge.tagsTitle.translate}
                                                         </li>
                                                     ))}

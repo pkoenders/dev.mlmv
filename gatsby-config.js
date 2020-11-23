@@ -131,6 +131,31 @@ module.exports = {
     },
 
 
+    {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        // Number of milliseconds to wait for component updates to cease before
+        // performing an analysis of all the changes. This defaults to 1000ms (1 second).
+        debounce: 1000,
+
+        // Integrate react-axe in production. This defaults to false.
+        showInProduction: false,
+
+        // Options to pass to axe-core.
+        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+        axeOptions: {
+          // Your axe-core options.
+
+        },
+
+        // Context to pass to axe-core.
+        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#context-parameter
+        axeContext: undefined,
+      },
+    },
+
+
+
     //`gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
 

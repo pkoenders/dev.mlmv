@@ -7,7 +7,8 @@ import DefaultSection from "../components/defaultSection"
 import SectionContact from "../components/homepage/contact"
 
 const ContactPage = ({ location }) => {
-  const { t, i18n } = useTranslation("contact")
+  // const { t, i18n } = useTranslation("contact")
+  const { i18n } = useTranslation("contact")
   const IndexData = useStaticQuery(graphql`
     query ContactPage {
       site {

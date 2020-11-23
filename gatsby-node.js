@@ -122,16 +122,22 @@ exports.createPages = async ({
 
   await buildI18nPages(
     peerSupporters.data.allSanityPeerSupporters.edges,
+
+
     ({ node }, language, i18n) => ({
       path: "/" + language, // (1)
       path: `/${language}/peer-supporters`,
       component: peerSupportersTemplate,
+
       context: {
         peerSupporters: node.id,
         tags: node.tags.tagsTitle,
+
+        // previous: previous.slug.current,
+        // next: next.slug.current,
       },
     }),
-    ["common", "tags", "peerSupporters"],
+    ["common", "tags", "previous", "next", "peerSupporters"],
     createPage
   )
 
@@ -217,58 +223,33 @@ exports.createPages = async ({
       }
     }
   `)
+
+
+
   await buildI18nPages(
     peerSupporter.data.allSanityPeerSupporters.edges,
-
-    //NextPrev:peerSupporter.data.allSanityPeerSupporters.edges,
-
-
-
-    // const next = index === portfolioItems.length - 1 ? null : portfolioItems[index + 1].node
-    // const previous = index === 0 ? null : portfolioItems[index - 1].node
-
-    // prev = peerSupporter.data.allSanityPeerSupporters.edges.previous,
+    // previous = peerSupporter.data.allSanityPeerSupporters.edges.previous,
     // next = peerSupporter.data.allSanityPeerSupporters.edges.next,
+
+
+
+
+
 
 
     ({ node }, language, i18n) => ({
       path: `/${language}/peer-supporters/${node.slug.current}`,
       component: peerSupporterTemplate,
 
-      //NextPrev.forEach((node, index) => {
-      next: peerSupporter.data.allSanityPeerSupporters.edges.next,
-      previous: peerSupporter.data.allSanityPeerSupporters.edges.previous,
-      //}),
-
-
-
-
-
-
-
-      // prevId: peerSupporter.data.allSanityPeerSupporters.edges[- 1],
-      // nextId: peerSupporter.data.allSanityPeerSupporters.edges[+ 1],
-
-      // prevId: peerSupporter.data.allSanityPeerSupporters.edges.previous,
-      // nextId: peerSupporter.data.allSanityPeerSupporters.edges.next,
-      // // prev = edges[i - 1]
-      // next = edges[i + 1]
 
       context: {
         peerSupporter: node.id,
         slug: node.slug.current,
 
-        // prev: prevId ? prevId.node.id : null,
-        // next: nextId ? nextId.node.id : null
+        // previous: previousPeer,
+        // next: nextPeer
 
 
-        // prev: prev,
-        //next: next,
-        // prev = edges[i - 1]
-
-
-        // prev: peerSupporter.data.allSanityPeerSupporters.edges[- 1] ? peerSupporter.data.allSanityPeerSupporters.edges[- 1].previous : null,
-        // next: peerSupporter.data.allSanityPeerSupporters.edges[+ 1] ? peerSupporter.data.allSanityPeerSupporters.edges[+ 1].next : null
       },
     }),
     ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],

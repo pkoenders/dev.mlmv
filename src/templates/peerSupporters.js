@@ -8,6 +8,13 @@ import SectionPeerSupporters from "../components/peer-supporters/peer-supporters
 
 export const query = graphql`
   query($language: String) {
+
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
         edges {
             node {
@@ -50,28 +57,13 @@ export const query = graphql`
 `
 
 const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
-  // const peerSupportersData = useStaticQuery(graphql`
-  //   query peerSupportersData {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
 
   return (
     <>
       <style type="text/css">
         {`
         body  {
-          background: rgb(151, 219, 246);
-          background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
-          background: #eaeef1;
-          background-color: #1e0e48;
           background-color: #0B132B;
-          
-          ;
         }
         .section-layout-wide {
           margin-top:60px;
@@ -79,10 +71,11 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
 
-      {/* <SEO
-        title={'Projects | ' + peerSupportersData.site.siteMetadata.title}
+      <SEO
+        title={'Peer Supporters | ' + data.site.siteMetadata.title}
       // description={'MLMV Description.'}
-      /> */}
+      />
+
 
       <Layout location={location}>
         <SectionPeerSupporters data={data} language={language} />

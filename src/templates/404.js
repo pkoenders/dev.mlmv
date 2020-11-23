@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
 import DefaultSection from "../components/defaultSection"
-import { useTranslation } from "react-i18next"
+// import { useTranslation } from "react-i18next"
 
 const NotFoundPage = ({ location }) => {
-    const { t, i18n } = useTranslation("404")
+    // const { t, i18n } = useTranslation("404")
     return (
         <Layout location={location}>
             <DefaultSection>

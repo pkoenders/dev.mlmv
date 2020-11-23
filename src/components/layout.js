@@ -19,7 +19,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <a className={"skipLink"} href="#mainContent" role="link" tabIndex="0">Skip to main content</a>
+      <a className={"skipLink"} href="#mainContent" tabIndex="0">Skip to main content</a>
       <div id="layoutModule" className={layoutStyles.container} >
         <Header siteTitle={data.site.siteMetadata.title} location={location} />
         <div className={layoutStyles.content}>
