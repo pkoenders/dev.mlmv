@@ -8,7 +8,7 @@ import DefaultSection from "../components/defaultSection"
 import LogoMLMV from "../images/svg/logo-mlmv.inline.svg"
 
 const IndexPage = ({ location }) => {
-  const { t, i18n } = useTranslation("index")
+  const { t, i18n } = useTranslation("indexPage")
   const IndexData = useStaticQuery(graphql`
     query IndexPage {
       site {
@@ -29,7 +29,7 @@ const IndexPage = ({ location }) => {
         <HeaderImg />
         <DefaultSection>
           <LogoMLMV style={{ margin: '-200 0 0 0', position: 'absolute' }} />
-          <h1>{t("index:title")}</h1>
+          <h1>{t("indexPage:title")}</h1>
           <p>This is placement page that needs to be designed and built</p>
 
           <Link to={`/${i18n.language}/peer-supporters`} className={'buttonPrimary'} >Visit our Peer Supporters</Link>
