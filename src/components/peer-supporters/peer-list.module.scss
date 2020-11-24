@@ -249,16 +249,32 @@
 
                     span {
                         pointer-events: none;
+                    }
 
+                    span:nth-child(1) {
                         svg {
                             height: .8rem;
                             height: auto;
-                            width: 12px;
+                            width: 14px;
                             margin: 0px 5px 1px -2px;
                             pointer-events: none;
                             vertical-align: middle;
                             //display: none;
                         }
+                    }
+
+                    span:nth-child(2) {
+                        font-size: .8rem;
+                        margin: 0 0 0 6px;
+                        border-radius: 999rem;
+                        background-color: #7A9CAE;
+                        //background-color: #6FFFE9;
+                        //background-color: #464F6B;
+                        //background-color: #ffffff;
+                        //background-color: #0B132B;
+                        //color: #ffffff;
+                        padding: 1px 5px;
+                        display: inline-block;
                     }
                 }
 

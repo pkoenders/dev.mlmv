@@ -14,8 +14,12 @@ import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 //var peerResultsShow = true
 var tagSelectList = ''
 var emptyTags = []
+//var allTagList = []
+
+let allResultsTagList = []
 
 const ListPeerSupporters = ({ data, language }) => {
+
     const { t, i18n } = useTranslation("peerSupporters")
     const tagsTranslate = i18n.language
     //const translate = i18n.language
@@ -50,6 +54,7 @@ const ListPeerSupporters = ({ data, language }) => {
     // Check if the tags filtering list has matching tags in the results. 
     // It is possible to create a tag in Sanity and not attached to a Peer supporter.
     // We don't want return an empty result   
+
     checkForEmptyTags()
     function checkForEmptyTags() {
 
@@ -57,18 +62,20 @@ const ListPeerSupporters = ({ data, language }) => {
         var allTagList = []
         allSanityTags.forEach((allTagsEdge) => {
             allTagList.push(allTagsEdge.node.tagsTitle[tagsTranslate])
-        }
-            //
-        )
-        // Get the results Tag list
-        var allResultsTagList = []
+        })
+
+        // Get the results Tag list if thry are active posts
+        allResultsTagList = []
         allPosts.forEach((allResults) => {
-            allResults.node.tags.forEach((tagList) => {
-                allResultsTagList.push(tagList.tagsTitle.translate)
+            if (
+                allResults.node.peerSupporterActive === true
+            ) {
+                allResults.node.tags.forEach((tagList) => {
+                    allResultsTagList.push(tagList.tagsTitle.translate)
+                })
             }
-            )
-        }
-        )
+        })
+
         // And compare, retieve the missed matched (empty tags)
         // Now will check for 'emptyTags' when we write the tags filter out
         emptyTags = allTagList.filter(function (el) {
@@ -98,9 +105,9 @@ const ListPeerSupporters = ({ data, language }) => {
 
         //Get the tag data passed from the event click etc
         const tagItem = event.target
-        // tagItemValue = event.target.id
-        tagItemValue = event.target.innerText
-        // console.log("tagItemValue = " + tagItemValue)
+        tagItemValue = event.target.id
+        //tagItemValue = event.target.label
+        //console.log("tagItemValue = " + tagItemValue)
 
 
         // Get our Peer Results Tags
@@ -122,11 +129,12 @@ const ListPeerSupporters = ({ data, language }) => {
 
             if (tagItem.classList.contains("selected")) {
                 // If we toggle on tag, then add item from list 
-                tagSelectList = tagSelectList.concat(event.target.innerText + ' ')
+                tagSelectList = tagSelectList.concat(tagItemValue + ' ')
             } else {
                 // If we toggle off tag, then remove item from list 
-                tagSelectList = tagSelectList.replace(event.target.innerText + ' ', '')
+                tagSelectList = tagSelectList.replace(tagItemValue + ' ', '')
             }
+            //console.log("tagSelectList = " + tagSelectList)
 
             //Then update the Peer results tags
             updateResultsTagList(peerResultsTags, event)
@@ -230,7 +238,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
     const updateResultsTagList = (peerResultsTags, event) => {
         for (var i = 0; i < peerResultsTags.length; i++) {
-            peerResultsTags[i].innerText === event.target.innerText && peerResultsTags[i].classList.toggle("selected")
+            peerResultsTags[i].innerText === event.target.id && peerResultsTags[i].classList.toggle("selected")
         }
     }
 
@@ -274,7 +282,7 @@ const ListPeerSupporters = ({ data, language }) => {
 
             const description = post.node.peerShortDescription.translate
             const title = post.node.peerSupporterFullName.translate
-            console.log("title = " + title)
+            // console.log("title = " + title)
 
             var tagList = ''
             if (post.node.tags) {
@@ -284,7 +292,7 @@ const ListPeerSupporters = ({ data, language }) => {
             }
 
             const tags = tagList
-            console.log("query = " + query)
+            // console.log("query = " + query)
 
             //console.log("query(input) = " + query)
             return (
@@ -373,13 +381,17 @@ const ListPeerSupporters = ({ data, language }) => {
                             {allSanityTags.map((allTagsEdge, allTagsID) => {
                                 if (
                                     !allTagsEdge.node.tagsTitle[tagsTranslate].includes(emptyTags)
+
                                 ) {
+                                    // Check to see how many time the button (ths edge) appears in the allResultsTagList
+                                    var tagMatchCount = allResultsTagList.filter((x) => (x === allTagsEdge.node.tagsTitle[tagsTranslate])).length
                                     return (
                                         <button
                                             key={allTagsID}
-                                            //id={allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            id={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             className={'tagListItem focus-visible'}
-                                            aria-label={allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            //aria-label={allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            aria-label={allTagsEdge.node.tagsTitle[tagsTranslate] + " " + tagMatchCount + " results"}
                                             //role="menuitem"
                                             //value={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             tabIndex="0"
@@ -393,6 +405,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <IconTagUnSelected />
                                             </span>
                                             {allTagsEdge.node.tagsTitle[tagsTranslate]}
+                                            <span>{tagMatchCount}</span>
                                         </button>
                                     )
                                 }
@@ -451,7 +464,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                     </li>
                                 )
                             } else {
-                                return false
+                                return null
                             }
                         })}
                     </ul>
@@ -460,5 +473,6 @@ const ListPeerSupporters = ({ data, language }) => {
         </>
     );
 }
+
 
 export default ListPeerSupporters
