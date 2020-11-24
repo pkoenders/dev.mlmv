@@ -1,9 +1,9 @@
 @import "src/styles/scss";
 
 .fillBground {
-  transition: all 0.2s !important;
-  //background-color: $headerBgColor !important;
-  background-color: #0b132b !important;
+
+  background-color: $headerBgColor !important;
+  //background-color: #0b132b !important;
 
 }
 
@@ -17,6 +17,7 @@ header.headerNavWrapper {
 
   //background-color: $headerBgColor;
   background-color: #0b132b00;
+  transition: all 0.2s !important;
 
   width: 100%;
   z-index: 100000;
