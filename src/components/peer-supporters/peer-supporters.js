@@ -345,7 +345,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
                                 onFocus={handleInputLabelStatusFocus}
-                                onBlur={handleInputLabelStatusBlur}
+                            //onBlur={handleInputLabelStatusBlur}
                             />
                             <button
                                 className={peerListStyles.filterReset + ' filterReset hide'}
@@ -354,9 +354,10 @@ const ListPeerSupporters = ({ data, language }) => {
                                 value="reset"
                                 tabIndex="0"
                                 onClick={handleInputFilterReset}
-                                onMouseDown={handleInputFilterPreSet}
+                                //onMouseDown={handleInputFilterPreSet}
                                 onMouseUp={handleInputFilterReset}
-                                onKeyDown={handleInputFilterReset}>
+                            //onKeyDown={handleInputFilterReset}
+                            >
                                 <IconReset aria-hidden="true" />
                             </button>
                             <IconSearchAlt className={peerListStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
@@ -378,8 +379,9 @@ const ListPeerSupporters = ({ data, language }) => {
                                             key={allTagsID}
                                             //id={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             className={'tagListItem focus-visible'}
-                                            aria-label="Filter peer supports list"
+                                            aria-label={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             //role="menuitem"
+                                            //value={allTagsEdge.node.tagsTitle[tagsTranslate]}
                                             tabIndex="0"
                                             onMouseDown={handleInputFilterPreSet}
                                             //onMouseUp={handleInputFilterReset, handleTagSelect}
