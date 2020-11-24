@@ -2,7 +2,9 @@
 
 .fillBground {
   transition: all 0.2s !important;
-  background-color: $headerBgColor !important;
+  //background-color: $headerBgColor !important;
+  background-color: #0b132b !important;
+
 }
 
 header.headerNavWrapper {
@@ -14,7 +16,8 @@ header.headerNavWrapper {
   //justify-content: flex-end;
 
   //background-color: $headerBgColor;
-  background-color: transparent;
+  background-color: #0b132b00;
+
   width: 100%;
   z-index: 100000;
   transition: all 0.4s;
