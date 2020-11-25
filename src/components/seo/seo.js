@@ -25,9 +25,10 @@ const SEO = ({ title, description, image, article }) => {
 
   return (
     <Helmet>
-      {/* <meta name="robots" content="index"></meta> */}
-      <meta name="robots" content="noindex"></meta>
       <html lang="en" />
+      <meta name="robots" content="index"></meta>
+      {/* <meta name="robots" content="noindex"></meta> */}
+
 
       {/* Need to define hreflang - See - https://web.dev/hreflang/?utm_source=lighthouse&utm_medium=devtools */}
       {/* <link rel="alternate" hreflang="en" href={`${siteUrl}${pathname}`} />
