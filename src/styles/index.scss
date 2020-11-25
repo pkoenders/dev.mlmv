@@ -470,12 +470,9 @@ svg.filterSearchIconAlt.hide {
   vertical-align: top;
   margin-top: 0px;
 
-  picture {
-    //object-position: top !important;
-
-    img {
-      object-position: top !important;
-      transition: opacity 0.5s ease !important;
-    }
+  img {
+    object-position: top !important;
+    transition: opacity 0.5s ease !important;
   }
+
 }
