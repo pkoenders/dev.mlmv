@@ -16,12 +16,17 @@ header.headerNavWrapper {
   //justify-content: flex-end;
 
   //background-color: $headerBgColor;
-  background-color: #0b132b00;
-  transition: all 0.2s;
+  //background-color: #0b132b00;
+
+
 
   width: 100%;
   z-index: 100000;
   transition: all 0.4s;
+  will-change: transform;
+  transform: translateZ(0);
+  transform: translate(0, 0);
+
   /* Transition effect when sliding down (and up) */
   // background-color: #ffffff;
   height: 60px;
