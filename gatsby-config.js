@@ -78,6 +78,7 @@ module.exports = {
       }
     },
 
+
     {
       resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
