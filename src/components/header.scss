@@ -1,8 +1,8 @@
 @import "src/styles/scss";
 
-.fillBground {
+header.headerNavWrapper.fillBground {
 
-  background: $headerBgColor !important;
+  background-color: $headerBgColor;
   //background-color: #0b132b !important;
 
 }
@@ -16,7 +16,7 @@ header.headerNavWrapper {
   //justify-content: flex-end;
 
   //background-color: $headerBgColor;
-  background: #0b132b00;
+  background-color: #0b132b00;
   transition: all 0.2s;
 
   width: 100%;
@@ -58,6 +58,7 @@ header.headerNavWrapper {
     z-index: 1001;
     min-width: 130px;
     //background-color: $headerBgColor;
+    background-color: #0b132b00;
     transition: all 0.4s;
 
     button {
@@ -101,6 +102,7 @@ header.headerNavWrapper {
     height: 100vh;
     max-width: 100%;
     border: none;
+    background-color: $headerBgColor;
 
     ul {
       display: block;

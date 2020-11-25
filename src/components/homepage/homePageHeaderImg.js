@@ -19,7 +19,7 @@ const HomepageHeaderImage = () => {
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1700, quality: 50) {
+          fluid(maxWidth: 1700, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
