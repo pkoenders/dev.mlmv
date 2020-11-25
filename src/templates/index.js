@@ -26,7 +26,7 @@ const IndexPage = ({ location }) => {
         description={'A website to connect Peer Supportes to the disabled community.'}
       />
       <Layout location={location}>
-        <HeaderImg />
+        {/* <HeaderImg /> */}
         <DefaultSection>
           <LogoMLMV style={{ margin: '-200 0 0 0', position: 'absolute' }} />
           <h1>{t("index:title")}</h1>
