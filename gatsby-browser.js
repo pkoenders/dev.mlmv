@@ -158,13 +158,15 @@ function mobileNav() {
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if ((prevScrollpos >= currentScrollPos) || (hamBurgerBtn.classList.contains("is-active"))) {
-            document.querySelector(".headerNavWrapper").style.top = "0";
+            //headerNavWrapper.style.top = "0";
+            headerNavWrapper.classList.remove("hide")
             if (projectsNav) {
                 projectsNav.style.top = "50px";
             }
 
         } else {
-            document.querySelector(".headerNavWrapper").style.top = "-61px";
+            //headerNavWrapper.style.top = "-61px";
+            headerNavWrapper.classList.add("hide")
             if (projectsNav) {
                 projectsNav.style.top = "-10px";
             }

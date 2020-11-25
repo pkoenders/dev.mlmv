@@ -25,7 +25,7 @@ const Header = ({ data, location }) => {
 
   return (
     <>
-      <header className="headerNavWrapper fillBground" style={{ top: 0 + 'px' }} aria-label="Main heading">
+      <header className="headerNavWrapper fillBground" aria-label="Main heading">
 
         {location.pathname !== "/" + i18n.language
           ? <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
