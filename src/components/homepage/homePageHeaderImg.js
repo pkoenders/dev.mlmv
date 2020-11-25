@@ -19,7 +19,7 @@ const HomepageHeaderImage = () => {
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1700, quality: 100) {
+          fluid(maxWidth: 1700, quality: 80) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -27,13 +27,17 @@ const HomepageHeaderImage = () => {
     }
   `)
 
-  return <Img
-    fluid={data.placeholderImage.childImageSharp.fluid}
-    // objectFit="cover"
-    // objectPosition="50% 50%"
-    loading="lazy"
-    alt="Banner image - Diasbled person in a wheelchair"
-    className={'homepageHeaderImg contentStart'} />
+  return (
+    <>
+      <Img
+        fluid={data.placeholderImage.childImageSharp.fluid}
+        // objectFit="cover"
+        // objectPosition="50% 50%"
+        loading="lazy"
+        alt="Banner image - Diasbled person in a wheelchair"
+        className={'homepageHeaderImg contentStart'} />
+    </>
+  )
 }
 
 export default HomepageHeaderImage

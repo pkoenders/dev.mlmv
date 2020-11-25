@@ -16,9 +16,9 @@ body {
 
 
 // ::selection {
-  //   background-color: #B3D7FE;
-  //   color: #837373;
-  // }
+//   background-color: #B3D7FE;
+//   color: #837373;
+// }
 
 canvas {
   width: 100%;
@@ -475,6 +475,7 @@ svg.filterSearchIconAlt.hide {
 
     img {
       object-position: top !important;
+      transition: opacity 0.5s ease !important;
     }
   }
 }
