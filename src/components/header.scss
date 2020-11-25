@@ -16,13 +16,14 @@ header.headerNavWrapper {
   //justify-content: flex-end;
 
   //background-color: $headerBgColor;
-  //background-color: #0b132b00;
+  background-color: #0b132b00;
 
 
 
   width: 100%;
   z-index: 100000;
-  transition: all 0.4s;
+  transition: background-color 0.4s;
+  transition: transform 0.4s;
   will-change: transform;
   transform: translateZ(0);
   transform: translate(0, 0);
