@@ -15,6 +15,13 @@ module.exports = {
   plugins: [
 
     {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: false,
+      },
+    },
+
+    {
       resolve: `gatsby-source-sanity`,
       options: {
         projectId: `97psedqm`,
