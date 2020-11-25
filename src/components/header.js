@@ -31,6 +31,7 @@ const Header = ({ data, location }) => {
           ? <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
             {/* <span>Link to homepage</span> */}
             <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+            {/* <b>My Life My Voice</b> */}
           </Link>
           : ""
         }

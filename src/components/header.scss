@@ -1,15 +1,9 @@
 @import "src/styles/scss";
 
-header.headerNavWrapper.fillBground {
-
-
-  background-color: $headerBgColor;
-
-}
 
 header.headerNavWrapper.hide {
-  will-change: transform;
-  transition: translate 1.4s;
+  // will-change: transform;
+  // transition: translate 1.4s;
   transform: translate(0, -61px);
 }
 
@@ -21,27 +15,22 @@ header.headerNavWrapper {
   //justify-content: space-between;
   //justify-content: flex-end;
   //background-color: #0b132b00;
-  background-color: transparent;
+  // background-color: transparent;
   // background: none;
   width: 100%;
   z-index: 100000;
   will-change: transform;
+  transition: all 0.4s;
+  transform: translate(0, 0);
 
   transition: all .4s;
-
-  //transition: background-color 0.4s;
-  //transition: all 0.4s;
-  //transition: background-color 0.4s;
-  //transition: translate 0.4s;
-  //transition: translate 0.4s;
-  //transform: translateZ(0);
-  transform: translate(0, 0);
   height: 60px;
 
   a {
-    margin: 3px 0 0 3px;
+    margin: 0 0 0 117px;
     display: flex;
     z-index: 1003;
+    //left: 60px;
 
     span {
       display: none;
@@ -81,7 +70,7 @@ header.headerNavWrapper {
       //top: 3px;
       background-color: $headerBgColor;
 
-      right: 0px;
+      left: 0px;
       border: none;
       align-self: center;
       cursor: pointer;
@@ -122,10 +111,10 @@ header.headerNavWrapper {
       // visibility: visible;
       list-style: none;
       padding: 0 0 0 0px;
-      margin: 0 0 0 auto;
-      top: 60px;
+      margin: 0 auto 0 0 0;
+      top: 72px;
       position: relative;
-      right: 15px;
+      left: 72px;
       width: fit-content;
       border-left: 1px solid #6FFFE9;
 
@@ -240,4 +229,22 @@ header.headerNavWrapper {
       }
     }
   }
+}
+
+header.headerNavWrapper::before {
+  content: "";
+  background-color: $headerBgColor;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  will-change: transform;
+  transition: opacity 0.4s;
+}
+
+header.headerNavWrapper.fillBground::before {
+  opacity: 1;
+
 }
