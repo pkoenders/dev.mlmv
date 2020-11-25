@@ -42,7 +42,7 @@ function ready() {
     // document.addEventListener('touchmove', function (e) {
     //     mobileNav()
     // });
-    document.querySelector(".headerNavWrapper").style.top = "0";
+    //document.querySelector(".headerNavWrapper").style.top = "0";
     mobileNav()
     canvasAnin()
 }
