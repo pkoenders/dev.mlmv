@@ -242,6 +242,7 @@ header.headerNavWrapper::before {
   left: 0;
   will-change: transform;
   transition: opacity 0.4s;
+  transition-timing-function: ease-in;
 }
 
 header.headerNavWrapper.fillBground::before {

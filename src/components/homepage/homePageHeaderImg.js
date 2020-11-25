@@ -31,6 +31,7 @@ const HomepageHeaderImage = () => {
     fluid={data.placeholderImage.childImageSharp.fluid}
     // objectFit="cover"
     // objectPosition="50% 50%"
+    loading="lazy"
     alt="Banner image - Diasbled person in a wheelchair"
     className={'homepageHeaderImg contentStart'} />
 }
