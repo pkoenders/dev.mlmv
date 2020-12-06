@@ -72,6 +72,21 @@
           color: #ffffff;
           font-size: .9rem;
         }
+
+
+        a:focus {
+          outline: none;
+        }
+
+        /* Optional: Customize .focus-visible */
+        a:focus-visible {
+          @include focusVisibleForDark;
+        }
+
+        a:-moz-focusring {
+          @include focusVisibleForDark;
+        }
+
       }
     }
   }
