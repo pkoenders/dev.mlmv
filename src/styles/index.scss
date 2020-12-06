@@ -40,8 +40,8 @@ canvas {
 a.skipLink {
   background: #000000;
   color: #ffffff;
-  height: 30px;
-  left: 50%;
+  // height: 30px;
+  // left: 50%;
   padding: 8px;
   position: absolute;
   transform: translateY(-100%);
@@ -128,6 +128,22 @@ button.buttonSecondary button.buttonTertiary,
   background-color: $primaryColor;
   color: $headerBgColor !important;
   box-shadow: 0px 0px 5px 0px rgba(35, 35, 35, 0.5);
+}
+
+.buttonPrimary:disabled,
+.buttonPrimary[disabled],
+.buttonPrimaryGhost:disabled,
+.buttonPrimaryGhost[disabled],
+.buttonPrimaryDark:disabled,
+.buttonPrimaryDark[disabled],
+.buttonSecondary:disabled,
+.buttonSecondary[disabled],
+.buttonTertiary:disabled,
+.buttonTertiary[disabled] {
+  //background-color: #25324091;
+  //border: 1px solid $primaryColor;
+  //border: 1px solid #25324091 !important;
+  opacity: .2;
 }
 
 button.buttonPrimaryGhost,
@@ -466,7 +482,7 @@ svg.filterSearchIconAlt.hide {
 
 
 .homepageHeaderImg {
-  max-height: 650px;
+  max-height: 550px;
   vertical-align: top;
   margin-top: 0px;
 

@@ -30,6 +30,12 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   const peerData = sanityPeerSupporters
   const { next, previous } = pageContext
 
+  const handleInputTerms = event => {
+    //console.log("Checkbox change")
+    const submitBtn = document.getElementById('submitBtn')
+    submitBtn.disabled = !submitBtn.disabled;
+  }
+
   //const { next, previous } = pageContext
   //console.log(peerData.next)
   // const next = peerData.next
@@ -259,10 +265,33 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                       rows="5" />
                   </label>
                 </p>
+
+                <p className={peerSupporterStyles.checkbox}>
+                  <label htmlFor="terms">
+                    <span>I have <Link
+                      aria-label="Link to the terms of use"
+                      //tabIndex="0"
+                      className={peerSupporterStyles.prev}
+                      to={`../../terms-and-use`}
+                    >
+                      read, understood and agree to the terms and conditions</Link> for My Life My Voice before submitting this form.</span>
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      id="terms"
+                      onChange={handleInputTerms}
+                    />
+                  </label>
+                </p>
+
                 <p>
                   <button
                     type="submit"
-                    className="buttonPrimary">Submit form</button>
+                    id="submitBtn"
+                    className="buttonPrimary"
+                    disabled
+                  >
+                    Submit form</button>
                 </p>
               </form>
             </div>

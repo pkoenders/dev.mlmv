@@ -3,19 +3,18 @@ import { Link } from "gatsby"
 //import Img from 'gatsby-image'
 //import PlaceImage from './image/image'
 import { useTranslation } from "react-i18next"
-
 import LogoMLMVHeader from "../images/svg/logo-mlmv.inline.svg"
-import IconTick from "../images/svg/icon-tick-nav.inline.svg"
-import IconClose from "../images/svg/icon-close.inline.svg"
+import IconChevronRight from "../images/svg/icon-chevron-right.inline.svg"
+import IconCloseMenu from "../images/svg/icon-close.inline.svg"
 import '../styles/index.scss'
 import "../styles/hamburger.scss"
 import "./header.scss"
 
-const Header = ({ data, location }) => {
 
+const Header = ({ location }) => {
   // const { t, i18n } = useTranslation("common")
   const { i18n } = useTranslation("common")
-
+  var viewportWidth = 0
   const pathArray = location.pathname.split('/')
   var newPathName = ""
   for (var i = 2; i < pathArray.length; i++) {
@@ -23,22 +22,107 @@ const Header = ({ data, location }) => {
     newPathName += pathArray[i];
   }
 
+
+  //const link = location.pathname
+  const isPartiallyActive = ({
+    isPartiallyCurrent
+  }) => {
+    return isPartiallyCurrent
+      ? { className: "activeNavItem" }
+      : {}
+  }
+
+
+  let currentLanguage = "English"
+  if (i18n.language === 'en') {
+    currentLanguage = 'English'
+  } else if (i18n.language === 'mi') {
+    currentLanguage = 'Māori'
+  }
+
+  function toggleMobileNav() {
+    const headerNavHomepage = document.querySelector(".homePage")
+    const headerDiv = document.querySelector(".headerNav")
+    const headerDivNav = document.querySelector(".headerNav ul li")
+    const hamBurgerBtn = document.querySelector(".hamburger")
+    const closeMenu = document.querySelector(".closeMenu")
+
+    if (!headerDiv.classList.contains("open")) {
+      openHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu)
+    } else {
+      closeHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu)
+    }
+    headerDivNav.addEventListener("click", function () {
+      closeHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu)
+    })
+
+    window.addEventListener('resize', function () {
+      viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      if (viewportWidth > 768) {
+        closeHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu)
+      }
+    })
+  }
+
+  function openHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu) {
+    //console.log("hamburger open")
+    headerDiv.classList.add("open", "fillBground")
+    hamBurgerBtn.classList.add("is-active")
+    headerNavHomepage.classList.remove("hide")
+    closeMenu.classList.remove("hide")
+    hamBurgerBtn.setAttribute("aria-expanded", "true")
+    hamBurgerBtn.setAttribute("aria-pressed", "true")
+  }
+
+  function closeHamburgerNav(headerNavHomepage, hamBurgerBtn, headerDiv, closeMenu) {
+    //console.log("hamburger close")
+    headerDiv.classList.remove("open", "fillBground")
+    hamBurgerBtn.classList.remove("is-active")
+    headerNavHomepage.classList.add("hide")
+    closeMenu.classList.add("hide")
+    hamBurgerBtn.setAttribute("aria-expanded", "false")
+    hamBurgerBtn.setAttribute("aria-pressed", "false")
+  }
+
+  const handleLanguageSelector = event => {
+    //console.log("Language Selector")
+    const localeSeletor = document.querySelector('.localeSeletor')
+    const localeSeletorList = document.querySelector('.localeSeletor ul')
+    const localeSeletorIconExpand = document.querySelector('.localeSeletor span svg')
+    localeSeletor.classList.toggle("bground")
+    localeSeletorList.classList.toggle("show")
+    localeSeletorIconExpand.classList.toggle("open")
+  }
+
+
   return (
     <>
-      <header className="headerNavWrapper fillBground" aria-label="Main heading">
+      <header className="headerNavWrapper" aria-label="Main heading">
+        <nav className="headerNav" aria-label="Main navigation" role="navigation">
+          {/* 
+          {location.pathname !== "/" + i18n.language
+            ? <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
+              <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+            </Link>
+            : ''
+          } */}
 
-        {location.pathname !== "/" + i18n.language
-          ? <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
-            {/* <span>Link to homepage</span> */}
-            <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
-            {/* <b>My Life My Voice</b> */}
+
+          <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
+            <LogoMLMVHeader alt={"Logo My Life my Voice"} />
           </Link>
-          : ""
-        }
 
-        <nav className="header-nav" role="navigation">
-
-          <button className="hamburger hamburger--squeeze" type="button" tabIndex="0" aria-label="Open and Close navigation menu" aria-controls="mainNavigation" aria-expanded="false" aria-pressed="false">
+          <button
+            className="hamburger hamburger--squeeze"
+            type="button"
+            tabIndex="0"
+            aria-label="Open and Close navigation menu"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-pressed="false"
+            onKeyPress={toggleMobileNav}
+            onClick={toggleMobileNav}
+          >
             <span className="hamburger-label">Menu</span>
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
@@ -46,17 +130,22 @@ const Header = ({ data, location }) => {
           </button>
 
           <ul id="mainNavigation">
-            <li>
+
+            <li className="homePage hide" >
               <Link
                 to={`/${i18n.language}`}
+                activeClassName={"activeNavItem"}
                 tabIndex="0"
                 title="Link to Homepage">
                 My Life My Voice
-              </Link>
+                  </Link>
             </li>
+
             <li>
               <Link
                 to={`/${i18n.language}/peer-supporters`}
+                activeClassName={"activeNavItem"}
+                getProps={isPartiallyActive}
                 tabIndex="0"
                 title="Link to Peer Supporters">
                 Peer Supporters
@@ -64,84 +153,89 @@ const Header = ({ data, location }) => {
             </li>
             <li>
               <Link
+                to={`/${i18n.language}/about`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to About My Life My Voice">
+                About us
+                </Link>
+            </li>
+            <li>
+              <Link
                 to={`/${i18n.language}/contact`}
+                activeClassName={"activeNavItem"}
                 tabIndex="0"
                 title="Link to Contact us">
                 Contact us
                 </Link>
             </li>
-            <li>
-              <Link
-                to={`/${i18n.language}/about`}
+
+            <li className="closeMenu breakNav hide">
+              <span
+                type="button"
                 tabIndex="0"
-                title="Link to About My Life My Voice">
-                About My Life My Voice
-                </Link>
+                role="button"
+                onKeyPress={toggleMobileNav}
+                onClick={toggleMobileNav}>
+                Close menu
+                <IconCloseMenu aria-hidden="true" />
+              </span>
             </li>
-            <li>
-              <Link
-                to={`/${i18n.language}/terms-and-use`}
-                tabIndex="0"
-                title="Link to Terms of use">Terms of use
-              </Link>
-            </li>
-            <li className="breakNav">
-              <Link
-                to={`/${i18n.language}/accessibility`}
-                tabIndex="0"
-                title="Link to Website accessiblity">
-                Website accessiblity
-                </Link>
-            </li>
-            {i18n.language === "en"
-              ? <li>
-                <Link
-                  to={`/en${newPathName}`}
-                  hrefLang="en"
-                  tabIndex="0"
-                  title="Selected language is English(NZ)" >English(NZ)
-                <IconTick aria-hidden="true" />
-                </Link>
-              </li>
-              : <li>
-                <Link
-                  to={`/en${newPathName}`}
-                  hrefLang="en"
-                  tabIndex="0"
-                  title="Switch language to English(NZ)" >
-                  English(NZ)
-                  </Link>
-              </li>
-            }
-            {i18n.language === "mi"
-              ? <li>
-                <Link
-                  to={`/mi${newPathName}`}
-                  hrefLang="mi"
-                  tabIndex="0"
-                  title="Selected language is  Māori">
-                  Māori<IconTick aria-hidden="true" />
-                </Link>
-              </li>
-              : <li>
-                <Link
-                  to={`/mi${newPathName}`}
-                  hrefLang="mi"
-                  tabIndex="0"
-                  title="Switch language to Māori">
-                  Māori
-                  </Link>
-              </li>
-            }
-            <li>
-              <button
-                aria-label="Close navigation menu"
-                tabIndex="0">Close menu
-                  <IconClose aria-hidden="true" />
-              </button>
-            </li>
+
+
           </ul>
+
+
+          <div className="localeSeletor" aria-label="Select language">
+            <span
+              type="button"
+              tabIndex="0"
+              role="button"
+              onClick={handleLanguageSelector}
+              onKeyPress={handleLanguageSelector}
+              aria-label={'Current language is set to ' + currentLanguage}
+            >
+              {currentLanguage}
+              <IconChevronRight aria-hidden="true" />
+            </span>
+
+            <ul>
+              {i18n.language === "en"
+                ? ''
+                : <li>
+                  <Link
+                    to={`/en${newPathName}`}
+                    hrefLang="en"
+                    tabIndex="0"
+                    title="Switch language to English(NZ)" >
+                    English
+                  </Link>
+                </li>
+              }
+              {i18n.language === "mi"
+                ? ''
+                : <li>
+                  <Link
+                    to={`/mi${newPathName}`}
+                    hrefLang="mi"
+                    tabIndex="0"
+                    title="Switch language to Māori">
+                    Māori
+                  </Link>
+                </li>
+              }
+              <li>
+                <Link
+                  to="/"
+                  tabIndex="0"
+                  title="">
+                  普通话
+                  </Link>
+              </li>
+            </ul>
+          </div>
         </nav>
+
       </header >
     </>
   )

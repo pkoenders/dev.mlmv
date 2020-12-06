@@ -29,7 +29,6 @@ export const onRouteUpdate = () => {
 
     // Load page
     document.addEventListener("DOMContentLoaded", ready())
-
     // mediumZoom('.images p span img', {
     //     //background: '#efeff0',
 
@@ -43,9 +42,11 @@ function ready() {
     //     mobileNav()
     // });
     //document.querySelector(".headerNavWrapper").style.top = "0";
-    mobileNav()
+    srollNav()
     canvasAnin()
+
 }
+
 
 function canvasAnin() {
     var animsToRun = [
@@ -101,56 +102,11 @@ function runCanvasAnin(animItem) {
     }
 }
 
-function toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo) {
 
-
-    // Add our event listeners
-    //hamBurgerBtn.addEventListener('click', toggleMenu, false);
-    //hamBurgerBtn.addEventListener('focus', toggleMenu, false);
-
-    "onfocus onKeyPress click".split(" ").forEach(function (e) {
-        hamBurgerBtn.addEventListener(e, function () {
-            //console.log("hamburger clicked!")
-            if (!headerDiv.classList.contains("open")) {
-                headerDiv.classList.add("open", "fillBground")
-                hamBurgerBtn.classList.add("is-active")
-                hamBurgerBtn.setAttribute("aria-expanded", "true")
-                hamBurgerBtn.setAttribute("aria-pressed", "true")
-                //e.stopImmediatePropagation()
-            } else {
-                headerDiv.classList.remove("open", "fillBground")
-                hamBurgerBtn.classList.remove("is-active")
-                hamBurgerBtn.setAttribute("aria-expanded", "false")
-                hamBurgerBtn.setAttribute("aria-pressed", "false")
-                //e.stopImmediatePropagation()
-            }
-            //e.stopImmediatePropagation()
-        });
-    });
-
-
-
-    headerDivNav.addEventListener("click", function () {
-        headerDiv.classList.remove("open", "fillBground")
-        hamBurgerBtn.classList.remove("is-active")
-        hamBurgerBtn.setAttribute("aria-expanded", "false")
-    });
-
-    headerDivLogo.addEventListener("click", function () {
-        headerDiv.classList.remove("open", "fillBground")
-        hamBurgerBtn.classList.remove("is-active")
-        hamBurgerBtn.setAttribute("aria-expanded", "false")
-    });
-
-}
-
-function mobileNav() {
+function srollNav() {
+    const contentStart = document.querySelector(".contentStart")
     const headerNavWrapper = document.querySelector(".headerNavWrapper")
-    const headerDivLogo = document.querySelector(".headerNavWrapper a ")
     const hamBurgerBtn = document.querySelector(".hamburger")
-    const headerDiv = document.querySelector(".header-nav")
-    const headerDivNav = document.querySelector(".header-nav ul ")
-    const contentStart = document.querySelector(".contentStart");
     var prevScrollpos = 0;
     // No errors
     var projectsNav = document.querySelector('.projects-nav');
@@ -192,12 +148,15 @@ function mobileNav() {
     if (contentStart) {
         var rect = contentStart.getBoundingClientRect()
         headerNavWrapper.classList.remove("fillBground")
+        headerNavWrapper.classList.remove("fillBgroundQuick")
         //console.log(rect.top);
         if (rect.bottom <= 61) {
             headerNavWrapper.classList.add("fillBground")
         } else {
             headerNavWrapper.classList.remove("fillBground")
+            headerNavWrapper.classList.remove("fillBgroundQuick")
         }
+    } else {
+        headerNavWrapper.classList.add("fillBgroundQuick")
     }
-    toggleMobileNavOnClick(headerNavWrapper, hamBurgerBtn, headerDiv, headerDivNav, headerDivLogo)
 }

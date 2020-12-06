@@ -2,40 +2,43 @@
 //https://codepen.io/aaroniker/pen/ZEYoxEY
 
 @import "./scss";
-
+//@import "./variables";
 
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
 
     input[type='checkbox'],
     input[type='radio'] {
-        --active: #1AACE5;
+        --active: $primaryColorA;
 
         //--active: $tertiaryColor !important;
 
-        --active-inner: #fff;
-        --focus: 1px #1AACE5;
+        --active-inner: #0b132b;
+        --focus: 1px $primaryColorA;
         //--focus: 1px $tertiaryColor;
-        --border: #dad8d8;
-        --border-hover: #1AACE5;
+        --border: #0b132b;
+        --border-hover: $primaryColorA;
         // --border-hover: $tertiaryColor;
 
 
-        --background: #fff;
+        --background: #0b132b;
         --disabled: #F6F8FF;
         --disabled-inner: #E1E6F9;
         -webkit-appearance: none;
         -moz-appearance: none;
         height: 30px;
+        width: 30px;
         outline: none;
         // display: block;
-        float: left;
+        //float: left;
+        //display: inline-block;
 
         vertical-align: middle;
-        position: relative;
+        //position: relative;
+        position: absolute;
         margin: -2px 15px 0 0;
         cursor: pointer;
         border: 1px solid var(--bc, var(--border));
-        border-bottom: 2px solid var(--bc, var(--border));
+        //border-bottom: 2px solid var(--bc, var(--border));
         background: var(--b, var(--background));
         transition: background .3s, border-color .3s, box-shadow .2s;
 
@@ -84,7 +87,7 @@
         }
 
         &:not(.switch) {
-            width: 30px;
+            // width: 36px;
 
             &:after {
                 opacity: var(--o, 0);
@@ -111,11 +114,11 @@
 
             &:after {
                 width: 10px;
-                height: 21px;
-                border: 3px solid var(--active-inner);
+                height: 22px;
+                border: 4px solid var(--active-inner);
                 border-top: 0;
                 border-left: 0;
-                left: 9px;
+                left: 10px;
                 top: 1px;
                 transform: rotate(var(--r, 43deg));
             }
@@ -170,4 +173,59 @@
             --s: .5;
         }
     }
+}
+
+
+
+// Push Toggle
+
+.switch-input {
+    display: none;
+}
+
+.switch-label {
+    display: block;
+    width: 48px;
+    height: 24px;
+    text-indent: -150%;
+    clip: rect(0 0 0 0);
+    color: transparent;
+    user-select: none;
+}
+
+.switch-label::before,
+.switch-label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}
+
+.switch-label::before {
+    width: 100%;
+    height: 100%;
+    background-color: #dedede;
+    border-radius: 9999em;
+    -webkit-transition: background-color 0.25s ease;
+    transition: background-color 0.25s ease;
+}
+
+.switch-label::after {
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+    -webkit-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+}
+
+.switch-input:checked+.switch-label::before {
+    background-color: #89c12d;
+}
+
+.switch-input:checked+.switch-label::after {
+    left: 24px;
 }

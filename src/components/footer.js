@@ -38,25 +38,67 @@ const Footer = ({ location }) => {
           <LogoMLMVFooter />
         </Link>
         <p>Footer content here</p>
+        <p>Subscribe to a newsletter?</p>
+        <p>List social links?</p>
 
-        {/* <nav>
-          <ul>
-            <li><Link to={`/${i18n.language}`} title="My Life My Voice Homepage" >My Life My Voice</Link></li>
-            <li><Link to={`/${i18n.language}/peer-supporters`} >Peer Supporters</Link></li>
-            <li><Link to={`/${i18n.language}/contact`} >Contact us</Link></li>
-            <li><Link to={`/${i18n.language}/about`} >About My Life My Voice</Link></li>
-            <li><Link to={`/${i18n.language}/terms-and-use`} >Terms of use</Link></li>
-            <li><Link to={`/${i18n.language}/accessibility`} >Website accessiblity</Link></li>
-            {i18n.language === "en"
-              ? <li><Link to={`/en${newPathName}`} hrefLang="en" title="Selected language is English(NZ)" ><IconTick alt={"Tick icon to indicate selected language"} />English(NZ)</Link></li>
-              : <li><Link to={`/en${newPathName}`} hrefLang="en" title="Switch language to English(NZ)" >English(NZ)</Link></li>
-            }
-            {i18n.language === "mi"
-              ? <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Selected language is  Māori"><IconTick alt={"Tick icon to indicate selected language"} />Māori</Link></li>
-              : <li><Link to={`/mi${newPathName}`} hrefLang="mi" title="Switch language to Māori">Māori</Link></li>
-            }
+        <nav>
+          <ul><li>
+            <Link
+              to={`/${i18n.language}`}
+              activeClassName={"activeNavItem"}
+              tabIndex="0"
+              title="Link to Homepage">
+              My Life My Voice
+                  </Link>
+          </li>
+
+            <li>
+              <Link
+                to={`/${i18n.language}/peer-supporters`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Peer Supporters">
+                Peer Supporters
+                </Link>
+            </li>
+            <li>
+              <Link
+                to={`/${i18n.language}/about`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to About My Life My Voice">
+                About us
+                </Link>
+            </li>
+            <li>
+              <Link
+                to={`/${i18n.language}/contact`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Contact us">
+                Contact us
+                </Link>
+            </li>
+
+            <li>
+              <Link
+                to={`/${i18n.language}/terms-and-use`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Terms of use">Terms of use
+              </Link>
+            </li>
+            <li className="breakNav">
+              <Link
+                to={`/${i18n.language}/accessibility`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Website accessiblity">
+                Website accessiblity
+                </Link>
+            </li>
           </ul>
-        </nav> */}
+        </nav>
 
         <p>© {new Date().getFullYear()} - {data.site.siteMetadata.title}</p>
       </footer>

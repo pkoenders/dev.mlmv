@@ -432,6 +432,24 @@ div.peerSupporterWrapper {
                 button:-moz-focusring {
                     @include focusVisibleForDark;
                 }
+
+                .checkbox {
+                    label {
+                        display: flex;
+                        flex-direction: row;
+
+                        span {
+                            order: 2;
+                            margin-left: 45px;
+
+
+                        }
+
+                        input {
+                            order: 1;
+                        }
+                    }
+                }
             }
 
 

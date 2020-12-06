@@ -11,70 +11,85 @@ header.headerNavWrapper {
   display: flex !important;
   position: fixed;
   flex-direction: row;
-  //border-bottom: 1px solid #ffffff5a;
-  //justify-content: space-between;
-  //justify-content: flex-end;
-  //background-color: #0b132b00;
-  // background-color: transparent;
-  // background: none;
   width: 100%;
   z-index: 100000;
   will-change: transform;
   transition: all 0.4s;
   transform: translate(0, 0);
-
   transition: all .4s;
   height: 60px;
 
-  a {
-    margin: 0 0 0 120px;
-    display: flex;
-    z-index: 1003;
-    //left: 60px;
-
-    span {
-      display: none;
-    }
-
-    svg {
-      padding: 10px 15px;
-      height: 60px;
-      width: auto;
-    }
-  }
-
-  a:focus {
-    outline: none;
-  }
-
-  a:focus-visible {
-    @include focusVisibleForDark;
-  }
-
-  a:-moz-focusring {
-    @include focusVisibleForDark;
-  }
-
-  nav.header-nav {
+  nav.headerNav {
     z-index: 1001;
     min-width: 130px;
     //background-color: $headerBgColor;
     background-color: #0b132b00;
     transition: all 0.4s;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: space-between;
+
+    a {
+      order: 0;
+
+      @include respond-below(sm) {
+        order: 1;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      margin: 0 0 0 0px;
+      z-index: 1003;
+      //left: 60px;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        padding: 10px 15px;
+        height: 60px;
+        width: auto;
+      }
+    }
+
+    a:focus {
+      outline: none;
+    }
+
+    a:focus-visible {
+      @include focusVisibleForDark;
+    }
+
+    a:-moz-focusring {
+      @include focusVisibleForDark;
+    }
 
     button {
-      position: absolute;
+      order: 0;
+
+      @include respond-below(sm) {
+        order: 0;
+      }
+
+      display: none;
+      justify-self: flex-start;
+      align-content: flex-start;
+      margin: 0 0 auto 0;
+
+      @include respond-below(sm) {
+        display: block;
+      }
+
       align-self: center;
       padding: 2px 15px;
       height: 60px;
-      //top: 3px;
       background-color: $headerBgColor;
-
-      left: 0px;
       border: none;
       align-self: center;
       cursor: pointer;
-      //@at-rootpadding-right: 0px;
     }
 
     button:focus {
@@ -89,39 +104,25 @@ header.headerNavWrapper {
       @include focusVisibleForDark;
     }
 
-    ul {
+
+    //Mobile view
+    >ul {
+      // order: 2;
+      justify-self: start;
       display: none;
-      // visibility: hidden;
-    }
-  }
-
-  nav.header-nav.open {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    height: 100vh;
-    max-width: 100%;
-    border: none;
-    background: $headerBgColor;
-
-    ul {
-      display: block;
-      // visibility: visible;
       list-style: none;
-      padding: 0 0 0 0px;
-      margin: 0 0 0 0;
+      padding: 0 0 0 0;
+      margin: 0 auto 0 0;
       top: 72px;
       position: relative;
-      left: 100px;
-      width: fit-content;
+      left: -15px;
+      right: auto;
       border-left: 1px solid #6FFFE9;
+      overflow: scroll;
 
       li {
+        display: block;
         clear: both;
-
-
 
         a,
         p,
@@ -147,9 +148,10 @@ header.headerNavWrapper {
 
         svg {
           padding: 0;
-          margin: 0 0 -1px 8px;
+          margin: 0 0 0px 15px;
           height: 1.1rem;
           width: auto;
+          vertical-align: middle;
         }
 
         a:hover,
@@ -158,6 +160,7 @@ header.headerNavWrapper {
         }
 
         a:after,
+        span:after,
         button:after {
           content: '';
           position: absolute;
@@ -173,11 +176,14 @@ header.headerNavWrapper {
         }
 
         a:hover:after,
+        span:hover:after,
         button:hover:after {
           width: 100%;
         }
 
-        a:focus {
+        a:focus,
+        span:focus,
+        button:focus {
           outline: none;
         }
 
@@ -190,11 +196,11 @@ header.headerNavWrapper {
           @include focusVisibleForDark;
         }
 
-        button:focus-visible {
+        span:focus-visible {
           @include focusVisibleForDark;
         }
 
-        button:-moz-focusring {
+        button:focus-visible {
           @include focusVisibleForDark;
         }
 
@@ -202,34 +208,184 @@ header.headerNavWrapper {
           @include focusVisibleForDark;
         }
 
+        span:-moz-focusring {
+          @include focusVisibleForDark;
+        }
+
+        button:-moz-focusring {
+          @include focusVisibleForDark;
+        }
+
+
+
+      }
+
+      li.hide {
+        display: none;
       }
 
       li.breakNav {
-        margin-bottom: 30px;
+        margin-top: 30px;
       }
-
-      li.status {
-        padding-top: 30px;
-      }
-
     }
 
-    div {
-      clear: right;
-      width: auto;
-      direction: ltr;
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: wrap;
+    //Desktop view
+    @include respond-above(sm) {
+      >ul {
+        //display: flex;
+        //  justify-self: center;
+        //order: 2;
+        display: block;
+        border-left: none;
+        margin: 0 auto;
+        padding: 10px 0;
+        top: 0;
+        left: 0;
 
-      svg {
-        height: 60px;
-        width: auto;
-        margin: 0 0 15px 15px;
+        li {
+          clear: none;
+          float: left;
+
+          a {
+            float: left;
+            right: 0;
+            font-size: .9rem;
+            //font-size: 1.5rem;
+            font-weight: 600;
+            padding: 10px 15px 10px 15px;
+          }
+
+          a.activeNavItem {
+            color: $pageBgColor;
+            background: $primaryColor;
+          }
+
+          a:after,
+          button:after {
+            content: '';
+
+            left: 50%;
+            transition: all 150ms ease-in-out;
+          }
+
+          a:hover:after,
+          button:hover:after {
+            width: 100%;
+            left: 0px;
+          }
+        }
       }
     }
   }
+
+  nav.open {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100vh;
+    max-width: 100%;
+    border: none;
+    background: $headerBgColor;
+
+    >a {
+      display: none;
+    }
+
+    ul {
+      display: block;
+    }
+
+    div.localeSeletor {
+      display: none;
+    }
+  }
+
+  div.localeSeletor {
+    order: 2;
+
+    @include respond-below(sm) {
+      order: 2;
+    }
+
+    height: fit-content;
+    width: max-content;
+    justify-self: flex-end;
+
+    span,
+    a {
+      font-size: .9rem;
+      float: right;
+      color: #ffffff;
+      padding: 20px 15px 4px 0;
+      cursor: pointer;
+
+      svg {
+        height: .7rem;
+        width: auto;
+        padding: 0x;
+        margin-left: 10px;
+        transform: rotate(0);
+        transition: transform .15s linear;
+        //transform-style: preserve-3d;
+      }
+
+      svg.open {
+        transform: rotate(90deg);
+      }
+    }
+
+    span:focus {
+      outline: none;
+    }
+
+    span:focus-visible,
+    a:focus-visible {
+      @include focusVisibleForDark;
+    }
+
+    span:-moz-focusring,
+    a:-moz-focusring {
+      @include focusVisibleForDark;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 30px;
+      list-style: none;
+      display: block;
+      float: right;
+      clear: both;
+      visibility: hidden;
+      position: relative;
+      width: 100%;
+
+      li {
+        float: right;
+        clear: both;
+        margin: 0 32px 0 0;
+
+        a {
+          padding: 5px 0px;
+          margin: 0;
+          width: 100%;
+          text-align: right;
+          cursor: pointer;
+        }
+      }
+    }
+
+    ul.show {
+      visibility: visible;
+    }
+  }
+
+  div.localeSeletor.bground {
+    background-color: $headerBgColor;
+  }
 }
+
 
 header.headerNavWrapper::before {
   content: "";
@@ -248,4 +404,9 @@ header.headerNavWrapper::before {
 header.headerNavWrapper.fillBground::before {
   opacity: 1;
 
+}
+
+header.headerNavWrapper.fillBgroundQuick::before {
+  opacity: 1;
+  transition: opacity 0s;
 }

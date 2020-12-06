@@ -4,6 +4,15 @@
   position: relative;
   //width: 100%;
 
+  border-top: 1px solid #ffffff33;
+  color: #f6f4f2;
+  padding: 60px 60px 120px 60px;
+  background-color: $footerBgColor;
+  text-align: center;
+
+
+
+
   >svg {
     position: absolute;
 
@@ -23,11 +32,7 @@
 
   }
 
-  //border-top: 1px solid $headerBgColor;
-  color: #f6f4f2;
-  padding: 120px 60px 120px 60px;
-  background-color: $footerBgColor;
-  text-align: center;
+
 
   a {
     z-index: 100 !important;
@@ -54,10 +59,20 @@
     position: relative;
   }
 
-  p+p {
-    font-size: .8rem;
-    color: $tertiaryColorA;
-    color: #ffffff;
-    line-height: 1.0rem;
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+
+      li {
+        margin: 5px 0;
+
+        a {
+          color: #ffffff;
+          font-size: .9rem;
+        }
+      }
+    }
   }
 }

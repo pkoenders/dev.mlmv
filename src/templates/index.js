@@ -7,7 +7,7 @@ import HeaderImg from "../components/homepage/homePageHeaderImg"
 import DefaultSection from "../components/defaultSection"
 import LogoMLMV from "../images/svg/logo-mlmv.inline.svg"
 
-const IndexPage = ({ location }) => {
+const IndexPage = ({ data, location }) => {
   const { t, i18n } = useTranslation("index")
   const IndexData = useStaticQuery(graphql`
     query IndexPage {
