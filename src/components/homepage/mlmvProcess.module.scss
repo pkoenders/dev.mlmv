@@ -19,13 +19,18 @@
 
             .content {
                 padding: 60px 0px 60px 60px;
+
+                @include respond-below(sm) {
+                    padding: 60px 0px 60px 30px;
+                }
+
                 align-self: center;
 
                 p {
                     //margin: 0 0 0 60px;
                     text-align: left;
-                    color: #66758D;
- font-size: 1.4rem;
+                    //color: #363c46;
+                    font-size: 1.4rem;
                     line-height: 1.8rem;
                     margin-bottom: 0;
                 }
@@ -43,16 +48,26 @@
                     width: 125px;
                     height: 125px;
 
+                    @include respond-below(sm) {
+                        width: 75px;
+                        height: 75px;
+                    }
+
                     p {
                         display: inline-block;
                         width: 100%;
                         text-align: center;
                         align-self: center;
-                        //color: #66758D;
+                        color: #898d92;
                         font-size: 3.8rem;
                         font-weight: 700;
                         line-height: normal;
                         margin: 0;
+
+                        @include respond-below(sm) {
+                            font-size: 2.4rem;
+                        }
+
                     }
                 }
             }

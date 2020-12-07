@@ -6,7 +6,7 @@
 
     h2 {
         text-align: center;
-        //color: #ffffff;
+        color: #ffffff;
 
     }
 
@@ -37,7 +37,7 @@
                 }
 
                 text-align: left;
-                color: #66758D;
+                //color: #363c46;
                 font-size: 1.8rem;
                 line-height: 2.4rem;
                 margin-bottom: 0;
@@ -53,13 +53,13 @@
             }
 
             svg {
+                height: 300px;
                 width: auto;
                 vertical-align: bottom;
-
-                height: 300px;
                 margin: 90px 0 -1px 0px;
 
                 @include respond-below(md) {
+                    height: 200px;
                     margin: 60px auto -1px auto;
 
                 }

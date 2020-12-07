@@ -21,7 +21,7 @@ const HomepageSupports = ({ data, language }) => {
         <div className={peerResultsStyles.wrapper}>
           {/* <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1> */}
 
-          <h2>New supporters to our team</h2>
+          <h2>New supporters in our team</h2>
           <ul className={"peerResults"}>
             {allPosts.map((edge, postID) => {
               if (

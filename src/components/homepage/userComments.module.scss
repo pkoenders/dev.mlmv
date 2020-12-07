@@ -1,0 +1,111 @@
+@import "src/styles/scss";
+
+.sectionWrapper {
+    background-color: #ffffff;
+    background-color: #EDEDED;
+    background-color: #6FFFE9;
+    background-color: #e1f229;
+
+    h2 {
+        text-align: center;
+    }
+
+    .sectionInner {
+        display: block;
+        max-width: 1200px;
+        padding: 60px 15px;
+        margin: 0 auto;
+        text-align: center;
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: $primaryColor;
+        }
+
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: left;
+            list-style: none;
+            margin: 0;
+            width: 100%;
+
+
+            li {
+                display: block;
+                border-radius: 3px;
+                position: relative;
+                flex-basis: calc(33% - 60px);
+                margin: 15px;
+                //background-color: #ffffff;
+                padding: 15px 30px;
+                //border: 1px solid #5cd2c0;
+                background-color: #ffffffe0;
+                box-shadow: $globalBoxShadowB;
+
+
+                @include respond-below(md) {
+                    flex-basis: calc(47% - 7.5px);
+                    margin: 15px;
+                }
+
+                @include respond-below(sm) {
+                    flex-basis: calc(45% - 7.5px);
+                    margin: 15px;
+                }
+
+                @include respond-below(xs) {
+                    flex-basis: calc(100% - 7.5px);
+                    // border-bottom: 1px solid #d8d8d8;
+                    margin-bottom: 30px;
+                }
+
+
+                p {
+                    color: $primaryColor;
+                    color: #363c46;
+                    margin: 0;
+
+                }
+
+
+
+                p:nth-child(1) {
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                p:nth-child(2) {
+                    margin: 0 25px;
+                    display: inline;
+                    line-height: 1.3rem;
+                    position: relative;
+                }
+
+                p:nth-child(2):before,
+                p:nth-child(2):after {
+                    font-size: 2.5rem;
+                    line-height: 0;
+                    position: absolute;
+                    font-family: Spectral, serif;
+                }
+
+                p:nth-child(2):before {
+                    content: "\201C";
+                    top: 15px;
+                    left: -25px;
+
+                }
+
+                p:nth-child(2):after {
+                    content: "\201D";
+                    bottom: 5px;
+                }
+            }
+        }
+    }
+}

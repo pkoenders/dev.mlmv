@@ -368,7 +368,8 @@ header.headerNavWrapper {
       display: block;
       float: right;
       clear: both;
-      visibility: hidden;
+      // visibility: hidden;
+      display: none;
       position: relative;
       width: 100%;
 
@@ -388,7 +389,8 @@ header.headerNavWrapper {
     }
 
     ul.show {
-      visibility: visible;
+      //visibility: visible;
+      display: block;
     }
   }
 

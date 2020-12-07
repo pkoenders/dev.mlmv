@@ -355,7 +355,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
                                 onFocus={handleInputLabelStatusFocus}
-                            //onBlur={handleInputLabelStatusBlur}
+                            //onBlur={handleInputFilterReset}
                             />
                             <button
                                 className={peerFilterStyles.filterReset + ' filterReset hide'}

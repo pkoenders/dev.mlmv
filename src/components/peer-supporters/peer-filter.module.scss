@@ -4,7 +4,6 @@
     padding: $globalSecionPadding;
     padding: 30px 0 1px 0;
     margin-top: 60px !important;
-    background-color: turquoise;
     background-color: #c1def5;
     background-color: $headerBgColor;
 
@@ -56,33 +55,14 @@
                 padding: 15px 15px 0;
             }
 
-            label.filterLabel {
-                // position: absolute;
-                // //display: block;
-                // top: 32px;
 
-                // @include respond-below(sm) {
-                //     left: 15px;
-                //     right: 60px;
-                // }
 
-                // color: #6FFFE9;
-                // background-color: transparent;
-                // font-weight: 400;
-                // font-size: 1.0rem;
-                // line-height: 1.0rem;
-                // padding: 0px 12px;
-                // transition: top .25s ease-in;
-                // white-space: nowrap;
-                // overflow: hidden;
-            }
 
 
             input[type=search] {
                 color: #ffffff;
                 z-index: 1;
 
-                background-color: #3A506B;
                 background-color: #464f6b;
                 padding: 15px 60px 15px 15px;
 
@@ -94,7 +74,8 @@
                 font-size: 1.1rem;
                 line-height: 1.0rem;
                 font-weight: 500;
-                border-bottom: 2px solid #6FFFE9 !important;
+                border-bottom: 2px solid #beedff !important;
+                border-radius: 3px;
 
             }
 
@@ -218,49 +199,31 @@
                     font-size: .9rem;
                     line-height: .9rem;
                     width: auto;
-                    display: inline-block;
-                    flex: none;
+                    display: flex;
                     margin: 4px;
                     color: #ffffff;
                     color: $headerBgColor;
-                    // background-color: #004661;
-                    // background-color: #487D93;
-                    // background-color: #1A75BB;
-                    // background-color: #317BB4;
-                    // background-color: #335c7b;
-                    // background-color: #3A506B;
-                    //background-color: #D7E7EF;
-                    //background-color: #9fc9d9;
                     background-color: #beedff;
-
-
-
-                    // background-color: #b704a8;
-
-
-                    border: 1px solid transparent;
-
-
-                    //padding: 7.5px 15px;
-                    padding: 6.5px 8.5px;
+                    border: none;
+                    padding: 6px 9px;
                     border-radius: 999em;
                     border-radius: .2rem;
-                    //user-select: none;
                     cursor: pointer;
 
                     span {
                         pointer-events: none;
+                        align-self: center;
                     }
 
                     span:nth-child(1) {
+                        display: flex;
+
                         svg {
+                            align-self: center;
                             height: .8rem;
                             height: auto;
                             width: 14px;
-                            margin: 0px 5px 1px -2px;
-                            pointer-events: none;
-                            vertical-align: middle;
-                            //display: none;
+                            margin: 0px 5px 0px -2px;
                         }
                     }
 
@@ -268,24 +231,16 @@
                         font-size: .7rem;
                         text-align: center;
                         font-weight: 600;
-                        margin: 0 0 0 6px;
+                        margin: 0 -2px 0 5px;
                         border-radius: 999rem;
-                        //background-color: #7A9CAE;
-                        //background-color: #6FFFE9;
-                        //background-color: #464F6B;
-                        //background-color: #ffffff;
-                        //background-color: #0B132B;
                         background-color: #97c5d6;
-                        // background-color: #7b2052;
-                        //color: #ffffff;
-                        padding: 1px 5px;
-                        display: inline-block;
+                        padding: 0px 5px;
                     }
                 }
 
                 button:hover {
                     box-shadow: $globalBoxShadowA;
-                    border: 1px solid $headerBgColor;
+                    //border: 1px solid $headerBgColor;
                 }
 
                 button:focus {

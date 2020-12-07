@@ -2,15 +2,17 @@ $whiteText:#eff0f1;
 $primaryColor: #0B132B;
 $primaryColorA: #0B132B;
 $secondaryColor: #6FFFE9;
-$secondaryColorA: #C6756D;
-$tertiaryColor: #B42A76;
-$tertiaryColorA: #B42A76;
-$tertiaryColorC: #B42A76;
+$secondaryColorA: #6FFFE9;
+$tertiaryColor: #e01685;
+$tertiaryColorA: #e01685;
 
 $ctaColorDark: #253240;
 
-$txtColor: #0B132B;
-$textLinkColor: #B42A76;
+//$txtColor: #0B132B;
+$txtColor: #363c46;
+
+
+$textLinkColor: $tertiaryColor;
 
 $pageBgColor: #0B132B;
 

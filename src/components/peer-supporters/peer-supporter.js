@@ -289,7 +289,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   <button
                     type="submit"
                     id="submitBtn"
-                    className="buttonPrimary"
+                    className="buttonSecondary"
                     disabled
                   >
                     Submit form</button>

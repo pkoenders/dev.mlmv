@@ -4,12 +4,14 @@ import { graphql, Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
+import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
 import PromotedSupports from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
-import SectionContact from "../components/homepage/contact"
+import UsrCommentsSection from "../components/homepage/userComments"
+import SectionContact from "../components/forms/contact"
 
 export const query = graphql`
   query($language: String) {
@@ -74,17 +76,16 @@ const IndexPage = ({ data, location, language }) => {
       <Layout location={location}>
         <HeaderImg />
         <DefaultSection>
-          {/* <LogoMLMV style={{ margin: '-200 0 0 0', position: 'absolute' }} /> */}
-          {/* <h1>{t("index:title")}</h1> */}
-          <div className='homepageIntro'>
+          <div className={HomepageStyles.homepageIntro}>
             <h1>We work with you and your family</h1>
-            <p>We talk about what a good life looks life for you and help you choose how you want to make a good life happen.</p>
+            <p>We talk about what a good life looks life for you is and help you choose how you want to make a good life happen.</p>
             <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >View our Peer Supporters</Link>
           </div>
         </DefaultSection>
         <ProcessSection />
         <SupportSection />
         <PromotedSupports data={data} language={language} />
+        <UsrCommentsSection />
         <SectionContact />
       </Layout>
     </>

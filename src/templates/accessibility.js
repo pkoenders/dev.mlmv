@@ -151,7 +151,7 @@ const AccessibilityPage = ({ location }) => {
                   <button
                     type="submit"
                     id="submitBtn"
-                    className="buttonPrimary"
+                    className="buttonSecondary"
                     disabled
                   >
                     Submit form</button>

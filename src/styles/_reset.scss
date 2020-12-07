@@ -255,7 +255,7 @@ textarea {
 [type="url"],
 [type="week"],
 textarea {
-  border-radius: 2px;
+  border-radius: 3px;
   display: block;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -266,7 +266,7 @@ textarea {
   border-bottom: 2px solid #dad8d8;
   -moz-appearance: none;
   -webkit-appearance: none;
-  border-radius: 0;
+  //border-radius: 0;
   background-image: none;
   -webkit-transition: border 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   transition: border 0.2s cubic-bezier(0.55, 0, 0.1, 1);

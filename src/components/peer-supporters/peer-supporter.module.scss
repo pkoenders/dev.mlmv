@@ -5,13 +5,9 @@ section.prevNext {
     transition: all .25s linear;
     position: sticky;
     padding: 20px 0 10px 0;
-    //background: #87c8e2;
     background-color: #c1def5;
     background-color: $headerBgColor;
     top: 50px;
-    //border-bottom: 1px solid #ffffff;
-    //border-bottom: 1px solid #FF00E9;
-    //border-bottom: 1px solid #FF00E9;
 
     nav {
         max-width: 1200px;
@@ -72,30 +68,11 @@ section.prevNext {
 
 div.peerSupporterWrapper {
     section.header {
-        // background-color: #291361;
-        // background: rgb(30, 14, 72);
-        // background: linear-gradient(180deg, rgba(30, 14, 72, 1) 0%, rgba(41, 19, 97, 1) 67%);
-        // background: rgb(41, 19, 97);
-        // background: radial-gradient(circle, rgba(41, 19, 97, 1) 0%, rgba(30, 14, 72, 1) 67%);
-
-        // background: rgb(41, 19, 97);
-        // background: linear-gradient(260deg, rgba(41, 19, 97, 1) 0%, rgba(30, 14, 72, 1) 67%);
-
-        background-color: #3A506B;
-        background-color: #5BC0BE;
-        background-color: #9ac3d7;
         background-color: $headerBgColor;
-        // border-bottom: 1px solid #B42A76;
-        // background-color: #6FFFE9;
-        //background-color: #6FFFE9;
-
-        //border-top: 2px solid #FF00E9;
 
         .headerWrapper {
             max-width: 1200px;
-            margin: 0px auto;
-            margin-top: 50px;
-            //padding: 75px 15px 30px;
+            margin: 50px auto 0px auto;
             padding: 0 15px;
 
             @include respond-below(sm) {
@@ -103,12 +80,6 @@ div.peerSupporterWrapper {
             }
 
             color: #ffffff;
-
-
-
-            //color: #0B132B;
-
-
 
             .headerTitleWrapper {
 
@@ -120,25 +91,9 @@ div.peerSupporterWrapper {
                     flex-direction: column;
                 }
 
-
-
                 .headerTitle {
-                    // background: rgb(215, 231, 239);
-                    // background: linear-gradient(180deg, rgba(215, 231, 239, 1) 72%, rgba(202, 217, 224, 1) 100%);
-
-                    // background: rgb(3, 207, 218);
-                    // background: linear-gradient(180deg, rgba(3, 207, 218, 1) 72%, rgba(3, 195, 205, 1) 100%);
-
-                    //background: rgb(111, 255, 233);
-                    //background: linear-gradient(180deg, rgba(111, 255, 233, 1) 72%, rgba(114, 235, 216, 1) 100%);
-
-                    //background-color: $tertiaryColor;
                     background-color: #464f6b;
-
-                    //background: #03cfda;
-
                     padding: 15px 30px;
-                    //border: 1px solid #B42A76;
                     border-radius: 4px 4px 0 0;
                     border-bottom: none;
                     margin-bottom: -0px;
@@ -146,7 +101,6 @@ div.peerSupporterWrapper {
                     order: 0;
                     color: inherit;
                     align-items: center;
-
                     flex-basis: 66.6%;
 
                     @include respond-below(sm) {
@@ -157,17 +111,13 @@ div.peerSupporterWrapper {
                     span {
                         display: flex;
                         align-items: center;
-                        color: #6fffe9;
-                        color: $headerBgColor;
                         color: #ffffff;
 
                         h1 {
                             color: inherit;
-                            //color: #03cfda;
                             order: 1;
                             padding: 0 15px;
                             margin-bottom: .33rem;
-                            //font-family: 'Roboto Slab';
 
                         }
 
@@ -178,8 +128,6 @@ div.peerSupporterWrapper {
                             min-width: 90px;
                             height: 90px;
                             border-radius: 999rem;
-                            //border: 1px solid #ffffff;
-                            // border: 1px solid #5BC0BE;
                             overflow: hidden;
 
                             img {}
@@ -207,7 +155,6 @@ div.peerSupporterWrapper {
 
                 .contentTags {
                     order: 1;
-                    //flex-shrink: 0;
                     flex-basis: 33.3%;
                     flex-grow: 1;
                     align-self: flex-end;
@@ -220,26 +167,15 @@ div.peerSupporterWrapper {
                         flex-basis: 100%;
                         width: 100%;
                         padding: 0 15px 15px;
-                        background-color: #cad9e0;
-                        background-color: #03cfda;
-                        background-color: #03c3cd;
-                        background-color: #72ebd8;
+                        // background-color: #72ebd8;
+                        background-color: #464f6b;
                         margin-bottom: -1px;
                     }
 
                     text-align: left;
                     padding-left: 30px;
 
-                    p {
-                        color: #291361;
-                        color: $headerBgColor;
-                        margin-bottom: .33rem;
-                        // font-weight: bold;
 
-                        @include respond-below(sm) {
-                            display: none;
-                        }
-                    }
 
                     ul {
                         width: auto;
@@ -250,26 +186,18 @@ div.peerSupporterWrapper {
                         li {
                             width: auto;
                             display: inline-block;
-
-                            //flex: none;
                             margin: 4px 8px 4px 0px;
-                            color: #e6ebee;
-                            color: $headerBgColor;
                             color: #ffffff;
-                            //border: 1px solid #361884;
-                            background-color: $headerBgColor;
-                            background-color: #3A506B;
                             background-color: #464f6b;
-                            background-color: #03cfda;
-                            background-color: #6FFFE9;
-                            background-color: #464f6b;
-                            //background-color: #5464a3;
                             padding: 3px 12px;
                             font-size: .85rem;
-
                             font-weight: 400;
                             border-radius: .2em;
                             box-shadow: none;
+
+                            @include respond-below(sm) {
+                                background-color: $headerBgColor;
+                            }
                         }
 
                         li.selected {

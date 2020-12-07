@@ -17,7 +17,7 @@ const MLMVProcessSection = () => {
                             </div>
                         </div>
                         <div className={mlmvProcessStyles.content}>
-                            <p>Talk with one of  our connectors about your ideas and goals. Togeather you can start thinking about different opportunities.</p>
+                            <p>Talk with one of our connectors about your ideas and goals. Togeather you can start thinking about different opportunities.</p>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ const MLMVProcessSection = () => {
                             </div>
                         </div>
                         <div className={mlmvProcessStyles.content}>
-                            <p>Create an agree ment with the people who will support you.</p>
+                            <p>Create an agreement with the people who will support you.</p>
                         </div>
                     </div>
                 </div>
