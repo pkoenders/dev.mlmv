@@ -1,0 +1,74 @@
+@import "src/styles/scss";
+
+.supportSection {
+
+
+    h2 {
+        text-align: center;
+        //color: #ffffff;
+    }
+
+    .supportSectionOutterWrapper {
+        .supportSectionInnerWrapper {
+            display: block;
+            max-width: 1200px;
+            padding: 0 15px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+
+            .content {
+                padding: 60px 0px 60px 60px;
+                align-self: center;
+
+                p {
+                    //margin: 0 0 0 60px;
+                    text-align: left;
+                    color: #66758D;
+ font-size: 1.4rem;
+                    line-height: 1.8rem;
+                    margin-bottom: 0;
+                }
+            }
+
+            .steps {
+                align-self: center;
+
+                div {
+                    display: flex;
+                    align-self: center;
+                    margin: 45px 0px;
+                    background-color: #EDEDED;
+                    border-radius: 9999rem;
+                    width: 125px;
+                    height: 125px;
+
+                    p {
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+                        align-self: center;
+                        //color: #66758D;
+                        font-size: 3.8rem;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .supportSectionOutterWrapper:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+
+    .supportSectionOutterWrapper:nth-child(even) {
+        .steps {
+            div {
+                background-color: #ffffff;
+            }
+        }
+    }
+}

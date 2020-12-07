@@ -4,8 +4,6 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 import IconPhone from "../../images/svg/icon-phone.inline.svg"
 
 const ContactForm = () => {
-
-
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
             <h2>Contact us</h2>
@@ -14,7 +12,7 @@ const ContactForm = () => {
                 <div className={contactStyles.contactForm}>
                     <IconWave />
                     <p>We would love to be contacted to discuss how we can help you or just hear your thoughts and ideas.</p>
-                    <p>You can text or call me <a href="tel:+64 XX XXX XXXX"><IconPhone className={contactStyles.contactIconPhone} />+64 XXX XXX XXXX</a>. Alternatively, complete the following form for email enquires. Thanks.</p>
+                    <p>You can call us <a href="tel:+0800 886 626"><IconPhone className={contactStyles.contactIconPhone} />0800 886 626</a>. Alternatively, complete the following form for email enquires. Thanks.</p>
                     <div className={contactStyles.contactFormInput}>
                         <form
                             name="pkoenders-contact"
@@ -72,7 +70,7 @@ const ContactForm = () => {
                             <p>
                                 <button
                                     type="submit"
-                                    className="buttonPrimary">Submit</button>
+                                    className="buttonSecondary">Submit</button>
                             </p>
                         </form>
                     </div>

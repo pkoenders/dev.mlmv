@@ -99,18 +99,19 @@ const Header = ({ location }) => {
     <>
       <header className="headerNavWrapper" aria-label="Main heading">
         <nav className="headerNav" aria-label="Main navigation" role="navigation">
-          {/* 
+
           {location.pathname !== "/" + i18n.language
-            ? <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
+            ? <Link className="brand" to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
               <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
             </Link>
-            : ''
-          } */}
+            : <Link className="brand homePage">
+              <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+            </Link>
+          }
 
-
-          <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
+          {/* <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
             <LogoMLMVHeader alt={"Logo My Life my Voice"} />
-          </Link>
+          </Link> */}
 
           <button
             className="hamburger hamburger--squeeze"
@@ -169,6 +170,25 @@ const Header = ({ location }) => {
                 Contact us
                 </Link>
             </li>
+
+            <li className="hide">
+              <Link
+                to={`/${i18n.language}/terms-and-use`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Terms of use">Terms of use
+              </Link>
+            </li>
+            <li className="hide">
+              <Link
+                to={`/${i18n.language}/accessibility`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Website accessiblity">
+                Website accessiblity
+                </Link>
+            </li>
+
 
             <li className="closeMenu breakNav hide">
               <span

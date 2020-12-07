@@ -2,7 +2,9 @@ import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
-import peerListStyles from './peer-list.module.scss'
+
+import peerFilterStyles from './peer-filter.module.scss'
+import peerResultsStyles from './peer-results.module.scss'
 import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
 import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
@@ -64,7 +66,7 @@ const ListPeerSupporters = ({ data, language }) => {
             allTagList.push(allTagsEdge.node.tagsTitle[tagsTranslate])
         })
 
-        // Get the results Tag list if thry are active posts
+        // Get the results Tag list if they are active posts
         allResultsTagList = []
         allPosts.forEach((allResults) => {
             if (
@@ -337,12 +339,12 @@ const ListPeerSupporters = ({ data, language }) => {
 
     return (
         <>
-            <section className={peerListStyles.peerFilter + ' section-layout-wide'}>
+            <section className={peerFilterStyles.peerFilter + ' section-layout-wide'}>
 
-                <div className={peerListStyles.wrapper}>
-                    <div className={peerListStyles.peerFilterInput} >
+                <div className={peerFilterStyles.wrapper}>
+                    <div className={peerFilterStyles.peerFilterInput} >
                         <form role="search">
-                            <label className={peerListStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
                                 //className={peerListStyles.peerFilterInput}
                                 tabIndex="0"
@@ -356,7 +358,7 @@ const ListPeerSupporters = ({ data, language }) => {
                             //onBlur={handleInputLabelStatusBlur}
                             />
                             <button
-                                className={peerListStyles.filterReset + ' filterReset hide'}
+                                className={peerFilterStyles.filterReset + ' filterReset hide'}
                                 aria-label="Clear keyword input field"
                                 type="reset"
                                 value="reset"
@@ -368,13 +370,13 @@ const ListPeerSupporters = ({ data, language }) => {
                             >
                                 <IconReset aria-hidden="true" />
                             </button>
-                            <IconSearchAlt className={peerListStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
-                            <IconSearch className={peerListStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
+                            <IconSearchAlt className={peerFilterStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
+                            <IconSearch className={peerFilterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
                         </form>
                     </div>
 
-                    <div className={peerListStyles.peerFilterTags} aria-label="Filter by tags">
-                        <span className={peerListStyles.or}>{t("peerSupporters:selectATag")}</span>
+                    <div className={peerFilterStyles.peerFilterTags} aria-label="Filter by tags">
+                        <span className={peerFilterStyles.or}>{t("peerSupporters:selectATag")}</span>
                         <div
                             className={'tagList'}
                         >
@@ -417,8 +419,8 @@ const ListPeerSupporters = ({ data, language }) => {
             </section>
 
 
-            <section className={peerListStyles.peerResults}>
-                <div className={peerListStyles.wrapper}>
+            <section className={peerResultsStyles.peerResults}>
+                <div className={peerResultsStyles.wrapper}>
                     <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1>
 
                     <span className={'presentPeerResultsShow'} style={{ display: 'none' }}>
@@ -443,9 +445,9 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 fluid={edge.node.coverImage.asset.fluid}
                                                 loading="lazy"
                                             />
-                                            <span className={peerListStyles.resultsContentImgOverlay}></span>
-                                            <span className={peerListStyles.resultsContentWrapper}>
-                                                <h2>{edge.node.peerSupporterFullName.translate}</h2>
+                                            <span className={peerResultsStyles.resultsContentImgOverlay}></span>
+                                            <span className={peerResultsStyles.resultsContentWrapper}>
+                                                <h3>{edge.node.peerSupporterFullName.translate}</h3>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
                                                 <ul>
@@ -470,6 +472,8 @@ const ListPeerSupporters = ({ data, language }) => {
                     </ul>
                 </div>
             </section>
+
+
         </>
     );
 }

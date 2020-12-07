@@ -6,7 +6,8 @@ import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
-import contactStyles from '../homepage/contact.module.scss'
+//import contactStyles from '../homepage/contact.module.scss'
+import footerForm from '../forms/footer-form.module.scss'
 // import IconOpenExternal from "../../images/svg/icon-open-external.inline.svg"
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
@@ -195,10 +196,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
           </div>
         </section>
 
-        <section className={peerSupporterStyles.form}>
-          <div className={peerSupporterStyles.formWrapper}>
+        <section className={footerForm.form}>
+          <div className={footerForm.formWrapper}>
             <h3>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h3>
-            <div className={contactStyles.contactFormInput}>
+            <div className={footerForm.contactFormInput}>
               <form
                 name="peer-supporter-contact-form"
                 method="post"
@@ -266,15 +267,15 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   </label>
                 </p>
 
-                <p className={peerSupporterStyles.checkbox}>
+                <p className={footerForm.checkbox}>
                   <label htmlFor="terms">
-                    <span>I have <Link
+                    <span>I have read, understood and agree to the <Link
                       aria-label="Link to the terms of use"
                       //tabIndex="0"
-                      className={peerSupporterStyles.prev}
+                      className={footerForm.prev}
                       to={`../../terms-and-use`}
                     >
-                      read, understood and agree to the terms and conditions</Link> for My Life My Voice before submitting this form.</span>
+                      terms and conditions</Link> for My Life My Voice before submitting this form.</span>
                     <input
                       type="checkbox"
                       name="terms"

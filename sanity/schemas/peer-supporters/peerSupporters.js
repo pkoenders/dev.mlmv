@@ -21,12 +21,6 @@ export default {
     },
 
     {
-      name: 'peerSupporterActive',
-      title: 'Is this peer supporter active?',
-      type: 'boolean'
-    },
-
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -45,6 +39,19 @@ export default {
           en: fieldRule => fieldRule.required().min(2).error('A title of min. 2 characters is required'),
         }),
     },
+
+    {
+      name: 'peerSupporterActive',
+      title: 'Is this peer supporter active?',
+      type: 'boolean'
+    },
+
+    {
+      name: 'peerSupporterAddToHomepage',
+      title: 'Add to homepage',
+      type: 'boolean'
+    },
+
 
     {
       name: 'peerSupporterFriendlyName',

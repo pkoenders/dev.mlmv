@@ -31,7 +31,7 @@ header.headerNavWrapper {
     align-content: flex-start;
     justify-content: space-between;
 
-    a {
+    a.brand {
       order: 0;
 
       @include respond-below(sm) {
@@ -52,6 +52,12 @@ header.headerNavWrapper {
         padding: 10px 15px;
         height: 60px;
         width: auto;
+      }
+    }
+
+    a.brand.homePage {
+      @include respond-below(sm) {
+        display: none;
       }
     }
 
@@ -135,7 +141,7 @@ header.headerNavWrapper {
           height: auto;
           right: auto;
           color: #ffffff;
-          opacity: .85;
+          // opacity: .85;
           padding: 10px 30px 10px 30px;
           margin-left: 3px;
           position: relative;
@@ -168,7 +174,7 @@ header.headerNavWrapper {
           display: block;
           background: $primaryColor;
           border-radius: 1.5px;
-          background: #6FFFE9;
+          background: $secondaryColor;
           height: 1px;
           width: 0;
           left: -3px;
@@ -252,13 +258,16 @@ header.headerNavWrapper {
             right: 0;
             font-size: .9rem;
             //font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 500;
             padding: 10px 15px 10px 15px;
+            text-transform: uppercase;
           }
 
           a.activeNavItem {
-            color: $pageBgColor;
-            background: $primaryColor;
+            color: $primaryColor;
+            background: $secondaryColor;
+            border-radius: 3px;
+            overflow: hidden;
           }
 
           a:after,

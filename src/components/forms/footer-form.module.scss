@@ -1,0 +1,125 @@
+@import "src/styles/scss";
+
+section.form {
+    background-color: $footerBgColor;
+    border-top: 1px solid #6FFFE9;
+
+    .formWrapper {
+        max-width: 1200px;
+        margin: 0px auto;
+        padding: 45px 15px 45px;
+
+        @include respond-below(sm) {
+            padding: 30px 15px 30px;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.6rem;
+        }
+
+        form {
+            width: 66.6%;
+
+            @include respond-below(sm) {
+                width: 100%;
+            }
+
+            a {
+                color: #ffffff;
+                text-decoration: underline;
+            }
+
+            label {
+                color: #ffffff;
+            }
+
+            input,
+            textarea {
+                background-color: #d7e7ef;
+            }
+
+            input:focus,
+            textarea:focus {
+                outline: none;
+            }
+
+            input:focus-visible,
+            textarea:focus-visible {
+                @include focusVisibleForDark;
+            }
+
+            button[type=submit] {
+                //float: right;
+            }
+
+            input,
+            textarea {
+                background-color: #d7e7ef;
+            }
+
+            input:focus,
+            textarea:focus,
+            button:focus {
+                outline: none;
+            }
+
+            input:focus-visible,
+            textarea:focus-visible,
+            button:focus-visible {
+                @include focusVisibleForDark;
+            }
+
+            input:-moz-focusring,
+            textarea:-moz-focusring,
+            button:-moz-focusring {
+                @include focusVisibleForDark;
+            }
+
+            .checkbox {
+                label {
+                    display: flex;
+                    flex-direction: row;
+
+                    span {
+                        order: 2;
+                        margin-left: 45px;
+
+
+                    }
+
+                    input {
+                        order: 1;
+                    }
+                }
+            }
+        }
+
+
+        .peerUpdateInfo {
+            @include respond-below(sm) {
+                // display: none;
+            }
+
+            clear: both;
+            color: #ffffff;
+            padding: 30px 0 0px 0px;
+            order: 1;
+            flex-shrink: 0;
+            flex-basis: 33.3%;
+            align-self: center;
+
+            p {
+                color: inherit;
+                margin-bottom: .1rem;
+
+                span {
+                    //opacity: .66;
+                    font-weight: 300;
+                    margin-right: 8px;
+                }
+            }
+        }
+
+    }
+}

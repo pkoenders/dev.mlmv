@@ -83,13 +83,13 @@ p {
 a,
 a:link,
 a:hover {
-  color: $txtColor;
-  color: $primaryColor;
+  //color: $txtColor;
+  color: $textLinkColor;
   text-decoration: none;
 }
 
 a:hover {
-  color: $primaryColor;
+  color: $textLinkColor;
   text-decoration: underline;
 }
 
@@ -125,8 +125,8 @@ button.buttonSecondary button.buttonTertiary,
   border-width: 0;
   letter-spacing: .075rem;
   // background-color: $tertiaryColorA;
-  background-color: $primaryColor;
-  color: $headerBgColor !important;
+  background-color: $secondaryColor;
+  color: $primaryColor;
   box-shadow: 0px 0px 5px 0px rgba(35, 35, 35, 0.5);
 }
 
@@ -177,24 +177,26 @@ button.buttonSecondary,
 .buttonSecondary,
 button.buttonSecondary:focus,
 .buttonSecondary:focus {
-  padding: 0.5em 1.2em;
-  border: 1px solid #3d5269;
-  border-bottom: 2px solid #3d5269;
-  background-color: #283746;
+  padding: 0.8em 1.6em;
+  color: #ffffff;
+
+  // border-bottom: 2px solid $pageBgColor;
+  background-color: $tertiaryColor;
 }
 
 button.buttonSecondary.isActive,
 .buttonSecondary.isActive {
-  border: 1px solid $primaryColor;
-  border-bottom: 2px solid $primaryColor;
-  background-color: $primaryColor;
+  color: #ffffff;
+  // border-bottom: 2px solid $pageBgColor;
+  background-color: $pageBgColor;
 }
 
 button.buttonSecondary:hover,
 .buttonSecondary:hover {
-  border: 1px solid $primaryColor;
-  border-bottom: 2px solid $primaryColor;
   //background-color: transparent;
+  color: #ffffff;
+  background-color: $tertiaryColor;
+
 }
 
 // Btn Tertiary
@@ -388,6 +390,45 @@ button.buttonTertiary:hover,
 
 
 
+
+.contentWrapper {
+  width: 66.6%;
+
+  @include respond-below(sm) {
+    width: 100%;
+  }
+
+  padding: 60px 15px 30px 15px;
+}
+
+.introParapgraph {
+  color: #66758D;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.homepageIntro {
+  text-align: center;
+  margin: 0 20%;
+
+  h1 {
+    color: #121923;
+    font-size: 2.6rem;
+    line-height: 2.8rem;
+    font-weight: 800;
+  }
+
+  p {
+    color: #66758D;
+    font-size: 1.6rem;
+    line-height: 2.0rem;
+  }
+
+  a {
+    margin: 30px 0;
+  }
+}
+
 .tagListItem {
   //opacity: .66;
 
@@ -406,9 +447,12 @@ button.buttonTertiary:hover,
 .tagListItem.selected,
 .peerResultsTags.selected {
   opacity: 1;
-  color: $headerBgColor !important;
-  background-color: $headerBgColor !important;
-  background-color: #6FFFE9 !important;
+  //color: $headerBgColor !important;
+  color: #ffffff !important;
+  //border: 1px solid #ffffff33;
+  // background-color: $headerBgColor !important;
+  //background-color: #6FFFE9 !important;
+  background-color: $tertiaryColor !important;
   box-shadow: $globalBoxShadowA;
 
   span {
@@ -420,6 +464,12 @@ button.buttonTertiary:hover,
     svg:nth-child(2) {
       display: none;
     }
+  }
+
+  span:nth-child(2) {
+    color: #ffffff;
+    background-color: #942662 !important;
+
   }
 }
 

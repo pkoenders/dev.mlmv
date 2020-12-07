@@ -85,7 +85,7 @@ div.peerSupporterWrapper {
         background-color: #5BC0BE;
         background-color: #9ac3d7;
         background-color: $headerBgColor;
-        border-bottom: 1px solid #6fffe9;
+        // border-bottom: 1px solid #B42A76;
         // background-color: #6FFFE9;
         //background-color: #6FFFE9;
 
@@ -129,13 +129,16 @@ div.peerSupporterWrapper {
                     // background: rgb(3, 207, 218);
                     // background: linear-gradient(180deg, rgba(3, 207, 218, 1) 72%, rgba(3, 195, 205, 1) 100%);
 
-                    background: rgb(111, 255, 233);
-                    background: linear-gradient(180deg, rgba(111, 255, 233, 1) 72%, rgba(114, 235, 216, 1) 100%);
+                    //background: rgb(111, 255, 233);
+                    //background: linear-gradient(180deg, rgba(111, 255, 233, 1) 72%, rgba(114, 235, 216, 1) 100%);
+
+                    //background-color: $tertiaryColor;
+                    background-color: #464f6b;
 
                     //background: #03cfda;
 
                     padding: 15px 30px;
-                    border: 1px solid #6fffe9;
+                    //border: 1px solid #B42A76;
                     border-radius: 4px 4px 0 0;
                     border-bottom: none;
                     margin-bottom: -0px;
@@ -156,6 +159,7 @@ div.peerSupporterWrapper {
                         align-items: center;
                         color: #6fffe9;
                         color: $headerBgColor;
+                        color: #ffffff;
 
                         h1 {
                             color: inherit;
@@ -163,7 +167,7 @@ div.peerSupporterWrapper {
                             order: 1;
                             padding: 0 15px;
                             margin-bottom: .33rem;
-                            font-family: 'Roboto Slab';
+                            //font-family: 'Roboto Slab';
 
                         }
 
@@ -191,6 +195,7 @@ div.peerSupporterWrapper {
                         margin-top: 15px;
                         padding: 0 15px 0 0;
                         color: $headerBgColor;
+                        color: #ffffff;
 
 
                         p {
@@ -344,141 +349,6 @@ div.peerSupporterWrapper {
 
                 @include respond-below(sm) {
                     //display: none;
-                }
-            }
-
-        }
-    }
-
-
-
-    section.form {
-        background-color: #2AF24B;
-        background-color: #1E0E48;
-        background-color: $headerBgColor;
-
-        //border-top: 2px solid #2AF24B;
-        //border-bottom: 2px solid #291361;
-
-        // background-color: #291361;
-        // border-bottom: 2px solid #2AF24B;
-        border-top: 1px solid #6FFFE9;
-
-        .formWrapper {
-            max-width: 1200px;
-            margin: 0px auto;
-            padding: 45px 15px 45px;
-
-            @include respond-below(sm) {
-                padding: 30px 15px 30px;
-            }
-
-            // display: flex;
-            //flex-direction: row;
-            h3 {
-                color: #ffffff;
-                font-size: 1.6rem;
-            }
-
-            form {
-                width: 66.6%;
-
-                @include respond-below(sm) {
-                    width: 100%;
-                }
-
-                label {
-                    color: #ffffff;
-                }
-
-                input,
-                textarea {
-                    background-color: #d7e7ef;
-                }
-
-                input:focus,
-                textarea:focus {
-                    outline: none;
-                }
-
-                input:focus-visible,
-                textarea:focus-visible {
-                    @include focusVisibleForDark;
-                }
-
-                button[type=submit] {
-                    //float: right;
-                }
-
-                input,
-                textarea {
-                    background-color: #d7e7ef;
-                }
-
-                input:focus,
-                textarea:focus,
-                button:focus {
-                    outline: none;
-                }
-
-                input:focus-visible,
-                textarea:focus-visible,
-                button:focus-visible {
-                    @include focusVisibleForDark;
-                }
-
-                input:-moz-focusring,
-                textarea:-moz-focusring,
-                button:-moz-focusring {
-                    @include focusVisibleForDark;
-                }
-
-                .checkbox {
-                    label {
-                        display: flex;
-                        flex-direction: row;
-
-                        span {
-                            order: 2;
-                            margin-left: 45px;
-
-
-                        }
-
-                        input {
-                            order: 1;
-                        }
-                    }
-                }
-            }
-
-
-            .peerUpdateInfo {
-                @include respond-below(sm) {
-                    // display: none;
-                }
-
-                clear: both;
-
-
-                color: #ffffff;
-
-                //margin-top: 15px;
-                padding: 30px 0 0px 0px;
-                order: 1;
-                flex-shrink: 0;
-                flex-basis: 33.3%;
-                align-self: center;
-
-                p {
-                    color: inherit;
-                    margin-bottom: .1rem;
-
-                    span {
-                        //opacity: .66;
-                        font-weight: 300;
-                        margin-right: 8px;
-                    }
                 }
             }
 
