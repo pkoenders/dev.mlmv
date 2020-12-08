@@ -5,6 +5,7 @@
     background-color: #EDEDED;
     background-color: #6FFFE9;
     background-color: #e1f229;
+    background-color: #fac036;
 
     h2 {
         text-align: center;
@@ -13,14 +14,21 @@
     .sectionInner {
         display: block;
         max-width: 1200px;
-        padding: 60px 15px;
+        padding: 60px 0px;
+
+        @include respond-below(sm) {
+            padding: 45px 0px 10px;
+        }
+
         margin: 0 auto;
         text-align: center;
 
         h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
             font-weight: 500;
             color: $primaryColor;
+            padding: 0 30px;
         }
 
 
@@ -60,7 +68,7 @@
                 @include respond-below(xs) {
                     flex-basis: calc(100% - 7.5px);
                     // border-bottom: 1px solid #d8d8d8;
-                    margin-bottom: 30px;
+                    // margin-bottom: 30px;
                 }
 
 

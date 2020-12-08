@@ -418,7 +418,6 @@ const ListPeerSupporters = ({ data, language }) => {
                 </div>
             </section>
 
-
             <section className={peerResultsStyles.peerResults}>
                 <div className={peerResultsStyles.wrapper}>
                     <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1>
