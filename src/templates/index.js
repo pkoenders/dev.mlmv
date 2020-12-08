@@ -4,9 +4,10 @@ import { graphql, Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
+import BlockContent from "../components/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
-import PromotedSupports from "../components/homepage/homePageSupporters"
+import PromotedSupporters from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
@@ -14,7 +15,7 @@ import UsrCommentsSection from "../components/homepage/userComments"
 import SectionContact from "../components/forms/contact"
 
 export const query = graphql`
-  query($language: String) {
+  query($language: String, $locale: JSON) {
 
     site {
       siteMetadata {
@@ -22,6 +23,13 @@ export const query = graphql`
       }
     }
 
+    sanityHomepageIntro {
+      homepageIntroContent {
+        localized(language: $locale)
+      }
+      homepageIntroActive
+    }
+    
     allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
         edges {
             node {
@@ -50,7 +58,6 @@ export const query = graphql`
                     }
                 }
 
-
                 coverImage {
                     asset {
                         fluid(maxWidth: 545) {
@@ -61,11 +68,27 @@ export const query = graphql`
             }
         }
     }
+
+    allSanityCommunityComments {
+      edges {
+        node {
+          communityCommentFriendlyName {
+            translate(language: $language)
+          }
+          communityComment {
+            translate(language: $language)
+          }
+          communityCommentActive
+          communityCommentAddToHomepage
+        }
+      }
+    }
 }
 `
 
 const IndexPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("index")
+  //const { t, i18n } = useTranslation("index")
+  const { i18n } = useTranslation("index")
 
   return (
     <>
@@ -77,15 +100,17 @@ const IndexPage = ({ data, location, language }) => {
         <HeaderImg />
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
+            <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />
+            {/* 
             <h1>We work with you and your family</h1>
-            <p>We talk about what a good life looks life for you is and help you choose how you want to make a good life happen.</p>
+            <p>We talk about what a good life looks life for you is and help you choose how you want to make a good life happen.</p> */}
             <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >View our Peer Supporters</Link>
           </div>
         </DefaultSection>
         <ProcessSection />
         <SupportSection />
-        <PromotedSupports data={data} language={language} />
-        <UsrCommentsSection />
+        <PromotedSupporters data={data} language={language} />
+        <UsrCommentsSection data={data} language={language} />
         <SectionContact />
       </Layout>
     </>

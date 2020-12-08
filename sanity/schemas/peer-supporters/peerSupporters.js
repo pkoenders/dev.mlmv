@@ -142,13 +142,6 @@ export default {
     // },
 
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'categories' } }]
-    },
-
-    {
       name: 'tags',
       title: 'Tags',
       type: 'array',

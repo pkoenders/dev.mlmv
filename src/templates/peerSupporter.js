@@ -31,11 +31,7 @@ export const query = graphql`
           translate(language: $language)
         }
       }
-      categories{
-        categoriesTitle{
-          translate(language: $language)
-        }
-      }
+     
       tags{
         tagsTitle{
           translate(language: $language)

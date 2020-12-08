@@ -1,3 +1,4 @@
+
 // First, we must import the schema creator
 import createSchema from 'part:@sanity/base/schema-creator'
 
@@ -7,14 +8,21 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object and document schemas
 import blockContent from './blockContent'
 import images from './images'
-import gender from './genderType'
-import peerSupporters from './peer-supporters/peerSupporters'
-import categories from './peer-supporters/categories'
-import tags from './peer-supporters/tags'
-//import author from './author'
 
+// Settings
+import gender from './genderType'
+import tags from './peer-supporters/tags'
 import location from './peer-supporters/location'
-import testCat from './testcat'
+
+// Homepage
+import homepageIntro from './homepage/homepageIntro'
+import communityComments from './homepage/communityComments'
+
+//Peer Supporters
+import peerSupporters from './peer-supporters/peerSupporters'
+
+// Accessibility
+import accessibilityContent from './accessibility/accessibilityContent'
 
 //Locale Object Types
 import localeString from './localeTypes/localeString'
@@ -32,15 +40,22 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
 
-    peerSupporters,
-    //author,
-
-    categories,
+    //Settings,
     tags,
     gender,
     location,
     images,
-    testCat,
+
+    //Homepage
+    homepageIntro,
+    communityComments,
+
+    //Peer Supporters
+    peerSupporters,
+
+    // Accessibility
+    accessibilityContent,
+
     //Local Types
     localeString,
     localeSlug,
@@ -48,7 +63,6 @@ export default createSchema({
     localeText,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-
 
     blockContent
   ])

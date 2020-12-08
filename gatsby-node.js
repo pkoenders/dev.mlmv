@@ -424,8 +424,8 @@ exports.createResolvers = ({ createResolvers }) => {
       localized: {
         type: `JSON`,
         args: { language: { type: "JSON" } },
-        resolve(source, args, context) {
-          return source[context.language || args.language] || source["en"]._rawChildren
+        resolve: (source, args, context) => {
+          return source[context.language || args.language] || source["en"]
         },
       },
     },
