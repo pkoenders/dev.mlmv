@@ -508,13 +508,57 @@ svg.filterSearchIconAlt.hide {
 
 
 .homepageHeaderImg {
-  max-height: 550px;
-  vertical-align: top;
-  margin-top: 0px;
+  position: relative;
 
-  img {
-    object-position: top !important;
-    transition: opacity 0.5s ease !important;
+  height: fit-content;
+
+
+  div.imgTxt {
+    //align-self: center;
+    //margin: 50% auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    //background-color: #0b132b33;
+    background: rgb(11, 19, 43);
+    background: linear-gradient(180deg, rgba(11, 19, 43, 0.7511379551820728) 0%, rgba(11, 19, 43, 0) 100%);
+    z-index: 10000;
+
+    span {
+      align-self: center;
+      text-align: center;
+      margin: 0 auto;
+      padding: 30px 45px;
+      color: #ffffff;
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      font-weight: 400;
+
+
+      @include respond-below(sm) {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+      }
+
+    }
+  }
+
+  >div {
+    max-height: 500px;
+    margin-top: 0px;
+    display: flex;
+
+    img {
+      object-position: top !important;
+      transition: opacity 0.5s ease !important;
+
+      @include respond-above(lg) {
+        object-position: top !important;
+      }
+    }
+
   }
 
 }

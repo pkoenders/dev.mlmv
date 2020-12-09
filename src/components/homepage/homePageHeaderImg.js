@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 //import Img from "gatsby-image"
 import Img from "gatsby-image/withIEPolyfill"
 
@@ -15,6 +16,7 @@ import Img from "gatsby-image/withIEPolyfill"
  */
 
 const HomepageHeaderImage = () => {
+  const { t, i18n } = useTranslation()
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
@@ -29,13 +31,17 @@ const HomepageHeaderImage = () => {
 
   return (
     <>
-      <Img
-        fluid={data.placeholderImage.childImageSharp.fluid}
-        // objectFit="cover"
-        // objectPosition="50% 50%"
-        loading="lazy"
-        alt="Banner image - Diasbled person in a wheelchair"
-        className={'homepageHeaderImg contentStart'} />
+      <div className={'homepageHeaderImg contentStart'}>
+        <div className="imgTxt">
+          <span>{t("index:headerImgeOverlay")}</span>
+        </div>
+        <Img fluid={data.placeholderImage.childImageSharp.fluid}
+          // objectFit="cover"
+          // objectPosition="50% 50%"
+          loading="lazy"
+          alt="Banner image - Diasbled person in a wheelchair"
+        />
+      </div>
     </>
   )
 }
