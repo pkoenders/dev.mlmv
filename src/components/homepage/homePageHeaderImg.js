@@ -16,7 +16,7 @@ import Img from "gatsby-image/withIEPolyfill"
  */
 
 const HomepageHeaderImage = () => {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation("index")
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
