@@ -128,7 +128,7 @@ const IndexPage = ({ data, location, language }) => {
         description={data.sanityHomepageIntro.homepageDescription.translate}
       />
       <Layout location={location}>
-        <HeaderImg />
+        <HeaderImg data={data} language={language} />
         {/* <AlertSection data={data} language={language} /> */}
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>

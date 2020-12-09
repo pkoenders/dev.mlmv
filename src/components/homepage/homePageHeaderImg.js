@@ -15,9 +15,9 @@ import Img from "gatsby-image/withIEPolyfill"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const HomepageHeaderImage = () => {
+const HomepageHeaderImage = ({ data, language }) => {
   const { t, i18n } = useTranslation("index")
-  const data = useStaticQuery(graphql`
+  const headerImg = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
         childImageSharp {
@@ -35,7 +35,7 @@ const HomepageHeaderImage = () => {
         <div className="imgTxt">
           <span>{t("index:headerImgOverlay")}</span>
         </div>
-        <Img fluid={data.placeholderImage.childImageSharp.fluid}
+        <Img fluid={headerImg.placeholderImage.childImageSharp.fluid}
           // objectFit="cover"
           // objectPosition="50% 50%"
           loading="lazy"
