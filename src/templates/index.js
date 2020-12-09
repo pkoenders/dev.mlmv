@@ -83,6 +83,13 @@ export const query = graphql`
         }
       }
     }
+
+    sanityContactContent {
+     
+      contactContent {
+        localized(language: $locale)
+      }
+    }
 }
 `
 
@@ -111,7 +118,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         <PromotedSupporters data={data} language={language} />
         <UsrCommentsSection data={data} language={language} />
-        <SectionContact />
+        <SectionContact data={data} language={language} />
       </Layout>
     </>
   )

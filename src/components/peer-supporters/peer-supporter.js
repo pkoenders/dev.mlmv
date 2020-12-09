@@ -166,9 +166,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
           <div className={peerSupporterStyles.contentBlock}>
             <BlockContent blocks={peerData.peerLongDescription.localized} />
             {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
-
-
-
           </div>
 
           <div className={peerSupporterStyles.contentComplementary}>

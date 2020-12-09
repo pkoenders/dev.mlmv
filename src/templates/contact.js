@@ -1,33 +1,51 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
+import BlockContent from "../components/blockContent"
 import DefaultSection from "../components/defaultSection"
 import SectionContact from "../components/forms/contact"
 
-const ContactPage = ({ location }) => {
-  // const { t, i18n } = useTranslation("contact")
-  const { i18n } = useTranslation("contact")
-  const IndexData = useStaticQuery(graphql`
-    query ContactPage {
-      site {
-        siteMetadata {
-          title
-        }
+
+export const query = graphql`
+query($language: String, $locale: JSON) {
+    site {
+      siteMetadata {
+        title
       }
     }
-  `)
+
+    sanityContactContent {
+      contactTitle {
+        translate(language: $language)
+      }
+      contactDescription {
+        translate(language: $language)
+      }
+      contactContent {
+        localized(language: $locale)
+      }
+      contactContentActive
+    }
+}
+`
+
+const ContactPage = ({ data, location, language }) => {
+  const { t, i18n } = useTranslation("contact")
 
   return (
     <>
       <SEO
-        title={'Contact My Life My Voice - ' + IndexData.site.siteMetadata.title}
-        description={'the about page.'}
+        title={data.sanityContactContent.contactTitle.translate + ' - ' + data.site.siteMetadata.title}
+        description={data.sanityContactContent.contactDescription.translate}
       />
       <Layout location={location}>
         <DefaultSection>
-          <SectionContact />
+          <div className={'contentWrapper'}>
+            {/* <BlockContent blocks={data.sanityContactContent.contactContent.localized} /> */}
+          </div>
+          <SectionContact data={data} language={language} />
         </DefaultSection>
 
       </Layout>

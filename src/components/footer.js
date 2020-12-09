@@ -37,7 +37,6 @@ const Footer = ({ location }) => {
           <span>Go to the homepage</span>
           <LogoMLMVFooter />
         </Link>
-        <p>Footer content here</p>
         <p>Subscribe to a newsletter?</p>
         <p>List social links?</p>
 
@@ -57,8 +56,8 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/peer-supporters`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Peer Supporters">
-                Peer Supporters
+                title="Link to Peer supporters">
+                Peer supporters
                 </Link>
             </li>
             <li>

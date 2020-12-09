@@ -148,8 +148,8 @@ const Header = ({ location }) => {
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
                 tabIndex="0"
-                title="Link to Peer Supporters">
-                Peer Supporters
+                title="Link to Peer supporters">
+                Peer supporters
                 </Link>
             </li>
             <li>

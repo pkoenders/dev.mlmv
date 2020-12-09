@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
@@ -9,7 +9,7 @@ import footerForm from '../components/forms/footer-form.module.scss'
 
 
 export const query = graphql`
-  query( $locale: JSON) {
+  query($language: String, $locale: JSON) {
 
     site {
       siteMetadata {
@@ -21,39 +21,19 @@ export const query = graphql`
       accessibilityContent {
         localized(language: $locale)
       }
+      accessibilityTitle {
+        translate(language: $language)
+      }
+      accessibilityDescription {
+        translate(language: $language)
+      }
       accessibilityContentActive
     }
 }
 `
 
-
 const AccessibilityPage = ({ data, location, language }) => {
   const { t, i18n } = useTranslation("accessibility")
-  //const { i18n } = useTranslation("accessibility")
-  //const { i18n } = useTranslation("accessibility")
-
-
-  // const AccessibilityData = useStaticQuery(graphql`
-  //   query AccessibilityPage {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-
-  //     anityAccessibilityContent {
-  //       accessibilityContent {
-  //         localized(language: $locale)
-  //       }
-  //       accessibilityContentActive
-  //     }
-
-  //   }
-  // `)
-
-
-  //const { t, i18n } = useTranslation("index")
-
   const handleInputTerms = () => {
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.disabled = !submitBtn.disabled;
@@ -62,8 +42,8 @@ const AccessibilityPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={'Accessibility at My Life My Voice - ' + data.site.siteMetadata.title}
-        description={'the about page.'}
+        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' - ' + data.site.siteMetadata.title}
+        description={data.sanityAccessibilityContent.accessibilityDescription.translate}
       />
       <Layout location={location}>
         <DefaultSection>

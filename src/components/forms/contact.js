@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react"
+import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
+import BlockContent from "../blockContent"
 import contactStyles from './contact.module.scss'
 import IconWave from "../../images/svg/icon-wave.inline.svg"
-import IconPhone from "../../images/svg/icon-phone.inline.svg"
 
-const ContactForm = () => {
+
+const ContactForm = ({ data, location, language }) => {
+    //const { t, i18n } = useTranslation("contact")
+    const { i18n } = useTranslation("contact")
+
+    const { sanityContactContent } = data
+    const contentData = sanityContactContent
+    // const allComments = commentsListData.edges
+
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
-            <h2>Contact us</h2>
             <div className={contactStyles.contactFormWrapper}>
 
                 <div className={contactStyles.contactForm}>
                     <IconWave />
-                    <p>We would love to be contacted to discuss how we can help you or just hear your thoughts and ideas.</p>
-                    <p>You can call us <a href="tel:+0800 886 626"><IconPhone className={contactStyles.contactIconPhone} />0800 886 626</a>. Alternatively, complete the following form for email enquires. Thanks.</p>
+                    <BlockContent blocks={contentData.contactContent.localized} />
                     <div className={contactStyles.contactFormInput}>
                         <form
                             name="pkoenders-contact"
