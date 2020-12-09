@@ -46,8 +46,8 @@
                     margin: 45px 0px;
                     background-color: #EDEDED;
                     border-radius: 9999rem;
-                    width: 125px;
-                    height: 125px;
+                    width: 100px;
+                    height: 100px;
 
                     @include respond-below(sm) {
                         width: 75px;
@@ -60,8 +60,8 @@
                         text-align: center;
                         align-self: center;
                         color: #898d92;
-                        font-size: 3.8rem;
-                        font-weight: 700;
+                        font-size: 3.0rem;
+                        font-weight: 600;
                         line-height: normal;
                         margin: 0;
 
@@ -76,14 +76,14 @@
     }
 
     .supportSectionOutterWrapper:nth-child(odd) {
-        background-color: #ffffff;
+        background-color: #dcd4d4;
     }
 
 
     .supportSectionOutterWrapper:nth-child(even) {
         .steps {
             div {
-                background-color: #ffffff;
+                background-color: #dcd4d4;
             }
         }
     }
