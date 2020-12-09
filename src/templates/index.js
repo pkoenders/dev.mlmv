@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import BlockContent from "../components/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
+import AlertSection from "../components/homepage/alerts"
 import PromotedSupporters from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
@@ -23,7 +24,31 @@ export const query = graphql`
       }
     }
 
+    allSanityHomepageAlert {
+      edges {
+        node {
+          homepageAlertTitle {
+            translate(language: $language)
+          }
+          homepageAlertDescription {
+            localized(language: $locale)
+          }
+          alertLevel {
+            alertLevel
+          }
+          homepageAlertActive
+        }
+      }
+    }
+
     sanityHomepageIntro {
+      homepageTitle{
+        translate(language: $language)
+      }
+      homepageDescription {
+        translate(language: $language)
+      }
+
       homepageIntroContent {
         localized(language: $locale)
       }
@@ -85,7 +110,6 @@ export const query = graphql`
     }
 
     sanityContactContent {
-     
       contactContent {
         localized(language: $locale)
       }
@@ -100,11 +124,12 @@ const IndexPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={'Tēnā koe, Welcome My Life My Voice - ' + data.site.siteMetadata.title}
-        description={'A website to connect Peer Supportes to the disabled community.'}
+        title={data.sanityHomepageIntro.homepageTitle.translate + ' | ' + data.site.siteMetadata.title}
+        description={data.sanityHomepageIntro.homepageDescription.translate}
       />
       <Layout location={location}>
         <HeaderImg />
+        {/* <AlertSection data={data} language={language} /> */}
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
             <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />

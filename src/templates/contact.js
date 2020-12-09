@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import BlockContent from "../components/blockContent"
+// import BlockContent from "../components/blockContent"
 import DefaultSection from "../components/defaultSection"
 import SectionContact from "../components/forms/contact"
 
@@ -37,7 +37,7 @@ const ContactPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityContactContent.contactTitle.translate + ' - ' + data.site.siteMetadata.title}
+        title={data.sanityContactContent.contactTitle.translate + ' | ' + data.site.siteMetadata.title}
         description={data.sanityContactContent.contactDescription.translate}
       />
       <Layout location={location}>

@@ -37,7 +37,7 @@ const AboutPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityAboutContent.aboutTitle.translate + ' - ' + data.site.siteMetadata.title}
+        title={data.sanityAboutContent.aboutTitle.translate + ' | ' + data.site.siteMetadata.title}
         description={data.sanityAboutContent.aboutDescription.translate}
       />
       <Layout location={location}>

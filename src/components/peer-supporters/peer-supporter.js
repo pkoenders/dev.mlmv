@@ -8,27 +8,56 @@ import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
 //import contactStyles from '../homepage/contact.module.scss'
 import footerForm from '../forms/footer-form.module.scss'
-// import IconOpenExternal from "../../images/svg/icon-open-external.inline.svg"
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
 
-//export default function ProjectTemplate({ data }) {
-const PeerSupporterTemplate = ({ data, pageContext }) => {
+// export const query = graphql`
+//   query($language: String) {
 
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+
+//     sanityPeerSupportersHomepage {
+//       peerSupportersTitle {
+//         translate(language: $language)
+//       }
+//     }
+// }
+// `
+const PeerSupporterTemplate = ({ data, pageContext }) => {
   const { t, i18n } = useTranslation("peerSupporter")
-  const Metadata = useStaticQuery(graphql`
-      query peerSupportersData {
-        site {
-          siteMetadata {
-            title
-          }
-        }
+
+
+
+  // Query some meta dada. 
+  const seoMeta = useStaticQuery(graphql`
+  query($language: String) {
+    site {
+      siteMetadata {
+        title
       }
-  `)
+    }
+
+    sanityPeerSupportersHomepage {
+      peerSupportersTitle {
+        translate(language: $language)
+      }
+    }
+  }`
+  )
+
   // console.log(pageContext)
-  const { sanityPeerSupporters } = data // data.markdownRemark holds your post data
+  const { sanityPeerSupporters } = data
   const peerData = sanityPeerSupporters
+
+
+  const { sanityPeerSupportersHomepage } = data
+  const peerDataHome = sanityPeerSupportersHomepage
+
   const { next, previous } = pageContext
 
   const handleInputTerms = event => {
@@ -51,26 +80,19 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
   return (
     <>
+      <SEO
+        title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.site.siteMetadata.title}
+        description={peerData.peerShortDescription.translate}
+      />
+
       <style type="text/css">
         {`
         body  {
-           //background: rgb(151, 219, 246);
-           //background: linear-gradient(180deg, rgba(151, 219, 246, 1) 0%, rgba(135, 200, 226, 1) 67%);
-          //background-color: #291361;
           background-color: #ffffff;
-         // background-color: #0C142A;
-          //background-color: #eeeeee;
-
-          
-
         }
       `}
       </style>
-      <SEO
-        title={peerData.peerSupporterFullName.translate + ' - Peer Supporters | ' + Metadata.site.siteMetadata.title}
-        description={peerData.peerShortDescription.translate}
-      //image={frontmatter.coverimage.childImageSharp.fluid.src}
-      />
+
       <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">

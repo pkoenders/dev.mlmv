@@ -42,7 +42,7 @@ const AccessibilityPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' - ' + data.site.siteMetadata.title}
+        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' | ' + data.site.siteMetadata.title}
         description={data.sanityAccessibilityContent.accessibilityDescription.translate}
       />
       <Layout location={location}>

@@ -15,6 +15,15 @@ export const query = graphql`
       }
     }
 
+    sanityPeerSupportersHomepage {
+      peerSupportersDescription {
+        translate(language: $language)
+      }
+      peerSupportersTitle {
+        translate(language: $language)
+      }
+    }
+
     allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
         edges {
             node {
@@ -70,13 +79,10 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
         }
       `}
       </style>
-
       <SEO
-        title={'Peer Supporters | ' + data.site.siteMetadata.title}
-      // description={'MLMV Description.'}
+        title={data.sanityPeerSupportersHomepage.peerSupportersTitle.translate + ' | ' + data.site.siteMetadata.title}
+        description={data.sanityPeerSupportersHomepage.peerSupportersDescription.translate}
       />
-
-
       <Layout location={location}>
         <SectionPeerSupporters data={data} language={language} />
       </Layout >
