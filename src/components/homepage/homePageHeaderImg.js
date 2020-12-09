@@ -33,7 +33,7 @@ const HomepageHeaderImage = () => {
     <>
       <div className={'homepageHeaderImg contentStart'}>
         <div className="imgTxt">
-          <span>{t("index:headerImgeOverlay")}</span>
+          <span>{t("index:headerImgOverlay")}</span>
         </div>
         <Img fluid={data.placeholderImage.childImageSharp.fluid}
           // objectFit="cover"
