@@ -32,7 +32,7 @@ $altColorA: #3c5168bf;
 // }
 
 @mixin focusVisibleForDark {
-    outline: #6FFFE9 solid 3px !important;
+    outline: $tertiaryColor solid 3px !important;
 }
 
 $globalSecionPadding: 45px 0 90px 0;

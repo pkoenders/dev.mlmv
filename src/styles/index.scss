@@ -533,13 +533,13 @@ svg.filterSearchIconAlt.hide {
       padding: 30px 45px;
       color: #ffffff;
       font-size: 2.4rem;
-      line-height: 2.8rem;
+      line-height: 3.0rem;
       font-weight: 400;
 
 
       @include respond-below(sm) {
         font-size: 2.0rem;
-        line-height: 2.4rem;
+        line-height: 2.6rem;
       }
 
     }
@@ -560,5 +560,43 @@ svg.filterSearchIconAlt.hide {
     }
 
   }
+
+}
+
+
+.level-0,
+.level-1,
+.level-2,
+.level-3 {
+
+  p,
+  a {
+    color: $primaryColor;
+    //color: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.level-0 {
+  background-color: #6cb4bf;
+}
+
+.level-1 {
+  background-color: #6cbfa1;
+
+}
+
+.level-2 {
+  background-color: #ffbf00;
+
+}
+
+.level-3 {
+  background-color: tomato;
 
 }

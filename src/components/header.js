@@ -104,9 +104,9 @@ const Header = ({ location }) => {
             ? <Link className="brand" to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
               <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
             </Link>
-            : <Link className="brand homePage">
+            : <span className="brand homePage">
               <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
-            </Link>
+            </span>
           }
 
           {/* <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
