@@ -342,41 +342,9 @@ const ListPeerSupporters = ({ data, language }) => {
             <section className={peerFilterStyles.peerFilter + ' section-layout-wide'}>
 
                 <div className={peerFilterStyles.wrapper}>
-                    <div className={peerFilterStyles.peerFilterInput} >
-                        <form role="search">
-                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
-                            <input
-                                //className={peerListStyles.peerFilterInput}
-                                tabIndex="0"
-                                id="peerFilterInput"
-                                type="search"
-                                name="FilterSupporters"
-
-                                placeholder={t("peerSupporters:filterPlaceholder")}
-                                onChange={handleInputFilter}
-                                onFocus={handleInputLabelStatusFocus}
-                            //onBlur={handleInputFilterReset}
-                            />
-                            <button
-                                className={peerFilterStyles.filterReset + ' filterReset hide'}
-                                aria-label="Clear keyword input field"
-                                type="reset"
-                                value="reset"
-                                tabIndex="0"
-                                onClick={handleInputFilterReset}
-                                //onMouseDown={handleInputFilterPreSet}
-                                onMouseUp={handleInputFilterReset}
-                            //onKeyDown={handleInputFilterReset}
-                            >
-                                <IconReset aria-hidden="true" />
-                            </button>
-                            <IconSearchAlt className={peerFilterStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
-                            <IconSearch className={peerFilterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
-                        </form>
-                    </div>
 
                     <div className={peerFilterStyles.peerFilterTags} aria-label="Filter by tags">
-                        <span className={peerFilterStyles.or}>{t("peerSupporters:selectATag")}</span>
+
                         <div
                             className={'tagList'}
                         >
@@ -414,7 +382,50 @@ const ListPeerSupporters = ({ data, language }) => {
                                 return null;
                             })}
                         </div>
+                        {/* <span className={peerFilterStyles.or}>{t("peerSupporters:selectATag")}</span> */}
                     </div>
+
+
+
+                    <div className={peerFilterStyles.peerFilterInput} >
+                        <form role="search">
+                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="peerFilterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                            <input
+                                //className={peerListStyles.peerFilterInput}
+                                tabIndex="0"
+                                id="peerFilterInput"
+                                type="search"
+                                name="FilterSupporters"
+
+                                placeholder={t("peerSupporters:filterPlaceholder")}
+                                onChange={handleInputFilter}
+                                onFocus={handleInputLabelStatusFocus}
+                            //onBlur={handleInputFilterReset}
+                            />
+                            <button
+                                className={peerFilterStyles.filterReset + ' filterReset hide'}
+                                aria-label="Clear keyword input field"
+                                type="reset"
+                                value="reset"
+                                tabIndex="0"
+                                onClick={handleInputFilterReset}
+                                //onMouseDown={handleInputFilterPreSet}
+                                onMouseUp={handleInputFilterReset}
+                            //onKeyDown={handleInputFilterReset}
+                            >
+                                <IconReset aria-hidden="true" />
+                            </button>
+                            <IconSearchAlt className={peerFilterStyles.filterSearchIconAlt + ' filterSearchIconAlt hide'} aria-hidden="true" />
+                            <IconSearch className={peerFilterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
+                        </form>
+                    </div>
+
+
+
+
+
+
+
                 </div>
             </section>
 

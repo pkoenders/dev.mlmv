@@ -233,11 +233,6 @@ exports.createPages = async ({
     // next = peerSupporter.data.allSanityPeerSupporters.edges.next,
 
 
-
-
-
-
-
     ({ node }, language, i18n) => ({
       path: `/${language}/peer-supporters/${node.slug.current}`,
       component: peerSupporterTemplate,
@@ -255,8 +250,120 @@ exports.createPages = async ({
     }),
     ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],
     createPage
-
   )
+
+
+
+
+  // News and events (List)
+  const newsEventsTemplate = path.resolve(`src/templates/newsEvents.js`)
+  const newsEvents = await graphql(`
+    {
+      allSanityNewsEvent(sort: {fields: order, order: ASC}) {
+        edges {
+          node {
+            order
+            slug {
+              current
+            }
+          
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+            newsEventType {
+              newsEventTypeTitle
+            }
+
+            addToHomepage
+            itemActive
+            publishedAt
+            expiryDate
+
+            shortDescription {
+              en
+              mi
+              sm
+              hi
+            }
+
+            longDescription {
+              en {
+                _rawChildren
+              }
+              mi {
+                _rawChildren
+              }
+              sm {
+                _rawChildren
+              }
+              hi {
+                _rawChildren
+              }
+            }
+            
+            coverImage {
+              asset {
+                id
+                fluid {
+                  src
+                }
+              }
+            }
+
+          }
+
+          previous {
+            slug{
+              current
+            }
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+          }
+          next {
+            slug {
+              current
+            }
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  await buildI18nPages(
+    newsEvents.data.allSanityNewsEvent.edges,
+
+
+    ({ node }, language, i18n) => ({
+      path: "/" + language, // (1)
+      path: `/${language}/news-and-events`,
+      component: newsEventsTemplate,
+
+      context: {
+        newsEvents: node.id,
+        // tags: node.tags.tagsTitle,
+
+        // previous: previous.slug.current,
+        // next: next.slug.current,
+      },
+    }),
+    ["common", "tags", "previous", "next", "newsEvents"],
+    createPage
+  )
+
+
 
   // Contact page
   const contactTemplate = path.resolve(`src/templates/contact.js`)

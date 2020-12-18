@@ -4,7 +4,7 @@ import BlockContent from "../blockContent"
 import alertStyles from '../homepage/alert.module.scss'
 import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
 
-const UserCommentsSection = ({ data, language }) => {
+const AlertsSection = ({ data, language }) => {
   const { t, i18n } = useTranslation("index")
 
   const { allSanityHomepageAlert } = data
@@ -31,7 +31,6 @@ const UserCommentsSection = ({ data, language }) => {
         //console.log("expirayDateParsed = " + expirayDateParsed)
         //console.log("currentTimeParsed = " + currentTimeParsed)
         if (expirayDateParsed < currentTimeParsed) {
-
           return null
         }
 
@@ -39,12 +38,13 @@ const UserCommentsSection = ({ data, language }) => {
           edge.node.homepageAlertActive === true
         ) {
           return (
-            <section className={alertStyles.sectionWrapper + ' section-layout-wide' + ' alertLevels level0 ' + `${edge.node.alertLevel.alertLevel}`}>
+            <section
+              className={alertStyles.sectionWrapper + ' section-layout-wide' + ' alertLevels level0 ' + `${edge.node.alertLevel.alertLevel}`}
+              key={alertID}>
               <div
                 className={alertStyles.sectionInner}
                 aria-label="Alert panel">
-                <div
-                  key={alertID}>
+                <div>
                   {edge.node.homepageAlertTitle != null
                     ? <p><strong>{edge.node.homepageAlertTitle.translate}</strong></p>
                     : ''
@@ -81,4 +81,4 @@ const UserCommentsSection = ({ data, language }) => {
   )
 }
 
-export default UserCommentsSection
+export default AlertsSection

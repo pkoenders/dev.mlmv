@@ -34,17 +34,19 @@ export const onRouteUpdate = () => {
 
     //     background: '#ffffff',
     // })
+
+    "resize reload".split(" ").forEach(function (e) {
+        window.addEventListener(e, () => {
+            resizeAllGridItems()
+        })
+    })
+
 }
 
 function ready() {
-    //alert('DOM is ready');
-    // document.addEventListener('touchmove', function (e) {
-    //     mobileNav()
-    // });
-    //document.querySelector(".headerNavWrapper").style.top = "0";
+    resizeAllGridItems()
     srollNav()
     canvasAnin()
-
 }
 
 
@@ -63,6 +65,31 @@ function canvasAnin() {
         }
     }
 }
+
+// Resize grid
+const resizeGridItem = item => {
+    const grid = document.querySelector(".grid"),
+        rowHeight = parseInt(
+            window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+        ),
+        rowGap = parseInt(
+            window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+        ),
+        rowSpan = Math.ceil(
+            (item.querySelector(".item-content").getBoundingClientRect().height +
+                rowGap) /
+            (rowHeight + rowGap)
+        )
+    item.style.gridRowEnd = `span ${rowSpan} `
+    //console.log("Grid updated")
+},
+    resizeAllGridItems = () => {
+        const allItems = document.querySelectorAll(".item")
+        for (let x = 0; x < allItems.length; x += 1) {
+            resizeGridItem(allItems[x])
+        }
+    }
+
 
 function runCanvasAnin(animItem) {
     if (animItem) {
