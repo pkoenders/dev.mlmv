@@ -13,7 +13,7 @@ import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 
 const ListNewsEvents = ({ data, language }) => {
-    const { t, i18n } = useTranslation("peerSupporters")
+    const { i18n } = useTranslation("newsEvents")
     const translate = i18n.language
     moment.locale(translate)
 
@@ -33,12 +33,25 @@ const ListNewsEvents = ({ data, language }) => {
                             {allPosts.map((edge, postID) => {
                                 var expiryDate = edge.node.expiryDate
                                 var expiryDateParsed = Date.parse(expiryDate)
+                                var endTime = edge.node.endTime
+                                var endTimeParsed = Date.parse(endTime)
+
+                                console.log("endTimeParsed = " + endTimeParsed)
+
                                 var currentTime = Date()
                                 var currentTimeParsed = Date.parse(currentTime)
+
+
+
                                 if (expiryDate === null) {
                                     expiryDateParsed = currentTimeParsed
                                 }
-                                if ((edge.node.itemActive === true) && (expiryDateParsed >= currentTimeParsed)) {
+
+                                if (endTime === null) {
+                                    endTimeParsed = currentTimeParsed
+                                }
+
+                                if ((edge.node.itemActive === true) && (expiryDateParsed >= currentTimeParsed) && (endTimeParsed >= currentTimeParsed)) {
                                     return (
                                         <li
                                             key={postID}
@@ -47,7 +60,7 @@ const ListNewsEvents = ({ data, language }) => {
                                             data-sal-easing="ease"
                                             className={"item"}
                                         >
-                                            <Link className={"item-content"} to={`/${i18n.language}/news-and-events/${edge.node.slug.current}`}>
+                                            <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
                                                 {edge.node.coverImage !== null
                                                     ?
                                                     <Img

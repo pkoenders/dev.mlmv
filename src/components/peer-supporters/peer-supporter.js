@@ -6,32 +6,13 @@ import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
-//import contactStyles from '../homepage/contact.module.scss'
 import footerForm from '../forms/footer-form.module.scss'
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
 
-// export const query = graphql`
-//   query($language: String) {
-
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-
-//     sanityPeerSupportersHomepage {
-//       peerSupportersTitle {
-//         translate(language: $language)
-//       }
-//     }
-// }
-// `
 const PeerSupporterTemplate = ({ data, pageContext }) => {
   const { t, i18n } = useTranslation("peerSupporter")
-
-
 
   // Query some meta dada. 
   const seoMeta = useStaticQuery(graphql`
@@ -193,8 +174,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
           <div className={peerSupporterStyles.contentComplementary}>
 
             <div className={peerSupporterStyles.peerUpdateInfo}>
-              <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
-              <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
+              <p><span>{t("settings:gender")}:</span> {peerData.gender.genderTitle} (Do we need this field?)</p>
+              <p><span>{t("settings:location")}:</span> {peerData.location.location.translate}</p>
               {peerData.publishedAt &&
                 <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
               }
@@ -202,15 +183,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
             <p>Some possible aside content here?</p>
             <p>Possibly associations/alignments, links, video or images?</p>
-
-            {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
-            {/* <ul>
-              {peerData.tags.map((edge, tagid) => (
-                <li key={tagid}>
-                  <span>{edge.tagsTitle.translate}</span>
-                </li>
-              ))}
-            </ul> */}
 
           </div>
         </section>

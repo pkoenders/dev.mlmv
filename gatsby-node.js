@@ -225,8 +225,6 @@ exports.createPages = async ({
     }
   `)
 
-
-
   await buildI18nPages(
     peerSupporter.data.allSanityPeerSupporters.edges,
     // previous = peerSupporter.data.allSanityPeerSupporters.edges.previous,
@@ -245,14 +243,11 @@ exports.createPages = async ({
         // previous: previousPeer,
         // next: nextPeer
 
-
       },
     }),
     ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],
     createPage
   )
-
-
 
 
   // News and events (List)
@@ -344,22 +339,120 @@ exports.createPages = async ({
 
   await buildI18nPages(
     newsEvents.data.allSanityNewsEvent.edges,
-
-
     ({ node }, language, i18n) => ({
       path: "/" + language, // (1)
-      path: `/${language}/news-and-events`,
+      path: `/${language}/news-events`,
       component: newsEventsTemplate,
-
       context: {
         newsEvents: node.id,
-        // tags: node.tags.tagsTitle,
-
-        // previous: previous.slug.current,
-        // next: next.slug.current,
       },
     }),
-    ["common", "tags", "previous", "next", "newsEvents"],
+
+    ["common", "newsEvents"],
+    createPage
+  )
+
+  // News Events Page (Templates)
+  const newsEventTemplate = path.resolve(`./src/templates/newsEvent.js`)
+  const newsEvent = await graphql(`
+    {
+      allSanityNewsEvent(sort: {fields: order, order: ASC}) {
+        edges {
+          node {
+            order
+            slug {
+              current
+            }
+          
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+            newsEventType {
+              newsEventTypeTitle
+            }
+
+            addToHomepage
+            itemActive
+            publishedAt
+            expiryDate
+
+            shortDescription {
+              en
+              mi
+              sm
+              hi
+            }
+
+            longDescription {
+              en {
+                _rawChildren
+              }
+              mi {
+                _rawChildren
+              }
+              sm {
+                _rawChildren
+              }
+              hi {
+                _rawChildren
+              }
+            }
+            
+            coverImage {
+              asset {
+                id
+                fluid {
+                  src
+                }
+              }
+            }
+
+          }
+
+          previous {
+            slug{
+              current
+            }
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+          }
+          next {
+            slug {
+              current
+            }
+            newsEventName {
+              en
+              mi
+              sm
+              hi
+            }
+          }
+        }
+      }
+    }
+  `)
+  await buildI18nPages(
+    newsEvent.data.allSanityNewsEvent.edges,
+
+    ({ node, next, previous }, language, i18n) => ({
+      path: `/${language}/news-events/${node.slug.current}`,
+      component: newsEventTemplate,
+
+      context: {
+        newsEvent: node.id,
+        slug: node.slug.current,
+        previous,
+        next
+      },
+    }),
+    ["common", "slug", "newsEvents", "previous", "next"],
     createPage
   )
 

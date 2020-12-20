@@ -50,8 +50,7 @@ export const query = graphql`
                   )
 
                 endTime
-                  (formatString: ""
-                  locale: $language)
+                  
 
                 location {
                   location {

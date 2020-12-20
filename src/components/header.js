@@ -154,7 +154,7 @@ const Header = ({ location }) => {
             </li>
             <li>
               <Link
-                to={`/${i18n.language}/news-and-events`}
+                to={`/${i18n.language}/news-events`}
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
                 tabIndex="0"
