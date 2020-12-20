@@ -9,6 +9,10 @@
     }
 
     .supportSectionOutterWrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 100px;
+
         .supportSectionInnerWrapper {
             display: block;
             max-width: 1200px;
@@ -16,9 +20,10 @@
             margin: 0 auto;
             display: flex;
             flex-direction: row;
+            margin: 15px 0;
 
             .content {
-                padding: 60px 0px 60px 60px;
+                padding: 0px 0px 0px 60px;
 
                 @include respond-below(sm) {
                     padding: 30px 0px 30px 30px;
@@ -41,10 +46,11 @@
             .steps {
                 align-self: center;
 
+
                 div {
                     display: flex;
                     align-self: center;
-                    margin: 45px 0px;
+                    margin: 15px 0px;
                     background-color: #EDEDED;
                     border-radius: 9999rem;
                     width: 100px;
