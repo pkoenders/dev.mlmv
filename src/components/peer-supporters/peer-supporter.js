@@ -47,16 +47,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
     submitBtn.disabled = !submitBtn.disabled;
   }
 
-  //const { next, previous } = pageContext
-  //console.log(peerData.next)
-  // const next = peerData.next
-  // const previous = peerData.previous
-
-  //const next = pageContext.next
-  //const previous = pageContext.previous
-
-  // console.log("previous = " + next.slug.current)
-  // console.log("next = " + previous.slug.current)
 
 
   return (
@@ -77,18 +67,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
       <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
-            {previous &&
-              <Link
-                aria-label="Link to previous page"
-                role="menuitem"
-                tabIndex="0"
-                className={peerSupporterStyles.prev}
-                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
-              >
-                <IconPrev aria-hidden="true" />
-                <span>Previous</span>
-              </Link>
-            }
+
 
             <Link
               aria-label={t("peerSupporter:backToPeerSupporters")}
@@ -101,18 +80,32 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               <span>{t("peerSupporter:backToPeerSupporters")}</span>
             </Link>
 
-            {next &&
+
+            <span>{previous &&
               <Link
-                aria-label="Link to next page"
+                aria-label="Link to previous page"
                 role="menuitem"
                 tabIndex="0"
-                className={peerSupporterStyles.next}
-                to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
+                className={peerSupporterStyles.prev}
+                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
               >
-                <span>Next</span>
-                <IconNext aria-hidden="true" />
+                <IconPrev aria-hidden="true" />
+                <span>Previous</span>
               </Link>
             }
+              {next &&
+                <Link
+                  aria-label="Link to next page"
+                  role="menuitem"
+                  tabIndex="0"
+                  className={peerSupporterStyles.next}
+                  to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
+                >
+                  <span>Next</span>
+                  <IconNext aria-hidden="true" />
+                </Link>
+              }
+            </span>
           </div>
         </nav>
       </section>

@@ -227,22 +227,16 @@ exports.createPages = async ({
 
   await buildI18nPages(
     peerSupporter.data.allSanityPeerSupporters.edges,
-    // previous = peerSupporter.data.allSanityPeerSupporters.edges.previous,
-    // next = peerSupporter.data.allSanityPeerSupporters.edges.next,
 
-
-    ({ node }, language, i18n) => ({
+    ({ node, previous, next }, language, i18n) => ({
       path: `/${language}/peer-supporters/${node.slug.current}`,
       component: peerSupporterTemplate,
-
 
       context: {
         peerSupporter: node.id,
         slug: node.slug.current,
-
-        // previous: previousPeer,
-        // next: nextPeer
-
+        previous,
+        next
       },
     }),
     ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],
