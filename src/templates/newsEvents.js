@@ -9,9 +9,13 @@ import SectionNewsEvents from "../components/news-events/newsEvents"
 export const query = graphql`
   query($language: String) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
 
@@ -93,7 +97,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityNewsEventsHomepage.newsEventsHomepageTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityNewsEventsHomepage.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityNewsEventsHomepage.newsEventsHomepageDescription.translate}
       />
       <Layout location={location}>

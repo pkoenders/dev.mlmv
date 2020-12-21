@@ -17,11 +17,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   // Query some meta dada. 
   const seoMeta = useStaticQuery(graphql`
   query($language: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
 
     sanityPeerSupportersHomepage {
       peerSupportersTitle {
@@ -31,7 +26,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   }`
   )
 
-  // console.log(pageContext)
+  // console.log(pageContext)s
+
   const { sanityPeerSupporters } = data
   const peerData = sanityPeerSupporters
 
@@ -52,7 +48,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   return (
     <>
       <SEO
-        title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={peerData.peerShortDescription.translate}
       />
 

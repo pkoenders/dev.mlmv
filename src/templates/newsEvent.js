@@ -6,9 +6,13 @@ import NewsEventTemplate from "../components/news-events/newsEvent"
 export const query = graphql`
   query($slug: String!, $language: String, $locale: JSON) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
 

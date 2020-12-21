@@ -11,7 +11,6 @@ import IconTime from '../../images/svg/icon-time.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 
-
 const ListNewsEvents = ({ data, language }) => {
     const { i18n } = useTranslation("newsEvents")
     const translate = i18n.language
@@ -35,13 +34,9 @@ const ListNewsEvents = ({ data, language }) => {
                                 var expiryDateParsed = Date.parse(expiryDate)
                                 var endTime = edge.node.endTime
                                 var endTimeParsed = Date.parse(endTime)
-
-                                console.log("endTimeParsed = " + endTimeParsed)
-
+                                //console.log("endTimeParsed = " + endTimeParsed)
                                 var currentTime = Date()
                                 var currentTimeParsed = Date.parse(currentTime)
-
-
 
                                 if (expiryDate === null) {
                                     expiryDateParsed = currentTimeParsed

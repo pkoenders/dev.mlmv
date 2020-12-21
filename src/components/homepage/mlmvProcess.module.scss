@@ -1,19 +1,19 @@
 @import "src/styles/scss";
 
-.supportSection {
-
+.Section {
+    padding: 60px 0 !important;
 
     h2 {
         text-align: center;
         //color: #ffffff;
     }
 
-    .supportSectionOutterWrapper {
+    .SectionOutterWrapper {
         max-width: 1200px;
         margin: 0 auto;
         border-radius: 100px;
 
-        .supportSectionInnerWrapper {
+        .SectionInnerWrapper {
             display: block;
             max-width: 1200px;
             padding: 0 15px;
@@ -82,12 +82,12 @@
         }
     }
 
-    .supportSectionOutterWrapper:nth-child(odd) {
+    .SectionOutterWrapper:nth-child(odd) {
         background-color: #dcd4d4;
     }
 
 
-    .supportSectionOutterWrapper:nth-child(even) {
+    .SectionOutterWrapper:nth-child(even) {
         .steps {
             div {
                 background-color: #dcd4d4;

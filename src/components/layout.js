@@ -8,10 +8,15 @@ import '../styles/index.scss'
 
 const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    query SiteTitle {
+     
+      sanitySiteSettings {
+        siteTitle
+        siteDescription
+        coverImage {
+          asset {
+            url
+          }
         }
       }
     }
@@ -24,7 +29,7 @@ const Layout = ({ children, location }) => {
       </noscript>
       <a className={"skipLink"} href="#mainContent" tabIndex="0">Skip to main content</a>
       <div id="layoutModule" className={layoutStyles.container} >
-        <Header siteTitle={data.site.siteMetadata.title} location={location} />
+        <Header location={location} />
         <div className={layoutStyles.content}>
           <main id="mainContent">{children}</main>
         </div>

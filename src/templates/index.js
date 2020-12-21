@@ -18,10 +18,20 @@ import SectionContact from "../components/forms/contact"
 export const query = graphql`
   query($language: String, $locale: JSON) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
+    }
+    
+    sanityHomepageSettings {
+        homepageAlertsActive
+        homepageSupportsActive
+        homepageCommentsActive
     }
 
     allSanityHomepageAlert {
@@ -39,6 +49,7 @@ export const query = graphql`
           homepageAlertName
           homepageAlertActive
           homepageAlertExpirey
+          homepageAlertDismiss
         }
       }
     }
@@ -120,13 +131,13 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data, location, language }) => {
-  //const { t, i18n } = useTranslation("index")
-  const { i18n } = useTranslation("index")
+  const { t, i18n } = useTranslation("index")
+  //const { i18n } = useTranslation("index")
 
   return (
     <>
       <SEO
-        title={data.sanityHomepageIntro.homepageTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityHomepageIntro.homepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityHomepageIntro.homepageDescription.translate}
       />
       <Layout location={location}>
@@ -135,10 +146,7 @@ const IndexPage = ({ data, location, language }) => {
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
             <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />
-            {/* 
-            <h1>We work with you and your family</h1>
-            <p>We talk about what a good life looks life for you is and help you choose how you want to make a good life happen.</p> */}
-            <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >View our Peer Supporters</Link>
+            <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >{t("index:ctaViewPeerSupports")}</Link>
           </div>
         </DefaultSection>
         <ProcessSection />

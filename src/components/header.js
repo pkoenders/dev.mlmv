@@ -171,7 +171,7 @@ const Header = ({ location }) => {
                 About us
                 </Link>
             </li>
-            <li>
+            <li className="hide">
               <Link
                 to={`/${i18n.language}/contact`}
                 activeClassName={"activeNavItem"}

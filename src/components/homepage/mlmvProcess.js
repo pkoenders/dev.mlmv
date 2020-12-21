@@ -8,9 +8,9 @@ const MLMVProcessSection = () => {
     // const tagsTranslate = i18n.language
     return (
         <>
-            <section className={mlmvProcessStyles.supportSection + ' section-layout-wide'}>
-                <div className={mlmvProcessStyles.supportSectionOutterWrapper}>
-                    <div className={mlmvProcessStyles.supportSectionInnerWrapper}>
+            <section className={mlmvProcessStyles.Section + ' section-layout-wide'}>
+                <div className={mlmvProcessStyles.SectionOutterWrapper}>
+                    <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>
                             <div>
                                 <p>1</p>
@@ -22,8 +22,8 @@ const MLMVProcessSection = () => {
                     </div>
                 </div>
 
-                <div className={mlmvProcessStyles.supportSectionOutterWrapper}>
-                    <div className={mlmvProcessStyles.supportSectionInnerWrapper}>
+                <div className={mlmvProcessStyles.SectionOutterWrapper}>
+                    <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>
                             <div>
                                 <p>2</p>
@@ -35,8 +35,8 @@ const MLMVProcessSection = () => {
                     </div>
                 </div>
 
-                <div className={mlmvProcessStyles.supportSectionOutterWrapper}>
-                    <div className={mlmvProcessStyles.supportSectionInnerWrapper}>
+                <div className={mlmvProcessStyles.SectionOutterWrapper}>
+                    <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>
                             <div>
                                 <p>3</p>
@@ -48,8 +48,8 @@ const MLMVProcessSection = () => {
                     </div>
                 </div>
 
-                <div className={mlmvProcessStyles.supportSectionOutterWrapper}>
-                    <div className={mlmvProcessStyles.supportSectionInnerWrapper}>
+                <div className={mlmvProcessStyles.SectionOutterWrapper}>
+                    <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>
                             <div>
                                 <p>4</p>
@@ -61,8 +61,8 @@ const MLMVProcessSection = () => {
                     </div>
                 </div>
 
-                <div className={mlmvProcessStyles.supportSectionOutterWrapper}>
-                    <div className={mlmvProcessStyles.supportSectionInnerWrapper}>
+                <div className={mlmvProcessStyles.SectionOutterWrapper}>
+                    <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>
                             <div>
                                 <p>5</p>

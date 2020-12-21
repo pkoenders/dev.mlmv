@@ -228,7 +228,7 @@ header.headerNavWrapper {
       }
 
       li.hide {
-        display: none;
+        display: block;
       }
 
       li.breakNav {
@@ -284,6 +284,10 @@ header.headerNavWrapper {
             width: 100%;
             left: 0px;
           }
+        }
+
+        li.hide {
+          display: none;
         }
       }
     }

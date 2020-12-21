@@ -9,9 +9,13 @@ import SectionPeerSupporters from "../components/peer-supporters/peer-supporters
 export const query = graphql`
   query($language: String) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
 
@@ -80,7 +84,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityPeerSupportersHomepage.peerSupportersTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityPeerSupportersHomepage.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityPeerSupportersHomepage.peerSupportersDescription.translate}
       />
       <Layout location={location}>

@@ -62,6 +62,16 @@ const Footer = ({ location }) => {
             </li>
             <li>
               <Link
+                to={`/${i18n.language}/news-events`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to News and Events">
+                News &amp; events
+                </Link>
+            </li>
+
+            <li>
+              <Link
                 to={`/${i18n.language}/about`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"

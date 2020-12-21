@@ -10,11 +10,18 @@ import DefaultSection from "../components/defaultSection"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
-    site {
-      siteMetadata {
-        title
+    
+    
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
+
 
     sanityAboutContent {
       aboutTitle {
@@ -37,7 +44,7 @@ const AboutPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityAboutContent.aboutTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityAboutContent.aboutTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityAboutContent.aboutDescription.translate}
       />
       <Layout location={location}>

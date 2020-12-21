@@ -40,7 +40,6 @@ export const onRouteUpdate = () => {
             resizeAllGridItems()
         })
     })
-
 }
 
 function ready() {

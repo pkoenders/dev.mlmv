@@ -36,7 +36,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
   return (
     <>
       <SEO
-        title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={newsEventData.shortDescription.translate}
       />
 

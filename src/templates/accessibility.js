@@ -11,9 +11,13 @@ import footerForm from '../components/forms/footer-form.module.scss'
 export const query = graphql`
   query($language: String, $locale: JSON) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
 
@@ -42,7 +46,7 @@ const AccessibilityPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityAccessibilityContent.accessibilityDescription.translate}
       />
       <Layout location={location}>

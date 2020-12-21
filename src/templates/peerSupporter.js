@@ -6,12 +6,16 @@ import PeerSupporterPage from "../components/peer-supporters/peer-supporter"
 export const query = graphql`
   query($slug: String!, $language: String, $locale: JSON) {
 
-    site {
-      siteMetadata {
-        title
+    sanitySiteSettings {
+      siteTitle
+      siteDescription
+      coverImage {
+        asset {
+          url
+        }
       }
     }
-
+    
     sanityPeerSupportersHomepage {
       peerSupportersTitle {
         translate(language: $language)

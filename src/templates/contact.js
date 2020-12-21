@@ -10,11 +10,16 @@ import SectionContact from "../components/forms/contact"
 
 export const query = graphql`
 query($language: String, $locale: JSON) {
-    site {
-      siteMetadata {
-        title
+    
+  sanitySiteSettings {
+    siteTitle
+    siteDescription
+    coverImage {
+      asset {
+        url
       }
     }
+  }
 
     sanityContactContent {
       contactTitle {
@@ -37,7 +42,7 @@ const ContactPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityContactContent.contactTitle.translate + ' | ' + data.site.siteMetadata.title}
+        title={data.sanityContactContent.contactTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={data.sanityContactContent.contactDescription.translate}
       />
       <Layout location={location}>
