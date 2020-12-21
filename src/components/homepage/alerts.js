@@ -15,9 +15,6 @@ const AlertsSection = ({ data, language }) => {
   const alertDataList = allSanityHomepageAlert
   const alertData = alertDataList.edges
 
-  const windowGlobal = typeof window !== 'undefined' && window
-  //const locale = i18n.language
-
   const closeAlert = event => {
     const alertPanel = event.target.parentNode
     alertPanel.remove()
@@ -26,7 +23,7 @@ const AlertsSection = ({ data, language }) => {
     //console.log('alertPanel = ' + alertPanel)
   }
 
-  if (homepageAlerts.homepageAlertsActive === true) {
+  if ((homepageAlerts.homepageAlertsActive === true) && (typeof window !== 'undefined')) {
     return (
       <>
         {alertData.map((edge, alertID) => {
@@ -41,7 +38,7 @@ const AlertsSection = ({ data, language }) => {
             return null
           }
 
-          if ((edge.node.homepageAlertActive === true) && (windowGlobal.sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
+          if ((edge.node.homepageAlertActive === true) && (sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
             return (
               <section
                 className={alertStyles.sectionWrapper + ' section-layout-wide' + ' alertLevels level0 ' + `${edge.node.alertLevel.alertLevel}`}
