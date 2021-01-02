@@ -23,6 +23,8 @@ const AlertsSection = ({ data, language }) => {
     //console.log('alertPanel = ' + alertPanel)
   }
 
+
+  //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
   if ((homepageAlerts.homepageAlertsActive === true) && (typeof window !== 'undefined')) {
     return (
       <>

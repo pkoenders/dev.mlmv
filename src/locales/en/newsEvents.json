@@ -1,8 +1,9 @@
 {
+  "title": "News & events",
   "backToNewsEvents": "Back to all News and events",
   "next": "Next",
   "previous": "Previous",
   "starts": "Starts",
   "ends": "Ends",
-  "location": "Location"
+  "findOutMore": "Find out more"
 }

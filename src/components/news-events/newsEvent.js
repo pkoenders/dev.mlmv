@@ -32,7 +32,6 @@ const NewsEventTemplate = ({ data, pageContext }) => {
 
   const { next, previous } = pageContext
 
-
   return (
     <>
       <SEO
@@ -62,7 +61,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
               <span>{t("newsEvents:backToNewsEvents")}</span>
             </Link>
 
-            <span>
+            {/* <span>
               {previous &&
                 <Link
                   aria-label="Link to previous page"
@@ -88,7 +87,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   <IconNext aria-hidden="true" />
                 </Link>
               }
-            </span>
+            </span> */}
           </div>
         </nav>
       </section>
@@ -118,13 +117,13 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   : ''
                 } */}
 
-                {newsEventData.newsEventType.newsEventTypeTitle != 'News' && newsEventData.endTime !== null
+                {newsEventData.newsEventType.newsEventTypeTitle !== 'News' && newsEventData.endTime !== null
                   ? <p><IconTimeLapse aria-hidden="true" /><span>{t("newsEvents:ends")}: {moment(newsEventData.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
                   : ''
                 }
 
                 {newsEventData.location !== null
-                  ? <p><IconLocation aria-hidden="true" /><span>{t("newsEvents:location")}: {newsEventData.location.location.translate}</span></p>
+                  ? <p><IconLocation aria-hidden="true" /><span>{newsEventData.location.location.translate}</span></p>
                   : ''
                 }
 
@@ -158,5 +157,6 @@ const NewsEventTemplate = ({ data, pageContext }) => {
     </>
   )
 }
+
 
 export default NewsEventTemplate

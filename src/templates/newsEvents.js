@@ -28,7 +28,7 @@ export const query = graphql`
       }
     }
 
-    allSanityNewsEvent(sort: {fields: order, order: ASC}) {
+    allSanityNewsEvent(sort: {fields: publishedAt, order: DESC}) {
         edges {
             node {
                 order
@@ -89,7 +89,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       <style type="text/css">
         {`
         body  {
-          //background-color: #0B132B;
+          background-color: #c3c8d6;
         }
         .section-layout-wide {
           margin-top:60px;

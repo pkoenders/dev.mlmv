@@ -3,7 +3,7 @@
 @import "./checkbox-radios";
 
 body {
-  background-color: #ededed;
+  background-color: #ffffff;
 
   @include respond-below(sm) {
     //  margin: 50px 0 0 0;
@@ -139,7 +139,8 @@ button.buttonSecondary button.buttonTertiary,
   //background-color: #25324091;
   //border: 1px solid $primaryColor;
   //border: 1px solid #25324091 !important;
-  opacity: .2;
+  opacity: .33;
+  filter: blur(2px);
 }
 
 button.buttonPrimaryGhost,
@@ -421,13 +422,9 @@ button.buttonTertiary:hover,
 }
 
 .tagListItem.selected,
-.peerResultsTags.selected {
+.resultsTags li.selected {
   opacity: 1;
-  //color: $headerBgColor !important;
   color: #ffffff !important;
-  //border: 1px solid #ffffff33;
-  // background-color: $headerBgColor !important;
-  //background-color: #6FFFE9 !important;
   background-color: $tertiaryColor !important;
   box-shadow: $globalBoxShadowA;
 
@@ -449,40 +446,24 @@ button.buttonTertiary:hover,
   }
 }
 
-label.filterLabel {
-  position: absolute;
-  width: auto;
-  top: 32px;
-  left: 45px;
-  right: 60px;
-
-  @include respond-below(md) {
-    left: 30px;
-    right: 60px;
-  }
-
-  color: #ffffff;
-  background-color: transparent;
-  font-weight: 400;
-  font-size: 1.0rem;
-  line-height: 1.0rem;
-  transition: top .25s ease-in;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
 label.filterLabel.focus {
+  border: 3px solid $tertiaryColor !important;
+  border-bottom: none !important;
+}
+
+label.filterLabel.active {
   position: absolute;
   width: fit-content;
-
-  top: -2px;
+  top: -8px !important;
   //left: 30px;
-  padding: 4px 8px;
+  padding: 2px 8px;
   font-size: .8rem;
   font-weight: 400;
-  color: #ffffff;
-  background-color: $headerBgColor;
-
+  color: #0B132B;
+  background-color: #ffffff;
+  border: 3px solid #ffffff;
+  border-bottom: none;
 }
 
 input#peerFilterInput.focus[type=search] {
@@ -498,70 +479,28 @@ svg.filterSearchIconAlt.hide {
 
 }
 
-.peerResults li {
+.listResults li {
   display: block;
+  //opacity: 1;
+  animation: fadeResults 400ms;
 }
 
-.peerResults li.hide {
+.listResults li.hide {
   display: none;
 }
 
-
-.homepageHeaderImg {
-  position: relative;
-
-  height: fit-content;
-
-
-  div.imgTxt {
-    //align-self: center;
-    //margin: 50% auto;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    position: absolute;
-    //background-color: #0b132b33;
-    background: rgb(11, 19, 43);
-    background: linear-gradient(180deg, rgba(11, 19, 43, 0.7511379551820728) 0%, rgba(11, 19, 43, 0) 100%);
-    z-index: 10000;
-
-    span {
-      align-self: center;
-      text-align: center;
-      margin: 0 auto;
-      padding: 30px 45px;
-      color: #ffffff;
-      font-size: 2.4rem;
-      line-height: 3.0rem;
-      font-weight: 400;
-
-
-      @include respond-below(sm) {
-        font-size: 2.0rem;
-        line-height: 2.6rem;
-      }
-
-    }
+@keyframes fadeResults {
+  0% {
+    opacity: 0;
   }
 
-  >div {
-    max-height: 500px;
-    margin-top: 0px;
-    display: flex;
-
-    img {
-      object-position: top !important;
-      transition: opacity 0.5s ease !important;
-
-      @include respond-above(lg) {
-        object-position: top !important;
-      }
-    }
-
+  100% {
+    opacity: 1;
   }
-
 }
+
+
+
 
 
 .level-0,

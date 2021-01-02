@@ -2,9 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import SectionPeerSupporters from "../components/peer-supporters/peer-supporters"
-
-
+import SectionSupportServices from "../components/support-services/support-services"
 
 export const query = graphql`
   query($language: String) {
@@ -19,11 +17,11 @@ export const query = graphql`
       }
     }
 
-    sanityPeerSupportersHomepage {
-      peerSupportersDescription {
+    sanitySupportServicesHomepage {
+      description {
         translate(language: $language)
       }
-      peerSupportersTitle {
+      title {
         translate(language: $language)
       }
     }
@@ -37,39 +35,34 @@ export const query = graphql`
           }
       }
     }
-
-    allSanityPeerSupporters(sort: {order: ASC, fields: order}) {
+  
+    allSanitySupportServices(sort: {fields: title___en, order: ASC}) {
         edges {
             node {
                 order
-                peerSupporterActive
-                peerSupporterEmail
+                url
+                telephone
+                email
+                active
                 slug {
                     current
                 }
-                peerSupporterFullName {
+                location {
+                  location {
+                    translate(language: $language)
+                  }
+                }
+                title {
                     translate(language: $language)
                 }
-                peerSupporterFriendlyName {
-                    translate(language: $language)
-                }
-
-                peerShortDescription {
+               
+                description {
                     translate(language: $language)
                   }
 
                 tags {
-
                     tagsTitle {
                       translate(language: $language)
-                    }
-                }
-
-                coverImage {
-                    asset {
-                        fluid(maxWidth: 545) {
-                            ...GatsbySanityImageFluid
-                          }
                     }
                 }
             }
@@ -78,7 +71,7 @@ export const query = graphql`
 }
 `
 
-const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
+const SupportServicesTemplate = ({ data, pageContext, location, language }) => {
 
   return (
     <>
@@ -93,14 +86,14 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityPeerSupportersHomepage.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityPeerSupportersHomepage.peerSupportersDescription.translate}
+        title={data.sanitySupportServicesHomepage.title.translate + ' | ' + data.sanitySiteSettings.siteTitle}
+        description={data.sanitySupportServicesHomepage.description.translate}
       />
       <Layout location={location}>
-        <SectionPeerSupporters data={data} language={language} />
+        <SectionSupportServices data={data} language={language} />
       </Layout >
     </>
   )
 }
 
-export default PeerSupportersTemplate
+export default SupportServicesTemplate

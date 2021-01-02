@@ -79,7 +79,7 @@ const NewsEvent = ({ data, pageContext, location }) => {
       <style type="text/css">
         {`
         body  {
-          background-color: #0C142A;
+          background-color: #ffffff;
         }
       `}
       </style>

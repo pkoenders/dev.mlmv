@@ -60,6 +60,17 @@ const Footer = ({ location }) => {
                 Peer supporters
                 </Link>
             </li>
+
+            <li>
+              <Link
+                to={`/${i18n.language}/support-services`}
+                activeClassName={"activeNavItem"}
+                tabIndex="0"
+                title="Link to Support services">
+                Support services
+                </Link>
+            </li>
+
             <li>
               <Link
                 to={`/${i18n.language}/news-events`}

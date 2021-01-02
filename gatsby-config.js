@@ -78,30 +78,88 @@ module.exports = {
       }
     },
 
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Merriweather:400,700,900', 'Spectral:400', 'Roboto:400']
+    //     }
+    //   }
+    // },
+
+
 
     {
-      resolve: `gatsby-plugin-google-fonts-v2`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variable: true,
-            weights: [`300..700`],
-          },
-          {
-            family: `Roboto Slab`,
-            variable: true,
-            weights: [`300..700`],
-          },
-          {
-            family: `Spectral`,
-            variable: true,
-            weights: [`400..700`],
-          },
-
-        ],
+        fonts: {
+          google: [
+            {
+              family: "Roboto",
+              variants: ["300", "400", "500", "700"],
+            },
+            {
+              family: `Spectral`,
+              variants: [`400`, `700`],
+            },
+            {
+              family: `Merriweather`,
+              variants: [`400`, `700`, `900`]
+            },
+          ],
+        },
       },
     },
+
+
+
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: `Roboto`,
+    //         variants: [`400`, `700`],
+    //       },
+    //       {
+    //         family: `Spectral`,
+    //         variants: [`400`, `700`],
+    //       },
+    //       {
+    //         family: `Merriweather`,
+    //         variants: [`400`, `700`, `900`]
+    //       },
+    //     ],
+    //   },
+    // },
+
+
+
+    // {
+    //   resolve: `gatsby-plugin-google-fonts-v2`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: 'Roboto',
+    //         variable: true,
+    //         weights: ['300..700']
+    //       },
+    //       {
+    //         family: 'Roboto Slab',
+    //         variable: true,
+    //         weights: ['300..700']
+    //       },
+    //       {
+    //         family: 'Spectral',
+    //         weights: ['400']
+    //       },
+    //       {
+    //         family: 'Merriweather',
+    //         weights: [400, 700, 900]
+    //       }
+    //     ]
+    //   }
+    // },
 
 
     {

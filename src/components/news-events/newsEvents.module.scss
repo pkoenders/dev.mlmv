@@ -4,10 +4,12 @@ section.prevNext {
     z-index: 100;
     transition: all .25s linear;
     position: sticky;
-    padding: 20px 0 10px 0;
-    background-color: #c1def5;
-    background-color: $headerBgColor;
-    top: 50px;
+    padding: 15px 0 15px 0;
+    // background-color: #c1def5;
+    // background-color: $headerBgColor;
+
+    background-color: #c3c8d6;
+    top: 60px;
 
 
 
@@ -17,7 +19,7 @@ section.prevNext {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        padding: 0 15px;
+        padding: 0px 15px;
 
 
 
@@ -29,12 +31,18 @@ section.prevNext {
 
         div {
             flex-basis: 66.6%;
+
+            @include respond-below(md) {
+                flex-basis: 100%;
+            }
+
             display: flex;
 
             a {
                 color: $txtColor;
 
-                color: #ffffff;
+                //color: #ffffff;
+
 
                 span {
                     text-transform: uppercase;
@@ -84,18 +92,19 @@ section.prevNext {
 
 div.Wrapper {
     section.header {
-        background-color: $headerBgColor;
+        //background-color: $headerBgColor;
+        background-color: #c3c8d6;
 
         .headerWrapper {
             max-width: 1200px;
-            margin: 50px auto 0px auto;
+            margin: 60px auto 0px auto;
             padding: 0 15px;
 
             @include respond-below(sm) {
                 padding: 0;
             }
 
-            color: #ffffff;
+            color: $primaryColor;
 
             .headerTitleWrapper {
 
@@ -108,7 +117,7 @@ div.Wrapper {
                 }
 
                 .headerTitle {
-                    background-color: #464f6b;
+                    background-color: #f7f6f8;
                     padding: 15px 30px;
                     border-radius: 4px 4px 0 0;
                     border-bottom: none;
@@ -159,19 +168,15 @@ div.Wrapper {
                         width: 100%;
                         padding: 0 15px 15px;
                         // background-color: #72ebd8;
-                        background-color: #464f6b;
+                        background-color: #f7f6f8;
                         margin-bottom: -1px;
                     }
 
                     text-align: left;
                     padding-left: 15px;
 
-
-
-
-
                     p {
-                        color: #ffffff;
+                        color: $primaryColor;
                         margin: 7.5px 0;
                         font-size: .8rem;
 

@@ -1,3 +1,5 @@
+@import "./scss";
+
 /* Reset provided by https://github.com/gatsbyjs/gatsby-starter-blog via MIT license */
 html {
   font-family: 'Roboto', sans-serif;
@@ -301,6 +303,24 @@ textarea {
 //   //font-size: 0.9em !important;
 // }
 
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  //border: 1px solid green;
+  //-webkit-text-fill-color: #ffffff;
+  background-color: #ffffff !important;
+  //-webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 button:hover {
   outline: none;
 }
@@ -364,12 +384,9 @@ h6 {
 }
 
 h1 {
-  //font-size: 2.25rem;
-  //text-transform: uppercase;
-  font-size: 1.8rem;
-  line-height: 2.6rem;
+  text-align: left;
   line-height: 1.7rem;
-
+  @include h1Title;
 }
 
 h2 {

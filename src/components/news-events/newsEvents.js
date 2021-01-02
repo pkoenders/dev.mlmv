@@ -12,7 +12,7 @@ import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 
 const ListNewsEvents = ({ data, language }) => {
-    const { i18n } = useTranslation("newsEvents")
+    const { t, i18n } = useTranslation("newsEvents")
     const translate = i18n.language
     moment.locale(translate)
 
@@ -28,6 +28,7 @@ const ListNewsEvents = ({ data, language }) => {
             <section className={newsEventsResults.peerResults}>
                 <div className={newsEventsResults.wrapper}>
                     <div>
+                        <h1>{t("newsEvents:title")}</h1>
                         <ul className={"grid"}>
                             {allPosts.map((edge, postID) => {
                                 var expiryDate = edge.node.expiryDate
@@ -82,22 +83,22 @@ const ListNewsEvents = ({ data, language }) => {
 
                                                     <span className={newsEventsResults.info}>
                                                         {edge.node.startTime !== null
-                                                            ? <p><IconTime aria-hidden="true" /><span>Starts: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><IconTime aria-hidden="true" /><span>{t("newsEvents:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
                                                             : ''
                                                         }
 
                                                         {edge.node.endTime !== null
-                                                            ? <p><IconTimeLapse aria-hidden="true" /><span>Ends: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><IconTimeLapse aria-hidden="true" /><span>{t("newsEvents:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
                                                             : ''
                                                         }
 
                                                         {edge.node.location !== null
-                                                            ? <p><IconLocation aria-hidden="true" /><span>Location: {edge.node.location.location.translate}</span></p>
+                                                            ? <p><IconLocation aria-hidden="true" /><span>{edge.node.location.location.translate}</span></p>
                                                             : ''
                                                         }
                                                     </span>
 
-                                                    <span className={newsEventsResults.cta + ' buttonSecondary'}>Find out more</span>
+                                                    <span className={newsEventsResults.cta + ' buttonSecondary'}>{t("newsEvents:findOutMore")}</span>
                                                 </span>
                                             </Link>
                                         </li>

@@ -35,7 +35,7 @@ export const onRouteUpdate = () => {
     //     background: '#ffffff',
     // })
 
-    "resize reload".split(" ").forEach(function (e) {
+    "resize reload click keyup".split(" ").forEach(function (e) {
         window.addEventListener(e, () => {
             resizeAllGridItems()
         })
@@ -143,7 +143,7 @@ function srollNav() {
             //headerNavWrapper.style.top = "0";
             headerNavWrapper.classList.remove("hide")
             if (projectsNav) {
-                projectsNav.style.top = "50px";
+                projectsNav.style.top = "60px";
             }
 
         } else {

@@ -1,6 +1,6 @@
 $whiteText:#eff0f1;
-$primaryColor: #0B132B;
-$primaryColorA: #0B132B;
+$primaryColor: #121923;
+$primaryColorA: #121923;
 $secondaryColor: #6FFFE9;
 $secondaryColorA: #6FFFE9;
 $tertiaryColor: #e01685;
@@ -18,10 +18,10 @@ $pageBgColor: #0B132B;
 
 $headerFgColor: #788fa8;
 //$headerBgColor: #19181D;
-$headerBgColor: #0B132B;
+$headerBgColor: #121923;
 
 $footerFgColor: #f6f4f2;
-$footerBgColor: #0B132B;
+$footerBgColor: #121923;
 
 
 $altColorA: #3c5168bf;
@@ -30,10 +30,6 @@ $altColorA: #3c5168bf;
 // .focusVisibleForDark {
 //     outline: #6FFFE9 solid 3px;
 // }
-
-@mixin focusVisibleForDark {
-    outline: $tertiaryColor solid 3px !important;
-}
 
 $globalSecionPadding: 45px 0 90px 0;
 $globalBorderRadiusA: 3px;

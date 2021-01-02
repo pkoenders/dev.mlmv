@@ -26,7 +26,7 @@ const HomepageSupports = ({ data, language }) => {
             {/* <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1> */}
 
             <h2>{t("index:newSupportersTitle")}</h2>
-            <ul className={"peerResults"}>
+            <ul className={"grid peerResults"}>
               {allPosts.map((edge, postID) => {
                 if (
                   edge.node.peerSupporterAddToHomepage === true
@@ -37,9 +37,9 @@ const HomepageSupports = ({ data, language }) => {
                       //data-sal="fade"
                       data-sal-duration="300"
                       data-sal-easing="ease"
-                      className={""}
+                      className={"item"}
                     >
-                      <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`}>
+                      <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`} className={"item-content"}>
                         <Img
                           fluid={edge.node.coverImage.asset.fluid}
                           loading="lazy"
@@ -48,18 +48,6 @@ const HomepageSupports = ({ data, language }) => {
                         <span className={peerResultsStyles.resultsContentWrapper}>
                           <h3>{edge.node.peerSupporterFullName.translate}</h3>
                           <p>{edge.node.peerShortDescription.translate}</p>
-                          {/* <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
-                        <ul>
-                          {edge.node.tags.map((thisEdge, tagID) => (
-                            <li
-                              className={"peerResultsTags"}
-                              key={tagID}
-                            // id={thisEdge.tagsTitle.translate}
-                            >
-                              {thisEdge.tagsTitle.translate}
-                            </li>
-                          ))}
-                        </ul> */}
                         </span>
                       </Link>
                     </li>

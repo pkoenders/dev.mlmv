@@ -1,0 +1,212 @@
+@import "../styles/variables";
+
+@mixin h1Title {
+  text-align: center;
+  color: $primaryColor;
+
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+@mixin focusVisibleForDark {
+  outline: 3px solid $tertiaryColor !important;
+}
+
+@mixin resultsGridLayout {
+  display: grid;
+  padding: 30px;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 0rem;
+  list-style: none;
+  margin: 0px;
+  align-content: space-between;
+  justify-content: space-around;
+
+  @include respond-below(sm) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @include respond-below(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+  @include respond-below(xs) {
+    padding: 15px;
+    grid-gap: 15px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+@mixin resultsGridLayoutItem {
+  height: max-content;
+  transition: all 0.2s ease-in-out;
+  z-index: 5;
+  position: relative;
+  border-radius: $globalBorderRadiusA;
+  box-shadow: $globalBoxShadowA;
+  width: 100%;
+  justify-items: center;
+
+  a,
+  .itemContent {
+    color: $txtColor !important;
+    background-color: #fbfbfb;
+    height: 100%;
+    display: block;
+    width: 100%;
+    float: left;
+
+
+    >div {
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+        border-radius: 0px;
+        transition: all 0.2s ease-in-out !important;
+      }
+    }
+
+    span.resultsContentImgOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      padding: 100% 0 0 0;
+      margin: 0;
+      background: rgb(11, 19, 43);
+      background: linear-gradient(45deg, rgba(11, 19, 43, 1) 0%, rgba(11, 19, 43, 0) 50%);
+      opacity: .20;
+    }
+
+    span.resultsContentWrapper {
+      display: block;
+      padding: 15px 15px 11px 15px;
+      border-top: 1px solid #c3c8d6;
+      text-align: left;
+      margin: 0px 0px 0;
+      color: $primaryColor;
+
+      h3 {
+        font-weight: 700;
+        margin: 0 0 0 0;
+        font-size: 1.1rem;
+        text-align: left;
+        color: inherit;
+      }
+
+      p,
+      a {
+        padding: 0px;
+        width: 100%;
+        margin: 10px 0 0 0;
+        font-size: .9rem;
+        color: inherit;
+        float: none;
+      }
+
+      span.info {
+        display: block;
+        //opacity: .75;
+        margin: 15px 0 0;
+        padding-top: 5px;
+        border-top: 1px solid #c3c8d6;
+
+        p,
+        a {
+          margin: 10px 0 5px 0;
+          font-size: .8rem;
+          line-height: 22px;
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+
+          svg {
+            height: 22px;
+            margin: 0 15px 0 0;
+            width: auto;
+            vertical-align: middle;
+          }
+        }
+
+        a:hover {
+          text-decoration: underline !important;
+        }
+      }
+
+      span.cta {
+        display: table;
+        margin: 15px auto 15px;
+        padding: 6px 18px;
+      }
+
+      ul {
+        width: auto;
+
+        justify-content: left;
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 0;
+        margin: 15px 0 0;
+        padding: 0;
+
+        li {
+          width: auto;
+          display: block;
+          flex: none;
+          margin: 4px 8px 4px 0;
+          color: $primaryColor;
+          background-color: #C3C8D6;
+
+
+          padding: 1px 12px;
+          font-size: .8rem;
+          border-radius: .2em;
+          box-shadow: none;
+        }
+
+        li.selected {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  a:hover {
+    text-decoration: none !important;
+    color: $primaryColor !important;
+
+    h3 {
+      text-decoration: underline;
+    }
+
+    img {
+      transform: scale(1.033);
+      filter: grayscale(0);
+    }
+  }
+
+  a:focus {
+    outline: none;
+  }
+
+  a:focus-visible {
+    @include focusVisibleForDark;
+  }
+
+  a:-moz-focusring {
+    @include focusVisibleForDark;
+  }
+}

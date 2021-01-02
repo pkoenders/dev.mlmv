@@ -3,6 +3,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 //import Img from "gatsby-image"
 import Img from "gatsby-image/withIEPolyfill"
+import homePageHeaderImg from '../homepage/homePageHeaderImg.module.scss'
+
+
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -31,8 +34,8 @@ const HomepageHeaderImage = ({ data, language }) => {
 
   return (
     <>
-      <div className={'homepageHeaderImg contentStart'}>
-        <div className="imgTxt">
+      <div className={homePageHeaderImg.homepageHeaderImg + ' contentStart'}>
+        <div className={homePageHeaderImg.imgTxt}>
           <span>{t("index:headerImgOverlay")}</span>
         </div>
         <Img fluid={headerImg.placeholderImage.childImageSharp.fluid}

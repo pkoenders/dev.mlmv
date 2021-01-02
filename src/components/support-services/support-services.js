@@ -1,28 +1,29 @@
 import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+//import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
-import Img from 'gatsby-image'
-
-import peerFilterStyles from './peer-filter.module.scss'
-import resultsStyles from './peer-results.module.scss'
+//import Img from 'gatsby-image'
+import peerFilterStyles from './filter.module.scss'
+import resultsStyles from './results.module.scss'
 import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
 import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
+import IconLocation from '../../images/svg/icon-location.inline.svg'
+import IconPhone from '../../images/svg/icon-phone-alt.inline.svg'
+import IconOpenNew from '../../images/svg/icon-open-in-new.inline.svg'
 
 
 let allResultsTagList = []
 
-
-const ListPeerSupporters = ({ data, language }) => {
+const ListSupportServices = ({ data, location, language }) => {
 
     const { t, i18n } = useTranslation("peerSupporters")
 
-    // Since we are creating a Template for language support, get Peer Supports data from node gatsby Node
-    const { allSanityPeerSupporters } = data // data.markdownRemark holds your post data
-    const peerListData = allSanityPeerSupporters
-    const allPosts = peerListData.edges
+    // Since we are creating a Template for language support, get Support Services data from node gatsby Node
+    const { allSanitySupportServices } = data
+    const servicesListData = allSanitySupportServices
+    const allPosts = servicesListData.edges
 
     // Check if the tags filtering list has matching tags in the results. 
     // It is possible to create a tag in Sanity and not attached to a Peer supporter.
@@ -44,14 +45,14 @@ const ListPeerSupporters = ({ data, language }) => {
         allResultsTagList = []
         allPosts.forEach((allResults) => {
             if (
-                allResults.node.peerSupporterActive === true
+                allResults.node.active === true
             ) {
                 allResults.node.tags.forEach((tagList) => {
                     allResultsTagList.push(tagList.tagsTitle.translate)
                 })
             }
         })
-        // console.log("allTagList = " + allTagList)
+        //console.log("allTagList = " + allTagList)
     }
 
     // Set up some variables...
@@ -66,7 +67,6 @@ const ListPeerSupporters = ({ data, language }) => {
         query: emptyQuery
     })
 
-
     // First deal with the tag select, When user click on tag list to filter the results query
     const handleTagSelect = event => {
         //Reset any (input) filter values 
@@ -75,17 +75,13 @@ const ListPeerSupporters = ({ data, language }) => {
         //Get the tag data passed from the event click etc
         const tagItem = event.target
         tagItemValue = event.target.id
-        //tagItemValue = event.target.label
         //console.log("tagItemValue = " + tagItemValue)
-
 
         // Get our Peer Results Tags
         const resultsTags = document.querySelectorAll(".resultsTags li")
         if ((document.getElementById("filterInput").value) !== "") {
-
             // If the input fiels still has data in it, lets clear that
             handleInputFilterReset()
-
         } else {
             // Toggle our tag so it looks selected!
             tagItem.classList.toggle("selected")
@@ -232,12 +228,12 @@ const ListPeerSupporters = ({ data, language }) => {
     function filterListByInput() {
         const query = filterValue
         //console.log("query = " + query)
-        const posts = peerListData.edges || []
+        const posts = servicesListData.edges || []
         const filteredData = posts.filter(post => {
 
-            const description = post.node.peerShortDescription.translate
-            const title = post.node.peerSupporterFullName.translate
-            // console.log("title = " + title)
+            const description = post.node.description.translate
+            const title = post.node.title.translate
+            //console.log("title = " + title)
 
             var tagList = ''
             if (post.node.tags) {
@@ -332,13 +328,13 @@ const ListPeerSupporters = ({ data, language }) => {
 
                     <div className={peerFilterStyles.filterInput} >
                         <form role="search">
-                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("supportServices:filterPlaceholder")} </label>
                             <input
                                 tabIndex="0"
                                 id="filterInput"
                                 type="search"
                                 name="FilterSupporters"
-                                placeholder={t("peerSupporters:filterPlaceholder")}
+                                placeholder={t("supportServices:filterPlaceholder")}
                                 onChange={handleInputFilter}
                                 onFocus={handleInputLabelStatusFocus}
                                 onBlur={handleInputLabelStatusBlur}
@@ -361,34 +357,46 @@ const ListPeerSupporters = ({ data, language }) => {
 
             <section className={resultsStyles.listResultsWrapper}>
                 <div className={resultsStyles.wrapper}>
-                    <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1>
+                    <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("supportServices:title")}</h1>
 
                     <span className={'presentPeerResultsShow'} style={{ display: 'none' }}>
-                        {t("peerSupporters:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("peerSupporters:filterNoResultsPart2")}
+                        {t("supportServices:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("supportServices:filterNoResultsPart2")}
                         <br /><EmojiNoResult aria-hidden="true" />
                     </span>
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {
                             if (
-                                edge.node.peerSupporterActive === true
+                                edge.node.active === true
                             ) {
                                 return (
                                     <li
                                         key={postID}
                                         className={"item"}
                                     >
-                                        <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`} className={"item-content"} >
-                                            <Img
-                                                fluid={edge.node.coverImage.asset.fluid}
-                                                loading="lazy"
-                                            />
-                                            <span className={resultsStyles.resultsContentImgOverlay}></span>
+                                        <div className={resultsStyles.itemContent + ' item-content'} >
                                             <span className={resultsStyles.resultsContentWrapper}>
-                                                <h3>{edge.node.peerSupporterFullName.translate}</h3>
-                                                <p>{edge.node.peerShortDescription.translate}</p>
+                                                <h3>{edge.node.title.translate}</h3>
+                                                <p>{edge.node.description.translate}</p>
+
                                                 <span className={resultsStyles.info}>
-                                                    <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
+
+                                                    {edge.node.location.location.translate !== null
+                                                        ? <p><IconLocation aria-hidden="true" /><span>{edge.node.location.location.translate}</span></p>
+                                                        : ''
+                                                    }
+
+                                                    {edge.node.telephone !== null
+                                                        ? <a href={`tel:` + `${edge.node.telephone}`}><IconPhone aria-hidden="true" /><span>{edge.node.telephone}</span></a>
+                                                        : ''
+                                                    }
+
+                                                    {edge.node.url !== null
+                                                        ? <a href={`http://` + `${edge.node.url}`}><IconOpenNew aria-hidden="true" /><span>{edge.node.url}</span></a>
+                                                        : ''
+                                                    }
+
                                                 </span>
+
                                                 <ul className={"resultsTags"}>
                                                     {edge.node.tags.map((thisEdge, tagID) => (
                                                         <li
@@ -400,7 +408,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                                     ))}
                                                 </ul>
                                             </span>
-                                        </Link>
+                                        </div>
                                     </li>
                                 )
                             } else {
@@ -415,4 +423,4 @@ const ListPeerSupporters = ({ data, language }) => {
     );
 }
 
-export default ListPeerSupporters
+export default ListSupportServices

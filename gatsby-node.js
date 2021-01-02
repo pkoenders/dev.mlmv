@@ -244,6 +244,62 @@ exports.createPages = async ({
   )
 
 
+  // Support services Page
+  const supportServicesTemplate = path.resolve(`src/templates/supportServices.js`)
+  const supportServices = await graphql(`
+    {
+      allSanitySupportServices(sort: {fields: order, order: ASC}) {
+        edges {
+          node {
+            order
+            url
+            telephone
+            email
+            active
+            title {
+              en
+              mi
+              sm
+              hi
+            }
+            description {
+              en
+              mi
+              sm
+              hi
+            }
+            tags {
+              tagsTitle {
+                en
+                mi
+                sm
+                hi
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  await buildI18nPages(
+    supportServices.data.allSanitySupportServices.edges,
+
+    ({ node }, language, i18n) => ({
+      path: "/" + language, // (1)
+      path: `/${language}/support-services`,
+      component: supportServicesTemplate,
+
+      context: {
+        peerSupporters: node.id,
+        tags: node.tags.tagsTitle,
+      },
+    }),
+    ["common", "tags", "supportServices"],
+    createPage
+  )
+
+
   // News and events (List)
   const newsEventsTemplate = path.resolve(`src/templates/newsEvents.js`)
   const newsEvents = await graphql(`
@@ -442,12 +498,14 @@ exports.createPages = async ({
       context: {
         newsEvent: node.id,
         slug: node.slug.current,
+        itemActive: node.itemActive,
         previous,
         next
       },
     }),
     ["common", "slug", "newsEvents", "previous", "next"],
-    createPage
+    createPage,
+    console.log("Create a news and event page")
   )
 
 

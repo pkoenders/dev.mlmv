@@ -73,7 +73,7 @@ export const query = graphql`
             node {
                 order
                 peerSupporterActive
-                peerSupporterAddToHomepage
+                
                 peerSupporterEmail
                 slug {
                     current
@@ -151,7 +151,7 @@ const IndexPage = ({ data, location, language }) => {
         </DefaultSection>
         <ProcessSection />
         <SupportSection />
-        <PromotedSupporters data={data} language={language} />
+        {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
         <SectionContact data={data} language={language} />
       </Layout>

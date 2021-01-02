@@ -83,14 +83,16 @@
     }
 
     .SectionOutterWrapper:nth-child(odd) {
-        background-color: #dcd4d4;
+        background-color: #ffffff;
     }
 
 
     .SectionOutterWrapper:nth-child(even) {
+        background-color: #eaeaea;
+
         .steps {
             div {
-                background-color: #dcd4d4;
+                background-color: #ffffff;
             }
         }
     }
