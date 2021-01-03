@@ -382,7 +382,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                             />
                                             <span className={resultsStyles.resultsContentImgOverlay}></span>
                                             <span className={resultsStyles.resultsContentWrapper}>
-                                                <h3>{edge.node.peerSupporterFullName.translate}</h3>
+                                                <h2>{edge.node.peerSupporterFullName.translate}</h2>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <span className={resultsStyles.info}>
                                                     <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <IconRightPrimary aria-hidden="true" className={resultsStyles.cta} /></p>

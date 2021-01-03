@@ -375,7 +375,7 @@ const ListSupportServices = ({ data, location, language }) => {
                                     >
                                         <div className={resultsStyles.itemContent + ' item-content'} >
                                             <span className={resultsStyles.resultsContentWrapper}>
-                                                <h3>{edge.node.title.translate}</h3>
+                                                <h2>{edge.node.title.translate}</h2>
                                                 <p>{edge.node.description.translate}</p>
 
                                                 <span className={resultsStyles.info}>

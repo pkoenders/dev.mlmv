@@ -62,14 +62,14 @@ const ListNewsEvents = ({ data, language }) => {
 
                                                 <span className={resultsStyles.resultsContentWrapper}>
 
-                                                    <h3>
+                                                    <h2>
                                                         {edge.node.newsEventType.newsEventTypeTitle === 'Event'
                                                             ? <IconEvent aria-hidden="true" />
                                                             : ''
                                                         }
                                                         {edge.node.newsEventName.translate}
 
-                                                    </h3>
+                                                    </h2>
 
 
                                                     {edge.node.newsEventType.newsEventTypeTitle === 'News' && edge.node.publishedAt !== null
