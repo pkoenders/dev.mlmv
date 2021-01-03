@@ -1,32 +1,29 @@
-import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 import moment from 'moment'
 import 'moment/min/locales'
-import newsEventsResults from './newsEventsResults.module.scss'
+import resultsStyles from '../common/listResults.module.scss'
 import IconEvent from '../../images/svg/icon-event.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTime from '../../images/svg/icon-time.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
-
 const ListNewsEvents = ({ data, language }) => {
     const { t, i18n } = useTranslation("newsEvents")
     const translate = i18n.language
     moment.locale(translate)
-
     // console.log('language + ' + translate)
     // console.log('moment + ' + moment.locale(translate))
 
     const { allSanityNewsEvent } = data // data.markdownRemark holds your post data
     const newsEventListData = allSanityNewsEvent
     const allPosts = newsEventListData.edges
-
     return (
         <>
-            <section className={newsEventsResults.peerResults}>
-                <div className={newsEventsResults.wrapper}>
+            <section className={resultsStyles.listResultsWrapper} style={{ marginTop: '90px' }}>
+                <div className={resultsStyles.wrapper}>
                     <div>
                         <h1>{t("newsEvents:title")}</h1>
                         <ul className={"grid"}>
@@ -51,9 +48,6 @@ const ListNewsEvents = ({ data, language }) => {
                                     return (
                                         <li
                                             key={postID}
-                                            //data-sal="fade"
-                                            data-sal-duration="300"
-                                            data-sal-easing="ease"
                                             className={"item"}
                                         >
                                             <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
@@ -66,29 +60,32 @@ const ListNewsEvents = ({ data, language }) => {
                                                     : ''
                                                 }
 
-                                                <span className={newsEventsResults.resultsContentWrapper}>
-                                                    <span>
-                                                        <h3>{edge.node.newsEventName.translate}</h3>
+                                                <span className={resultsStyles.resultsContentWrapper}>
+
+                                                    <h3>
                                                         {edge.node.newsEventType.newsEventTypeTitle === 'Event'
-                                                            ? <IconEvent />
+                                                            ? <IconEvent aria-hidden="true" />
                                                             : ''
                                                         }
-                                                    </span>
+                                                        {edge.node.newsEventName.translate}
+
+                                                    </h3>
+
 
                                                     {edge.node.newsEventType.newsEventTypeTitle === 'News' && edge.node.publishedAt !== null
-                                                        ? <p className={newsEventsResults.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
+                                                        ? <p className={resultsStyles.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
                                                         : ''
                                                     }
                                                     <p>{edge.node.shortDescription.translate}</p>
 
-                                                    <span className={newsEventsResults.info}>
+                                                    <span className={resultsStyles.info}>
                                                         {edge.node.startTime !== null
-                                                            ? <p><IconTime aria-hidden="true" /><span>{t("newsEvents:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><IconTime aria-hidden="true" /><span>{t("common:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
                                                             : ''
                                                         }
 
                                                         {edge.node.endTime !== null
-                                                            ? <p><IconTimeLapse aria-hidden="true" /><span>{t("newsEvents:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><IconTimeLapse aria-hidden="true" /><span>{t("common:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
                                                             : ''
                                                         }
 
@@ -98,7 +95,7 @@ const ListNewsEvents = ({ data, language }) => {
                                                         }
                                                     </span>
 
-                                                    <span className={newsEventsResults.cta + ' buttonSecondary'}>{t("newsEvents:findOutMore")}</span>
+                                                    <span className={resultsStyles.cta + ' buttonSecondary'}>{t("common:findOutMore")}</span>
                                                 </span>
                                             </Link>
                                         </li>
@@ -111,11 +108,8 @@ const ListNewsEvents = ({ data, language }) => {
                     </div>
                 </div>
             </section>
-
-
         </>
     );
 }
-
 
 export default ListNewsEvents

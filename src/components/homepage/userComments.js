@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next"
 import userCommentsStyles from '../homepage/userComments.module.scss'
 
 const UserCommentsSection = ({ data, language }) => {
-  const { t, i18n } = useTranslation("index")
-  //const { i18n } = useTranslation("peerSupporters")
+  const { t } = useTranslation("index")
 
   const { sanityHomepageSettings } = data
   const homepageSettings = sanityHomepageSettings

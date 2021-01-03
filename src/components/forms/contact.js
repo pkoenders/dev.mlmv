@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+//import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import BlockContent from "../blockContent"
 import contactStyles from './contact.module.scss'
@@ -7,15 +7,25 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 
 
 const ContactForm = ({ data, location, language }) => {
-    //const { t, i18n } = useTranslation("contact")
-    const { i18n } = useTranslation("contact")
-
+    const { t, i18n } = useTranslation("contact")
     const { sanityContactContent } = data
     const contentData = sanityContactContent
-    // const allComments = commentsListData.edges
+
+    //const pathArray = location.pathname.split('/')
+    // var newPathName = ""
+    // for (var i = 2; i < pathArray.length; i++) {
+    //     newPathName += "/";
+    //     newPathName += pathArray[i];
+    // }
 
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
+
+            {location.pathname !== "/" + i18n.language
+                ? <h1>{t("contact:title")}</h1>
+                : ''
+            }
+
             <div className={contactStyles.contactFormWrapper}>
 
                 <div className={contactStyles.contactForm}>
@@ -34,11 +44,11 @@ const ContactForm = ({ data, location, language }) => {
                             <input type="hidden" name="form-name" value="pkoenders-contact" />
                             <p>
                                 <label htmlFor="name">
-                                    <span>Name (required)</span>
+                                    <span>{t("contact:name")}</span>
                                     <input
                                         type="text"
                                         name="name"
-                                        placeholder="Your name"
+                                        placeholder={t("contact:namePlaceholder")}
                                         id="name"
                                         required
                                     />
@@ -46,11 +56,11 @@ const ContactForm = ({ data, location, language }) => {
                             </p>
                             <p>
                                 <label htmlFor="email">
-                                    <span>Email (required)</span>
+                                    <span>{t("contact:email")}</span>
                                     <input
                                         type="email"
                                         name="email"
-                                        placeholder="Your email address"
+                                        placeholder={t("contact:emailPlaceholder")}
                                         id="email"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                         required
@@ -59,7 +69,7 @@ const ContactForm = ({ data, location, language }) => {
                             </p>
                             <p>
                                 <label htmlFor="subject">
-                                    <span>Subject</span>
+                                    <span>{t("contact:subject")}</span>
                                     <input
                                         type="text"
                                         name="subject"
@@ -68,7 +78,7 @@ const ContactForm = ({ data, location, language }) => {
                             </p>
                             <p>
                                 <label htmlFor="message">
-                                    <span>Message</span>
+                                    <span>{t("contact:message")}</span>
                                     <textarea
                                         name="message"
                                         id="message"
@@ -78,7 +88,7 @@ const ContactForm = ({ data, location, language }) => {
                             <p>
                                 <button
                                     type="submit"
-                                    className="buttonSecondary">Submit</button>
+                                    className="buttonSecondary">{t("contact:submit")}</button>
                             </p>
                         </form>
                     </div>

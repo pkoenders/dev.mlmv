@@ -19,7 +19,7 @@ import homePageHeaderImg from '../homepage/homePageHeaderImg.module.scss'
  */
 
 const HomepageHeaderImage = ({ data, language }) => {
-  const { t, i18n } = useTranslation("index")
+  const { t } = useTranslation("index")
   const headerImg = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {

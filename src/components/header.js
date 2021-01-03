@@ -131,8 +131,7 @@ const Header = ({ location }) => {
           </button>
 
           <ul id="mainNavigation">
-
-            <li className="homePage hide" >
+            <li className="homePage hide">
               <Link
                 to={`/${i18n.language}`}
                 activeClassName={"activeNavItem"}
@@ -141,7 +140,6 @@ const Header = ({ location }) => {
                 My Life My Voice
                   </Link>
             </li>
-
             <li>
               <Link
                 to={`/${i18n.language}/peer-supporters`}
@@ -152,7 +150,6 @@ const Header = ({ location }) => {
                 Peer supporters
                 </Link>
             </li>
-
             <li>
               <Link
                 to={`/${i18n.language}/support-services`}
@@ -163,7 +160,6 @@ const Header = ({ location }) => {
                 Support services
                 </Link>
             </li>
-
             <li>
               <Link
                 to={`/${i18n.language}/news-events`}
@@ -192,7 +188,6 @@ const Header = ({ location }) => {
                 Contact us
                 </Link>
             </li>
-
             <li className="hide">
               <Link
                 to={`/${i18n.language}/terms-and-use`}
@@ -210,8 +205,6 @@ const Header = ({ location }) => {
                 Website accessiblity
                 </Link>
             </li>
-
-
             <li className="closeMenu breakNav hide">
               <span
                 type="button"
@@ -223,8 +216,6 @@ const Header = ({ location }) => {
                 <IconCloseMenu aria-hidden="true" />
               </span>
             </li>
-
-
           </ul>
 
 

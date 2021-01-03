@@ -1,10 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
+//import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-// import BlockContent from "../components/blockContent"
-import DefaultSection from "../components/defaultSection"
 import SectionContact from "../components/forms/contact"
 
 
@@ -37,8 +35,7 @@ query($language: String, $locale: JSON) {
 `
 
 const ContactPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("contact")
-
+  //const { t, i18n } = useTranslation("contact")
   return (
     <>
       <SEO
@@ -46,13 +43,7 @@ const ContactPage = ({ data, location, language }) => {
         description={data.sanityContactContent.contactDescription.translate}
       />
       <Layout location={location}>
-        <DefaultSection>
-          <div className={'contentWrapper'}>
-            {/* <BlockContent blocks={data.sanityContactContent.contactContent.localized} /> */}
-          </div>
-          <SectionContact data={data} language={language} />
-        </DefaultSection>
-
+        <SectionContact data={data} language={language} location={location} />
       </Layout>
     </>
   )

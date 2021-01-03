@@ -1,0 +1,11 @@
+{
+  "title": "Contact us",
+  "name": "Your name (required)",
+  "namePlaceholder": "Your name",
+  "email": "Your email address (required)",
+  "contactNumber": "Your contact number (optional)",
+  "emailPlaceholder": "Your email address",
+  "subject": "Subject",
+  "message": "Message",
+  "submit": "Submit"
+}

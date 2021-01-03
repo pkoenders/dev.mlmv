@@ -1,0 +1,112 @@
+@import "src/styles/scss";
+
+section.header {
+    background-color: $pageBgColor;
+
+    .headerWrapper {
+        max-width: 1200px;
+        margin: 60px auto 0px auto;
+        padding: 0 15px;
+
+        @include respond-below(sm) {
+            padding: 0;
+        }
+
+        color: $primaryColor;
+
+        .headerTitleWrapper {
+
+            display: flex;
+            flex-direction: row;
+            //align-items: center;
+
+            @include respond-below(sm) {
+                flex-direction: column;
+            }
+
+            .headerTitle {
+                background-color: #f7f6f8;
+                padding: 15px 30px;
+                border-radius: 4px 4px 0 0;
+                border-bottom: none;
+                margin-bottom: -0px;
+                flex-grow: 1;
+                order: 0;
+                color: inherit;
+                //align-items: center;
+                flex-basis: 66.6%;
+                //height: max-content;
+                height: auto;
+
+                @include respond-below(sm) {
+                    padding: 15px 15px;
+                    border-radius: 0;
+                }
+
+
+
+                h1 {
+                    color: inherit;
+                    margin: 15px 0;
+                    text-align: left;
+                    // margin-bottom: .33rem;
+
+                }
+
+                p {
+                    color: inherit;
+                    margin: 0;
+                    opacity: .66;
+                    font-size: .8rem;
+                }
+
+            }
+
+            .contentTags {
+                order: 1;
+                flex-basis: 33.3%;
+                flex-grow: 1;
+                align-self: flex-end;
+                padding-bottom: 5px;
+
+                @include respond-below(sm) {
+                    order: 0;
+                    flex-grow: 1;
+                    //flex-shrink: 1;
+                    flex-basis: 100%;
+                    width: 100%;
+                    padding: 0 15px 15px;
+                    // background-color: #72ebd8;
+                    background-color: #f7f6f8;
+                    margin-bottom: -1px;
+                }
+
+                text-align: left;
+                padding-left: 15px;
+
+                p {
+                    color: $primaryColor;
+                    margin: 15.5px 0;
+                    font-size: .8rem;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+
+                    svg {
+                        height: 22px;
+                        margin: -4px 15px 0 0;
+                        width: auto;
+                        vertical-align: middle;
+                        align-self: top;
+                    }
+
+                    span {
+                        display: block;
+                        line-height: 1.0rem;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,14 +1,16 @@
 import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 
-import peerFilterStyles from './peer-filter.module.scss'
-import resultsStyles from './peer-results.module.scss'
+import filterStyles from '../common/filterList.module.scss'
+import resultsStyles from '../common/listResults.module.scss'
+
 import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
 import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
+import IconRightPrimary from "../../images/svg/icon-next-primary.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
@@ -292,12 +294,9 @@ const ListPeerSupporters = ({ data, language }) => {
 
     return (
         <>
-            <section className={peerFilterStyles.peerFilter + ' section-layout-wide'}>
-
-                <div className={peerFilterStyles.wrapper}>
-
-                    <div className={peerFilterStyles.peerFilterTags} aria-label="Filter by tags">
-
+            <section className={filterStyles.listFilter + ' section-layout-wide'}>
+                <div className={filterStyles.wrapper}>
+                    <div className={filterStyles.filterTags} aria-label="Filter by tags">
                         <div className={'tagList'}>
                             {allTags.map((allTagsEdge, allTagsID) => {
                                 var tagMatchCount = allResultsTagList.filter((x) => (x === allTagsEdge.node.tagsTitle.translate)).length
@@ -329,10 +328,9 @@ const ListPeerSupporters = ({ data, language }) => {
                     </div>
 
 
-
-                    <div className={peerFilterStyles.filterInput} >
+                    <div className={filterStyles.filterInput} >
                         <form role="search">
-                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("peerSupporters:filterPlaceholder")} </label>
+                            <label className={filterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("peerSupporters:filterPlaceholder")} </label>
                             <input
                                 tabIndex="0"
                                 id="filterInput"
@@ -344,7 +342,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                 onBlur={handleInputLabelStatusBlur}
                             />
                             <button
-                                className={peerFilterStyles.filterReset + ' filterReset hide'}
+                                className={filterStyles.filterReset + ' filterReset hide'}
                                 aria-label="Clear keyword input field"
                                 type="reset"
                                 value="reset"
@@ -353,7 +351,7 @@ const ListPeerSupporters = ({ data, language }) => {
                             >
                                 <IconReset aria-hidden="true" />
                             </button>
-                            <IconSearch className={peerFilterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
+                            <IconSearch className={filterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
                         </form>
                     </div>
                 </div>
@@ -387,7 +385,8 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <h3>{edge.node.peerSupporterFullName.translate}</h3>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <span className={resultsStyles.info}>
-                                                    <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")}</p>
+                                                    <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <IconRightPrimary aria-hidden="true" className={resultsStyles.cta} /></p>
+
                                                 </span>
                                                 <ul className={"resultsTags"}>
                                                     {edge.node.tags.map((thisEdge, tagID) => (
@@ -410,7 +409,6 @@ const ListPeerSupporters = ({ data, language }) => {
                     </ul>
                 </div>
             </section>
-
         </>
     );
 }

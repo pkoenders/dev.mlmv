@@ -261,7 +261,7 @@ header.headerNavWrapper {
           a {
             float: left;
             right: 0;
-            font-size: .85rem;
+            font-size: .8rem;
             line-height: inherit;
             //font-size: 1.5rem;
             font-weight: 500;
@@ -324,7 +324,7 @@ header.headerNavWrapper {
 
   div.localeSeletor {
     order: 2;
-    // background-color: $headerBgColor;
+    //background-color: $headerBgColor;
     // border-radius: 3px;
 
     @include respond-below(sm) {
@@ -378,11 +378,10 @@ header.headerNavWrapper {
       margin: 0;
       padding: 0;
       list-style: none;
-      display: block;
       float: right;
       clear: both;
-      visibility: hidden;
-      //display: none;
+      //visibility: hidden;
+      display: none;
       position: relative;
       width: 100%;
 
@@ -402,8 +401,8 @@ header.headerNavWrapper {
     }
 
     ul.show {
-      visibility: visible;
-      //display: block;
+      //visibility: visible;
+      display: block;
     }
   }
 

@@ -3,10 +3,10 @@
 
 .homepageIntro {
     text-align: center;
-    margin: 0 20%;
+    margin: 0 20% 60px 20%;
 
     @include respond-below(sm) {
-        margin: 0 15px;
+        margin: 0 15px 60px 15px;
         padding: 0;
     }
 
@@ -18,7 +18,7 @@
     }
 
     p {
-        color: #75797d;
+        color: $txtColor;
         font-size: 1.1rem;
         line-height: 1.5rem;
     }

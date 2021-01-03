@@ -4,8 +4,6 @@ import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import SectionNewsEvents from "../components/news-events/newsEvents"
 
-
-
 export const query = graphql`
   query($language: String) {
 
@@ -89,10 +87,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       <style type="text/css">
         {`
         body  {
-          background-color: #c3c8d6;
-        }
-        .section-layout-wide {
-          margin-top:60px;
+         background-color:  #d9e6ec;
         }
       `}
       </style>

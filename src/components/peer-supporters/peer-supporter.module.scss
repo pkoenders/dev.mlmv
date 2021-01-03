@@ -1,90 +1,8 @@
 @import "src/styles/scss";
 
-section.prevNext {
-    z-index: 100;
-    transition: all .25s linear;
-    position: sticky;
-    padding: 15px 0 15px 0;
-    // background-color: #c1def5;
-    // background-color: $headerBgColor;
-    background-color: #c3c8d6;
-    top: 60px;
-
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 15px;
-
-        @include respond-below(md) {
-            width: 100%;
-            position: relative;
-            top: 0px;
-        }
-
-        div {
-            flex-basis: 66.6%;
-
-            @include respond-below(md) {
-                flex-basis: 100%;
-            }
-
-            display: flex;
-
-            a {
-                color: $txtColor;
-
-                span {
-                    text-transform: uppercase;
-                    font-size: .8rem;
-                }
-
-                svg {
-                    display: inline-block;
-                    width: 20px;
-                    height: auto;
-                    vertical-align: middle;
-                    margin: -2px 10px 0 0;
-                }
-            }
-
-            span {
-                margin-left: auto;
-
-                a.prev {
-                    margin-right: 0px;
-                }
-
-                a.next {
-                    margin-left: 30px;
-
-                    svg {
-                        margin: -2px 0 0 10px;
-                    }
-                }
-            }
-
-            a:focus {
-                outline: none;
-            }
-
-            a:focus-visible {
-                @include focusVisibleForDark;
-            }
-
-            a:-moz-focusring {
-                @include focusVisibleForDark;
-            }
-        }
-    }
-}
-
-
 div.peerSupporterWrapper {
     section.header {
-        // background-color: $headerBgColor;
-        background-color: #c3c8d6;
+        background-color: $pageBgColor;
 
         .headerWrapper {
             max-width: 1200px;
@@ -123,6 +41,7 @@ div.peerSupporterWrapper {
                     @include respond-below(sm) {
                         padding: 15px 15px;
                         border-radius: 0;
+                        width: 100%;
                     }
 
                     span {
@@ -176,7 +95,7 @@ div.peerSupporterWrapper {
                     flex-basis: 33.3%;
                     flex-grow: 1;
                     align-self: flex-end;
-                    padding-bottom: 26px;
+                    padding-bottom: 11px;
 
                     @include respond-below(sm) {
                         order: 0;
@@ -185,13 +104,12 @@ div.peerSupporterWrapper {
                         flex-basis: 100%;
                         width: 100%;
                         padding: 0 15px 15px;
-                        // background-color: #72ebd8;
                         background-color: #f7f6f8;
                         margin-bottom: -1px;
                     }
 
                     text-align: left;
-                    padding-left: 30px;
+                    padding-left: 15px;
 
 
 
@@ -205,17 +123,15 @@ div.peerSupporterWrapper {
                             width: auto;
                             display: inline-block;
                             margin: 4px 8px 4px 0px;
-                            color: #ffffff;
-                            background-color: #7d859c;
+                            color: $txtColor;
+                            background-color: #c1d1d8;
                             padding: 3px 12px;
                             font-size: .85rem;
                             font-weight: 400;
                             border-radius: .2em;
                             box-shadow: none;
 
-                            @include respond-below(sm) {
-                                background-color: $headerBgColor;
-                            }
+
                         }
 
                         li.selected {
@@ -275,23 +191,22 @@ div.peerSupporterWrapper {
             flex-basis: 33.3%;
 
             @include respond-below(sm) {
-                //order: 0;
-                //flex-grow: 1;
-                //flex-shrink: 1;
                 flex-basis: 100%;
                 width: 100%;
-                padding: 0 15px 15px;
-                //background-color: #cad9e0;
+                padding: 15px 15px 15px;
+                border-top: 1px solid #c1d1d8;
             }
 
             text-align: left;
-            padding: 30px;
+            padding: 15px;
 
             p {
-                color: #291361;
-                color: $headerBgColor;
+                color: $txtColor;
                 margin-bottom: .33rem;
-                // font-weight: bold;
+
+                span {
+                    font-weight: bold;
+                }
 
                 @include respond-below(sm) {
                     //display: none;

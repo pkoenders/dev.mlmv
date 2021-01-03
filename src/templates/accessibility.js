@@ -7,7 +7,6 @@ import BlockContent from "../components/blockContent"
 import DefaultSection from "../components/defaultSection"
 import footerForm from '../components/forms/footer-form.module.scss'
 
-
 export const query = graphql`
   query($language: String, $locale: JSON) {
 
@@ -37,7 +36,7 @@ export const query = graphql`
 `
 
 const AccessibilityPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("accessibility")
+  const { t } = useTranslation("accessibility")
   const handleInputTerms = () => {
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.disabled = !submitBtn.disabled;

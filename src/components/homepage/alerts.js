@@ -1,12 +1,11 @@
 import React from "react"
-import { useTranslation } from "react-i18next"
+//import { useTranslation } from "react-i18next"
 import BlockContent from "../blockContent"
 import alertStyles from '../homepage/alert.module.scss'
 import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
 
 const AlertsSection = ({ data, language }) => {
-  const { t, i18n } = useTranslation("index")
-
+  //const { t, i18n } = useTranslation("index")
 
   const { sanityHomepageSettings } = data
   const homepageAlerts = sanityHomepageSettings
@@ -43,7 +42,7 @@ const AlertsSection = ({ data, language }) => {
           if ((edge.node.homepageAlertActive === true) && (sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
             return (
               <section
-                className={alertStyles.sectionWrapper + ' section-layout-wide' + ' alertLevels level0 ' + `${edge.node.alertLevel.alertLevel}`}
+                className={alertStyles.sectionWrapper + `${' section-layout-wide alertLevels level0 '} ${edge.node.alertLevel.alertLevel}`}
                 key={alertID}
                 id={edge.node.homepageAlertName}
               >

@@ -2,26 +2,11 @@
 
 .contactFormSection,
 .contactFormSectionSuccess {
+    background: $pageBgColor;
+    padding: 90px 15px 90px;
 
-
-    padding: $globalSecionPadding;
-
-    //background: rgb(194, 242, 247);
-    //background: linear-gradient(176deg, rgba(194, 242, 247, 1) 0%, rgba(150, 198, 202, 1) 100%);
-
-    // background: rgb(225, 242, 42);
-    // background: linear-gradient(180deg, rgba(225, 242, 42, 1) 0%, rgba(192, 207, 41, 1) 67%);
-
-    // background-color: #f2952a;
-    // background-color: #e1f22a;
-
-    //     background: rgb(253, 232, 183);
-    // background: linear-gradient(180deg, rgba(253,232,183,1) 0%, rgba(228,212,175,1) 100%);
-
-    background: #EDEDED;
-
-    @include respond-below(md) {
-        padding: 45px 15px 20px 15px;
+    @include respond-below(sm) {
+        padding: 0px 0px;
     }
 
     h2 {
@@ -33,7 +18,7 @@
     .contactSuccessWrapper {
         display: block;
         max-width: 800px;
-        margin: 45px auto 0;
+        margin: 0 auto;
         border-radius: $globalBorderRadiusA;
         background-color: #ffffff;
         box-shadow: $globalBoxShadowB;
@@ -123,8 +108,8 @@
                     }
 
                     input[name="name"] {
-                        font-size: 1.5em;
-                        font-weight: 500;
+                        //font-size: 1.2em;
+                        //font-weight: 500;
                     }
 
 

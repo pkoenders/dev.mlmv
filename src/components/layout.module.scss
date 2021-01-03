@@ -22,9 +22,9 @@
 .defaultSection {
     max-width: 1200px;
     margin: 0 auto;
-    margin: 60px auto 60px auto;
+    margin: 60px auto 0 auto;
 
     @include respond-below(sm) {
-        margin: 30px auto 30px auto;
+        margin: 60px auto 0 auto;
     }
 }

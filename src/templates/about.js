@@ -1,17 +1,14 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
+import { graphql } from "gatsby"
+//import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import BlockContent from "../components/blockContent"
 import DefaultSection from "../components/defaultSection"
 
-
-
 export const query = graphql`
   query($language: String, $locale: JSON) {
-    
-    
+
     sanitySiteSettings {
       siteTitle
       siteDescription
@@ -21,7 +18,6 @@ export const query = graphql`
         }
       }
     }
-
 
     sanityAboutContent {
       aboutTitle {
@@ -39,7 +35,7 @@ export const query = graphql`
 `
 
 const AboutPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("aboutus")
+  //const { t, i18n } = useTranslation("aboutus")
 
   return (
     <>

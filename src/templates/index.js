@@ -8,7 +8,7 @@ import BlockContent from "../components/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
 import AlertSection from "../components/homepage/alerts"
-import PromotedSupporters from "../components/homepage/homePageSupporters"
+//import PromotedSupporters from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
@@ -153,7 +153,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        <SectionContact data={data} language={language} />
+        <SectionContact data={data} language={language} location={location} />
       </Layout>
     </>
   )

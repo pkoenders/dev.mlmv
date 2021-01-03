@@ -2,23 +2,23 @@ import React, { useState } from "react"
 //import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 //import Img from 'gatsby-image'
-import peerFilterStyles from './filter.module.scss'
-import resultsStyles from './results.module.scss'
+
+import filterStyles from '../common/filterList.module.scss'
+import resultsStyles from '../common/listResults.module.scss'
 import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
 import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
 import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 import IconLocation from '../../images/svg/icon-location.inline.svg'
-import IconPhone from '../../images/svg/icon-phone-alt.inline.svg'
-import IconOpenNew from '../../images/svg/icon-open-in-new.inline.svg'
-
+import IconPhone from '../../images/svg/icon-phone-primary.inline.svg'
+import IconOpenNew from '../../images/svg/icon-open-in-new-primary.inline.svg'
 
 let allResultsTagList = []
 
 const ListSupportServices = ({ data, location, language }) => {
 
-    const { t, i18n } = useTranslation("peerSupporters")
+    const { t } = useTranslation("peerSupporters")
 
     // Since we are creating a Template for language support, get Support Services data from node gatsby Node
     const { allSanitySupportServices } = data
@@ -288,11 +288,11 @@ const ListSupportServices = ({ data, location, language }) => {
 
     return (
         <>
-            <section className={peerFilterStyles.peerFilter + ' section-layout-wide'}>
+            <section className={filterStyles.listFilter + ' section-layout-wide'}>
 
-                <div className={peerFilterStyles.wrapper}>
+                <div className={filterStyles.wrapper}>
 
-                    <div className={peerFilterStyles.peerFilterTags} aria-label="Filter by tags">
+                    <div className={filterStyles.filterTags} aria-label="Filter by tags">
 
                         <div className={'tagList'}>
                             {allTags.map((allTagsEdge, allTagsID) => {
@@ -326,9 +326,9 @@ const ListSupportServices = ({ data, location, language }) => {
 
 
 
-                    <div className={peerFilterStyles.filterInput} >
+                    <div className={filterStyles.filterInput} >
                         <form role="search">
-                            <label className={peerFilterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("supportServices:filterPlaceholder")} </label>
+                            <label className={filterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("supportServices:filterPlaceholder")} </label>
                             <input
                                 tabIndex="0"
                                 id="filterInput"
@@ -340,7 +340,7 @@ const ListSupportServices = ({ data, location, language }) => {
                                 onBlur={handleInputLabelStatusBlur}
                             />
                             <button
-                                className={peerFilterStyles.filterReset + ' filterReset hide'}
+                                className={filterStyles.filterReset + ' filterReset hide'}
                                 aria-label="Clear keyword input field"
                                 type="reset"
                                 value="reset"
@@ -349,7 +349,7 @@ const ListSupportServices = ({ data, location, language }) => {
                             >
                                 <IconReset aria-hidden="true" />
                             </button>
-                            <IconSearch className={peerFilterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
+                            <IconSearch className={filterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
                         </form>
                     </div>
                 </div>
@@ -386,12 +386,12 @@ const ListSupportServices = ({ data, location, language }) => {
                                                     }
 
                                                     {edge.node.telephone !== null
-                                                        ? <a href={`tel:` + `${edge.node.telephone}`}><IconPhone aria-hidden="true" /><span>{edge.node.telephone}</span></a>
+                                                        ? <a href={`tel: ${edge.node.telephone}`}><IconPhone aria-hidden="true" /><span>{edge.node.telephone}</span></a>
                                                         : ''
                                                     }
 
                                                     {edge.node.url !== null
-                                                        ? <a href={`http://` + `${edge.node.url}`}><IconOpenNew aria-hidden="true" /><span>{edge.node.url}</span></a>
+                                                        ? <a href={`http://${edge.node.url}`}><IconOpenNew aria-hidden="true" /><span>{edge.node.url}</span></a>
                                                         : ''
                                                     }
 

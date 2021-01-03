@@ -1,6 +1,6 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
+import { graphql } from "gatsby"
+//import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import BlockContent from "../components/blockContent"
@@ -34,8 +34,7 @@ export const query = graphql`
 }
 `
 const TermsPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("aboutus")
-
+  // const { t, i18n } = useTranslation("aboutus")
   return (
     <>
       <SEO

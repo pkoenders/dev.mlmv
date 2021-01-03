@@ -78,17 +78,6 @@ module.exports = {
       }
     },
 
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Merriweather:400,700,900', 'Spectral:400', 'Roboto:400']
-    //     }
-    //   }
-    // },
-
-
-
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -99,8 +88,8 @@ module.exports = {
               variants: ["300", "400", "500", "700"],
             },
             {
-              family: `Spectral`,
-              variants: [`400`, `700`],
+              family: `Tinos`,
+              variants: [`700`],
             },
             {
               family: `Merriweather`,
@@ -110,57 +99,6 @@ module.exports = {
         },
       },
     },
-
-
-
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Roboto`,
-    //         variants: [`400`, `700`],
-    //       },
-    //       {
-    //         family: `Spectral`,
-    //         variants: [`400`, `700`],
-    //       },
-    //       {
-    //         family: `Merriweather`,
-    //         variants: [`400`, `700`, `900`]
-    //       },
-    //     ],
-    //   },
-    // },
-
-
-
-    // {
-    //   resolve: `gatsby-plugin-google-fonts-v2`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: 'Roboto',
-    //         variable: true,
-    //         weights: ['300..700']
-    //       },
-    //       {
-    //         family: 'Roboto Slab',
-    //         variable: true,
-    //         weights: ['300..700']
-    //       },
-    //       {
-    //         family: 'Spectral',
-    //         weights: ['400']
-    //       },
-    //       {
-    //         family: 'Merriweather',
-    //         weights: [400, 700, 900]
-    //       }
-    //     ]
-    //   }
-    // },
-
 
     {
       resolve: 'gatsby-plugin-react-svg',

@@ -1,15 +1,9 @@
 @import "src/styles/scss";
 
 .supportSection {
-    background-color: #ffffff;
-    background-color: #EDEDED;
+    background-color: $pageBgColor;
+    z-index: 10;
 
-
-    h2 {
-        text-align: center;
-        color: #ffffff;
-
-    }
 
     .supportSectionWrapper {
         display: block;
@@ -32,15 +26,17 @@
                 padding: 60px 0px 0px 0;
             }
 
-            p {
+            h2 {
                 @include respond-below(md) {
                     text-align: center;
                 }
 
                 text-align: left;
                 color: $primaryColor;
+                font-family: 'Merriweather',
+                serif;
                 font-size: 1.8rem;
-                line-height: 2.4rem;
+                line-height: 2.6rem;
                 margin-bottom: 0;
                 font-weight: 400;
             }
@@ -58,11 +54,12 @@
                 height: 300px;
                 width: auto;
                 vertical-align: bottom;
-                margin: 90px 0 -1px 0px;
+                margin: 90px 0 -3px 0px;
+
 
                 @include respond-below(md) {
                     height: 200px;
-                    margin: 60px auto -1px auto;
+                    margin: 60px auto -3px auto;
 
                 }
             }

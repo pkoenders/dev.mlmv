@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { useTranslation } from "react-i18next"
 
-import peerResultsStyles from '../peer-supporters/peer-results.module.scss'
+import resultsStyles from '../common/listResults.module.scss'
 
 
 const HomepageSupports = ({ data, language }) => {
@@ -21,10 +21,8 @@ const HomepageSupports = ({ data, language }) => {
   if (homepageSettings.homepageSupportsActive === true) {
     return (
       <>
-        <section className={peerResultsStyles.peerResults}>
-          <div className={peerResultsStyles.wrapper}>
-            {/* <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1> */}
-
+        <section className={resultsStyles.listResults}>
+          <div className={resultsStyles.wrapper}>
             <h2>{t("index:newSupportersTitle")}</h2>
             <ul className={"grid peerResults"}>
               {allPosts.map((edge, postID) => {
@@ -44,8 +42,8 @@ const HomepageSupports = ({ data, language }) => {
                           fluid={edge.node.coverImage.asset.fluid}
                           loading="lazy"
                         />
-                        <span className={peerResultsStyles.resultsContentImgOverlay}></span>
-                        <span className={peerResultsStyles.resultsContentWrapper}>
+                        <span className={resultsStyles.resultsContentImgOverlay}></span>
+                        <span className={resultsStyles.resultsContentWrapper}>
                           <h3>{edge.node.peerSupporterFullName.translate}</h3>
                           <p>{edge.node.peerShortDescription.translate}</p>
                         </span>
@@ -57,12 +55,8 @@ const HomepageSupports = ({ data, language }) => {
                 }
               })}
             </ul>
-
-
           </div>
         </section>
-
-
       </>
     )
   } else {

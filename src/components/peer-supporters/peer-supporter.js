@@ -1,36 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
-import { useStaticQuery, graphql } from "gatsby"
+//import { useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from '../blockContent'
 import peerSupporterStyles from './peer-supporter.module.scss'
-import footerForm from '../forms/footer-form.module.scss'
+import prevNextStyles from '../common/prevNext.module.scss'
+import formStyles from '../forms/footer-form.module.scss'
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
 
 const PeerSupporterTemplate = ({ data, pageContext }) => {
-  const { t, i18n } = useTranslation("peerSupporter")
-
-  // Query some meta dada. 
-  const seoMeta = useStaticQuery(graphql`
-  query($language: String) {
-
-    sanityPeerSupportersHomepage {
-      peerSupportersTitle {
-        translate(language: $language)
-      }
-    }
-  }`
-  )
-
-  // console.log(pageContext)s
+  const { t, i18n } = useTranslation()
 
   const { sanityPeerSupporters } = data
   const peerData = sanityPeerSupporters
-
 
   const { sanityPeerSupportersHomepage } = data
   const peerDataHome = sanityPeerSupportersHomepage
@@ -42,9 +28,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.disabled = !submitBtn.disabled;
   }
-
-
-
   return (
     <>
       <SEO
@@ -52,24 +35,15 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
         description={peerData.peerShortDescription.translate}
       />
 
-      <style type="text/css">
-        {`
-        body  {
-          background-color: #ffffff;
-        }
-      `}
-      </style>
 
-      <section className={peerSupporterStyles.prevNext + ' section-layout-wide projects-nav'}>
+      <section className={prevNextStyles.prevNext + ' section-layout-wide projects-nav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
-
-
             <Link
               aria-label={t("peerSupporter:backToPeerSupporters")}
               role="menuitem"
               tabIndex="0"
-              className={peerSupporterStyles.prev}
+              className={prevNextStyles.prev}
               to={`/${i18n.language}/peer-supporters/`}
             >
               <IconUp aria-hidden="true" />
@@ -82,11 +56,11 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 aria-label="Link to previous page"
                 role="menuitem"
                 tabIndex="0"
-                className={peerSupporterStyles.prev}
+                className={prevNextStyles.prev}
                 to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
               >
                 <IconPrev aria-hidden="true" />
-                <span>Previous</span>
+                <span>{t("common:previous")}</span>
               </Link>
             }
               {next &&
@@ -94,10 +68,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   aria-label="Link to next page"
                   role="menuitem"
                   tabIndex="0"
-                  className={peerSupporterStyles.next}
+                  className={prevNextStyles.next}
                   to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
                 >
-                  <span>Next</span>
+                  <span>{t("common:next")}</span>
                   <IconNext aria-hidden="true" />
                 </Link>
               }
@@ -122,22 +96,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 </span>
                 <div className={peerSupporterStyles.headerDesciption}>
                   <p>{peerData.peerShortDescription.translate}</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ante est, cursus quis risus at, blandit porttitor est. Suspendisse potenti. </p>
                 </div>
-
               </div>
 
-
-              {/* <div className={peerSupporterStyles.headerInfo}>
-                <p><span>{t("peerSupporter:gender")}:</span>{peerData.gender.genderTitle} (Do we need this field?)</p>
-                <p><span>{t("peerSupporter:location")}:</span> {peerData.location.location.translate}</p>
-                {peerData.publishedAt &&
-                  <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
-                }
-              </div> */}
-
               <div className={peerSupporterStyles.contentTags}>
-                {/* <p>{peerData.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporter:canHelpWith")} </p> */}
                 <ul>
                   {peerData.tags.map((edge, tagid) => (
                     <li key={tagid}>
@@ -157,29 +119,28 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
         <section className={peerSupporterStyles.content}>
           <div className={peerSupporterStyles.contentBlock}>
             <BlockContent blocks={peerData.peerLongDescription.localized} />
-            {/* <BlockContent blocks={peerData.peerLongDescription.translate._rawChildren(resolveReferences: {maxDepth: 10}) } /> */}
           </div>
 
           <div className={peerSupporterStyles.contentComplementary}>
 
             <div className={peerSupporterStyles.peerUpdateInfo}>
-              <p><span>{t("settings:gender")}:</span> {peerData.gender.genderTitle} (Do we need this field?)</p>
-              <p><span>{t("settings:location")}:</span> {peerData.location.location.translate}</p>
+              {peerData.gender.genderTitle &&
+                <p><span>{t("common:gender")}:</span> {peerData.gender.genderTitle}</p>
+              }
+              {peerData.location.location.translate &&
+                <p><span>{t("common:location")}:</span> {peerData.location.location.translate}</p>
+              }
               {peerData.publishedAt &&
-                <p><span>{t("peerSupporter:updated")}:</span>{peerData.publishedAt}</p>
+                <p><span>{t("peerSupporter:updated")}:</span> {peerData.publishedAt}</p>
               }
             </div>
-
-            <p>Some possible aside content here?</p>
-            <p>Possibly associations/alignments, links, video or images?</p>
-
           </div>
         </section>
 
-        <section className={footerForm.form}>
-          <div className={footerForm.formWrapper}>
+        <section className={formStyles.form}>
+          <div className={formStyles.formWrapper}>
             <h3>{t("supporterFormFields:contact")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h3>
-            <div className={footerForm.contactFormInput}>
+            <div className={formStyles.contactFormInput}>
               <form
                 name="peer-supporter-contact-form"
                 method="post"
@@ -247,12 +208,12 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   </label>
                 </p>
 
-                <p className={footerForm.checkbox}>
+                <p className={formStyles.checkbox}>
                   <label htmlFor="terms">
                     <span>I have read, understood and agree to the <Link
                       aria-label="Link to the terms of use"
                       //tabIndex="0"
-                      className={footerForm.prev}
+                      className={formStyles.prev}
                       to={`../../terms-and-use`}
                     >
                       terms and conditions</Link> for My Life My Voice before submitting this form.</span>

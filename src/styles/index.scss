@@ -10,7 +10,6 @@ body {
   }
 }
 
-
 // ::selection {
 //   background-color: #B3D7FE;
 //   color: #837373;
@@ -71,7 +70,8 @@ a.skipLink:focus {
   }
 }
 
-p {
+p,
+ul li {
   color: $txtColor;
 
 }
@@ -389,13 +389,14 @@ button.buttonTertiary:hover,
 
 
 .contentWrapper {
-  width: 66.6%;
+  //width: 66.6%;
+  margin: 0 15%;
 
   @include respond-below(sm) {
-    width: 100%;
+    margin: 0;
   }
 
-  padding: 60px 15px 30px 15px;
+  padding: 30px 15px;
 }
 
 .introParapgraph {

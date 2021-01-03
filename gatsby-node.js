@@ -25,7 +25,7 @@ exports.createPages = async ({
       component: indexTemplate,
       context: {},
     }),
-    ["common", "index"],
+    ["common", "index", "contact"],
     createPage
   )
 
@@ -239,7 +239,7 @@ exports.createPages = async ({
         next
       },
     }),
-    ["common", "slug", "peerSupporter", "previous", "next", "supporterFormFields"],
+    ["common", "slug", "previous", "next", "peerSupporter", "supporterFormFields"],
     createPage
   )
 
