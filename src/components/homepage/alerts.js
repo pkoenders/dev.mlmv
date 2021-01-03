@@ -42,7 +42,7 @@ const AlertsSection = ({ data, language }) => {
           if ((edge.node.homepageAlertActive === true) && (sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
             return (
               <section
-                className={alertStyles.sectionWrapper + `${' section-layout-wide alertLevels level0 '} ${edge.node.alertLevel.alertLevel}`}
+                className={alertStyles.sectionWrapper + `${' section-layout-wide alertLevels level0'} ${edge.node.alertLevel.alertLevel}`}
                 key={alertID}
                 id={edge.node.homepageAlertName}
               >
