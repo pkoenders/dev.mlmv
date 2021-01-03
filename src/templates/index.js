@@ -142,7 +142,7 @@ const IndexPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <HeaderImg data={data} language={language} />
-        <AlertSection data={data} language={language} />
+        {/* <AlertSection data={data} language={language} /> */}
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
             <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />
