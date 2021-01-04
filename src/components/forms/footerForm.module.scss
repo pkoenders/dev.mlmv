@@ -26,13 +26,17 @@ section.form {
             }
 
             form {
-                a {
-                    text-decoration: underline;
-                }
+                a {}
 
                 label,
                 a {
                     color: #ffffff;
+                }
+
+                a,
+                a:hover {
+                    color: $tertiaryColorA;
+                    text-decoration: underline;
                 }
 
                 input,
