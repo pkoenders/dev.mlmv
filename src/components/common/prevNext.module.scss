@@ -7,6 +7,9 @@
     padding: 15px 0 15px 0;
     background-color: $pageBgColor;
     top: 60px;
+    border-bottom: 1px solid #c1d1d8;
+    box-shadow: $globalBoxShadowB;
+
 
     nav {
         max-width: 1200px;

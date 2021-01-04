@@ -150,7 +150,7 @@ function srollNav() {
             //headerNavWrapper.style.top = "-61px";
             headerNavWrapper.classList.add("hide")
             if (projectsNav) {
-                projectsNav.style.top = "-10px";
+                projectsNav.style.top = "-1px";
             }
         }
 
