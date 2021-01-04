@@ -1,6 +1,6 @@
 import React from "react"
 //import { useTranslation } from "react-i18next"
-import BlockContent from "../blockContent"
+import BlockContent from "../common/blockContent"
 import alertStyles from '../homepage/alert.module.scss'
 import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
 

@@ -1,9 +1,24 @@
 {
   "next": "Panuku",
   "previous": "Tuhinga o mua",
+  "back": "Hoki",
   "gender": "Ira Ira",
   "location": "Tauwāhi",
   "starts": "Ka tiimata",
   "ends": "Mutu",
-  "findOutMore": "Rapua etahi atu korero"
+  "findOutMore": "Rapua etahi atu korero",
+  "404Title": "Aue, he whakama tenei!",
+  "404Para": "Te ahua nei kei te ngaro tenei whaarangi",
+  "404Cta": "Whakahokia ahau ki te whaarangi",
+  "inputName": "To ingoa (hiahiatia)",
+  "inputNamePlaceholder": "To ingoa",
+  "inputEmail": "Tō wāhitau īmera (hiahiatia)",
+  "inputContactNumber": "To tau whakapā (he kowhiringa)",
+  "inputEmailPlaceholder": "Tō wāhitau īmera",
+  "inputSubject": "Kaupapa",
+  "inputMessage": "Karere",
+  "inputReadPolicies1": "Kua panuihia e au, kua maarama, kua whakaae hoki ki nga ",
+  "inputReadPolicies2": "Tūmataitinga & Nga kaupapa here ture",
+  "inputReadPolicies3": " Mo Taku Ora Taku Reo i mua i te tuku mai i tenei pepa.",
+  "inputSubmit": "Tuku puka"
 }

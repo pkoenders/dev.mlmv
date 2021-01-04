@@ -3,6 +3,7 @@
 div.peerSupporterWrapper {
     section.header {
         background-color: $pageBgColor;
+        background: linear-gradient(180deg, rgba(217, 230, 236, 1) 96%, rgba(208, 219, 224, 1) 100%);
 
         .headerWrapper {
             max-width: 1200px;
@@ -13,28 +14,27 @@ div.peerSupporterWrapper {
                 padding: 0;
             }
 
-            color: $primaryColor;
-
             .headerTitleWrapper {
-
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                align-items: stretch;
 
                 @include respond-below(sm) {
                     flex-direction: column;
                 }
 
                 .headerTitle {
-                    // background-color: #464f6b;
-                    background-color: #f7f6f8;
                     padding: 15px 30px;
                     border-radius: 4px 4px 0 0;
+                    border: 2px solid #c1d1d8;
+                    // box-shadow: 0px -0px 5px 0px rgba(0, 0, 0, 0.10);
                     border-bottom: none;
                     margin-bottom: -0px;
                     flex-grow: 1;
                     order: 0;
                     color: inherit;
+                    //display: flex;
                     align-items: center;
                     flex-basis: 66.6%;
 
@@ -67,7 +67,6 @@ div.peerSupporterWrapper {
                             overflow: hidden;
                             border: 1px solid #c3c8d6;
 
-                            img {}
                         }
                     }
 
@@ -104,7 +103,7 @@ div.peerSupporterWrapper {
                         flex-basis: 100%;
                         width: 100%;
                         padding: 0 15px 15px;
-                        background-color: #f7f6f8;
+
                         margin-bottom: -1px;
                     }
 
@@ -144,75 +143,92 @@ div.peerSupporterWrapper {
     }
 
     section.content {
-        max-width: 1200px;
-        margin: 0px auto;
-        padding: 0 15px;
-        display: flex;
-        flex-direction: row;
-        align-items: top;
+        background-color: #ffffff;
 
-        @include respond-below(sm) {
-            padding: 0;
-        }
-
-        @include respond-below(sm) {
-            flex-direction: column;
-        }
-
-        .contentBlock,
-        .contentTags {
-            padding: 30px 30px;
-        }
-
-        .contentBlock {
-
-            order: 0;
-            flex-grow: 1;
-            // border-right: 1px solid #6FFFE9;
-            padding-right: 15px;
-            flex-basis: 66.6%;
-            //width: 66.6%;
+        .contentWrapper {
+            max-width: 1200px;
+            margin: 0px auto;
+            padding: 0 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: top;
 
             @include respond-below(sm) {
-                order: 1;
-                //flex-grow: 0;
-                flex-basis: 100%;
-                padding: 15px;
+                padding: 0;
             }
-
-            background: rgb(255, 255, 255);
-            background: linear-gradient(45deg, rgba(255, 255, 255, 1) 33%, rgba(246, 245, 247, 1) 100%);
-
-        }
-
-        .contentComplementary {
-            order: 1;
-            //flex-shrink: 0;
-            flex-basis: 33.3%;
 
             @include respond-below(sm) {
-                flex-basis: 100%;
-                width: 100%;
-                padding: 15px 15px 15px;
-                border-top: 1px solid #c1d1d8;
+                flex-direction: column;
             }
 
-            text-align: left;
-            padding: 15px;
+            .contentBlock,
+            .contentTags {
+                padding: 15px 30px;
+            }
 
-            p {
-                color: $txtColor;
-                margin-bottom: .33rem;
-
-                span {
-                    font-weight: bold;
-                }
+            .contentBlock {
+                order: 0;
+                flex-grow: 1;
+                padding-right: 15px;
+                flex-basis: 66.6%;
 
                 @include respond-below(sm) {
-                    //display: none;
+                    order: 1;
+                    flex-basis: 100%;
+                    padding: 15px;
+                }
+
+                .supporterInfo {
+                    margin: 10px 0 35px 0;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 30px;
+
+                        svg {
+                            width: 28px;
+                            margin-right: 5px;
+                            height: auto;
+                            vertical-align: middle;
+                        }
+                    }
                 }
             }
 
+            .contentComplementary {
+                order: 1;
+                //flex-shrink: 0;
+                flex-basis: 33.3%;
+
+                @include respond-below(sm) {
+                    flex-basis: 100%;
+                    width: 100%;
+                    padding: 15px 15px 15px;
+                    //border-top: 1px solid #c1d1d8;
+                }
+
+                text-align: left;
+                padding: 15px;
+
+                p {
+                    color: $txtColor;
+                    margin-bottom: .33rem;
+
+                    span {
+                        font-weight: bold;
+
+                        img {
+                            width: 32px;
+                            height: auto;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    @include respond-below(sm) {
+                        //display: none;
+                    }
+                }
+            }
         }
     }
 }

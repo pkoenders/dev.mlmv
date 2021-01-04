@@ -2,8 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import footerStyles from './footer.module.scss'
-//import FooterBGround from "../images/svg/footer.inline.svg"
-import LogoMLMVFooter from "../images/svg/logo-mlmv-footer.inline.svg"
+import LogoMLMVFooter from "../../images/svg/logo-mlmv-footer.inline.svg"
 
 const Footer = ({ location }) => {
 

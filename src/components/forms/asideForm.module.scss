@@ -1,0 +1,39 @@
+@import "src/styles/scss";
+
+.form {
+
+    h4 {
+        margin: 14px 0;
+        line-height: 1.3rem;
+    }
+
+    form {
+
+        label,
+        a {
+            color: $txtColor;
+            font-size: .9rem;
+        }
+
+        a {
+            color: $tertiaryColor;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+
+        }
+
+        input,
+        textarea {
+            background-color: $pageBgColor;
+            outline: none;
+            border: 1px solid #c1d1d8;
+        }
+
+        button {
+            margin: 15px 0;
+        }
+    }
+}

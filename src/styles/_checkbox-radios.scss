@@ -2,7 +2,6 @@
 //https://codepen.io/aaroniker/pen/ZEYoxEY
 
 @import "./scss";
-//@import "./variables";
 
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
 
@@ -11,11 +10,12 @@
         --active: $primaryColorA;
 
         //--active: $tertiaryColor !important;
+        --active-inner: #e01685;
 
-        --active-inner: #0b132b;
+
         --focus: 1px $primaryColorA;
         //--focus: 1px $tertiaryColor;
-        --border: #0b132b;
+        //--border: #0b132b;
         --border-hover: $primaryColorA;
         // --border-hover: $tertiaryColor;
 
@@ -28,6 +28,7 @@
         height: 30px;
         width: 30px;
         outline: none;
+        //border: none;
         // display: block;
         //float: left;
         //display: inline-block;

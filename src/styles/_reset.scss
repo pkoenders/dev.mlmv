@@ -256,6 +256,7 @@ textarea {
 [type="time"],
 [type="url"],
 [type="week"],
+[type="checkbox"],
 textarea {
   border-radius: 3px;
   display: block;
@@ -263,12 +264,10 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
-  border: 1px solid #dad8d8;
+  //border: 1px solid #d0dce2;
   border-radius: 2px;
-  border-bottom: 2px solid #dad8d8;
   -moz-appearance: none;
   -webkit-appearance: none;
-  //border-radius: 0;
   background-image: none;
   -webkit-transition: border 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   transition: border 0.2s cubic-bezier(0.55, 0, 0.1, 1);

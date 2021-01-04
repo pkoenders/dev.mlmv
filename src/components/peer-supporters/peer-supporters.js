@@ -13,7 +13,6 @@ import IconSearch from "../../images/svg/icon-search.inline.svg"
 import IconRightPrimary from "../../images/svg/icon-next-primary.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
-
 let allResultsTagList = []
 
 

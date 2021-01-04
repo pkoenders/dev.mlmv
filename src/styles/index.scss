@@ -4,16 +4,7 @@
 
 body {
   background-color: #ffffff;
-
-  @include respond-below(sm) {
-    //  margin: 50px 0 0 0;
-  }
 }
-
-// ::selection {
-//   background-color: #B3D7FE;
-//   color: #837373;
-// }
 
 canvas {
   width: 100%;
@@ -24,7 +15,34 @@ canvas {
   right: 0;
   bottom: 0px;
   z-index: 0;
-  opacity: .33;
+  opacity: .15;
+}
+
+.fourOfour {
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+  padding: 90px 0;
+  width: fit-content;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+
+  h1,
+  p {
+    color: $whiteText;
+  }
+
+  svg {
+    width: 150px;
+    margin-top: 30px;
+    height: auto;
+  }
+
+  a {
+    margin-top: 60px;
+    padding: 15px 30px;
+  }
 }
 
 #gatsby-announcer {
@@ -52,23 +70,7 @@ a.skipLink:focus {
   margin: 0px;
 }
 
-.fourOfour {
-  display: block;
-  margin: 120px auto;
-  width: fit-content;
-  text-align: center;
-  color: #ffffff;
 
-  h1,
-  p {
-    color: $whiteText;
-  }
-
-  a {
-    margin-top: 60px;
-    padding: 1.2rem 4rem;
-  }
-}
 
 p,
 ul li {
@@ -87,6 +89,20 @@ a:hover {
 a:hover {
   color: $textLinkColor;
   text-decoration: underline;
+}
+
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  @include focusVisibleForDark;
+}
+
+a:-moz-focusring,
+input:-moz-focusring,
+textarea:-moz-focusring,
+button:-moz-focusring {
+  @include focusVisibleForDark;
 }
 
 
@@ -136,11 +152,9 @@ button.buttonSecondary button.buttonTertiary,
 .buttonSecondary[disabled],
 .buttonTertiary:disabled,
 .buttonTertiary[disabled] {
-  //background-color: #25324091;
-  //border: 1px solid $primaryColor;
-  //border: 1px solid #25324091 !important;
   opacity: .33;
   filter: blur(2px);
+  cursor: default;
 }
 
 button.buttonPrimaryGhost,
@@ -222,27 +236,30 @@ button.buttonTertiary:hover,
   //background-color: transparent;
 }
 
-.fourOfour {
-  display: block;
-  margin: 60px auto;
-  width: fit-content;
-  text-align: center;
-  color: #ffffff;
+.checkbox {
+  display: inline-flex;
+  flex-direction: row;
 
-  h1 {
-    padding-top: 120px;
+  span {
+    order: 2;
+    margin-left: 45px;
+    line-height: 1.2rem;
   }
 
-
-  a,
-  a:link,
-  a:hover {
-    margin-top: 60px;
-    padding: 1.2rem 4rem;
-    color: $txtColor;
-    text-decoration: none;
+  input {
+    order: 1;
   }
 }
+
+form {
+  label {
+    margin: 15px 0;
+    display: block;
+  }
+
+}
+
+
 
 #SRLLightbox {
   z-index: 10000;
@@ -456,8 +473,7 @@ label.filterLabel.focus {
 label.filterLabel.active {
   position: absolute;
   width: fit-content;
-  top: -8px !important;
-  //left: 30px;
+  top: -23px !important;
   padding: 2px 8px;
   font-size: .8rem;
   font-weight: 400;

@@ -239,7 +239,7 @@ exports.createPages = async ({
         next
       },
     }),
-    ["common", "slug", "previous", "next", "peerSupporter", "supporterFormFields"],
+    ["common", "slug", "previous", "next", "peerSupporter", "contact"],
     createPage
   )
 
@@ -505,7 +505,7 @@ exports.createPages = async ({
     }),
     ["common", "slug", "newsEvents", "previous", "next"],
     createPage,
-    console.log("Create a news and event page")
+    //console.log("Create a news and event page")
   )
 
 
@@ -545,7 +545,7 @@ exports.createPages = async ({
       component: accessibilityTemplate,
       context: {},
     }),
-    ["common", "accessibility"],
+    ["common", "contact", "accessibility"],
     createPage
   )
 

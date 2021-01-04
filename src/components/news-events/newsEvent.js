@@ -6,11 +6,10 @@ import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import moment from 'moment'
 import 'moment/min/locales'
-import BlockContent from '../blockContent'
+import BlockContent from "../common/blockContent"
 
 import newsEvents from './newsEvents.module.scss'
 import prevNextStyles from '../common/prevNext.module.scss'
-import itemStyles from '../common/resultItem.module.scss'
 // import IconNext from "../../images/svg/icon-next.inline.svg"
 // import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
@@ -18,10 +17,18 @@ import IconEvent from '../../images/svg/icon-event.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
+//Collect the required form fields
+import FormName from "../forms/formFields/name"
+import FormEmail from "../forms/formFields/email"
+import FormContactNum from "../forms/formFields/contactNumber"
+import FormMessage from "../forms/formFields/message"
+import FormCheckTerms from "../forms/formFields/checkBoxTerms"
+import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
+import asideForm from '../forms/asideForm.module.scss'
+
 
 const NewsEventTemplate = ({ data, pageContext }) => {
-  //Translations - locale, JSON and moment 
-  const { t, i18n } = useTranslation("newsEvents")
+  const { t, i18n } = useTranslation()
   const translate = i18n.language
   moment.locale(translate)
 
@@ -38,73 +45,39 @@ const NewsEventTemplate = ({ data, pageContext }) => {
         title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={newsEventData.shortDescription.translate}
       />
-
-      <style type="text/css">
-        {`
-        body  {
-          background-color: #ffffff;
-        }
-      `}
-      </style>
-
       <section className={prevNextStyles.prevNext + ' section-layout-wide projects-nav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
             <Link
-              aria-label={t("newsEvents:backToNewsEvents")}
+              aria-label={t("common:back")}
               role="menuitem"
               tabIndex="0"
               className={prevNextStyles.prev}
               to={`/${i18n.language}/news-events/`}
             >
               <IconUp aria-hidden="true" />
-              <span>{t("newsEvents:backToNewsEvents")}</span>
+              <span>{t("common:back")}</span>
             </Link>
 
-            {/* <span>
-              {previous &&
-                <Link
-                  aria-label="Link to previous page"
-                  role="menuitem"
-                  tabIndex="0"
-                  className={prevNextStyles.prev}
-                  to={`/${i18n.language}/news-events/${previous.slug.current}`}
-                >
-                  <IconPrev aria-hidden="true" />
-                  <span>{t("common:previous")}</span>
-                </Link>
-              }
-
-              {next &&
-                <Link
-                  aria-label="Link to next page"
-                  role="menuitem"
-                  tabIndex="0"
-                  className={prevNextStyles.next}
-                  to={`/${i18n.language}/news-events/${next.slug.current}`}
-                >
-                  <span>{t("common:next")}</span>
-                  <IconNext aria-hidden="true" />
-                </Link>
-              }
-            </span> */}
           </div>
         </nav>
       </section>
 
-      <div className={newsEvents.Wrapper}>
-        <section className={itemStyles.header}>
-          <div className={itemStyles.headerWrapper}>
-            <div className={itemStyles.headerTitleWrapper}>
-              <div className={itemStyles.headerTitle}>
-                <h1>{newsEventData.newsEventName.translate}</h1>
-                {newsEventData.newsEventType.newsEventTypeTitle === 'News' && newsEventData.publishedAt !== null
-                  ? <p>{moment(newsEventData.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
-                  : ''
-                }
+      <div className={newsEvents.wrapper}>
+        <section className={newsEvents.header}>
+          <div className={newsEvents.headerWrapper}>
+            <div className={newsEvents.headerTitleWrapper}>
+              <div className={newsEvents.headerTitle}>
+                <span>
+                  <h1>{newsEventData.newsEventName.translate}</h1>
+                  {newsEventData.newsEventType.newsEventTypeTitle === 'News' && newsEventData.publishedAt !== null
+                    ? <p>{moment(newsEventData.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
+                    : ''
+                  }
+                </span>
               </div>
 
-              <div className={itemStyles.contentTags}>
+              <div className={newsEvents.headerInfo}>
 
                 {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                   ? <p><IconEvent aria-hidden="true" /><span>{t("common:starts")}: {moment(newsEventData.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
@@ -127,19 +100,47 @@ const NewsEventTemplate = ({ data, pageContext }) => {
         </section>
 
         <section className={newsEvents.content}>
-          <div className={newsEvents.contentBlock}>
-            <BlockContent blocks={newsEventData.longDescription.localized} />
-          </div>
+          <div className={newsEvents.contentWrapper}>
+            <div className={newsEvents.contentBlock}>
+              <BlockContent blocks={newsEventData.longDescription.localized} />
+            </div>
 
-          <div className={newsEvents.contentComplementary}>
-            {newsEventData.coverImage !== null
-              ?
-              <Img
-                fluid={newsEventData.coverImage.asset.fluid}
-                loading="lazy"
-              />
-              : ''
-            }
+            <div className={newsEvents.contentComplementary}>
+
+              {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
+                ?
+                <div className={asideForm.form}>
+                  <h4>{t("newsEvents:attendingEvent")}</h4>
+                  {/* <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4> */}
+                  <form
+                    name="peer-supporter-contact-form"
+                    method="post"
+                    action="../peer-contact-success"
+                    netlify-honeypot="bot-field"
+                    data-netlify="true"
+                  >
+                    <input type="hidden" name="bot-field" />
+                    <input type="hidden" name="form-name" value="event-contact-form" />
+                    <FormName />
+                    <FormEmail />
+                    <FormContactNum />
+                    <FormMessage />
+                    <FormCheckTerms />
+                    <FormSubmit />
+                  </form>
+                </div>
+                : ''
+              }
+
+              {newsEventData.coverImage !== null
+                ?
+                <Img
+                  fluid={newsEventData.coverImage.asset.fluid}
+                  loading="lazy"
+                />
+                : ''
+              }
+            </div>
           </div>
         </section>
 

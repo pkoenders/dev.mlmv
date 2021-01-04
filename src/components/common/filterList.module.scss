@@ -12,7 +12,7 @@
     .filterLabel {
         position: absolute;
         width: auto;
-        top: 32px;
+        top: 18px;
         left: 45px;
         right: 60px;
         z-index: 1;
@@ -56,11 +56,6 @@
             @include respond-below(xs) {
                 padding: 15px 15px 0;
             }
-
-
-
-
-
 
             input[type=search] {
                 color: #0B132B;

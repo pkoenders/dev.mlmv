@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 //import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import BlockContent from "../components/blockContent"
-import DefaultSection from "../components/defaultSection"
+import BlockContent from "../components/common/blockContent"
+import DefaultSection from "../components/common/defaultSection"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {

@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import BlockContent from "../components/blockContent"
+import BlockContent from "../components/common/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
 import AlertSection from "../components/homepage/alerts"
@@ -13,7 +13,7 @@ import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
 import UsrCommentsSection from "../components/homepage/userComments"
-import SectionContact from "../components/forms/contact"
+import SectionContactForm from "../components/forms/contactForm"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -153,7 +153,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        <SectionContact data={data} language={language} location={location} />
+        <SectionContactForm data={data} language={language} location={location} />
       </Layout>
     </>
   )

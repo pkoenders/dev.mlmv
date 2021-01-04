@@ -1,0 +1,50 @@
+@import "src/styles/scss";
+
+section.form {
+    background-color: $footerBgColor;
+    //border-top: 1px solid #6FFFE9;
+
+    .formWrapper {
+        max-width: 1200px;
+        margin: 0px auto;
+        padding: 45px 15px 45px;
+
+        @include respond-below(sm) {
+            padding: 30px 15px 30px;
+        }
+
+        >div {
+            margin: 0px 15%;
+
+            @include respond-below(sm) {
+                margin: 0;
+            }
+
+            h3 {
+                color: #ffffff;
+                font-size: 1.4rem;
+            }
+
+            form {
+                a {
+                    text-decoration: underline;
+                }
+
+                label,
+                a {
+                    color: #ffffff;
+                }
+
+                input,
+                textarea {
+                    background-color: #d7e7ef;
+                    outline: none;
+                }
+
+                button {
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+}

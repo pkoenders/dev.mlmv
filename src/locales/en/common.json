@@ -1,9 +1,24 @@
 {
   "next": "Next",
   "previous": "Previous",
+  "back": "Back",
   "gender": "Gender",
   "location": "Location",
   "starts": "Starts",
   "ends": "Ends",
-  "findOutMore": "Find out more"
+  "findOutMore": "Find out more",
+  "404Title": "Oops, this is embarrassing!",
+  "404Para": "It appears that this page is missing",
+  "404Cta": "Take me back to the homepage",
+  "inputName": "Your name (required)",
+  "inputNamePlaceholder": "Your name",
+  "inputEemail": "Your email address (required)",
+  "inputContactNumber": "Your contact number (optional)",
+  "inputEmailPlaceholder": "Your email address",
+  "inputSubject": "Subject",
+  "inputMessage": "Message",
+  "inputReadPolicies1": "I have read, understood and agree to the ",
+  "inputReadPolicies2": "Privacy & Legal policies",
+  "inputReadPolicies3": " for My Life My Voice before submitting this form.",
+  "inputSubmit": "Submit form"
 }
