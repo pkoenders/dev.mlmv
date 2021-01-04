@@ -95,7 +95,7 @@ div.peerSupporterWrapper {
                     flex-basis: 33.3%;
                     flex-grow: 1;
                     align-self: flex-end;
-                    padding-bottom: 11px;
+                    padding-bottom: 15px;
 
                     @include respond-below(sm) {
                         order: 0;
