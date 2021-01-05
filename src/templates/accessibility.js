@@ -69,6 +69,8 @@ const AccessibilityPage = ({ data, location, language }) => {
               <div>
                 <form
                   name="Accessibility"
+                  id="accessibility"
+                  ref="formTag"
                   method="post"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
