@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 
 const ContactNum = () => {
-  const { t } = useTranslation("common")
+  const { t } = useTranslation()
   return (
     <label htmlFor="contactNumber">
       {t("common:inputContactNumber")}

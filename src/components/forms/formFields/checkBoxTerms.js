@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { Link } from "gatsby"
 
 const CheckBoxTerms = () => {
-  const { t, i18n } = useTranslation("common")
+  const { t, i18n } = useTranslation()
 
   const handleInputTerms = () => {
     const submitBtn = document.getElementById('submitBtn')
