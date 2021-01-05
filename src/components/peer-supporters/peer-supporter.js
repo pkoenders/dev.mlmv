@@ -17,7 +17,6 @@ import formStyles from '../forms/asideForm.module.scss'
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
-import FormSubject from "../forms/formFields/subject"
 import FormMessage from "../forms/formFields/message"
 import FormCheckTerms from "../forms/formFields/checkBoxTerms"
 import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
@@ -162,7 +161,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
-                  <FormSubject />
                   <FormMessage />
                   <FormCheckTerms />
                   <FormSubmit />

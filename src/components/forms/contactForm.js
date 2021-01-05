@@ -41,7 +41,7 @@ const ContactForm = ({ data, location, language }) => {
                         >
                             {/* <HoneyPot /> */}
                             <input type="hidden" name="form-name" value="enquiry-general" />
-                            <input type="hidden" name="Source" value='Contact form' />
+                            <input type="hidden" name="Source" value="Contact form" />
 
                             <FormName />
                             <FormEmail />
