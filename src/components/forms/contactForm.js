@@ -6,7 +6,7 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 
 //Collect the required form fields
 import contactStyles from './contactForm.module.scss'
-import HideBot from "./formFields/hideBot"
+import HoneyPot from "./formFields/honeyPot"
 import FormName from "./formFields/name"
 import FormEmail from "./formFields/email"
 import FormSubject from "./formFields/subject"
@@ -36,10 +36,10 @@ const ContactForm = ({ data, location, language }) => {
                             name="enquiry-general"
                             method="POST"
                             action={`/${i18n.language}/submit`}
-                            netlify-honeypot="bot-field"
+                            netlify-honeypot="hpfield"
                             data-netlify="true"
                         >
-                            <HideBot />
+                            <HoneyPot />
                             <FormName />
                             <FormEmail />
                             <FormSubject />

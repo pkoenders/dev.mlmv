@@ -13,7 +13,7 @@ import IconUp from "../../images/svg/icon-up.inline.svg"
 
 //Collect the required form fields
 import formStyles from '../forms/asideForm.module.scss'
-import HideBot from "../forms/formFields/hideBot"
+import HoneyPot from "../forms/formFields/honeyPot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
@@ -152,10 +152,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   name="enquiry-peerSupporter"
                   method="POST"
                   action={`/${i18n.language}/submit`}
-                  netlify-honeypot="bot-field"
+                  netlify-honeypot="hpfield"
                   data-netlify="true"
                 >
-                  <HideBot />
+                  <HoneyPot />
                   <input type="hidden" name="form-name" value="enquiry-peerSupporter" />
                   <input type="hidden" name="message-for" value={peerData.peerSupporterFullName.en} />
                   <input type="hidden" name="peer-email" value={peerData.peerSupporterEmail} />

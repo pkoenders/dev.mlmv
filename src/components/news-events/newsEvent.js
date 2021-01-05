@@ -19,7 +19,7 @@ import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 //Collect the required form fields
 import formStyles from '../forms/asideForm.module.scss'
-import HideBot from "../forms/formFields/hideBot"
+import HoneyPot from "../forms/formFields/honeyPot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
@@ -126,10 +126,10 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                     name="enquiry-event"
                     method="POST"
                     action={`/${i18n.language}/submit`}
-                    netlify-honeypot="bot-field"
+                    netlify-honeypot="hpfield"
                     data-netlify="true"
                   >
-                    <HideBot />
+                    <HoneyPot />
                     <FormName />
                     <FormEmail />
                     <FormContactNum />

@@ -5,7 +5,7 @@ const hideBot = () => {
   return (
     <label className="hideBot">
       Don’t fill this field if you’re human
-      <input name="bot-field" />
+      <input name="hpfield" />
     </label>
   )
 }
