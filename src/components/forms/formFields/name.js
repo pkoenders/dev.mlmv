@@ -5,7 +5,7 @@ const Name = () => {
   const { t } = useTranslation("common")
   return (
     <label htmlFor="name">
-      <span>{t("common:inputName")}</span>
+      {t("common:inputName")}
       <input
         type="text"
         name="name"

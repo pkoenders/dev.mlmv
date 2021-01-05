@@ -19,6 +19,10 @@ query {
 
 const Submit = ({ data, location, language }) => {
   const { t, i18n } = useTranslation("submit")
+
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
   return (
     <>
       <style type="text/css">
@@ -32,7 +36,6 @@ const Submit = ({ data, location, language }) => {
         title={'You have sussuessfully submitted out form!  | ' + data.sanitySiteSettings.siteTitle}
       />
       <Layout location={location} >
-        {/* <SectionContactForm data={data} language={language} location={location} /> */}
         <DefaultSection>
           <div className={'contentWrapper'}>
             <div className={submitStyles.wrapper}>

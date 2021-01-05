@@ -148,14 +148,14 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               <div className={asideForm.form}>
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
-                  name="peer-supporter-contact-form"
-                  method="post"
+                  name="enquiry-peerSupporter"
+                  method="POST"
                   action={`/${i18n.language}/submit`}
                   netlify-honeypot="bot-field"
                   data-netlify="true"
                 >
                   <input type="hidden" name="bot-field" />
-                  <input type="hidden" name="form-name" value="peer-supporter-contact-form" />
+                  <input type="hidden" name="form-name" value="enquiry-peerSupporter" />
                   <input type="hidden" name="message-for" value={peerData.peerSupporterFullName.en} />
                   <input type="hidden" name="peer-email" value={peerData.peerSupporterEmail} />
                   <FormName />

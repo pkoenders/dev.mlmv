@@ -122,14 +122,14 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   <p>{t("newsEvents:attendingEvent")}</p>
                   {/* <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4> */}
                   <form
-                    name="peer-supporter-contact-form"
-                    method="post"
+                    name="enquiry-general"
+                    method="POST"
                     action={`/${i18n.language}/submit`}
                     netlify-honeypot="bot-field"
                     data-netlify="true"
                   >
                     <input type="hidden" name="bot-field" />
-                    <input type="hidden" name="form-name" value="event-contact-form" />
+                    <input type="hidden" name="form-name" value="enquiry-event" />
                     <FormName />
                     <FormEmail />
                     <FormContactNum />

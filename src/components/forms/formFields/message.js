@@ -5,7 +5,7 @@ const Message = () => {
   const { t } = useTranslation("common")
   return (
     <label htmlFor="message">
-      <span>{t("common:inputMessage")}</span>
+      {t("common:inputMessage")}
       <textarea
         name="message"
         id="message"

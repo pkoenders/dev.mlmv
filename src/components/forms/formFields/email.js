@@ -5,7 +5,7 @@ const Email = () => {
   const { t } = useTranslation("common")
   return (
     <label htmlFor="email">
-      <span>{t("common:inputEmail")}</span>
+      {t("common:inputEmail")}
       <input
         type="email"
         name="email"

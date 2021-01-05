@@ -67,14 +67,14 @@ const AccessibilityPage = ({ data, location, language }) => {
               <h3>{t("accessibility:formTitle")}</h3>
               <div>
                 <form
-                  name="peer-supporter-contact-form"
-                  method="post"
+                  name="enquiry-accessibility"
+                  method="POST"
                   action={`/${i18n.language}/submit`}
                   netlify-honeypot="bot-field"
                   data-netlify="true"
                 >
                   <input type="hidden" name="bot-field" />
-                  <input type="hidden" name="form-name" value="accessibility-form" />
+                  <input type="hidden" name="form-name" value="enquiry-accessibility" />
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
