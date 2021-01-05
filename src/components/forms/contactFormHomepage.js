@@ -29,7 +29,7 @@ const ContactFormHomepage = ({ data, location, language }) => {
                         <form
                             name="ContactFormHomepage"
                             method="post"
-                            action={`/${i18n.language}/submit`}
+                            //action={`/${i18n.language}/submit`}
                             data-netlify="true"
                         // netlify-honeypot="hpfield"     
                         >
