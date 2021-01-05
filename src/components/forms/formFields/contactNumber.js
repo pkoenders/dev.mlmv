@@ -9,7 +9,6 @@ const ContactNum = () => {
       <input
         type="text"
         name="contactNumber"
-        id="contactNumber"
       />
     </label>
   )

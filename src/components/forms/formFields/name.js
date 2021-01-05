@@ -10,7 +10,6 @@ const Name = () => {
         type="text"
         name="name"
         placeholder={t("common:inputNamePlaceholder")}
-        id="name"
         required
       />
     </label>

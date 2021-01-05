@@ -26,7 +26,6 @@ const CheckBoxTerms = () => {
       <input
         type="checkbox"
         name="terms"
-        id="terms"
         value="Privacy & Legal policies terms have been agreed by user"
         onChange={handleInputTerms}
       />
