@@ -20,9 +20,6 @@ query {
 const Submit = ({ data, location, language }) => {
   const { t, i18n } = useTranslation("submit")
 
-  if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-  }
   return (
     <>
       <style type="text/css">
