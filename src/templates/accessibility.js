@@ -73,6 +73,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                   action={`/${i18n.language}/submit`}
                   netlify
                 >
+                  <input type="hidden" name="form-name" value="enquiry-accessibility" />
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
