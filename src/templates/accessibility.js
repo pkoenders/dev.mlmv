@@ -68,10 +68,11 @@ const AccessibilityPage = ({ data, location, language }) => {
               <h3>{t("accessibility:formTitle")}</h3>
               <div>
                 <form
-                  name="enquiry-accessibility"
-                  method="POST"
+                  name="Accessibility"
+                  method="post"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
+                  data-netlify-recaptcha="true"
                 // netlify-honeypot="hpfield"     
                 >
                   {/* <HoneyPot /> */}

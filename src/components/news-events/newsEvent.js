@@ -122,8 +122,8 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                 <div className={formStyles.form}>
                   <p>{t("newsEvents:attendingEvent")}</p>
                   <form
-                    name="enquiry-event"
-                    method="POST"
+                    name="Event"
+                    method="post"
                     action={`/${i18n.language}/submit`}
                     data-netlify="true"
                   // netlify-honeypot="hpfield"     

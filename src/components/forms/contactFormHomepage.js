@@ -27,8 +27,8 @@ const ContactFormHomepage = ({ data, location, language }) => {
                     <BlockContent blocks={contentData.contactContent.localized} />
                     <div className={contactStyles.contactFormInput}>
                         <form
-                            name="enquiry-general-homepage"
-                            method="POST"
+                            name="Contact form - homepage"
+                            method="post"
                             action={`/${i18n.language}/submit`}
                             data-netlify="true"
                         // netlify-honeypot="hpfield"     

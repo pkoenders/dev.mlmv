@@ -144,8 +144,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               <div className={formStyles.form}>
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
-                  name="enquiry-peerSupporter"
-                  method="POST"
+                  name="Peer supporters"
+                  method="post"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
                 >
