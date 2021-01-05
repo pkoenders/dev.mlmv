@@ -55,6 +55,10 @@ div.peerSupporterWrapper {
                             padding: 0 15px;
                             margin-bottom: .33rem;
 
+                            font-size: 1.5rem;
+                            text-align: left;
+
+
                         }
 
                         .headerProfileImg {
@@ -97,22 +101,16 @@ div.peerSupporterWrapper {
                     flex-grow: 1;
                     align-self: flex-end;
                     padding-bottom: 15px;
+                    text-align: left;
 
                     @include respond-below(sm) {
                         order: 0;
                         flex-grow: 1;
-                        //flex-shrink: 1;
                         flex-basis: 100%;
                         width: 100%;
                         padding: 0 15px 15px;
-
                         margin-bottom: -1px;
                     }
-
-                    text-align: left;
-                    padding-left: 15px;
-
-
 
                     ul {
                         width: auto;
@@ -131,7 +129,6 @@ div.peerSupporterWrapper {
                             font-weight: 400;
                             border-radius: .2em;
                             box-shadow: none;
-
 
                         }
 
@@ -171,7 +168,7 @@ div.peerSupporterWrapper {
             .contentBlock {
                 order: 0;
                 flex-grow: 1;
-                padding-right: 15px;
+                padding-right: 30px;
                 flex-basis: 66.6%;
 
                 @include respond-below(sm) {
@@ -202,6 +199,9 @@ div.peerSupporterWrapper {
                 //flex-shrink: 0;
                 flex-basis: 33.3%;
 
+                text-align: left;
+                padding: 15px 15px 15px 0;
+
                 @include respond-below(sm) {
                     flex-basis: 100%;
                     width: 100%;
@@ -209,8 +209,6 @@ div.peerSupporterWrapper {
                     //border-top: 1px solid #c1d1d8;
                 }
 
-                text-align: left;
-                padding: 15px;
 
                 p {
                     color: $txtColor;

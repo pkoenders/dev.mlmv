@@ -47,6 +47,8 @@ div.wrapper {
                     h1 {
                         color: inherit;
                         margin: 15px 0;
+                        font-size: 1.5rem;
+                        text-align: left;
 
                     }
 
@@ -63,7 +65,8 @@ div.wrapper {
                     flex-basis: 33.3%;
                     flex-grow: 1;
                     align-self: flex-end;
-                    padding-bottom: 5px;
+                    text-align: left;
+                    padding: 10px 0 10px 0;
 
                     @include respond-below(sm) {
                         order: 0;
@@ -74,12 +77,11 @@ div.wrapper {
                         margin-bottom: -1px;
                     }
 
-                    text-align: left;
-                    padding-left: 15px;
+
 
                     p {
                         color: $primaryColor;
-                        margin: 15.5px 0;
+                        margin: 15px 0;
                         font-size: .8rem;
                         display: flex;
                         flex-direction: row;
@@ -131,7 +133,7 @@ div.wrapper {
             .contentBlock {
                 order: 0;
                 flex-grow: 1;
-                padding-right: 15px;
+                padding-right: 30px;
                 flex-basis: 66.6%;
 
                 @include respond-below(sm) {
@@ -159,18 +161,17 @@ div.wrapper {
 
             .contentComplementary {
                 order: 1;
-                //flex-shrink: 0;
                 flex-basis: 33.3%;
+                padding: 15px 15px 0 0;
+                text-align: left;
 
                 @include respond-below(sm) {
                     flex-basis: 100%;
                     width: 100%;
-                    padding: 15px 15px 15px;
-                    //border-top: 1px solid #c1d1d8;
+                    padding: 15px;
                 }
 
-                text-align: left;
-                padding: 15px;
+
 
                 p {
                     color: $txtColor;
