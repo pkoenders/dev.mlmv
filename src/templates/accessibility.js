@@ -76,6 +76,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                 >
                   {/* <HoneyPot /> */}
                   <input type="hidden" name="form-name" value="enquiry-accessibility" />
+                  <input type="hidden" name="Page" value='Accessability page' />
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
