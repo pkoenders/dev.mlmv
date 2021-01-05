@@ -129,7 +129,6 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   // netlify-honeypot="hpfield"     
                   >
                     {/* <HoneyPot /> */}
-                    <input type="hidden" name="form-name" value="enquiry-event" />
                     <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
                     <FormName />
                     <FormEmail />
