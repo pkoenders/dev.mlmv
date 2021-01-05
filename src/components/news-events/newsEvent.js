@@ -130,7 +130,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   >
                     {/* <HoneyPot /> */}
                     <input type="hidden" name="form-name" value="enquiry-event" />
-                    <input type="hidden" name="event-name" value={newsEventData.newsEventName.translate} />
+                    <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
                     <FormName />
                     <FormEmail />
                     <FormContactNum />

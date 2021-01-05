@@ -15,7 +15,7 @@ import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
 const ContactFormHomepage = ({ data, location, language }) => {
-    const { t, i18n } = useTranslation("contact")
+    const { t, i18n } = useTranslation()
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
@@ -35,7 +35,7 @@ const ContactFormHomepage = ({ data, location, language }) => {
                         >
                             {/* <HoneyPot /> */}
                             <input type="hidden" name="form-name" value="enquiry-general-homepage" />
-                            <input type="hidden" name="Page" value='Contact form on homepage' />
+                            <input type="hidden" name="Source" value='Contact form on homepage' />
                             <FormName />
                             <FormEmail />
                             <FormSubject />

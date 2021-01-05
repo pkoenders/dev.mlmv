@@ -46,7 +46,7 @@ export const query = graphql`
 `
 
 const AccessibilityPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation("accessibility", "contact")
+  const { t, i18n } = useTranslation()
 
 
   return (
@@ -76,7 +76,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                 >
                   {/* <HoneyPot /> */}
                   <input type="hidden" name="form-name" value="enquiry-accessibility" />
-                  <input type="hidden" name="Page" value='Accessability page' />
+                  <input type="hidden" name="Source" value='Accessibility page' />
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
