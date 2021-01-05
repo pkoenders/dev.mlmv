@@ -33,14 +33,14 @@ const ContactForm = ({ data, location, language }) => {
                     <BlockContent blocks={contentData.contactContent.localized} />
                     <div className={contactStyles.contactFormInput}>
                         <form
-                            name="Contact form"
+                            name="ContactForm"
                             method="post"
                             action={`/${i18n.language}/submit`}
                             data-netlify="true"
                         // netlify-honeypot="hpfield"     
                         >
                             {/* <HoneyPot /> */}
-                            <input type="hidden" name="form-name" value="Contact form" />
+                            <input type="hidden" name="form-name" value="ContactForm" />
                             <input type="hidden" name="Source" value="Contact form" />
                             <FormName />
                             <FormEmail />

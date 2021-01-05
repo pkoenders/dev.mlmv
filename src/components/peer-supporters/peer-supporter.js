@@ -144,12 +144,12 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               <div className={formStyles.form}>
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
-                  name="Peer supporters"
+                  name="PeerSupporters"
                   method="post"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
                 >
-                  <input type="hidden" name="form-name" value="Peer supporters" />
+                  <input type="hidden" name="form-name" value="PeerSupporters" />
                   <input type="hidden" name="Source" value={`Peer Supporter - ${peerData.peerSupporterFullName.translate}`} />
                   {/* <input type="hidden" name="Email" value={peerData.peerSupporterEmail} /> */}
                   <FormName />
