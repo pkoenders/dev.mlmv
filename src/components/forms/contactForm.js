@@ -6,7 +6,7 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 
 //Collect the required form fields
 import contactStyles from './contactForm.module.scss'
-import HoneyPot from "./formFields/honeyPot"
+// import HoneyPot from "./formFields/honeyPot"
 import FormName from "./formFields/name"
 import FormEmail from "./formFields/email"
 import FormSubject from "./formFields/subject"
@@ -37,9 +37,9 @@ const ContactForm = ({ data, location, language }) => {
                             method="POST"
                             action={`/${i18n.language}/submit`}
                             netlify-honeypot="hpfield"
-                            data-netlify="true"
+                        // data-netlify="true"
                         >
-                            <HoneyPot />
+                            {/* <HoneyPot /> */}
                             <FormName />
                             <FormEmail />
                             <FormSubject />
