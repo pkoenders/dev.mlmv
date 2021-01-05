@@ -117,7 +117,7 @@ const Footer = ({ location }) => {
           </ul>
         </nav>
 
-        <p>© {new Date().getFullYear()} - {data.site.siteMetadata.title}</p>
+        <p className={footerStyles.copyRight}>© {new Date().getFullYear()} - {data.site.siteMetadata.title}</p>
       </footer>
     </>
   )
