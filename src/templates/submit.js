@@ -37,7 +37,7 @@ const Submit = ({ data, location, language }) => {
           <div className={'contentWrapper'}>
             <div className={submitStyles.wrapper}>
               <h1>{t('common:submitHeader')}</h1>
-              <SubmitSuccess />
+              <SubmitSuccess aria-hidden="true" />
               <p>{t('common:submitContent')}</p>
               <Link to={`/${i18n.language}`} className={'buttonSecondary'} >{t('common:submitCTA')}</Link>
             </div>
