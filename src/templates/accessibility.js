@@ -70,11 +70,11 @@ const AccessibilityPage = ({ data, location, language }) => {
                   name="enquiry-accessibility"
                   method="POST"
                   action={`/${i18n.language}/submit`}
-                  netlify-honeypot="bot-field"
-                  //netlify-honeypot="hpfield"
+                  //netlify-honeypot="bot-field"
+                  netlify-honeypot="hpfield"
                   data-netlify="true"
                 >
-                  <input type="hidden" name="bot-field" />
+                  <input type="hidden" name="hpfield" />
                   <input type="hidden" name="form-name" value="enquiry-accessibility" />
                   <FormName />
                   <FormEmail />
