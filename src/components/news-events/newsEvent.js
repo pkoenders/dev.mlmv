@@ -124,7 +124,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   <form
                     name="Events"
                     method="post"
-                    action={`/${translate}/submit`}
+                    // action={`/${i18n.language}/submit`}
                     data-netlify="true"
                   // netlify-honeypot="hpfield"     
                   >
