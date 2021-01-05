@@ -36,8 +36,6 @@ const Footer = ({ location }) => {
           <span>Go to the homepage</span>
           <LogoMLMVFooter />
         </Link>
-        <p>Subscribe to a newsletter?</p>
-        <p>List social links?</p>
 
         <nav>
           <ul><li>

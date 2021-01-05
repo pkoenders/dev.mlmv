@@ -45,7 +45,7 @@ export const query = graphql`
 `
 
 const AccessibilityPage = ({ data, location, language }) => {
-  const { t } = useTranslation("accessibility", "contact")
+  const { t, i18n } = useTranslation("accessibility", "contact")
 
 
   return (
@@ -69,7 +69,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                 <form
                   name="peer-supporter-contact-form"
                   method="post"
-                  action="../peer-contact-success"
+                  action={`/${i18n.language}/submit`}
                   netlify-honeypot="bot-field"
                   data-netlify="true"
                 >

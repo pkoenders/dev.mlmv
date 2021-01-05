@@ -323,8 +323,6 @@ header.headerNavWrapper {
 
   div.localeSeletor {
     order: 2;
-    //background-color: $headerBgColor;
-    // border-radius: 3px;
 
     @include respond-below(sm) {
       order: 2;
@@ -333,23 +331,25 @@ header.headerNavWrapper {
     position: absolute;
     top:0px;
     right: 0px;
-    margin: 10px 0 10px;
+    padding: 10px 0 10px;
 
-    span,
-    a {
+    button {
       @include headerTxt;
       color: #ffffff;
+      position: relative;
       display: flex;
       align-self: center;
       float: right;
       padding: 8px 15px;
       cursor: pointer;
       text-transform: uppercase;
+      height: fit-content;
+      background-color: transparent;
 
       svg {
-        height: 20px;
-        width: auto;
-        margin: 1px 0 0 10px;
+        width: 20px;
+        height: auto;
+        margin: 2px 0 0 5px;
         //transform: rotate(0);
         transition: transform .15s linear;
         vertical-align: middle;
@@ -361,16 +361,16 @@ header.headerNavWrapper {
       }
     }
 
-    span:focus {
+    button:focus {
       outline: none;
     }
 
-    span:focus-visible,
+    button:focus-visible,
     a:focus-visible {
       @include focusVisibleForDark;
     }
 
-    span:-moz-focusring,
+    button:-moz-focusring,
     a:-moz-focusring {
       @include focusVisibleForDark;
     }
@@ -392,6 +392,8 @@ header.headerNavWrapper {
         // margin: 0 32px 0 0;
 
         a {
+          @include headerTxt;
+          color: #ffffff;
           padding: 5px 32px 5px 15px;
           margin: 0;
           width: 100%;
@@ -416,7 +418,7 @@ header.headerNavWrapper {
 header.headerNavWrapper::before {
   content: "";
   background-color: $headerBgColor;
-  opacity: 0;
+  opacity: .0;
   position: absolute;
   top: 0;
   right: 0;

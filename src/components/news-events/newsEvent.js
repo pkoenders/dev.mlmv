@@ -124,7 +124,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   <form
                     name="peer-supporter-contact-form"
                     method="post"
-                    action="../peer-contact-success"
+                    action={`/${i18n.language}/submit`}
                     netlify-honeypot="bot-field"
                     data-netlify="true"
                   >

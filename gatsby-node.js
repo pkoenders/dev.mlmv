@@ -523,6 +523,19 @@ exports.createPages = async ({
     createPage
   )
 
+  // Contact page - submit
+  const submitTemplate = path.resolve(`src/templates/submit.js`)
+  await buildI18nPages(
+    null,
+    (_, language) => ({
+      path: `/${language}/submit`,
+      component: submitTemplate,
+      context: {},
+    }),
+    ["common", "submit"],
+    createPage
+  )
+
   // About page
   const aboutTemplate = path.resolve(`src/templates/about.js`)
   await buildI18nPages(

@@ -20,5 +20,8 @@
   "inputReadPolicies1": "I have read, understood and agree to the ",
   "inputReadPolicies2": "Privacy & Legal policies",
   "inputReadPolicies3": " for My Life My Voice before submitting this form.",
-  "inputSubmit": "Submit form"
+  "inputSubmit": "Submit form",
+  "submitHeader": "Thank you.",
+  "submitContent": "We have recieved your enquiry and will get back to you soon.",
+  "submitCTA": "My Live My Voice"
 }

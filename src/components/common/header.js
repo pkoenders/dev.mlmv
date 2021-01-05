@@ -89,7 +89,7 @@ const Header = ({ location }) => {
     //console.log("Language Selector")
     const localeSeletor = document.querySelector('.localeSeletor')
     const localeSeletorList = document.querySelector('.localeSeletor ul')
-    const localeSeletorIconExpand = document.querySelector('.localeSeletor span svg')
+    const localeSeletorIconExpand = document.querySelector('.localeSeletor button svg')
     localeSeletor.classList.toggle("bground")
     localeSeletorList.classList.toggle("show")
     localeSeletorIconExpand.classList.toggle("open")
@@ -221,7 +221,7 @@ const Header = ({ location }) => {
 
 
           <div className="localeSeletor" aria-label="Select language">
-            <span
+            <button
               type="button"
               tabIndex="0"
               role="button"
@@ -233,7 +233,7 @@ const Header = ({ location }) => {
               {currentLanguage}
               {/* <IconChevronRight aria-hidden="true" /> */}
               <IconLanguage aria-hidden="true" />
-            </span>
+            </button>
 
             <ul>
               {i18n.language === "en"
@@ -260,14 +260,6 @@ const Header = ({ location }) => {
                   </Link>
                 </li>
               }
-              {/* <li>
-                <Link
-                  to="/"
-                  tabIndex="0"
-                  title="">
-                  普通话
-                  </Link>
-              </li> */}
             </ul>
           </div>
         </nav>

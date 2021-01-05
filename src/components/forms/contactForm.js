@@ -34,7 +34,7 @@ const ContactForm = ({ data, location, language }) => {
                         <form
                             name="pkoenders-contact"
                             method="post"
-                            action="contact-success"
+                            action={`/${i18n.language}/submit`}
                             netlify-honeypot="bot-field"
                             data-netlify="true"
                         >

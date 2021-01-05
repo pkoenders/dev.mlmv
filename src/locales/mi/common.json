@@ -20,5 +20,8 @@
   "inputReadPolicies1": "Kua panuihia e au, kua maarama, kua whakaae hoki ki nga ",
   "inputReadPolicies2": "Tūmataitinga & Nga kaupapa here ture",
   "inputReadPolicies3": " Mo Taku Ora Taku Reo i mua i te tuku mai i tenei pepa.",
-  "inputSubmit": "Tuku puka"
+  "inputSubmit": "Tuku puka",
+  "submitHeader": "Mauruuru.",
+  "submitContent": "Kua riro i a maatau to pakirehua ka hoki wawe mai ano ki a koe.",
+  "submitCTA": "Taku Ora Taku Reo"
 }

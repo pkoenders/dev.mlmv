@@ -43,7 +43,6 @@ canvas {
   a:hover {
     margin-top: 60px;
     padding: 15px 30px;
-    text-decoration: none;
   }
 }
 
@@ -209,6 +208,7 @@ button.buttonSecondary:hover,
   //background-color: transparent;
   color: #ffffff;
   background-color: $tertiaryColor;
+  text-decoration: none;
 
 }
 

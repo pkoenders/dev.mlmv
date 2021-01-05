@@ -131,10 +131,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
               <div className={peerSupporterStyles.supporterInfo}>
                 {peerData.gender.genderTitle &&
-                  <span><IconGender />{peerData.gender.genderTitle}</span>
+                  <span><IconGender aria-hidden="true" />{peerData.gender.genderTitle}</span>
                 }
                 {peerData.location.location.translate &&
-                  <span><IconLocation />{peerData.location.location.translate}</span>
+                  <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
                 }
                 {/* {peerData.publishedAt &&
                 <span><IconTime />{peerData.publishedAt}</span>
@@ -150,7 +150,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 <form
                   name="peer-supporter-contact-form"
                   method="post"
-                  action="../peer-contact-success"
+                  action={`/${i18n.language}/submit`}
                   netlify-honeypot="bot-field"
                   data-netlify="true"
                 >
