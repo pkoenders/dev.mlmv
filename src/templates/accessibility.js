@@ -72,7 +72,6 @@ const AccessibilityPage = ({ data, location, language }) => {
                   method="post"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
-                  data-netlify-recaptcha="true"
                 // netlify-honeypot="hpfield"     
                 >
                   {/* <HoneyPot /> */}
