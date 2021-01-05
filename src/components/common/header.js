@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 //import PlaceImage from './image/image'
 import { useTranslation } from "react-i18next"
 import LogoMLMVHeader from "../../images/svg/logo-mlmv.inline.svg"
-import IconChevronRight from "../../images/svg/icon-chevron-right.inline.svg"
 import IconCloseMenu from "../../images/svg/icon-close.inline.svg"
 import IconLanguage from "../../images/svg/icon-language.inline.svg"
 import '../../styles/index.scss'
@@ -223,15 +222,14 @@ const Header = ({ location }) => {
           <div className="localeSeletor" aria-label="Select language">
             <button
               type="button"
+              name="selectLanguage"
               tabIndex="0"
-              role="button"
               onClick={handleLanguageSelector}
               onKeyPress={handleLanguageSelector}
               aria-label={'Current language is set to ' + currentLanguage}
             >
 
               {currentLanguage}
-              {/* <IconChevronRight aria-hidden="true" /> */}
               <IconLanguage aria-hidden="true" />
             </button>
 
