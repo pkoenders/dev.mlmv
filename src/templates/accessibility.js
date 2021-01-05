@@ -8,7 +8,7 @@ import DefaultSection from "../components/common/defaultSection"
 
 //Collect the required form fields
 import footerStyles from '../components/forms/footerForm.module.scss'
-import HoneyPot from "../components/forms/formFields/honeyPot"
+// import HoneyPot from "../components/forms/formFields/honeyPot"
 import FormName from "../components/forms/formFields/name"
 import FormEmail from "../components/forms/formFields/email"
 import FormContactNum from "../components/forms/formFields/contactNumber"
@@ -71,10 +71,10 @@ const AccessibilityPage = ({ data, location, language }) => {
                   name="enquiry-accessibility"
                   method="POST"
                   action={`/${i18n.language}/submit`}
-                  netlify-honeypot="hpfield"
+                  // netlify-honeypot="hpfield"
                   data-netlify="true"
                 >
-                  <HoneyPot />
+                  {/* <HoneyPot /> */}
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
