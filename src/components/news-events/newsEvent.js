@@ -121,7 +121,6 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                 ?
                 <div className={formStyles.form}>
                   <p>{t("newsEvents:attendingEvent")}</p>
-                  {/* <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4> */}
                   <form
                     name="enquiry-event"
                     method="POST"
