@@ -122,13 +122,14 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                 <div className={formStyles.form}>
                   <p>{t("newsEvents:attendingEvent")}</p>
                   <form
-                    name="Event"
+                    name="Events"
                     method="post"
                     action={`/${i18n.language}/submit`}
                     data-netlify="true"
                   // netlify-honeypot="hpfield"     
                   >
                     {/* <HoneyPot /> */}
+                    <input type="hidden" name="form-name" value="Events" />
                     <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
                     <FormName />
                     <FormEmail />

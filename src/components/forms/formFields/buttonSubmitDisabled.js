@@ -7,6 +7,7 @@ const Submit = () => {
     <button
       type="submit"
       id="submitBtn"
+      name="submit"
       className="buttonSecondary"
       disabled
     >{t("common:inputSubmit")}</button>

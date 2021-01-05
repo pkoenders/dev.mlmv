@@ -149,6 +149,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
                 >
+                  <input type="hidden" name="form-name" value="Peer supporters" />
                   <input type="hidden" name="Source" value={`Peer Supporter - ${peerData.peerSupporterFullName.translate}`} />
                   {/* <input type="hidden" name="Email" value={peerData.peerSupporterEmail} /> */}
                   <FormName />

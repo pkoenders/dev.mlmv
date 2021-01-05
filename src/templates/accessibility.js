@@ -75,6 +75,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                 // netlify-honeypot="hpfield"     
                 >
                   {/* <HoneyPot /> */}
+                  <input type="hidden" name="form-name" value="Accessibility" />
                   <input type="hidden" name="Source" value="Accessibility page" />
                   <FormName />
                   <FormEmail />

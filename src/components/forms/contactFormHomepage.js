@@ -34,6 +34,7 @@ const ContactFormHomepage = ({ data, location, language }) => {
                         // netlify-honeypot="hpfield"     
                         >
                             {/* <HoneyPot /> */}
+                            <input type="hidden" name="form-name" value="Contact form - homepage" />
                             <input type="hidden" name="Source" value="Contact form on homepage" />
                             <FormName />
                             <FormEmail />
