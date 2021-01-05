@@ -129,7 +129,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                     netlify-honeypot="hpfield"
                     data-netlify="true"
                   >
-                    <input type="hidden" name="bot-field" />
+                    <input type="hidden" name="hpfield" />
                     <input type="hidden" name="form-name" value="enquiry-event" />
                     <FormName />
                     <FormEmail />
