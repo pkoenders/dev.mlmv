@@ -7,6 +7,7 @@ import BlockContent from "../components/common/blockContent"
 import DefaultSection from "../components/common/defaultSection"
 
 //Collect the required form fields
+import footerStyles from '../components/forms/footerForm.module.scss'
 import HideBot from "../components/forms/formFields/hideBot"
 import FormName from "../components/forms/formFields/name"
 import FormEmail from "../components/forms/formFields/email"
@@ -15,7 +16,6 @@ import FormSubject from "../components/forms/formFields/subject"
 import FormMessage from "../components/forms/formFields/message"
 import FormCheckTerms from "../components/forms/formFields/checkBoxTerms"
 import FormSubmit from "../components/forms/formFields/buttonSubmitDisabled"
-import footerForm from '../components/forms/footerForm.module.scss'
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -62,8 +62,8 @@ const AccessibilityPage = ({ data, location, language }) => {
           </div>
         </DefaultSection>
 
-        <section className={footerForm.form}>
-          <div className={footerForm.formWrapper}>
+        <section className={footerStyles.form}>
+          <div className={footerStyles.formWrapper}>
             <div>
               <h3>{t("accessibility:formTitle")}</h3>
               <div>

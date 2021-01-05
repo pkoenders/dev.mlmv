@@ -12,6 +12,8 @@ import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconUp from "../../images/svg/icon-up.inline.svg"
 
 //Collect the required form fields
+import formStyles from '../forms/asideForm.module.scss'
+import HideBot from "../forms/formFields/hideBot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
@@ -19,7 +21,6 @@ import FormSubject from "../forms/formFields/subject"
 import FormMessage from "../forms/formFields/message"
 import FormCheckTerms from "../forms/formFields/checkBoxTerms"
 import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
-import asideForm from '../forms/asideForm.module.scss'
 
 import IconGender from '../../images/svg/icon-gender.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
@@ -145,7 +146,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
             </div>
 
             <div className={peerSupporterStyles.contentComplementary}>
-              <div className={asideForm.form}>
+              <div className={formStyles.form}>
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
                   name="enquiry-peerSupporter"

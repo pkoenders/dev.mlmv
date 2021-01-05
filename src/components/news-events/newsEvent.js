@@ -18,14 +18,14 @@ import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 //Collect the required form fields
-import HideBot from "../components/forms/formFields/hideBot"
+import formStyles from '../forms/asideForm.module.scss'
+import HideBot from "../forms/formFields/hideBot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
 import FormMessage from "../forms/formFields/message"
 import FormCheckTerms from "../forms/formFields/checkBoxTerms"
 import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
-import asideForm from '../forms/asideForm.module.scss'
 
 
 const NewsEventTemplate = ({ data, pageContext }) => {
@@ -119,7 +119,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
 
               {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                 ?
-                <div className={asideForm.form}>
+                <div className={formStyles.form}>
                   <p>{t("newsEvents:attendingEvent")}</p>
                   {/* <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4> */}
                   <form

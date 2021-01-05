@@ -5,8 +5,8 @@ import BlockContent from "../common/blockContent"
 import IconWave from "../../images/svg/icon-wave.inline.svg"
 
 //Collect the required form fields
-import HideBot from "../components/forms/formFields/hideBot"
 import contactStyles from './contactForm.module.scss'
+import HideBot from "./formFields/hideBot"
 import FormName from "./formFields/name"
 import FormEmail from "./formFields/email"
 import FormSubject from "./formFields/subject"
