@@ -39,7 +39,7 @@ const Submit = ({ data, location, language }) => {
               <h1>{t('common:submitHeader')}</h1>
               <SubmitSuccess />
               <p>{t('common:submitContent')}</p>
-              <Link to={`/${i18n.language}/`} className={'buttonSecondary'} >{t('common:submitCTA')}</Link>
+              <Link to={`/${i18n.language}`} className={'buttonSecondary'} >{t('common:submitCTA')}</Link>
             </div>
           </div>
         </DefaultSection>

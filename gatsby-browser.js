@@ -20,12 +20,17 @@ export const onServiceWorkerUpdateReady = () => {
         `Reload to display the latest version?`
     )
 
+
+
+
     if (answer === true) {
         window.location.reload()
     }
 }
 
 export const onRouteUpdate = () => {
+
+
 
     // Load page
     document.addEventListener("DOMContentLoaded", ready())
@@ -40,9 +45,15 @@ export const onRouteUpdate = () => {
             resizeAllGridItems()
         })
     })
+
+
 }
 
 function ready() {
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
     resizeAllGridItems()
     srollNav()
     canvasAnin()
