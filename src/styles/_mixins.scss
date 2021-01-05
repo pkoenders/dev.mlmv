@@ -1,12 +1,29 @@
 @import "../styles/variables";
 
+@mixin headerTxt {
+  font-size: .78rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 @mixin h1Title {
   text-align: center;
   color: $primaryColor;
   font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+
+}
+
+@mixin homePageTitle {
+  text-align: center;
+  font-family: 'Merriweather', serif;
   font-weight: 900;
   font-size: 1.8rem;
+  line-height: 2.8rem;
+  letter-spacing: .05rem;
 }
+
 
 @mixin focusVisibleForDark {
   outline: 3px solid $tertiaryColor !important;

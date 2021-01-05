@@ -90,14 +90,14 @@
 
                 p:nth-child(2) {
                     margin: 0 25px;
-                    display: inline;
+                    display: inline-block;
                     line-height: 1.3rem;
                     position: relative;
                 }
 
                 p:nth-child(2):before,
                 p:nth-child(2):after {
-                    font-size: 2.4rem;
+                    font-size: 2.2rem;
                     line-height: 0;
                     position: absolute;
                     font-family: 'Tinos', serif;
@@ -112,7 +112,7 @@
 
                 p:nth-child(2):after {
                     content: "\201D";
-                    bottom: 6px;
+                    bottom: 8px;
                     margin-left: 3px;
                 }
             }

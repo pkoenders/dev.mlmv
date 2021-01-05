@@ -7,14 +7,11 @@
 
     @include respond-below(sm) {
         margin: 0 15px 60px 15px;
-        padding: 0;
+        padding: 0 15px;
     }
 
     h1 {
-        @include h1Title;
-        font-size: 2.0rem;
-        line-height: 2.6rem;
-        //font-weight: 700;
+        @include homePageTitle;
     }
 
     p {
@@ -24,9 +21,11 @@
     }
 
     a,
+    a:hover,
     a:focus {
         margin: 30px 0 0 0;
         padding: 1.6em 2.4em;
+        text-decoration: none;
     }
 
 

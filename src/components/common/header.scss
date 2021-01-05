@@ -50,6 +50,10 @@ header.headerNavWrapper {
       z-index: 1003;
       //left: 60px;
 
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
       span {
         display: none;
       }
@@ -81,22 +85,15 @@ header.headerNavWrapper {
 
     button {
       order: 0;
-
-      @include respond-below(sm) {
-        order: 0;
-      }
-
       display: none;
-      justify-self: flex-start;
-      align-content: flex-start;
+      // justify-self: flex-start;
+      // align-content: flex-start;
+      position: absolute;
+      top: 0px;
+      left: 0px;
       margin: 0 0 auto 0;
       width: fit-content;
       white-space: nowrap;
-
-      @include respond-below(sm) {
-        display: block;
-      }
-
       align-self: center;
       padding: 2px 15px;
       height: 60px;
@@ -104,6 +101,15 @@ header.headerNavWrapper {
       border: none;
       align-self: center;
       cursor: pointer;
+
+      span {
+        @include headerTxt;
+      }
+
+      @include respond-below(sm) {
+        order: 0;
+        display: block;
+      }
     }
 
     button:focus {
@@ -125,9 +131,11 @@ header.headerNavWrapper {
       justify-self: start;
       display: none;
       list-style: none;
-      padding: 0 0 0 0;
-      margin: 0 auto;
-      top: 72px;
+      padding: 0 0 120px 0;
+      margin: 0 0 0 0;
+      top: 60px;
+      left: 88px;
+
       position: relative;
       width: 100%;
       border-left: 1px solid #6FFFE9;
@@ -136,28 +144,20 @@ header.headerNavWrapper {
       li {
         display: block;
         clear: both;
-        margin-bottom: 15px;
 
         a,
         p,
         span,
         button {
 
-          background-color: transparent;
           font-size: 1.4rem;
-          line-height: 1.2rem;
-          height: auto;
-          right: auto;
-          //color: $primaryColor;
+          line-height: 1.8rem;
+
           color: #ffffff;
-          //opacity: .85;
-          padding: 10px 30px;
-          margin-left: 3px;
+          padding: 15px 30px;
           position: relative;
-          width: fit-content;
           text-align: left;
-          //float: left;
-          display: block;
+          display: inline-block;
           cursor: pointer;
         }
 
@@ -246,32 +246,26 @@ header.headerNavWrapper {
     //Desktop view
     @include respond-above(sm) {
       >ul {
-        //display: flex;
-        //  justify-self: center;
-        //order: 2;
+
         display: block;
+        display: flex;
         border-left: none;
         margin: 0 auto;
-        padding: 12px 0;
+        padding: 0px 0;
         top: 0;
         left: 0;
         width: auto;
         overflow: visible;
 
         li {
-          clear: none;
-          float: left;
-          margin: 0px;
+          display: flex;
+          align-self: center;
+          margin: 0px 3px;
 
           a {
-            float: left;
-            right: 0;
-            font-size: .8rem;
-            line-height: inherit;
-            //font-size: 1.5rem;
-            font-weight: 500;
-            padding: 5px 15px 5px 15px;
-            text-transform: uppercase;
+            @include headerTxt;
+            padding: 1px 15px 0px;
+            display: inline-flex;
           }
 
           a.activeNavItem {
@@ -336,29 +330,26 @@ header.headerNavWrapper {
       order: 2;
     }
 
-    height: fit-content;
-    width: max-content;
-    justify-self: flex-end;
+    position: absolute;
+    top:0px;
+    right: 0px;
     margin: 10px 0 10px;
-
 
     span,
     a {
-      font-size: .8rem;
-      float: right;
+      @include headerTxt;
       color: #ffffff;
       display: flex;
       align-self: center;
-
+      float: right;
       padding: 8px 15px;
       cursor: pointer;
       text-transform: uppercase;
 
       svg {
-        height: 22px;
+        height: 20px;
         width: auto;
-        padding: 0x;
-        margin: 0 0 0 10px;
+        margin: 1px 0 0 10px;
         //transform: rotate(0);
         transition: transform .15s linear;
         vertical-align: middle;
@@ -396,7 +387,7 @@ header.headerNavWrapper {
       width: 100%;
 
       li {
-        float: right;
+        text-align: left;
         clear: both;
         // margin: 0 32px 0 0;
 

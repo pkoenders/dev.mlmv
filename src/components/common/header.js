@@ -260,14 +260,14 @@ const Header = ({ location }) => {
                   </Link>
                 </li>
               }
-              <li>
+              {/* <li>
                 <Link
-                  // to="/"
+                  to="/"
                   tabIndex="0"
                   title="">
                   普通话
                   </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>

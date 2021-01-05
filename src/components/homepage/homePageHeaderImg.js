@@ -38,12 +38,14 @@ const HomepageHeaderImage = ({ data, language }) => {
         <div className={homePageHeaderImg.imgTxt}>
           <span>{t("index:headerImgOverlay")}</span>
         </div>
-        <Img fluid={headerImg.placeholderImage.childImageSharp.fluid}
-          // objectFit="cover"
-          // objectPosition="50% 50%"
-          loading="lazy"
-          alt="Banner image - Diasbled person in a wheelchair"
-        />
+        <div className={homePageHeaderImg.img}>
+          <Img fluid={headerImg.placeholderImage.childImageSharp.fluid}
+            // objectFit="cover"
+            // objectPosition="50% 50%"
+            loading="lazy"
+            alt="Banner image - Diasbled person in a wheelchair"
+          />
+        </div>
       </div>
     </>
   )

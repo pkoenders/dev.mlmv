@@ -7,26 +7,15 @@
 }
 
 .hamburger {
-  //opacity: 0.7;
   position: relative;
-  //display: none;
-  //position: fixed;
-  //right: 5px;
-  //top: 0px;
   z-index: 3002;
-  //height: 50px;
-  //padding: 13px 0px !important;
   padding: 0 10px;
 
 
   .hamburger-box {
-    // width: 30px;
-
-    //height: 20px;
     height: 12px;
     width: 30px;
     margin-right: 0px;
-
 
     .hamburger-inner,
     .hamburger-inner::before,
@@ -34,8 +23,6 @@
       width: 30px;
       height: 2px;
       background-color: #6FFFE9;
-      //float: left;
-
       border-radius: 1.5px;
     }
 
@@ -51,15 +38,8 @@
   }
 
   .hamburger-label {
-    color: #bfbfbf;
     color: #6FFFE9;
-
     float: left;
-    font-size: .8rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    //display: flex;
     margin: 0px 8px 0 0;
   }
 }

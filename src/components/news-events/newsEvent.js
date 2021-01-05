@@ -41,6 +41,15 @@ const NewsEventTemplate = ({ data, pageContext }) => {
   //const { next, previous } = pageContext
   return (
     <>
+
+      <style type="text/css">
+        {`
+        body  {
+         background-color:  #d9e6ec;
+        }
+      `}
+      </style>
+
       <SEO
         title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={newsEventData.shortDescription.translate}
@@ -110,7 +119,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
               {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                 ?
                 <div className={asideForm.form}>
-                  <h4>{t("newsEvents:attendingEvent")}</h4>
+                  <p>{t("newsEvents:attendingEvent")}</p>
                   {/* <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4> */}
                   <form
                     name="peer-supporter-contact-form"

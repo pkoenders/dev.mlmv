@@ -37,6 +37,13 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
   return (
     <>
+      <style type="text/css">
+        {`
+        body  {
+         background-color:  #d9e6ec;
+        }
+      `}
+      </style>
       <SEO
         title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={peerData.peerShortDescription.translate}
@@ -139,7 +146,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
             <div className={peerSupporterStyles.contentComplementary}>
               <div className={asideForm.form}>
-                <h4>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</h4>
+                <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
                   name="peer-supporter-contact-form"
                   method="post"
