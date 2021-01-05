@@ -36,10 +36,10 @@ const ContactForm = ({ data, location, language }) => {
                             method="POST"
                             action={`/${i18n.language}/submit`}
                             //netlify-honeypot="bot-field"
-                            netlify-honeypot="hpfield"
+                            netlify-honeypot="hpFieldGeneral"
                             data-netlify="true"
                         >
-                            <input type="hidden" name="hpfield" />
+                            <input type="hidden" name="hpFieldGeneral" />
                             <input type="hidden" name="form-name" value="enquiry-general" />
                             <FormName />
                             <FormEmail />
