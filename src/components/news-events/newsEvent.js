@@ -18,6 +18,7 @@ import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
 //Collect the required form fields
+import HideBot from "../components/forms/formFields/hideBot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
@@ -125,12 +126,10 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                     name="enquiry-event"
                     method="POST"
                     action={`/${i18n.language}/submit`}
-                    //netlify-honeypot="bot-field"
-                    netlify-honeypot="hpFieldEvent"
+                    netlify-honeypot="bot-field"
                     data-netlify="true"
                   >
-                    <input type="hidden" name="hpFieldEvent" />
-                    <input type="hidden" name="form-name" value="enquiry-event" />
+                    <HideBot />
                     <FormName />
                     <FormEmail />
                     <FormContactNum />
