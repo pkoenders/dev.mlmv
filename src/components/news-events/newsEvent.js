@@ -125,7 +125,8 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                     name="enquiry-event"
                     method="POST"
                     action={`/${i18n.language}/submit`}
-                    netlify-honeypot="bot-field"
+                    //netlify-honeypot="bot-field"
+                    netlify-honeypot="hpfield"
                     data-netlify="true"
                   >
                     <input type="hidden" name="bot-field" />

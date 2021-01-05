@@ -151,7 +151,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   name="enquiry-peerSupporter"
                   method="POST"
                   action={`/${i18n.language}/submit`}
-                  netlify-honeypot="bot-field"
+                  //netlify-honeypot="bot-field"
+                  netlify-honeypot="hpfield"
                   data-netlify="true"
                 >
                   <input type="hidden" name="bot-field" />
