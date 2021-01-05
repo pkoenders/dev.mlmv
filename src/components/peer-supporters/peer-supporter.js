@@ -156,8 +156,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 >
                   {/* <HoneyPot /> */}
                   <input type="hidden" name="form-name" value="enquiry-peerSupporter" />
-                  <input type="hidden" name="Source" value={`Event - ${peerData.peerSupporterFullName.translate}`} />
-                  <input type="hidden" name="Email" value={peerData.peerSupporterEmail} />
+                  <input type="hidden" name="Source" value={`Peer Supporter - ${peerData.peerSupporterFullName.translate}`} />
+                  {/* <input type="hidden" name="Email" value={peerData.peerSupporterEmail} /> */}
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
