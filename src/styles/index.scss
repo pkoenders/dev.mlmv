@@ -258,7 +258,10 @@ form {
     margin: 15px 0;
     display: block;
   }
+}
 
+.hideBot {
+  display: none;
 }
 
 
@@ -313,7 +316,6 @@ form {
 .medium-zoom-image--opened {
   z-index: 100001;
   box-shadow: 0 0 10px 0 #5f5b5b9e !important;
-
 
 }
 

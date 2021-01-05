@@ -7,6 +7,7 @@ import BlockContent from "../components/common/blockContent"
 import DefaultSection from "../components/common/defaultSection"
 
 //Collect the required form fields
+import HideBot from "../components/forms/formFields/hideBot"
 import FormName from "../components/forms/formFields/name"
 import FormEmail from "../components/forms/formFields/email"
 import FormContactNum from "../components/forms/formFields/contactNumber"
@@ -70,12 +71,10 @@ const AccessibilityPage = ({ data, location, language }) => {
                   name="enquiry-accessibility"
                   method="POST"
                   action={`/${i18n.language}/submit`}
-                  //netlify-honeypot="bot-field"
-                  netlify-honeypot="hpFieldAccessibility"
+                  netlify-honeypot="bot-field"
                   data-netlify="true"
                 >
-                  <input type="hidden" name="hpFieldAccessibility" />
-                  <input type="hidden" name="form-name" value="enquiry-accessibility" />
+                  <HideBot />
                   <FormName />
                   <FormEmail />
                   <FormContactNum />
