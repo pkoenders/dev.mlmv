@@ -153,7 +153,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        <SectionContactForm data={data} language={language} />
+        <SectionContactForm data={data} language={language} location={location} />
       </Layout>
     </>
   )
