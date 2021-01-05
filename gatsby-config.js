@@ -127,15 +127,6 @@ module.exports = {
     },
 
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects-md`,
-        path: `${__dirname}/src/content/projects-md/`,
-      },
-    },
-
-
-    {
       resolve: 'gatsby-plugin-react-axe',
       options: {
         // Number of milliseconds to wait for component updates to cease before
