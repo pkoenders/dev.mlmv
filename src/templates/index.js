@@ -15,7 +15,7 @@ import SupportSection from "../components/homepage/supportSection"
 import UsrCommentsSection from "../components/homepage/userComments"
 
 // Turns out after much pain and testing, Netlify does not like two forms with the same name, ig flick language for some reason, so here is a seperate form for the homepage, no chared component!
-import SectionContactForm from "../components/forms/contactFormHomepage"
+import SectionContactFormHomepage from "../components/forms/contactFormHomepage"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -155,7 +155,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        <SectionContactForm data={data} language={language} location={location} />
+        <SectionContactFormHomepage data={data} language={language} />
       </Layout>
     </>
   )

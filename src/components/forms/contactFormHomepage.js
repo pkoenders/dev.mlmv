@@ -14,7 +14,7 @@ import FormMessage from "./formFields/message"
 import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
-const ContactForm = ({ data, location, language }) => {
+const ContactFormHomepage = ({ data, location, language }) => {
     const { t, i18n } = useTranslation("contact")
     const { sanityContactContent } = data
     const contentData = sanityContactContent
@@ -49,4 +49,4 @@ const ContactForm = ({ data, location, language }) => {
     )
 }
 
-export default ContactForm
+export default ContactFormHomepage
