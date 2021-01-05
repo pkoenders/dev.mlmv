@@ -13,7 +13,6 @@ import IconUp from "../../images/svg/icon-up.inline.svg"
 
 //Collect the required form fields
 import formStyles from '../forms/asideForm.module.scss'
-// import HoneyPot from "../forms/formFields/honeyPot"
 import FormName from "../forms/formFields/name"
 import FormEmail from "../forms/formFields/email"
 import FormContactNum from "../forms/formFields/contactNumber"
@@ -136,9 +135,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 {peerData.location.location.translate &&
                   <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
                 }
-                {/* {peerData.publishedAt &&
-                <span><IconTime />{peerData.publishedAt}</span>
-              } */}
               </div>
 
               <BlockContent blocks={peerData.peerLongDescription.localized} />
@@ -152,9 +148,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   method="POST"
                   action={`/${i18n.language}/submit`}
                   data-netlify="true"
-                // netlify-honeypot="hpfield"     
                 >
-                  {/* <HoneyPot /> */}
                   <input type="hidden" name="form-name" value="enquiry-peerSupporter" />
                   <input type="hidden" name="Source" value={`Peer Supporter - ${peerData.peerSupporterFullName.translate}`} />
                   {/* <input type="hidden" name="Email" value={peerData.peerSupporterEmail} /> */}

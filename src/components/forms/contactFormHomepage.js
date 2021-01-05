@@ -15,7 +15,7 @@ import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
 const ContactFormHomepage = ({ data, location, language }) => {
-    const { t, i18n } = useTranslation()
+    const { i18n } = useTranslation()
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
