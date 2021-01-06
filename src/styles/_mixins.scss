@@ -29,6 +29,11 @@
   outline: 3px solid $tertiaryColor !important;
 }
 
+@mixin minNavBottomBorder {
+
+  border-bottom: 1px solid #343b44;
+  box-shadow: $globalBoxShadowA;
+}
 
 @mixin prevNext {
   z-index: 100;

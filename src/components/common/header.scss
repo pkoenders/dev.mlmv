@@ -1,7 +1,7 @@
 @import "src/styles/scss";
 
 
-header.headerNavWrapper.hide {
+header.headerNavWrapper.slide {
   // will-change: transform;
   // transition: translate 1.4s;
   transform: translate(0, -61px);
@@ -18,9 +18,6 @@ header.headerNavWrapper {
   // transform: translate(0, 0);
   transition: all .4s;
   height: 60px;
-
-
-
 
   nav.headerNav {
     z-index: 1001;
@@ -141,9 +138,16 @@ header.headerNavWrapper {
       border-left: 1px solid #6FFFE9;
       overflow: scroll;
 
+      .toggleMainMenu {
+        button {
+          display: none;
+        }
+      }
+
       li {
         display: block;
         clear: both;
+
 
         a,
         p,
@@ -169,13 +173,11 @@ header.headerNavWrapper {
           vertical-align: middle;
         }
 
-        a:hover,
-        span:hover {
+        a:hover {
           text-decoration: none !important;
         }
 
         a:after,
-        span:after,
         button:after {
           content: '';
           position: absolute;
@@ -190,13 +192,11 @@ header.headerNavWrapper {
         }
 
         a:hover:after,
-        span:hover:after,
         button:hover:after {
           width: 100%;
         }
 
         a:focus,
-        span:focus,
         button:focus {
           outline: none;
         }
@@ -210,9 +210,7 @@ header.headerNavWrapper {
           @include focusVisibleForDark;
         }
 
-        span:focus-visible {
-          @include focusVisibleForDark;
-        }
+
 
         button:focus-visible {
           @include focusVisibleForDark;
@@ -222,15 +220,9 @@ header.headerNavWrapper {
           @include focusVisibleForDark;
         }
 
-        span:-moz-focusring {
-          @include focusVisibleForDark;
-        }
-
         button:-moz-focusring {
           @include focusVisibleForDark;
         }
-
-
 
       }
 
@@ -241,31 +233,59 @@ header.headerNavWrapper {
       li.breakNav {
         margin-top: 30px;
       }
+
+      ul {
+        margin: 0;
+
+        span {
+          padding: 0;
+
+          li {
+            a {
+              svg {
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
 
     //Desktop view
     @include respond-above(sm) {
       >ul {
 
-        display: block;
         display: flex;
-        border-left: none;
-        margin: 0 auto;
+        margin: 0;
         padding: 0px 0;
         top: 0;
         left: 0;
-        width: auto;
+        right: 0px;
+        width: 100%;
         overflow: visible;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border: none;
+
+        .toggleMainMenu {
+          button {
+            display: block;
+          }
+        }
 
         li {
           display: flex;
           align-self: center;
           margin: 0px 3px;
 
-          a {
+          a,
+          button {
             @include headerTxt;
             padding: 1px 15px 0px;
             display: inline-flex;
+            height: auto;
+            background-color: transparent;
           }
 
           a.activeNavItem {
@@ -278,7 +298,6 @@ header.headerNavWrapper {
           a:after,
           button:after {
             content: '';
-
             left: 50%;
             transition: all 150ms ease-in-out;
           }
@@ -288,9 +307,94 @@ header.headerNavWrapper {
             width: 100%;
             left: 0px;
           }
+
+          li.more {
+            background-color: transparent;
+            //border: none !important;
+
+          }
+
+          ul {
+            background-color: $headerBgColor;
+            position: absolute;
+            top: -999rem;
+            left: 0px;
+            right: 0px;
+            width: 100%;
+            margin: 0;
+            padding: 60px 0 10px;
+            z-index: -1;
+            @include minNavBottomBorder;
+            height: auto;
+
+            span {
+              max-width: 1200px;
+              display: flex;
+              margin: 15px auto;
+              align-items: center;
+              justify-content: center;
+              cursor: default !important;
+
+              li {
+
+
+                a {
+                  padding-top: 10px;
+                  display: flex;
+                  flex-direction: column;
+
+                  svg {
+                    display: block;
+                    height: 22px;
+                    width: auto;
+                    margin: 0 auto;
+                    opacity: .33;
+                  }
+                }
+
+                a.activeNavItem {
+                  color: #ffffff;
+                  background: none;
+                  border-radius: 0px;
+                  overflow: hidden;
+
+                  svg {
+                    opacity: 1;
+                  }
+                }
+
+                a.activeNavItem:after {
+                  content: '';
+                  left: 50%;
+                  transition: all 150ms ease-in-out;
+                  width: 100%;
+                  left: 0px;
+
+
+                }
+
+                a:hover {
+
+                  svg {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+
+          ul.open {
+            //display: block ;
+            top: 0px;
+          }
+
+          ul.slide {
+            transform: translate(0, -0px);
+          }
         }
 
         li.hide {
+
           display: none;
         }
       }
@@ -323,15 +427,11 @@ header.headerNavWrapper {
 
   div.localeSeletor {
     order: 2;
-
-    @include respond-below(sm) {
-      order: 2;
-    }
-
     position: absolute;
-    top:0px;
+    top: 0px;
     right: 0px;
-    padding: 10px 0 10px;
+    padding: 10px 0 0;
+
 
     button {
       @include headerTxt;
@@ -340,24 +440,21 @@ header.headerNavWrapper {
       display: flex;
       align-self: center;
       float: right;
-      padding: 8px 15px;
+      margin-right: 10px;
+      padding: 8px 5px;
       cursor: pointer;
       text-transform: uppercase;
       height: fit-content;
       background-color: transparent;
 
       svg {
-        width: 20px;
+        width: 22px;
         height: auto;
-        margin: 2px 0 0 5px;
+        margin: 0 0 0 5px;
         //transform: rotate(0);
         transition: transform .15s linear;
         vertical-align: middle;
         //transform-style: preserve-3d;
-      }
-
-      svg.open {
-        //transform: rotate(90deg);
       }
     }
 
@@ -377,25 +474,25 @@ header.headerNavWrapper {
 
     ul {
       margin: 0;
-      padding: 0;
+      padding: 0 0 10px 0;
       list-style: none;
       float: right;
       clear: both;
-      //visibility: hidden;
       display: none;
       position: relative;
       width: 100%;
+      border-bottom: 1px solid #343b44;
+
 
       li {
-        text-align: left;
         clear: both;
-        // margin: 0 32px 0 0;
+        padding: 0 0 0 10px;
 
         a {
           @include headerTxt;
           color: #ffffff;
-          padding: 5px 32px 5px 15px;
-          margin: 0;
+          padding: 10px 5px;
+          margin-right: 10px;
           width: 100%;
           text-align: right;
           cursor: pointer;
@@ -431,12 +528,11 @@ header.headerNavWrapper::before {
 
 header.headerNavWrapper.fillBground::before {
   opacity: 1;
-  box-shadow: $globalBoxShadowA;
 
 }
 
 header.headerNavWrapper.fillBgroundQuick::before {
   opacity: 1;
   transition: opacity 0s;
-  box-shadow: $globalBoxShadowA;
+  @include minNavBottomBorder;
 }

@@ -47,7 +47,6 @@ const AlertsSection = ({ data, language }) => {
                 id={edge.node.homepageAlertName}
               >
                 <div
-
                   className={alertStyles.sectionInner}
                   aria-label="Alert panel">
                   <div>

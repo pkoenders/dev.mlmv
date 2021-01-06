@@ -40,11 +40,12 @@ export const onRouteUpdate = () => {
     //     background: '#ffffff',
     // })
 
-    "resize reload click keyup".split(" ").forEach(function (e) {
-        window.addEventListener(e, () => {
-            resizeAllGridItems()
-        })
-    })
+    // "resize reload click keyup".split(" ").forEach(function (e) {
+    //     window.addEventListener(e, () => {
+    //         resizeAllGridItems()
+    //         //toggleMainNav()
+    //     })
+    // })
 
 
 }
@@ -56,6 +57,7 @@ function ready() {
     // }
 
     resizeAllGridItems()
+    toggleMainNav()
     srollNav()
     canvasAnin()
 }
@@ -140,30 +142,40 @@ function runCanvasAnin(animItem) {
     }
 }
 
+function toggleMainNav() {
+    const toggleMainBtn = document.getElementById('toggleMainMenu');
+    const toggleMainMenu = document.querySelector(".toggleMainMenu ul")
+    document.addEventListener('click', function (event) {
+        var isClickInside = toggleMainBtn.contains(event.target);
+        if (isClickInside) {
+            toggleMainMenu.classList.toggle("open")
+        } else {
+            toggleMainMenu.classList.remove("open")
+        }
+    })
+
+
+}
+
 
 function srollNav() {
     const contentStart = document.querySelector(".contentStart")
     const headerNavWrapper = document.querySelector(".headerNavWrapper")
+    // const toggleMainMenu = document.querySelector(".toggleMainMenu > ul")
     const hamBurgerBtn = document.querySelector(".hamburger")
     var prevScrollpos = 0;
     // No errors
-    var projectsNav = document.querySelector('.projects-nav');
-    //console.log('prevScrollpos = ' + prevScrollpos)
+
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if ((prevScrollpos >= currentScrollPos) || (hamBurgerBtn.classList.contains("is-active"))) {
-            //headerNavWrapper.style.top = "0";
-            headerNavWrapper.classList.remove("hide")
-            if (projectsNav) {
-                projectsNav.style.top = "60px";
-            }
+            headerNavWrapper.classList.remove("slide")
+            // toggleMainMenu.classList.remove("slide")
 
         } else {
-            //headerNavWrapper.style.top = "-61px";
-            headerNavWrapper.classList.add("hide")
-            if (projectsNav) {
-                projectsNav.style.top = "-1px";
-            }
+            headerNavWrapper.classList.add("slide")
+            // toggleMainMenu.classList.add("slide")
+
         }
 
         if (contentStart) {

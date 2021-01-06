@@ -1,11 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
-//import Img from 'gatsby-image'
-//import PlaceImage from './image/image'
+
 import { useTranslation } from "react-i18next"
 import LogoMLMVHeader from "../../images/svg/logo-mlmv.inline.svg"
 import IconCloseMenu from "../../images/svg/icon-close.inline.svg"
 import IconLanguage from "../../images/svg/icon-language.inline.svg"
+
+import IconAbout from "../../images/svg/icon-info.inline.svg"
+import IconContact from "../../images/svg/icon-contact-us.inline.svg"
+import IconTerms from "../../images/svg/icon-terms.inline.svg"
+import IconAccessibilty from "../../images/svg/icon-accessible.inline.svg"
 import '../../styles/index.scss'
 import "../../styles/hamburger.scss"
 import "./header.scss"
@@ -39,6 +43,7 @@ const Header = ({ location }) => {
   } else if (i18n.language === 'mi') {
     currentLanguage = 'Māori'
   }
+
 
   function toggleMobileNav() {
     const headerNavHomepage = document.querySelector(".homePage")
@@ -170,41 +175,61 @@ const Header = ({ location }) => {
                 News &amp; events
                 </Link>
             </li>
-            <li>
-              <Link
-                to={`/${i18n.language}/about`}
-                activeClassName={"activeNavItem"}
-                tabIndex="0"
-                title="Link to About My Life My Voice">
-                About us
+
+            <li className="toggleMainMenu">
+              <button
+                id="toggleMainMenu"
+
+              >
+                More..
+              </button>
+              <ul className="hide">
+                <span>
+                  <li>
+                    <Link
+                      to={`/${i18n.language}/about`}
+                      activeClassName={"activeNavItem"}
+                      tabIndex="0"
+                      title="Link to About My Life My Voice">
+                      <IconAbout aria-hidden="true" />
+                      About us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/${i18n.language}/contact`}
+                      activeClassName={"activeNavItem"}
+                      tabIndex="0"
+                      title="Link to Contact us">
+                      <IconContact aria-hidden="true" />
+                      Contact us
                 </Link>
-            </li>
-            <li className="hide">
-              <Link
-                to={`/${i18n.language}/contact`}
-                activeClassName={"activeNavItem"}
-                tabIndex="0"
-                title="Link to Contact us">
-                Contact us
-                </Link>
-            </li>
-            <li className="hide">
-              <Link
-                to={`/${i18n.language}/terms-and-use`}
-                activeClassName={"activeNavItem"}
-                tabIndex="0"
-                title="Link to Terms of use">Terms of use
+                  </li>
+                  <li>
+                    <Link
+                      to={`/${i18n.language}/terms-and-use`}
+                      activeClassName={"activeNavItem"}
+                      tabIndex="0"
+                      title="Link to Terms of use">
+                      <IconTerms aria-hidden="true" />
+                        Terms of use
               </Link>
-            </li>
-            <li className="hide">
-              <Link
-                to={`/${i18n.language}/accessibility`}
-                activeClassName={"activeNavItem"}
-                tabIndex="0"
-                title="Link to Website accessiblity">
-                Website accessiblity
+                  </li>
+                  <li>
+                    <Link
+                      to={`/${i18n.language}/accessibility`}
+                      activeClassName={"activeNavItem"}
+                      tabIndex="0"
+                      title="Link to Website accessiblity">
+                      <IconAccessibilty aria-hidden="true" />
+                      Accessibility
                 </Link>
+                  </li>
+                </span>
+              </ul>
             </li>
+
+
             <li className="closeMenu breakNav hide">
               <span
                 type="button"
@@ -221,15 +246,13 @@ const Header = ({ location }) => {
 
           <div className="localeSeletor" aria-label="Select language">
             <button
-              type="button"
               name="selectLanguage"
               tabIndex="0"
               onClick={handleLanguageSelector}
-              onKeyPress={handleLanguageSelector}
-              aria-label={'Current language is set to ' + currentLanguage}
+              aria-label={'Current language is set to ' + currentLanguage + ' Click to change'}
             >
 
-              {currentLanguage}
+              {/* {currentLanguage} */}
               <IconLanguage aria-hidden="true" />
             </button>
 
