@@ -38,17 +38,6 @@ module.exports = {
 
 
 
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        color: `#99dfbe`,
-        // Disable the loading spinner.
-        showSpinner: false,
-        //parent: '.headerNavWrapper',
-      },
-    },
-
 
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
@@ -99,6 +88,8 @@ module.exports = {
         },
       },
     },
+
+    'gatsby-plugin-preload-link-crossorigin',
 
     {
       resolve: 'gatsby-plugin-react-svg',
