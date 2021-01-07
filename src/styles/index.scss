@@ -2,6 +2,10 @@
 @import "./reset";
 @import "./checkbox-radios";
 
+html {
+  background-color: $primaryColor;
+}
+
 body {
   background-color: #ffffff;
 }
