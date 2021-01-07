@@ -66,6 +66,8 @@ module.exports = {
       }
     },
 
+    `gatsby-plugin-preload-fonts`,
+
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -74,7 +76,7 @@ module.exports = {
             {
               family: "Roboto",
               variants: ["300", "400", "500", "700"],
-              fontDisplay: 'swap',
+              fontDisplay: 'swap'
             },
             {
               family: "Noto Serif",
@@ -85,7 +87,7 @@ module.exports = {
             {
               family: "Merriweather",
               variants: ["400", "700", "900"],
-              fontDisplay: 'swap',
+              fontDisplay: 'swap'
             },
           ],
         },
