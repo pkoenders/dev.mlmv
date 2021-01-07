@@ -9,4 +9,4 @@
 # http://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/#:splat 301!
 
 # http://dev-mlmv.netlify.app/*   https://dev-mlmv.netlify.app/en 301!
- http://dev-mlmv.netlify.app  https://dev-mlmv.netlify.app 
+ http://dev-mlmv.netlify.app  https://dev-mlmv.netlify.app 301!
