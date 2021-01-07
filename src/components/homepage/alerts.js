@@ -19,7 +19,6 @@ const AlertsSection = ({ data, language }) => {
     const alertPanel = event.target.parentNode
     alertPanel.remove()
     sessionStorage.setItem(event.target.parentNode.id, "True");
-    return false;
     //console.log('alertPanel = ' + alertPanel)
   }
 
@@ -35,6 +34,7 @@ const AlertsSection = ({ data, language }) => {
           var currentTimeParsed = Date.parse(currentTime)
 
           const alertLevel = edge.node.alertLevel.alertLevel
+          const sessionActive = sessionStorage.getItem(edge.node.homepageAlertName)
           //console.log("expirayDateParsed = " + expirayDateParsed)
           //console.log("currentTimeParsed = " + currentTimeParsed)
 
@@ -42,7 +42,7 @@ const AlertsSection = ({ data, language }) => {
             return null
           }
 
-          if ((edge.node.homepageAlertActive === true) && (sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
+          if ((edge.node.homepageAlertActive === true) && (sessionActive !== "True")) {
             return (
               <section
                 className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
