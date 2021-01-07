@@ -47,7 +47,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
         title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={peerData.peerShortDescription.translate}
       />
-      <section className={prevNextStyles.prevNext + ' section-layout-wide projects-nav'}>
+      <section className={prevNextStyles.prevNext + ' section-layout-wide prevNext'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
             <Link

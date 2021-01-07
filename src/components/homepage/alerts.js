@@ -14,6 +14,7 @@ const AlertsSection = ({ data, language }) => {
   const alertDataList = allSanityHomepageAlert
   const alertData = alertDataList.edges
 
+
   const closeAlert = event => {
     const alertPanel = event.target.parentNode
     alertPanel.remove()
@@ -32,6 +33,8 @@ const AlertsSection = ({ data, language }) => {
           var expirayDateParsed = Date.parse(expirayDate)
           var currentTime = Date()
           var currentTimeParsed = Date.parse(currentTime)
+
+          const alertLevel = edge.node.alertLevel.alertLevel
           //console.log("expirayDateParsed = " + expirayDateParsed)
           //console.log("currentTimeParsed = " + currentTimeParsed)
 
@@ -42,7 +45,7 @@ const AlertsSection = ({ data, language }) => {
           if ((edge.node.homepageAlertActive === true) && (sessionStorage.getItem(edge.node.homepageAlertName) !== "True")) {
             return (
               <section
-                className={alertStyles.sectionWrapper + ' section-layout-wide alertLevels level0 ' + `${edge.node.alertLevel.alertLevel}`}
+                className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
                 key={alertID}
                 id={edge.node.homepageAlertName}
               >

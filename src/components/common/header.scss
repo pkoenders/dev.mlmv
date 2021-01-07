@@ -28,7 +28,7 @@ header.headerNavWrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-content: flex-start;
+    align-content: center;
     justify-content: space-between;
 
 
@@ -83,20 +83,16 @@ header.headerNavWrapper {
     button {
       order: 0;
       display: none;
-      // justify-self: flex-start;
-      // align-content: flex-start;
       position: absolute;
-      top: 0px;
       left: 0px;
       margin: 0 0 auto 0;
       width: fit-content;
       white-space: nowrap;
-      align-self: center;
-      padding: 2px 15px;
-      height: 60px;
+      align-self: top;
+      height: 59px;
+      padding: 0 15px;
       background-color: $headerBgColor;
       border: none;
-      align-self: center;
       cursor: pointer;
 
       span {
@@ -104,7 +100,6 @@ header.headerNavWrapper {
       }
 
       @include respond-below(sm) {
-        order: 0;
         display: block;
       }
     }
@@ -182,7 +177,7 @@ header.headerNavWrapper {
           content: '';
           position: absolute;
           bottom: 0px;
-          display: block;
+          display: flex;
           border-radius: 1.5px;
           background: #6fffe9;
           height: 1px;
@@ -473,7 +468,7 @@ header.headerNavWrapper {
     }
 
     ul {
-      margin: 0;
+      margin: 10px 0 0 0;
       padding: 0 0 10px 0;
       list-style: none;
       float: right;

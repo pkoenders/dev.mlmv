@@ -264,6 +264,12 @@ form {
   display: none;
 }
 
+.prevNext.slide {
+  will-change: transform;
+  transition: all .4s;
+  top: 0px;
+}
+
 
 
 #SRLLightbox {

@@ -161,6 +161,7 @@ function toggleMainNav() {
 function srollNav() {
     const contentStart = document.querySelector(".contentStart")
     const headerNavWrapper = document.querySelector(".headerNavWrapper")
+    const prevNext = document.querySelector(".prevNext")
     // const toggleMainMenu = document.querySelector(".toggleMainMenu > ul")
     const hamBurgerBtn = document.querySelector(".hamburger")
     var prevScrollpos = 0;
@@ -171,21 +172,25 @@ function srollNav() {
         if ((prevScrollpos >= currentScrollPos) || (hamBurgerBtn.classList.contains("is-active"))) {
             headerNavWrapper.classList.remove("slide")
             // toggleMainMenu.classList.remove("slide")
-
+            if (prevNext) {
+                prevNext.classList.remove("slide")
+            }
         } else {
             headerNavWrapper.classList.add("slide")
             // toggleMainMenu.classList.add("slide")
-
+            if (prevNext) {
+                prevNext.classList.add("slide")
+            }
         }
 
         if (contentStart) {
             var rect = contentStart.getBoundingClientRect()
             headerNavWrapper.classList.remove("fillBground")
             var rectHeight = rect.bottom / 2
-            console.log(rectHeight)
+            //console.log(rectHeight)
             //console.log(rect.top);
             //if (rect.bottom <= 61) {
-            if (rectHeight <= 120) {
+            if (rectHeight <= 100) {
                 headerNavWrapper.classList.add("fillBground")
             } else {
                 headerNavWrapper.classList.remove("fillBground")

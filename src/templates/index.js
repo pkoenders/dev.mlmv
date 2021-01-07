@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
-//import AlertSection from "../components/homepage/alerts"
+import AlertSection from "../components/homepage/alerts"
 //import PromotedSupporters from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
@@ -142,7 +142,7 @@ const IndexPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <HeaderImg data={data} language={language} />
-        {/* <AlertSection data={data} language={language} /> */}
+        <AlertSection data={data} language={language} />
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
             <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />

@@ -55,7 +55,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
         title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={newsEventData.shortDescription.translate}
       />
-      <section className={prevNextStyles.prevNext + ' section-layout-wide projects-nav'}>
+      <section className={prevNextStyles.prevNext + ' section-layout-wide prevNext'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
             <Link
