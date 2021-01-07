@@ -71,7 +71,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                   name="Accessibility"
                   id="accessibility"
                   method="post"
-                  action={`./${i18n.language}/submit`}
+                  action={`../${i18n.language}/submit`}
                   data-netlify="true"
                 // netlify-honeypot="hpfield"     
                 >

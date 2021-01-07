@@ -39,6 +39,9 @@ const NewsEventTemplate = ({ data, pageContext }) => {
   const { sanityNewsEventsHomepage } = data
   const newsEventDataHome = sanityNewsEventsHomepage
 
+
+  const submitUrl = "../../" + i18n.language + "/submit"
+
   //const { next, previous } = pageContext
   return (
     <>
@@ -124,7 +127,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                   <form
                     name="Events"
                     method="post"
-                    action={`../../${i18n.language}/submit`}
+                    action={`${submitUrl}`}
                     data-netlify="true"
                   // netlify-honeypot="hpfield"     
                   >

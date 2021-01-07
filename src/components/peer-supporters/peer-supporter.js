@@ -34,6 +34,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   const peerDataHome = sanityPeerSupportersHomepage
   const { next, previous } = pageContext
 
+  const submitUrl = "../../" + i18n.language + "/submit"
+
   return (
     <>
       <style type="text/css">
@@ -146,7 +148,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 <form
                   name="PeerSupporters"
                   method="post"
-                  action={`../../${i18n.language}/submit`}
+                  action={`${submitUrl}`}
                   //action="/en/submit"
                   data-netlify="true"
                 >
