@@ -76,18 +76,15 @@ module.exports = {
             {
               family: "Roboto",
               variants: ["300", "400", "500", "700"],
-              fontDisplay: 'swap'
             },
             {
               family: "Noto Serif",
               variants: ["700"],
-              fontDisplay: 'swap',
               text: "“ ”"
             },
             {
               family: "Merriweather",
               variants: ["400", "700", "900"],
-              fontDisplay: 'swap'
             },
           ],
         },
