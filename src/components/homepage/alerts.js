@@ -92,6 +92,8 @@ const AlertsSection = ({ data, language }) => {
         })}
       </>
     )
+  } else {
+    return null
   }
 }
 
