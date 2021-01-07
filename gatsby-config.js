@@ -66,30 +66,29 @@ module.exports = {
       }
     },
 
-    `gatsby-plugin-preload-fonts`,
+    //`gatsby-plugin-preload-fonts`,
 
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        fonts: {
-          google: [
-            {
-              family: "Roboto",
-              variants: ["300", "400", "500", "700"],
-            },
-            {
-              family: "Noto Serif",
-              variants: ["700"],
-              text: "“ ”"
-            },
-            {
-              family: "Merriweather",
-              variants: ["400", "700", "900"],
-            },
-          ],
-        },
+        fonts: [
+          {
+            family: "Roboto",
+            variants: ["300", "400", "500", "700"],
+          },
+          {
+            family: "Noto Serif",
+            variants: ["700"],
+            text: "“ ”"
+          },
+          {
+            family: "Merriweather",
+            variants: ["400", "700", "900"],
+          },
+        ],
       },
     },
+
 
     {
       resolve: 'gatsby-plugin-react-svg',
