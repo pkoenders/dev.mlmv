@@ -38,7 +38,6 @@ module.exports = {
 
 
 
-
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
@@ -75,21 +74,23 @@ module.exports = {
             {
               family: "Roboto",
               variants: ["300", "400", "500", "700"],
+              fontDisplay: 'swap',
             },
             {
-              family: `Tinos`,
-              variants: [`700`],
+              family: "Noto Serif",
+              variants: ["700"],
+              fontDisplay: 'swap',
+              text: "“ ”"
             },
             {
-              family: `Merriweather`,
-              variants: [`400`, `700`, `900`]
+              family: "Merriweather",
+              variants: ["400", "700", "900"],
+              fontDisplay: 'swap',
             },
           ],
         },
       },
     },
-
-    'gatsby-plugin-preload-link-crossorigin',
 
     {
       resolve: 'gatsby-plugin-react-svg',
@@ -197,6 +198,7 @@ module.exports = {
         icon_options: {
           purpose: `maskable`,
         },
+        crossOrigin: `anonymous`,
         cache_busting_mode: `none`, // `query`(default), `name`, or `none`
         localize: [
           {
@@ -214,6 +216,9 @@ module.exports = {
         ],
       },
     },
+
+
+
 
     `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -237,7 +242,7 @@ module.exports = {
     },
 
 
-    `gatsby-plugin-client-side-redirect` // keep it in last in list
+    // `gatsby-plugin-client-side-redirect` // keep it in last in list
 
   ],
 }

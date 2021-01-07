@@ -73,10 +73,7 @@
                     color: #363c46;
                     margin: 0;
 
-
                 }
-
-
 
                 p:nth-child(1) {
                     font-size: 1.1rem;
@@ -94,12 +91,11 @@
 
                 p:nth-child(2):before,
                 p:nth-child(2):after {
-                    font-family: 'Tinos', serif;
+                    font-family: 'Noto Serif', serif;
                     font-weight: 700;
                     font-size: 2.2rem;
                     line-height: 0;
                     position: absolute;
-
                 }
 
                 p:nth-child(2):before {
