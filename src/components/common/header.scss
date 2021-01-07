@@ -446,10 +446,14 @@ header.headerNavWrapper {
         width: 22px;
         height: auto;
         margin: 0 0 0 5px;
-        //transform: rotate(0);
-        transition: transform .15s linear;
         vertical-align: middle;
-        //transform-style: preserve-3d;
+        opacity: .66;
+      }
+    }
+
+    button:hover {
+      svg {
+        opacity: 1;
       }
     }
 

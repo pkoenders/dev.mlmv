@@ -5,32 +5,24 @@
     padding: 15px 0 0 0;
     margin-top: 60px !important;
 
-    @include respond-below(lg) {
-        //padding: 7.5px 0 15px 0;
-    }
-
     .filterLabel {
         position: absolute;
-        width: auto;
+        width: fit-content;
         top: 18px;
         left: 45px;
-        right: 60px;
         z-index: 1;
-
-        @include respond-below(md) {
-            left: 30px;
-            right: 60px;
-        }
-
         color: #0B132B;
         background-color: transparent;
         font-weight: 400;
         font-size: 1.0rem;
         line-height: 1.0rem;
-        transition: top .015s;
-        transition-delay: 0s;
         white-space: nowrap;
-        overflow: hidden;
+
+
+        @include respond-below(md) {
+            left: 30px;
+            //right: 60px;
+        }
     }
 
 
@@ -42,7 +34,6 @@
             padding: 15px 30px 0;
             position: relative;
             margin-top: 10px;
-
             padding: 15px 30px 0;
 
             @include respond-below(md) {
@@ -79,10 +70,9 @@
 
 
             input[type=search]:focus {
-                transition: background-color .25s linear;
                 color: $headerBgColor;
                 background-color: #ffffff;
-                outline: none;
+                outline: 3px solid $tertiaryColor !important;
 
             }
 

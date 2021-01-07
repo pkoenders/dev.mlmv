@@ -162,7 +162,7 @@ div.wrapper {
             .contentComplementary {
                 order: 1;
                 flex-basis: 33.3%;
-                padding: 15px 15px 0 0;
+                padding: 15px 15px 15px 0;
                 text-align: left;
 
                 @include respond-below(sm) {

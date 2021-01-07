@@ -43,7 +43,10 @@ const ContactPage = ({ data, location, language }) => {
         description={data.sanityContactContent.contactDescription.translate}
       />
       <Layout location={location}>
-        <SectionContactForm data={data} language={language} location={location} />
+        <div style={{ marginTop: '60px' }} >
+          <SectionContactForm data={data} language={language} location={location} />
+        </div>
+
       </Layout>
     </>
   )

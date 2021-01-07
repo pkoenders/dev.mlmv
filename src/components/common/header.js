@@ -178,7 +178,6 @@ const Header = ({ location }) => {
 
             <li className="toggleMainMenu">
               <button
-                aria-hidden="true"
                 id="toggleMainMenu"
               >
                 More..

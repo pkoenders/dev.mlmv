@@ -22,13 +22,14 @@ const ContactForm = ({ data, location, language }) => {
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
 
-            {location.pathname !== "/" + i18n.language
-                ? <h1>{t("contact:title")}</h1>
-                : ''
-            }
+
             <div className={contactStyles.contactFormWrapper}>
 
                 <div className={contactStyles.contactForm}>
+                    {location.pathname !== "/" + i18n.language
+                        ? <h1>{t("contact:title")}</h1>
+                        : ''
+                    }
                     <IconWave />
                     <BlockContent blocks={contentData.contactContent.localized} />
                     <div className={contactStyles.contactFormInput}>

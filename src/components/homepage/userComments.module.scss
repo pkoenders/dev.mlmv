@@ -18,12 +18,10 @@
         padding: 60px 0px;
 
         @include respond-below(md) {
-            padding: 45px 0px 10px;
-        }
-
-        @include respond-below(sm) {
             padding: 45px 0px 5px;
         }
+
+
 
 
 

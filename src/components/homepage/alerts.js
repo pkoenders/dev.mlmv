@@ -7,8 +7,8 @@ import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
 const AlertsSection = ({ data, language }) => {
   //const { t, i18n } = useTranslation("index")
 
-  const { sanityHomepageSettings } = data
-  const homepageAlerts = sanityHomepageSettings
+  //const { sanityHomepageSettings } = data
+  //const homepageAlerts = sanityHomepageSettings
 
   const { allSanityHomepageAlert } = data
   const alertDataList = allSanityHomepageAlert
@@ -23,7 +23,6 @@ const AlertsSection = ({ data, language }) => {
   }
 
 
-  //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
   return (
     <>
       {alertData.map((edge, alertID) => {
@@ -34,9 +33,12 @@ const AlertsSection = ({ data, language }) => {
         var sessionActive
 
         const alertLevel = edge.node.alertLevel.alertLevel
+
+        //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
         if (typeof window !== 'undefined') {
           sessionActive = sessionStorage.getItem(edge.node.homepageAlertName)
         }
+
         //console.log("expirayDateParsed = " + expirayDateParsed)
         //console.log("currentTimeParsed = " + currentTimeParsed)
 
@@ -82,19 +84,13 @@ const AlertsSection = ({ data, language }) => {
                 : ''
               }
             </section >
-
-
           )
-
         } else {
           return null
         }
-
-
       })}
     </>
   )
-
 }
 
 export default AlertsSection

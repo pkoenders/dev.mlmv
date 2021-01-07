@@ -3,10 +3,16 @@
 .contactFormSection,
 .contactFormSectionSuccess {
     background: $pageBgColor;
+
     padding: 90px 15px 90px;
+    //margin-top: 90px;
+
+    @include respond-below(md) {
+        padding: 20px 15px 15px;
+    }
 
     @include respond-below(sm) {
-        padding: 0px 0px;
+        padding: 0px;
     }
 
     .contactFormWrapper,
@@ -21,6 +27,8 @@
         .contactForm {
             display: block;
             padding: 30px;
+
+
 
             @include respond-below(sm) {
                 padding: 30px 15px 15px;
@@ -61,60 +69,6 @@
             button {
                 display: table;
                 margin: 30px auto;
-            }
-        }
-    }
-}
-
-
-.contactFormSectionSuccess {
-    background: none;
-
-    .contactSuccessWrapper {
-        background-color: transparent;
-        box-shadow: none;
-        text-align: center;
-
-        .contactSuccess {
-            svg {
-                display: block;
-                width: 200px;
-                height: auto;
-                margin: 90px auto 60px auto;
-            }
-
-
-
-            p {
-                //color: #ffffff;
-                font-size: 1.0rem;
-                font-weight: 500;
-                line-height: 1.0rem;
-                margin-bottom: 1rem;
-
-                a {
-                    color: $primaryColor;
-                }
-
-                a,
-                a:hover {
-                    //display: block;
-                    display: inline-block;
-
-                    margin: 15px 0;
-                    //color: #ffffff;
-                    color: $primaryColor;
-                    text-decoration: none;
-                    white-space: nowrap;
-
-                    .contactIconPhone {
-                        display: inline-block;
-                        vertical-align: middle;
-                        width: 32px;
-                        height: auto;
-                        margin: 0px 0px 0 0px;
-                    }
-                }
             }
         }
     }

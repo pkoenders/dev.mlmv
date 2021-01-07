@@ -476,22 +476,38 @@ form {
 
 
 label.filterLabel.focus {
-  border: 3px solid $tertiaryColor !important;
-  border-bottom: none !important;
-}
-
-label.filterLabel.active {
+  border: 3px solid $tertiaryColor;
+  border-bottom: none;
   position: absolute;
-  width: fit-content;
-  top: -23px !important;
-  padding: 2px 8px;
+  width: auto;
+  display: flex;
+  //align-self: flex-end;
+  top: -24px;
+  padding: 5px 10px 0 10px;
   font-size: .8rem;
+
+
   font-weight: 400;
   color: #0B132B;
   background-color: #ffffff;
-  border: 3px solid #ffffff;
-  border-bottom: none;
+  overflow: visible;
+
+
+
 }
+
+label.filterLabel.focus:after {
+  content: '';
+  bottom: 0px;
+  position: absolute;
+  left: 0px;
+  height: 10px;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: -1;
+
+}
+
 
 input#peerFilterInput.focus[type=search] {
   color: $headerBgColor;

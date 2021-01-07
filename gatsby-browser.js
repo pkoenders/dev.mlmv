@@ -40,12 +40,12 @@ export const onRouteUpdate = () => {
     //     background: '#ffffff',
     // })
 
-    // "resize reload click keyup".split(" ").forEach(function (e) {
-    //     window.addEventListener(e, () => {
-    //         resizeAllGridItems()
-    //         //toggleMainNav()
-    //     })
-    // })
+    "resize reload click keyup".split(" ").forEach(function (e) {
+        window.addEventListener(e, () => {
+            resizeAllGridItems()
+            //toggleMainNav()
+        })
+    })
 
 
 }
