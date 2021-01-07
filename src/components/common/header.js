@@ -228,10 +228,7 @@ const Header = ({ location }) => {
 
             <li className="closeMenu breakNav hide">
               <button
-                // type="button"
                 tabIndex="0"
-                role="button"
-                onKeyPress={toggleMobileNav}
                 onClick={toggleMobileNav}>
                 Close menu
                 <IconCloseMenu aria-hidden="true" />
