@@ -7,8 +7,8 @@ import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
 const AlertsSection = ({ data, language }) => {
   //const { t, i18n } = useTranslation("index")
 
-  //const { sanityHomepageSettings } = data
-  //const homepageAlerts = sanityHomepageSettings
+  const { sanityHomepageSettings } = data
+  const homepageAlertsActive = sanityHomepageSettings.homepageAlertsActive
 
   const { allSanityHomepageAlert } = data
   const alertDataList = allSanityHomepageAlert
@@ -23,74 +23,76 @@ const AlertsSection = ({ data, language }) => {
   }
 
 
-  return (
-    <>
-      {alertData.map((edge, alertID) => {
-        var expirayDate = edge.node.homepageAlertExpirey
-        var expirayDateParsed = Date.parse(expirayDate)
-        var currentTime = Date()
-        var currentTimeParsed = Date.parse(currentTime)
-        var sessionActive
 
-        const alertLevel = edge.node.alertLevel.alertLevel
+  if (homepageAlertsActive === true) {
+    return (
+      <>
+        {alertData.map((edge, alertID) => {
+          var expirayDate = edge.node.homepageAlertExpirey
+          var expirayDateParsed = Date.parse(expirayDate)
+          var currentTime = Date()
+          var currentTimeParsed = Date.parse(currentTime)
+          var sessionActive
+          const alertLevel = edge.node.alertLevel.alertLevel
 
-        //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
-        if (typeof window !== 'undefined') {
-          sessionActive = sessionStorage.getItem(edge.node.homepageAlertName)
-        }
+          //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
+          if (typeof window !== 'undefined') {
+            sessionActive = sessionStorage.getItem(edge.node.homepageAlertName)
+          }
 
-        //console.log("expirayDateParsed = " + expirayDateParsed)
-        //console.log("currentTimeParsed = " + currentTimeParsed)
+          //console.log("expirayDateParsed = " + expirayDateParsed)
+          //console.log("currentTimeParsed = " + currentTimeParsed)
 
-        if (expirayDateParsed < currentTimeParsed) {
-          return null
-        }
+          if (expirayDateParsed < currentTimeParsed) {
+            return null
+          }
 
-        if ((edge.node.homepageAlertActive === true) && (sessionActive !== "True")) {
-          return (
-            <section
-              className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
-              key={alertID}
-              id={edge.node.homepageAlertName}
-            >
-              <div
-                className={alertStyles.sectionInner}
-                aria-label="Alert panel">
-                <div>
-                  {edge.node.homepageAlertTitle != null
-                    ? <p><strong>{edge.node.homepageAlertTitle.translate}</strong></p>
-                    : ''
-                  }
+          if ((edge.node.homepageAlertActive === true) && (sessionActive !== "True")) {
+            return (
+              <section
+                className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
+                key={alertID}
+                id={edge.node.homepageAlertName}
+              >
+                <div
+                  className={alertStyles.sectionInner}
+                  aria-label="Alert panel">
+                  <div>
+                    {edge.node.homepageAlertTitle != null
+                      ? <p><strong>{edge.node.homepageAlertTitle.translate}</strong></p>
+                      : ''
+                    }
 
-                  {edge.node.homepageAlertDescription != null
-                    ? <BlockContent blocks={edge.node.homepageAlertDescription.localized} />
-                    : ''
-                  }
+                    {edge.node.homepageAlertDescription != null
+                      ? <BlockContent blocks={edge.node.homepageAlertDescription.localized} />
+                      : ''
+                    }
+                  </div>
                 </div>
-              </div>
-              {edge.node.homepageAlertDismiss === true
-                ? <button
-                  type="button"
-                  tabIndex="0"
-                  aria-label="Closes this alert panel"
-                  aria-controls="Alerts"
-                  aria-expanded="false"
-                  aria-pressed="false"
-                  onKeyPress={closeAlert}
-                  onClick={closeAlert}
-                >
-                  <IconClose aria-hidden="true" />
-                </button>
-                : ''
-              }
-            </section >
-          )
-        } else {
-          return null
-        }
-      })}
-    </>
-  )
+                {edge.node.homepageAlertDismiss === true
+                  ? <button
+                    type="button"
+                    tabIndex="0"
+                    aria-label="Closes this alert panel"
+                    aria-controls="Alerts"
+                    aria-expanded="false"
+                    aria-pressed="false"
+                    onKeyPress={closeAlert}
+                    onClick={closeAlert}
+                  >
+                    <IconClose aria-hidden="true" />
+                  </button>
+                  : ''
+                }
+              </section >
+            )
+          } else {
+            return null
+          }
+        })}
+      </>
+    )
+  }
 }
 
 export default AlertsSection

@@ -130,7 +130,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
               <div className={peerSupporterStyles.supporterInfo}>
                 {peerData.gender.genderTitle &&
-                  <span><IconGender aria-hidden="true" />{peerData.gender.genderTitle}</span>
+                  <span><IconGender aria-hidden="true" />{peerData.gender.genderTitle.translate}</span>
                 }
                 {peerData.location.location.translate &&
                   <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>

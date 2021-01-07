@@ -6,13 +6,13 @@ const UserCommentsSection = ({ data, language }) => {
   const { t } = useTranslation("index")
 
   const { sanityHomepageSettings } = data
-  const homepageSettings = sanityHomepageSettings
+  const homepageCommentsActive = sanityHomepageSettings.homepageCommentsActive
 
   const { allSanityCommunityComments } = data
   const commentsListData = allSanityCommunityComments
   const allComments = commentsListData.edges
 
-  if (homepageSettings.homepageCommentsActive === true) {
+  if (homepageCommentsActive === true) {
     return (
       <>
         <section className={userCommentsStyles.sectionWrapper + ' section-layout-wide'}>

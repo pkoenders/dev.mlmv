@@ -7,7 +7,7 @@ import LogoMLMVFooter from "../../images/svg/logo-mlmv-footer.inline.svg"
 const Footer = ({ location }) => {
 
   // const { t, i18n } = useTranslation("common")
-  const { i18n } = useTranslation("common")
+  const { t, i18n } = useTranslation("common")
 
   // const pathArray = location.pathname.split('/')
   // var newPathName = ""
@@ -32,8 +32,8 @@ const Footer = ({ location }) => {
     <>
 
       <footer className={footerStyles.footer}>
-        <Link to={`/${i18n.language}`} title="Homepage" >
-          <span>Go to the homepage</span>
+        <Link to={`/${i18n.language}`} title={t("common:mainNavHome")} >
+          <span>{t("common:mainNavHome")}</span>
           <LogoMLMVFooter />
         </Link>
 
@@ -43,9 +43,9 @@ const Footer = ({ location }) => {
               to={`/${i18n.language}`}
               activeClassName={"activeNavItem"}
               tabIndex="0"
-              title="Link to Homepage">
-              My Life My Voice
-                  </Link>
+              title={t("common:mainNavMLMV")}>
+              {t("common:mainNavMLMV")}
+            </Link>
           </li>
 
             <li>
@@ -53,9 +53,9 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/peer-supporters`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Peer supporters">
-                Peer supporters
-                </Link>
+                title={t("common:mainNavPeerSupporters")}>
+                {t("common:mainNavPeerSupporters")}
+              </Link>
             </li>
 
             <li>
@@ -63,9 +63,9 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/support-services`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Support services">
-                Support services
-                </Link>
+                title={t("common:mainNavSupportServices")}>
+                {t("common:mainNavSupportServices")}
+              </Link>
             </li>
 
             <li>
@@ -73,9 +73,9 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/news-events`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to News and Events">
-                News &amp; events
-                </Link>
+                title={t("common:mainNavNewsEvents")}>
+                {t("common:mainNavNewsEvents")}
+              </Link>
             </li>
 
             <li>
@@ -83,18 +83,19 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/about`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to About My Life My Voice">
-                About us
-                </Link>
+                title={t("common:mainNavAbout")}>
+                {t("common:mainNavAbout")}
+              </Link>
             </li>
+
             <li>
               <Link
                 to={`/${i18n.language}/contact`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Contact us">
-                Contact us
-                </Link>
+                title={t("common:mainNavContact")}>
+                {t("common:mainNavContact")}
+              </Link>
             </li>
 
             <li>
@@ -102,7 +103,8 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/terms-and-use`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Terms of use">Terms of use
+                title={t("common:mainNavTerms")}>
+                {t("common:mainNavTerms")}
               </Link>
             </li>
             <li className="breakNav">
@@ -110,9 +112,9 @@ const Footer = ({ location }) => {
                 to={`/${i18n.language}/accessibility`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Website accessiblity">
-                Website accessiblity
-                </Link>
+                title={t("common:mainNavAccessibility")}>
+                {t("common:mainNavAccessibility")}
+              </Link>
             </li>
           </ul>
         </nav>

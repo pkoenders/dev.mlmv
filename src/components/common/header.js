@@ -17,7 +17,7 @@ import "./header.scss"
 
 const Header = ({ location }) => {
   // const { t, i18n } = useTranslation("common")
-  const { i18n } = useTranslation("common")
+  const { t, i18n } = useTranslation("common")
   var viewportWidth = 0
   const pathArray = location.pathname.split('/')
   var newPathName = ""
@@ -106,11 +106,11 @@ const Header = ({ location }) => {
         <nav className="headerNav" aria-label="Main navigation" role="navigation">
 
           {location.pathname !== "/" + i18n.language
-            ? <Link className="brand" to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
-              <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+            ? <Link className="brand" to={`/${i18n.language}`} tabIndex="0" aria-label={t("common:mainNavHome")}>
+              <LogoMLMVHeader alt={t("common:mainNavHome")} />
             </Link>
             : <span className="brand homePage">
-              <LogoMLMVHeader alt={"Logo My Life my Voice - Link to homepage"} />
+              <LogoMLMVHeader alt={t("common:mainNavHome")} />
             </span>
           }
 
@@ -128,7 +128,7 @@ const Header = ({ location }) => {
             aria-pressed="false"
             onClick={toggleMobileNav}
           >
-            <span className="hamburger-label">Menu</span>
+            <span className="hamburger-label">{t("common:mainNavMenu")}</span>
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
             </span>
@@ -140,9 +140,9 @@ const Header = ({ location }) => {
                 to={`/${i18n.language}`}
                 activeClassName={"activeNavItem"}
                 tabIndex="0"
-                title="Link to Homepage">
-                My Life My Voice
-                  </Link>
+                title={t("common:mainNavMLMV")}>
+                {t("common:mainNavMLMV")}
+              </Link>
             </li>
             <li>
               <Link
@@ -150,9 +150,9 @@ const Header = ({ location }) => {
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
                 tabIndex="0"
-                title="Link to Peer supporters">
-                Peer supporters
-                </Link>
+                title={t("common:mainNavPeerSupporters")}>
+                {t("common:mainNavPeerSupporters")}
+              </Link>
             </li>
             <li>
               <Link
@@ -160,9 +160,9 @@ const Header = ({ location }) => {
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
                 tabIndex="0"
-                title="Link to Support services">
-                Support services
-                </Link>
+                title={t("common:mainNavSupportServices")}>
+                {t("common:mainNavSupportServices")}
+              </Link>
             </li>
             <li>
               <Link
@@ -170,16 +170,16 @@ const Header = ({ location }) => {
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
                 tabIndex="0"
-                title="Link to News and Events">
-                News &amp; events
-                </Link>
+                title={t("common:mainNavNewsEvents")}>
+                {t("common:mainNavNewsEvents")}
+              </Link>
             </li>
 
             <li className="toggleMainMenu">
               <button
                 id="toggleMainMenu"
               >
-                More..
+                {t("common:mainNavMore")}
               </button>
               <ul className="hide">
                 <li>
@@ -187,40 +187,40 @@ const Header = ({ location }) => {
                     to={`/${i18n.language}/about`}
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
-                    title="Link to About My Life My Voice">
+                    title={t("common:mainNavAbout")}>
                     <IconAbout aria-hidden="true" />
-                      About us
-                    </Link>
+                    {t("common:mainNavAbout")}
+                  </Link>
                 </li>
                 <li>
                   <Link
                     to={`/${i18n.language}/contact`}
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
-                    title="Link to Contact us">
+                    title={t("common:mainNavContact")}>
                     <IconContact aria-hidden="true" />
-                      Contact us
-                </Link>
+                    {t("common:mainNavContact")}
+                  </Link>
                 </li>
                 <li>
                   <Link
                     to={`/${i18n.language}/terms-and-use`}
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
-                    title="Link to Terms of use">
+                    title={t("common:mainNavTerms")}>
                     <IconTerms aria-hidden="true" />
-                        Terms of use
-              </Link>
+                    {t("common:mainNavTerms")}
+                  </Link>
                 </li>
                 <li>
                   <Link
                     to={`/${i18n.language}/accessibility`}
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
-                    title="Link to Website accessiblity">
+                    title={t("common:mainNavAccessibility")}>
                     <IconAccessibilty aria-hidden="true" />
-                      Accessibility
-                </Link>
+                    {t("common:mainNavAccessibility")}
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -230,7 +230,7 @@ const Header = ({ location }) => {
               <button
                 tabIndex="0"
                 onClick={toggleMobileNav}>
-                Close menu
+                {t("common:mainNavCloseMenu")}
                 <IconCloseMenu aria-hidden="true" />
               </button>
             </li>

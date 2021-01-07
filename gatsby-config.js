@@ -9,7 +9,7 @@ module.exports = {
     // defaultImage: "/images/svg/logo-pixl.inline.svg", // Path to your image you placed in the 'static' folder
     defaultImage: "/images/svg/logo-mlmv-manifest.inline.svg", // Path to your image you placed in the 'static' folder
 
-    author: "Peter Koenders",
+    author: "Peter Koenders - pkoenders@gmail.com",
     year: "2021",
   },
   plugins: [
@@ -126,6 +126,7 @@ module.exports = {
       },
     },
 
+    //Yes, we want A11y
     {
       resolve: 'gatsby-plugin-react-axe',
       options: {
@@ -196,9 +197,9 @@ module.exports = {
       options: {
         name: `My Life My Voice`,
         short_name: `MLMV`,
-        start_url: `/en`,
-        background_color: `#253240`,
-        theme_color: `#253240`,
+        start_url: `/`,
+        background_color: `#121923`,
+        theme_color: `#121923`,
         lang: `en`,
         display: `standalone`,
         icon: `src/images/svg/logo-mlmv-manifest.inline.svg`, // This path is relative to the root of the site.
@@ -231,7 +232,7 @@ module.exports = {
     },
 
 
-    //`gatsby-plugin-client-side-redirect` // keep it in last in list
+    `gatsby-plugin-client-side-redirect` // keep it in last in list
 
   ],
 }

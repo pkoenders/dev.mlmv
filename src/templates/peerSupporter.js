@@ -40,7 +40,9 @@ export const query = graphql`
       }
       publishedAt(formatString: "DD/MM/YYYY")
       gender{
-        genderTitle
+        genderTitle {
+          translate(language: $language)
+        }
       }
       location {
         location{
