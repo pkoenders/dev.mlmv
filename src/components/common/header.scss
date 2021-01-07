@@ -123,15 +123,14 @@ header.headerNavWrapper {
       justify-self: start;
       display: none;
       list-style: none;
-      padding: 0 0 120px 0;
-      margin: 0 0 0 0;
+      padding: 3px 0 120px 3px;
+      margin: 0;
       top: 60px;
       left: 88px;
-
       position: relative;
       width: 100%;
       border-left: 1px solid #6FFFE9;
-      overflow: scroll;
+      overflow-x: scroll;
 
       .toggleMainMenu {
         button {
@@ -142,7 +141,6 @@ header.headerNavWrapper {
       li {
         display: block;
         clear: both;
-
 
         a,
         p,
@@ -158,6 +156,7 @@ header.headerNavWrapper {
           text-align: left;
           display: inline-block;
           cursor: pointer;
+          z-index: 10000;
         }
 
         svg {
@@ -232,14 +231,10 @@ header.headerNavWrapper {
       ul {
         margin: 0;
 
-        span {
-          padding: 0;
-
-          li {
-            a {
-              svg {
-                display: none;
-              }
+        li {
+          a {
+            svg {
+              display: none;
             }
           }
         }
@@ -312,70 +307,67 @@ header.headerNavWrapper {
           ul {
             background-color: $headerBgColor;
             position: absolute;
+            display: flex;
             top: -999rem;
             left: 0px;
             right: 0px;
             width: 100%;
             margin: 0;
-            padding: 60px 0 10px;
+            padding: 90px 30px 30px 30px;
             z-index: -1;
             @include minNavBottomBorder;
-            height: auto;
+            align-items: center;
+            justify-content: center;
+            cursor: default !important;
 
-            span {
-              max-width: 1200px;
-              display: flex;
-              margin: 15px auto;
-              align-items: center;
-              justify-content: center;
-              cursor: default !important;
+            @include respond-below(sm) {
+              padding: 90px 15px 30px 15px;
+            }
 
-              li {
+            li {
+              a {
+                padding-top: 10px;
+                display: flex;
+                flex-direction: column;
 
-
-                a {
-                  padding-top: 10px;
-                  display: flex;
-                  flex-direction: column;
-
-                  svg {
-                    display: block;
-                    height: 22px;
-                    width: auto;
-                    margin: 0 auto;
-                    opacity: .33;
-                  }
+                svg {
+                  display: block;
+                  height: 22px;
+                  width: auto;
+                  margin: 0 auto;
+                  opacity: .33;
                 }
+              }
 
-                a.activeNavItem {
-                  color: #ffffff;
-                  background: none;
-                  border-radius: 0px;
-                  overflow: hidden;
+              a.activeNavItem {
+                color: #ffffff;
+                background: none;
+                border-radius: 0px;
+                overflow: hidden;
 
-                  svg {
-                    opacity: 1;
-                  }
+                svg {
+                  opacity: 1;
                 }
+              }
 
-                a.activeNavItem:after {
-                  content: '';
-                  left: 50%;
-                  transition: all 150ms ease-in-out;
-                  width: 100%;
-                  left: 0px;
+              a.activeNavItem:after {
+                content: '';
+                left: 50%;
+                transition: all 150ms ease-in-out;
+                width: 100%;
+                left: 0px;
 
 
-                }
+              }
 
-                a:hover {
+              a:hover {
 
-                  svg {
-                    opacity: 1;
-                  }
+                svg {
+                  opacity: 1;
                 }
               }
             }
+
           }
 
           ul.open {

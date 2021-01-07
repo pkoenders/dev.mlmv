@@ -481,19 +481,12 @@ label.filterLabel.focus {
   position: absolute;
   width: auto;
   display: flex;
-  //align-self: flex-end;
   top: -24px;
   padding: 5px 10px 0 10px;
   font-size: .8rem;
-
-
   font-weight: 400;
   color: #0B132B;
   background-color: #ffffff;
-  overflow: visible;
-
-
-
 }
 
 label.filterLabel.focus:after {
@@ -505,7 +498,6 @@ label.filterLabel.focus:after {
   width: 100%;
   background-color: #ffffff;
   z-index: -1;
-
 }
 
 

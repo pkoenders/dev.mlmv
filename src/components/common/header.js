@@ -126,7 +126,6 @@ const Header = ({ location }) => {
             aria-controls="mainNavigation"
             aria-expanded="false"
             aria-pressed="false"
-            onKeyPress={toggleMobileNav}
             onClick={toggleMobileNav}
           >
             <span className="hamburger-label">Menu</span>
@@ -183,62 +182,60 @@ const Header = ({ location }) => {
                 More..
               </button>
               <ul className="hide">
-                <span>
-                  <li>
-                    <Link
-                      to={`/${i18n.language}/about`}
-                      activeClassName={"activeNavItem"}
-                      tabIndex="0"
-                      title="Link to About My Life My Voice">
-                      <IconAbout aria-hidden="true" />
+                <li>
+                  <Link
+                    to={`/${i18n.language}/about`}
+                    activeClassName={"activeNavItem"}
+                    tabIndex="0"
+                    title="Link to About My Life My Voice">
+                    <IconAbout aria-hidden="true" />
                       About us
                     </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={`/${i18n.language}/contact`}
-                      activeClassName={"activeNavItem"}
-                      tabIndex="0"
-                      title="Link to Contact us">
-                      <IconContact aria-hidden="true" />
+                </li>
+                <li>
+                  <Link
+                    to={`/${i18n.language}/contact`}
+                    activeClassName={"activeNavItem"}
+                    tabIndex="0"
+                    title="Link to Contact us">
+                    <IconContact aria-hidden="true" />
                       Contact us
                 </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={`/${i18n.language}/terms-and-use`}
-                      activeClassName={"activeNavItem"}
-                      tabIndex="0"
-                      title="Link to Terms of use">
-                      <IconTerms aria-hidden="true" />
+                </li>
+                <li>
+                  <Link
+                    to={`/${i18n.language}/terms-and-use`}
+                    activeClassName={"activeNavItem"}
+                    tabIndex="0"
+                    title="Link to Terms of use">
+                    <IconTerms aria-hidden="true" />
                         Terms of use
               </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={`/${i18n.language}/accessibility`}
-                      activeClassName={"activeNavItem"}
-                      tabIndex="0"
-                      title="Link to Website accessiblity">
-                      <IconAccessibilty aria-hidden="true" />
+                </li>
+                <li>
+                  <Link
+                    to={`/${i18n.language}/accessibility`}
+                    activeClassName={"activeNavItem"}
+                    tabIndex="0"
+                    title="Link to Website accessiblity">
+                    <IconAccessibilty aria-hidden="true" />
                       Accessibility
                 </Link>
-                  </li>
-                </span>
+                </li>
               </ul>
             </li>
 
 
             <li className="closeMenu breakNav hide">
-              <span
-                type="button"
+              <button
+                // type="button"
                 tabIndex="0"
                 role="button"
                 onKeyPress={toggleMobileNav}
                 onClick={toggleMobileNav}>
                 Close menu
                 <IconCloseMenu aria-hidden="true" />
-              </span>
+              </button>
             </li>
           </ul>
 
