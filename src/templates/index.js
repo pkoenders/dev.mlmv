@@ -13,7 +13,7 @@ import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
 import UsrCommentsSection from "../components/homepage/userComments"
-import SectionContactForm from "../components/forms/contactForm"
+//import SectionContactForm from "../components/forms/contactForm"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -153,7 +153,7 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        <SectionContactForm data={data} language={language} location={location} />
+        {/* <SectionContactForm data={data} language={language} location={location} /> */}
       </Layout>
     </>
   )

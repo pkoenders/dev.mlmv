@@ -67,8 +67,14 @@
             }
 
             button {
-                display: table;
+                display: flex;
                 margin: 30px auto;
+
+                svg {
+                    height: 25px;
+                    width: auto;
+                    margin: 0 15px 0 0;
+                }
             }
         }
     }
