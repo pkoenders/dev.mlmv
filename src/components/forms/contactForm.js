@@ -19,7 +19,7 @@ const ContactForm = ({ data, location, language }) => {
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
-    const submitUrl = "/" + i18n.language + "/thank-you"
+    const submitUrl = "/" + i18n.language + "/thank-you/?t=" + Math.floor(Date.now() / 1000)
 
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
