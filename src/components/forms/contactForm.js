@@ -39,7 +39,6 @@ const ContactForm = ({ data, location, language }) => {
                             name="ContactForm"
                             method="POST"
                             enctype="application/x-www-form-urlencoded"
-                            content-Type
                             action={`${submitUrl}`}
                             data-netlify="true"
                         // netlify-honeypot="hpfield"     

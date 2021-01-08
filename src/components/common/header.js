@@ -244,7 +244,6 @@ const Header = ({ location }) => {
               onClick={handleLanguageSelector}
               aria-label={'Current language is set to ' + currentLanguage + ' Click to change'}
             >
-
               {/* {currentLanguage} */}
               <IconLanguage aria-hidden="true" />
             </button>
