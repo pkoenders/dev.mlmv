@@ -1,5 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
+import IconSend from "../../../images/svg/icon-send.inline.svg"
 
 const Submit = () => {
   const { t } = useTranslation()
@@ -10,7 +11,10 @@ const Submit = () => {
       name="submit"
       className="buttonSecondary"
       disabled
-    >{t("common:inputSubmit")}</button>
+    >
+      <IconSend aria-hidden="true" />
+      {t("common:inputSubmit")}
+    </button>
   )
 }
 export default Submit
