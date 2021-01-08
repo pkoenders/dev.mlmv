@@ -185,23 +185,27 @@
                 justify-content: center;
 
                 button {
-                    font-size: .9rem;
-                    line-height: .9rem;
+                    font-size: .8rem;
+                    line-height: auto;
+                    font-weight: 400;
                     width: auto;
                     display: flex;
                     margin: 4px;
                     background-color: #627984;
+                    background-color: $txtColorA;
                     color: #ffffff;
 
                     box-shadow: $globalBoxShadowB;
                     border: none;
-                    padding: 6px 9px;
+                    padding: 2px 12px;
                     border-radius: 999em;
                     border-radius: .2rem;
+                    align-self: center;
                     cursor: pointer;
 
                     span {
                         pointer-events: none;
+                        display: flex;
                         align-self: center;
                     }
 
@@ -214,17 +218,24 @@
                             height: auto;
                             width: 14px;
                             margin: 0px 5px 0px -2px;
+                            opacity: 1 !important;
                         }
                     }
 
                     span:nth-child(2) {
-                        font-size: .7rem;
+                        font-size: .8rem;
+                        line-height: 20px;
+                        height: 20px;
+                        display: flex;
+                        align-self: center;
+                        font-weight: 400;
                         text-align: center;
-                        font-weight: 600;
                         margin: 0 -2px 0 5px;
                         border-radius: 999rem;
-                        background-color: #495c65;
-                        padding: 0px 5px;
+                        background-color: #495371;
+                        padding: 1px 6px;
+                        //height: auto;
+                        //width: auto;
                     }
                 }
 

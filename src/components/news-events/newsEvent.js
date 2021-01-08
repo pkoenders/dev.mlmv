@@ -12,7 +12,7 @@ import newsEvents from './newsEvents.module.scss'
 import prevNextStyles from '../common/prevNext.module.scss'
 // import IconNext from "../../images/svg/icon-next.inline.svg"
 // import IconPrev from "../../images/svg/icon-prev.inline.svg"
-import IconUp from "../../images/svg/icon-up.inline.svg"
+import IconBack from "../../images/svg/icon-back.inline.svg"
 import IconEvent from '../../images/svg/icon-event.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
@@ -68,7 +68,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
               className={prevNextStyles.prev}
               to={`/${i18n.language}/news-events/`}
             >
-              <IconUp aria-hidden="true" />
+              <IconBack aria-hidden="true" />
               <span>{t("common:back")}</span>
             </Link>
 

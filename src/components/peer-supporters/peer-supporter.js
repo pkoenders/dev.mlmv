@@ -9,7 +9,7 @@ import peerSupporterStyles from './peer-supporter.module.scss'
 import prevNextStyles from '../common/prevNext.module.scss'
 import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
-import IconUp from "../../images/svg/icon-up.inline.svg"
+import IconBack from "../../images/svg/icon-back.inline.svg"
 
 //Collect the required form fields
 import formStyles from '../forms/asideForm.module.scss'
@@ -59,7 +59,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
               className={prevNextStyles.prev}
               to={`/${i18n.language}/peer-supporters/`}
             >
-              <IconUp aria-hidden="true" />
+              <IconBack aria-hidden="true" />
               <span>{t("common:back")}</span>
             </Link>
 
@@ -129,6 +129,10 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
 
           <div className={peerSupporterStyles.contentWrapper}>
             <div className={peerSupporterStyles.contentBlock}>
+              <BlockContent blocks={peerData.peerLongDescription.localized} />
+            </div>
+
+            <div className={peerSupporterStyles.contentComplementary}>
 
               <div className={peerSupporterStyles.supporterInfo}>
                 {peerData.gender.genderTitle &&
@@ -139,10 +143,6 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 }
               </div>
 
-              <BlockContent blocks={peerData.peerLongDescription.localized} />
-            </div>
-
-            <div className={peerSupporterStyles.contentComplementary}>
               <div className={formStyles.form}>
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form

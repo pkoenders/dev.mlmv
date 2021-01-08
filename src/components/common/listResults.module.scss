@@ -182,14 +182,17 @@
                             margin: 10px 0 5px 0;
                             font-size: .9rem;
                             line-height: 22px;
+
                             display: flex;
                             flex-direction: row;
                             width: 100%;
+                            color: $txtColorA;
 
                             span {
                                 margin: 0;
                                 font-size: inherit;
                                 text-align: left;
+                                color: $txtColorA;
                             }
 
                             svg {
@@ -197,6 +200,7 @@
                                 margin: 0 15px 0 0;
                                 width: auto;
                                 vertical-align: middle;
+
                             }
 
                             svg.cta {
@@ -243,6 +247,8 @@
 
                             padding: 1px 12px;
                             font-size: .8rem;
+
+                            font-weight: 300;
                             border-radius: .2em;
                             box-shadow: none;
                         }

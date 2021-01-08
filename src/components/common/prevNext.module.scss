@@ -37,6 +37,7 @@
 
             a {
                 color: $txtColor;
+                color: $primaryColorMinContrast;
 
                 span {
                     text-transform: uppercase;
@@ -55,6 +56,12 @@
             span {
                 margin-left: auto;
 
+                a {
+                    svg {
+                        width: 10px;
+                    }
+                }
+
                 a.prev {
                     margin-right: 0px;
                 }
@@ -64,6 +71,7 @@
 
                     svg {
                         margin: -2px 0 0 10px;
+
                     }
                 }
             }

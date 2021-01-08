@@ -176,22 +176,6 @@ div.peerSupporterWrapper {
                     flex-basis: 100%;
                     padding: 15px;
                 }
-
-                .supporterInfo {
-                    margin: 10px 0 35px 0;
-
-                    span {
-                        display: inline-block;
-                        margin-right: 30px;
-
-                        svg {
-                            width: 28px;
-                            margin-right: 5px;
-                            height: auto;
-                            vertical-align: middle;
-                        }
-                    }
-                }
             }
 
             .contentComplementary {
@@ -209,10 +193,31 @@ div.peerSupporterWrapper {
                     //border-top: 1px solid #c1d1d8;
                 }
 
+                .supporterInfo {
+                    padding: 0 0 15px;
+                    border-bottom: 1px solid #c1d1d8;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 15px;
+                        color: $primaryColorMinContrast;
+                        font-weight: 400;
+                        font-size: .8rem;
+
+                        svg {
+                            width: 25px;
+                            margin-right: 5px;
+                            height: auto;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+
 
                 p {
-                    color: $txtColor;
-                    margin-bottom: .33rem;
+                    color: $primaryColorMinContrast;
+
+                    margin-bottom: 15px;
 
                     span {
                         font-weight: bold;

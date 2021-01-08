@@ -447,7 +447,6 @@ form {
     }
 
     svg:nth-child(2) {
-      opacity: .33;
       display: inline-block;
     }
   }
@@ -455,10 +454,7 @@ form {
 
 .tagListItem.selected,
 .resultsTags li.selected {
-  opacity: 1;
-  color: #ffffff !important;
   background-color: $tertiaryColor !important;
-  box-shadow: $globalBoxShadowA;
 
   span {
     svg {
