@@ -48,7 +48,7 @@ export const query = graphql`
 const AccessibilityPage = ({ data, location, language }) => {
   const { t, i18n } = useTranslation()
 
-  const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+  const submitUrl = "/" + i18n.language + "/thank-you"
 
   return (
     <>

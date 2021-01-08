@@ -34,7 +34,9 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   const peerDataHome = sanityPeerSupportersHomepage
   const { next, previous } = pageContext
 
-  const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+  //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+  const submitUrl = "/" + i18n.language + "/thank-you"
+
 
   return (
     <>

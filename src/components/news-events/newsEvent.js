@@ -40,7 +40,9 @@ const NewsEventTemplate = ({ data, pageContext }) => {
   const newsEventDataHome = sanityNewsEventsHomepage
 
 
-  const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+  //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+  const submitUrl = "/" + i18n.language + "/thank-you"
+
 
   //const { next, previous } = pageContext
   return (
