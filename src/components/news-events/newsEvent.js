@@ -128,7 +128,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
                     name="Events"
                     method="POST"
                     enctype="application/x-www-form-urlencoded"
-                    action={`${submitUrl}`}
+                    action={submitUrl}
                     data-netlify="true"
                   // netlify-honeypot="hpfield"     
                   >

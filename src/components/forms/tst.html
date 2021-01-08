@@ -1,0 +1,45 @@
+const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
+<form name="ContactForm" method="POST" enctype="application/x-www-form-urlencoded" action={`${submitUrl}`}
+    data-netlify="true">
+    <input type="hidden" name="form-name" value="ContactForm" />
+    <input type="hidden" name="Source" value="Contact form" />
+    <FormName />
+    <FormEmail />
+    <FormSubject />
+    <FormMessage />
+    <FormCheckTerms />
+    <FormSubmit />
+</form>
+
+<form name="ContactForm" method="POST" enctype="application/x-www-form-urlencoded" action="/en/thank-you?t=1610114531"
+    data-netlify="true">
+    <input type="hidden" name="form-name" value="ContactForm">
+    <input type="hidden" name="Source" value="Contact form">
+    <label for="name">Your name (required)
+        <input type="text" name="name" placeholder="Your name" required="">
+    </label>
+    <label for="email">Your email address (required)
+        <input type="email" name="email" placeholder="Your email address"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+    </label>
+    <label for="subject">Subject
+        <input type="text" name="subject" id="subject">
+    </label>
+    <label for="message">Message<textarea name="message" rows="5">
+            </textarea>
+    </label>
+    <label for="terms" class="checkbox">
+        <span>I have read, understood and agree
+            to the <a aria-label="Link to the terms of use" tabindex="0" href="/en/terms-and-use">Privacy &amp;
+                Legal policies</a> for My Life My Voice before submitting this form.
+        </span>
+        <input type="checkbox" name="terms" id="terms"
+            value="Privacy &amp; Legal policies terms have been agreed by user">
+    </label>
+    <button type="submit" id="submitBtn" name="submit" class="buttonSecondary" disabled="">
+        <svg aria-hidden="true" width="176" height="151" viewBox="0 0 176 151">
+            <polygon fill="#FFF" points=".084 151 176 75.5 .084 0 0 58.722 125.714 75.5 0 92.278"></polygon>
+        </svg>
+        Submit form
+    </button>
+</form>

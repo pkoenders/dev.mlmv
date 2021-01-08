@@ -74,7 +74,7 @@ const AccessibilityPage = ({ data, location, language }) => {
                   method="POST"
                   enctype="application/x-www-form-urlencoded"
                   //action={`../${i18n.language}/submit`}
-                  action={`${submitUrl}`}
+                  action={submitUrl}
                   data-netlify="true"
                 // netlify-honeypot="hpfield"     
                 >

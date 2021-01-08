@@ -149,7 +149,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   name="PeerSupporters"
                   method="POST"
                   enctype="application/x-www-form-urlencoded"
-                  action={`${submitUrl}`}
+                  action={submitUrl}
                   //action="/en/submit"
                   data-netlify="true"
                 >
