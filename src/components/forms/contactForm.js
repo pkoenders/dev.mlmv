@@ -19,6 +19,8 @@ const ContactForm = ({ data, location, language }) => {
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
+    const submitUrl = "/" + i18n.language + "/submit"
+
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
 
@@ -36,7 +38,7 @@ const ContactForm = ({ data, location, language }) => {
                         <form
                             name="ContactForm"
                             method="post"
-                            action={`../${i18n.language}/submit`}
+                            action={`${submitUrl}`}
                             data-netlify="true"
                         // netlify-honeypot="hpfield"     
                         >

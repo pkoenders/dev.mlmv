@@ -48,6 +48,7 @@ export const query = graphql`
 const AccessibilityPage = ({ data, location, language }) => {
   const { t, i18n } = useTranslation()
 
+  const submitUrl = "/" + i18n.language + "/submit"
 
   return (
     <>
@@ -71,7 +72,8 @@ const AccessibilityPage = ({ data, location, language }) => {
                   name="Accessibility"
                   id="accessibility"
                   method="post"
-                  action={`../${i18n.language}/submit`}
+                  //action={`../${i18n.language}/submit`}
+                  action={`${submitUrl}`}
                   data-netlify="true"
                 // netlify-honeypot="hpfield"     
                 >
