@@ -34,7 +34,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   const peerDataHome = sanityPeerSupportersHomepage
   const { next, previous } = pageContext
 
-  const submitUrl = "../../" + i18n.language + "/submit"
+  const submitUrl = "/" + i18n.language + "/thank-you"
 
   return (
     <>
@@ -147,7 +147,8 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                 <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
                 <form
                   name="PeerSupporters"
-                  method="post"
+                  method="POST"
+                  enctype="application/x-www-form-urlencoded"
                   action={`${submitUrl}`}
                   //action="/en/submit"
                   data-netlify="true"

@@ -48,7 +48,7 @@ export const query = graphql`
 const AccessibilityPage = ({ data, location, language }) => {
   const { t, i18n } = useTranslation()
 
-  const submitUrl = "../" + i18n.language + "/submit"
+  const submitUrl = "/" + i18n.language + "/thank-you"
 
   return (
     <>
@@ -71,7 +71,8 @@ const AccessibilityPage = ({ data, location, language }) => {
                 <form
                   name="Accessibility"
                   id="accessibility"
-                  method="post"
+                  method="POST"
+                  enctype="application/x-www-form-urlencoded"
                   //action={`../${i18n.language}/submit`}
                   action={`${submitUrl}`}
                   data-netlify="true"
