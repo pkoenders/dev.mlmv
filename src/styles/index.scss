@@ -454,6 +454,7 @@ form {
 
 .tagListItem.selected,
 .resultsTags li.selected {
+  color: #ffffff !important;
   background-color: $tertiaryColor !important;
 
   span {
