@@ -21,6 +21,8 @@ module.exports = {
     //   },
     // },
 
+    `gatsby-plugin-preact`,
+
     {
       resolve: `gatsby-source-sanity`,
       options: {
