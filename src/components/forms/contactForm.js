@@ -30,8 +30,7 @@ const ContactForm = ({ data, location, language }) => {
     const [successMessage, setSuccess] = useState(null)
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch("/", {
+        fetch("/en/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
@@ -45,6 +44,7 @@ const ContactForm = ({ data, location, language }) => {
         }).catch(error =>
             setError(` `)
         )
+        e.preventDefault()
     }
 
 
