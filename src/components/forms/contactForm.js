@@ -41,7 +41,7 @@ const ContactForm = ({ data, location, language }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                name: setValue,
+                name: setInputName,
             })
         }).then(res => {
             if (res.ok) {
@@ -53,9 +53,9 @@ const ContactForm = ({ data, location, language }) => {
         )
     }
 
-    const [value, setValue] = useState(null)
+    const [inputName, setInputName] = useState(null)
     const onChange = e => {
-        setValue(e.target.value)
+        setInputName(e.target.value)
     }
 
 
@@ -89,6 +89,7 @@ const ContactForm = ({ data, location, language }) => {
                                         type="text"
                                         name="name"
                                         placeholder={t("common:inputNamePlaceholder")}
+                                        value={inputName}
                                         required
                                         onChange={onChange}
                                     />
