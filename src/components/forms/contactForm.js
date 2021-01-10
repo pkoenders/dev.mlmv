@@ -30,11 +30,18 @@ const ContactForm = ({ data, location, language }) => {
     const [successMessage, setSuccess] = useState(null)
 
     const handleSubmit = (e) => {
-        fetch("/en/contact", {
+        fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
+                source: "",
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+                terms: "",
+
             })
         }).then(res => {
             if (res.ok) {
