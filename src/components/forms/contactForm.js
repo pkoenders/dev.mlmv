@@ -34,8 +34,6 @@ const ContactForm = ({ data, location, language }) => {
 
     //const formtUrl = "/" + i18n.language + "/" + location
 
-    let inputName = ""
-    let contactNumber = ""
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/en/contact", {
@@ -43,8 +41,7 @@ const ContactForm = ({ data, location, language }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                contactNumber: contactNumber,
-                inputName: inputName,
+                name: setValue,
             })
         }).then(res => {
             if (res.ok) {
@@ -54,6 +51,11 @@ const ContactForm = ({ data, location, language }) => {
         }).catch(error =>
             setError(` `)
         )
+    }
+
+    const [value, setValue] = useState(null)
+    const onChange = e => {
+        setValue(e.input.value)
     }
 
 
@@ -80,7 +82,7 @@ const ContactForm = ({ data, location, language }) => {
                             <input type="hidden" name="form-name" value="ContactForm" />
                             <input type="hidden" name="source" value="Contact form" />
                             <span className={'inputfields'}>
-                                <FormName />
+                                <FormName onChange={onChange} />
                                 <FormEmail />
                                 <FormSubject />
                                 <FormMessage />
