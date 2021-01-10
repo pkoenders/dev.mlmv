@@ -4,6 +4,14 @@ import IconSend from "../../../images/svg/icon-send.inline.svg"
 
 const Submit = () => {
   const { t } = useTranslation()
+
+
+  const handleThankYou = () => {
+    // console.log("Thank You")
+    //const thankYou = document.querySelector('.thankYou').classList.add('active')
+    //thankYou.setAttribute("aria-hidden", "false")
+  }
+
   return (
     <button
       type="submit"
@@ -11,6 +19,7 @@ const Submit = () => {
       name="submit"
       className="buttonSecondary"
       disabled
+    //onClick={handleThankYou}
     >
       <IconSend aria-hidden="true" />
       {t("common:inputSubmit")}
