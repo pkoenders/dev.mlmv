@@ -55,7 +55,7 @@ const ContactForm = ({ data, location, language }) => {
 
     const [value, setValue] = useState(null)
     const onChange = e => {
-        setValue(e.label.input.value)
+        setValue(e.input.value)
     }
 
 
@@ -82,7 +82,17 @@ const ContactForm = ({ data, location, language }) => {
                             <input type="hidden" name="form-name" value="ContactForm" />
                             <input type="hidden" name="source" value="Contact form" />
                             <span className={'inputfields'}>
-                                <FormName onChange={onChange} />
+                                {/* <FormName onChange={onChange} /> */}
+                                <label htmlFor="name">
+                                    {t("common:inputName")}
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder={t("common:inputNamePlaceholder")}
+                                        required
+                                        onChange={onChange}
+                                    />
+                                </label>
                                 <FormEmail />
                                 <FormSubject />
                                 <FormMessage />
