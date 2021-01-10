@@ -34,6 +34,7 @@ const ContactForm = ({ data, location, language }) => {
 
     //const formtUrl = "/" + i18n.language + "/" + location
 
+    let inputName = ""
     let contactNumber = ""
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -43,6 +44,7 @@ const ContactForm = ({ data, location, language }) => {
             body: encode({
                 "form-name": e.target.getAttribute("name"),
                 contactNumber: contactNumber,
+                inputName: inputName,
             })
         }).then(res => {
             if (res.ok) {
