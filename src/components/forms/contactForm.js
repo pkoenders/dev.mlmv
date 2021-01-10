@@ -15,8 +15,6 @@ import FormMessage from "./formFields/message"
 import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
-
-
 const encode = data => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -25,6 +23,7 @@ const encode = data => {
 
 
 const ContactForm = ({ data, location, language }) => {
+
     const { t, i18n } = useTranslation()
     const { sanityContactContent } = data
     const contentData = sanityContactContent
@@ -33,36 +32,26 @@ const ContactForm = ({ data, location, language }) => {
     const [successMessage, setSuccess] = useState(null)
 
 
-
     //const formtUrl = "/" + i18n.language + "/" + location
 
+    let contactNumber = ""
     const handleSubmit = (e) => {
         e.preventDefault()
-        const form = this.ContactForm.current
         fetch("/en/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                ...this.state
+                contactNumber: contactNumber,
             })
         }).then(res => {
             if (res.ok) {
                 setSuccess(` `)
-                const thankYou = document.querySelector('.inputfields').classList.add('hide')
+                document.querySelector('.inputfields').classList.add('hide')
             }
         }).catch(error =>
             setError(` `)
         )
-        this.setState({
-            source: "",
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-            terms: "",
-        })
-
     }
 
 

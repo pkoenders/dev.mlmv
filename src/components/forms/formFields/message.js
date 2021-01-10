@@ -8,7 +8,8 @@ const Message = () => {
       {t("common:inputMessage")}
       <textarea
         name="message"
-        rows="5" />
+        rows="5"
+      />
     </label>
   )
 }
