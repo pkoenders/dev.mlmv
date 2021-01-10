@@ -26,7 +26,7 @@ const ContactForm = ({ data, location, language }) => {
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
-    const redirectUrl = "/" + i18n.language + "/thank-you"
+    //const redirectUrl = "/" + i18n.language + "/thank-you"
 
     const [errorMessage, setError] = useState(null)
     const [successMessage, setSuccess] = useState(null)
@@ -41,7 +41,7 @@ const ContactForm = ({ data, location, language }) => {
             }),
         }).then(res => {
             if (res.ok) {
-                setSuccess()
+                setSuccess(` `)
                 const thankYou = document.querySelector('.inputfields').classList.add('hide')
             }
 
