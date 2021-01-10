@@ -55,7 +55,7 @@ const ContactForm = ({ data, location, language }) => {
 
     const [value, setValue] = useState(null)
     const onChange = e => {
-        setValue(e.input.value)
+        setValue(e.target.value)
     }
 
 
