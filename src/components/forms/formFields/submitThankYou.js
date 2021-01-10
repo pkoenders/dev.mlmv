@@ -6,7 +6,7 @@ import IconSubmitSuccess from "../../../images/svg/icon-contact-success.inline.s
 const SubmitThankYou = () => {
   const { t } = useTranslation("common")
   return (
-    <div className={submitStyles.wrapper} aria-hidden="true">
+    <div className={submitStyles.wrapper}>
       <h3>{t('common:submitHeader')}</h3>
       <IconSubmitSuccess aria-hidden="true" />
       <p>{t('common:submitContent')}</p>

@@ -29,20 +29,19 @@ const ContactForm = ({ data, location, language }) => {
     const [errorMessage, setError] = useState(null)
     const [successMessage, setSuccess] = useState(null)
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-            }),
+            })
         }).then(res => {
             if (res.ok) {
                 setSuccess(` `)
                 const thankYou = document.querySelector('.inputfields').classList.add('hide')
             }
-
         }).catch(error =>
             setError(` `)
         )
