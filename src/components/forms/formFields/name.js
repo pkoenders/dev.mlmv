@@ -3,9 +3,6 @@ import { useTranslation } from "react-i18next"
 
 const Name = () => {
   const { t } = useTranslation()
-  const handleInputName = (e) => {
-    let inputName = e.target.value
-  }
   return (
     <label htmlFor="name">
       {t("common:inputName")}
@@ -14,7 +11,6 @@ const Name = () => {
         name="name"
         placeholder={t("common:inputNamePlaceholder")}
         required
-        onChange={handleInputName}
       />
     </label>
   )
