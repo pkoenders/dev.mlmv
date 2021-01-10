@@ -15,11 +15,14 @@ import FormMessage from "./formFields/message"
 import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
+
+
 const encode = data => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
         .join("&")
 }
+
 
 const ContactForm = ({ data, location, language }) => {
     const { t, i18n } = useTranslation()
@@ -29,19 +32,19 @@ const ContactForm = ({ data, location, language }) => {
     const [errorMessage, setError] = useState(null)
     const [successMessage, setSuccess] = useState(null)
 
+
+
+    //const formtUrl = "/" + i18n.language + "/" + location
+
     const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = this.ContactForm.current
         fetch("/en/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                source: "",
-                name: "",
-                email: "",
-                subject: "",
-                message: "",
-                terms: "",
-
+                ...this.state
             })
         }).then(res => {
             if (res.ok) {
@@ -51,7 +54,15 @@ const ContactForm = ({ data, location, language }) => {
         }).catch(error =>
             setError(` `)
         )
-        e.preventDefault()
+        this.setState({
+            source: "",
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+            terms: "",
+        })
+
     }
 
 
