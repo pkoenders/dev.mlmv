@@ -6,7 +6,8 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 
 //Collect the required form fields
 import contactStyles from './contactForm.module.scss'
-import ThankYou from "./formFields/thankYou"
+import SubmitThankYou from "./formFields/submitThankYou"
+import SubmitError from "./formFields/submitError"
 import FormName from "./formFields/name"
 import FormEmail from "./formFields/email"
 import FormSubject from "./formFields/subject"
@@ -20,13 +21,10 @@ const encode = data => {
         .join("&")
 }
 
-
 const ContactForm = ({ data, location, language }) => {
     const { t, i18n } = useTranslation()
     const { sanityContactContent } = data
     const contentData = sanityContactContent
-
-    //const redirectUrl = "/" + i18n.language + "/thank-you"
 
     const [errorMessage, setError] = useState(null)
     const [successMessage, setSuccess] = useState(null)
@@ -66,14 +64,14 @@ const ContactForm = ({ data, location, language }) => {
                     <BlockContent blocks={contentData.contactContent.localized} />
                     <div className={contactStyles.contactFormInput}>
                         <form
-                            onSubmit={handleSubmit}
                             name="ContactForm"
-                            method="POST"
+                            method="post"
                             data-netlify="true"
+                            onSubmit={handleSubmit}
                         >
+                            <input type="hidden" name="form-name" value="ContactForm" />
+                            <input type="hidden" name="source" value="Contact form" />
                             <span className={'inputfields'}>
-                                <input type="hidden" name="form-name" value="ContactForm" />
-                                <input type="hidden" name="source" value="Contact form" />
                                 <FormName />
                                 <FormEmail />
                                 <FormSubject />
@@ -83,13 +81,10 @@ const ContactForm = ({ data, location, language }) => {
                             </span>
 
                             {errorMessage &&
-                                <span>
-                                    <h3>Sorry!</h3>
-                                    <p>Looks like there was a problem receiving the form on our end.</p>
-                                </span>
+                                <SubmitError />
                             }
                             {successMessage &&
-                                <ThankYou />
+                                <SubmitThankYou />
                             }
                         </form>
                     </div>

@@ -35,5 +35,7 @@
   "inputSubmit": "Tuku puka",
   "submitHeader": "Mauruuru.",
   "submitContent": "Kua riro i a maatau to pakirehua ka hoki wawe mai ano ki a koe.",
+  "submitHeaderError": "Aroha mai!.",
+  "submitContentError": "Te ahua nei i raru te rironga mai o te pepa i to maatau mutunga.",
   "submitCTA": "Taku Ora Taku Reo"
 }
