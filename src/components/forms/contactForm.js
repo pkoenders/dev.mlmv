@@ -35,13 +35,13 @@ const ContactForm = ({ data, location, language }) => {
     //const formtUrl = "/" + i18n.language + "/" + location
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+
         fetch("/en/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                name: setInputName,
+                name: inputName,
             })
         }).then(res => {
             if (res.ok) {
@@ -51,11 +51,13 @@ const ContactForm = ({ data, location, language }) => {
         }).catch(error =>
             setError(` `)
         )
+        e.preventDefault()
     }
 
     const [inputName, setInputName] = useState(null)
-    const onChange = e => {
+    const onNameChange = e => {
         setInputName(e.target.value)
+        //console.log("setInputName = " + inputName)
     }
 
 
@@ -89,9 +91,9 @@ const ContactForm = ({ data, location, language }) => {
                                         type="text"
                                         name="name"
                                         placeholder={t("common:inputNamePlaceholder")}
-                                        value={inputName}
                                         required
-                                        onChange={onChange}
+                                        value={inputName}
+                                        onChange={onNameChange}
                                     />
                                 </label>
                                 <FormEmail />
