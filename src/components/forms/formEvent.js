@@ -17,7 +17,10 @@ const encode = data => {
 
 
 const FormContact = ({ eventName, location }) => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const translate = i18n.language
+
+    // console.log("eventName = " + eventName.translate)
 
     const [inputName, setInputName] = useState(null)
     const [inputEmail, setInputEmail] = useState(null)
@@ -44,7 +47,7 @@ const FormContact = ({ eventName, location }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                "event": eventName,
+                "event": eventName.translate,
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,

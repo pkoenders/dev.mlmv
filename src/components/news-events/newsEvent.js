@@ -116,7 +116,7 @@ const NewsEventTemplate = ({ data, location, pageContext }) => {
 
               {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                 ?
-                <FormEvent data={data} eventName={newsEventData.newsEventName.en} location={location} />
+                <FormEvent data={data} eventName={newsEventData.newsEventName} location={location} />
                 : ''
               }
 

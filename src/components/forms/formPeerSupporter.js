@@ -19,6 +19,8 @@ const encode = data => {
 const FormContact = ({ location, peerName, peerEmail }) => {
     const { t } = useTranslation()
 
+    //console.log("peerEmail = " + peerEmail)
+
     const [inputName, setInputName] = useState(null)
     const [inputEmail, setInputEmail] = useState(null)
     const [inputNumber, setInputNumber] = useState(null)

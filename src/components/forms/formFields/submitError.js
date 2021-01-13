@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import submitStyles from "./thankYou.module.scss"
-import IconSubmitError from "../../../images/svg/icon-contact-success.inline.svg"
+import IconSubmitError from "../../../images/svg/icon-contact-error.inline.svg"
 
 const SubmitError = () => {
   const { t } = useTranslation("common")
