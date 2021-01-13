@@ -96,16 +96,15 @@ const FormContact = ({ location, peerName }) => {
                             onChange={onEmailChange}
                         />
                     </label>
-                    <label htmlFor="contactNumber">
+                    <label htmlFor="number">
                         {t("common:inputContactNumber")}
                         <input
                             type="text"
-                            name="contactNumber"
+                            name="number"
                             value={inputNumber}
                             onChange={onNumberChange}
                         />
                     </label>
-
                     <label htmlFor="message">
                         {t("common:inputMessage")}
                         <textarea
