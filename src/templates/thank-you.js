@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import DefaultSection from "../components/common/defaultSection"
-import submitStyles from "../components/common/thankYou.module.scss"
+import submitStyles from "../components/forms/formFields/thankYou.module.scss"
 import SubmitSuccess from "../images/svg/icon-contact-success.inline.svg"
 
 

@@ -71,7 +71,7 @@ const FormContact = ({ location, peerName, peerEmail }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
-                <input type="hidden" name="peerEmail" value={peerEmail} />
+                <input type="hidden" name="emailFor" value={peerEmail} />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("peerSupporter:contactFormTitle")} {peerName}</p>

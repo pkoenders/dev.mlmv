@@ -1,6 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import submitStyles from "../../common/thankYou.module.scss"
+import submitStyles from "./thankYou.module.scss"
 import IconSubmitError from "../../../images/svg/icon-contact-success.inline.svg"
 
 const SubmitError = () => {
