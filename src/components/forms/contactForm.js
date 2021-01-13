@@ -34,13 +34,18 @@ const ContactForm = ({ data, location, language }) => {
     const [inputMessage, setInputMessage] = useState(null)
     const [errorMessage, setErrorMsg] = useState(null)
     const [successMessage, setSuccessMsg] = useState(null)
-    const onChange = e => {
+    const onNameChange = e => {
         setInputName(e.target.value)
+    }
+    const onEmailChange = e => {
         setInputEmail(e.target.value)
+    }
+    const onSubjectChange = e => {
         setInputSubject(e.target.value)
+    }
+    const onMessageChange = e => {
         setInputMessage(e.target.value)
     }
-
     const handleSubmit = (e) => {
         fetch(location.pathname, {
             method: "POST",
@@ -91,7 +96,7 @@ const ContactForm = ({ data, location, language }) => {
                                         value={inputName}
                                         placeholder={t("common:inputNamePlaceholder")}
                                         required
-                                        onChange={onChange}
+                                        onChange={onNameChange}
                                     />
                                 </label>
                                 <label htmlFor="email">
@@ -102,7 +107,7 @@ const ContactForm = ({ data, location, language }) => {
                                         placeholder={t("common:inputEmailPlaceholder")}
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                         required
-                                        onChange={onChange}
+                                        onChange={onEmailChange}
                                     />
                                 </label>
                                 <label htmlFor="subject">
@@ -110,7 +115,7 @@ const ContactForm = ({ data, location, language }) => {
                                     <input
                                         type="text"
                                         name="subject"
-                                        onChange={onChange}
+                                        onChange={onSubjectChange}
                                     />
                                 </label>
                                 <label htmlFor="message">
@@ -118,7 +123,7 @@ const ContactForm = ({ data, location, language }) => {
                                     <textarea
                                         name="message"
                                         rows="5"
-                                        onChange={onChange}
+                                        onChange={onMessageChange}
                                     />
                                 </label>
                                 <FormCheckTerms />
