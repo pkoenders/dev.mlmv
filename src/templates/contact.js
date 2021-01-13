@@ -56,7 +56,7 @@ const ContactPage = ({ data, location, language }) => {
                   : ''
                 }
                 <IconWave />
-                <BlockContent blocks={data.sanityContactContent.contactContent.localized.translate} />
+                <BlockContent blocks={data.sanityContactContent.contactContent.localized} />
                 <FormContact data={data} language={language} location={location} />
 
               </div>
