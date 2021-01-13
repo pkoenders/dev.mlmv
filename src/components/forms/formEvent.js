@@ -68,12 +68,12 @@ const FormContact = ({ eventName, location }) => {
     return (
         <div className={contactStyles.form}>
             <form
-                name="ContactForm"
+                name="Events"
                 method="post"
                 data-netlify="true"
                 onSubmit={handleSubmit}
             >
-                <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="form-name" value="Events" />
                 <input type="hidden" name="event" value={eventName} />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>

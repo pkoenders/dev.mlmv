@@ -64,12 +64,12 @@ const FormContact = ({ location, peerName }) => {
     return (
         <div className={contactStyles.form}>
             <form
-                name="ContactForm"
+                name="Accessibility"
                 method="post"
                 data-netlify="true"
                 onSubmit={handleSubmit}
             >
-                <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="form-name" value="Accessibility" />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <h3>{t("accessibility:formTitle")}</h3>

@@ -67,12 +67,12 @@ const FormContact = ({ location, peerName, peerEmail }) => {
     return (
         <div className={contactStyles.form}>
             <form
-                name="ContactForm"
+                name="PeerSupporters"
                 method="post"
                 data-netlify="true"
                 onSubmit={handleSubmit}
             >
-                <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="form-name" value="PeerSupporters" />
                 <input type="hidden" name="emailFor" value={peerEmail} />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
