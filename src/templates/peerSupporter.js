@@ -75,7 +75,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
       `}
       </style> */}
       <Layout location={location}>
-        <PeerSupporterPage data={data} pageContext={pageContext} />
+        <PeerSupporterPage data={data} pageContext={pageContext} location={location} />
       </Layout >
     </>
   )

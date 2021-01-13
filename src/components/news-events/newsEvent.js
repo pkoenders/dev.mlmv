@@ -17,18 +17,10 @@ import IconEvent from '../../images/svg/icon-event.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
 
-//Collect the required form fields
-import formStyles from '../forms/asideForm.module.scss'
-// import HoneyPot from "../forms/formFields/honeyPot"
-import FormName from "../forms/formFields/name"
-import FormEmail from "../forms/formFields/email"
-import FormContactNum from "../forms/formFields/contactNumber"
-import FormMessage from "../forms/formFields/message"
-import FormCheckTerms from "../forms/formFields/checkBoxTerms"
-import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
+import FormEvent from "../forms/formEvent"
 
 
-const NewsEventTemplate = ({ data, pageContext }) => {
+const NewsEventTemplate = ({ data, location, pageContext }) => {
   const { t, i18n } = useTranslation()
   const translate = i18n.language
   moment.locale(translate)
@@ -41,7 +33,7 @@ const NewsEventTemplate = ({ data, pageContext }) => {
 
 
   //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
-  const submitUrl = "/" + i18n.language + "/thank-you"
+  //const submitUrl = "/" + i18n.language + "/thank-you"
 
 
   //const { next, previous } = pageContext
@@ -124,27 +116,28 @@ const NewsEventTemplate = ({ data, pageContext }) => {
 
               {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                 ?
-                <div className={formStyles.form}>
-                  <p>{t("newsEvents:attendingEvent")}</p>
-                  <form
-                    name="Events"
-                    method="POST"
-                    enctype="application/x-www-form-urlencoded"
-                    action={submitUrl}
-                    data-netlify="true"
-                  // netlify-honeypot="hpfield"     
-                  >
-                    {/* <HoneyPot /> */}
-                    <input type="hidden" name="form-name" value="Events" />
-                    <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
-                    <FormName />
-                    <FormEmail />
-                    <FormContactNum />
-                    <FormMessage />
-                    <FormCheckTerms />
-                    <FormSubmit />
-                  </form>
-                </div>
+                <FormEvent data={data} location={location} />
+                // <div className={formStyles.form}>
+                //   <p>{t("newsEvents:attendingEvent")}</p>
+                //   <form
+                //     name="Events"
+                //     method="POST"
+                //     enctype="application/x-www-form-urlencoded"
+                //     action={submitUrl}
+                //     data-netlify="true"
+                //   // netlify-honeypot="hpfield"     
+                //   >
+                //     {/* <HoneyPot /> */}
+                //     <input type="hidden" name="form-name" value="Events" />
+                //     <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
+                //     <FormName />
+                //     <FormEmail />
+                //     <FormContactNum />
+                //     <FormMessage />
+                //     <FormCheckTerms />
+                //     <FormSubmit />
+                //   </form>
+                // </div>
                 : ''
               }
 

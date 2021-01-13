@@ -6,16 +6,8 @@ import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
 import DefaultSection from "../components/common/defaultSection"
 
-//Collect the required form fields
 import footerStyles from '../components/forms/footerForm.module.scss'
-// import HoneyPot from "../components/forms/formFields/honeyPot"
-import FormName from "../components/forms/formFields/name"
-import FormEmail from "../components/forms/formFields/email"
-import FormContactNum from "../components/forms/formFields/contactNumber"
-import FormSubject from "../components/forms/formFields/subject"
-import FormMessage from "../components/forms/formFields/message"
-import FormCheckTerms from "../components/forms/formFields/checkBoxTerms"
-import FormSubmit from "../components/forms/formFields/buttonSubmitDisabled"
+import FormAccessibility from "../components/forms/formAccessibility"
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -66,29 +58,8 @@ const AccessibilityPage = ({ data, location, language }) => {
         <section className={footerStyles.form}>
           <div className={footerStyles.formWrapper}>
             <div>
-              <h3>{t("accessibility:formTitle")}</h3>
               <div>
-                <form
-                  name="Accessibility"
-                  id="accessibility"
-                  method="POST"
-                  enctype="application/x-www-form-urlencoded"
-                  //action={`../${i18n.language}/submit`}
-                  action={submitUrl}
-                  data-netlify="true"
-                // netlify-honeypot="hpfield"     
-                >
-                  {/* <HoneyPot /> */}
-                  <input type="hidden" name="form-name" value="Accessibility" />
-                  <input type="hidden" name="Source" value="Accessibility page" />
-                  <FormName />
-                  <FormEmail />
-                  <FormContactNum />
-                  <FormSubject />
-                  <FormMessage />
-                  <FormCheckTerms />
-                  <FormSubmit />
-                </form>
+                <FormAccessibility location={location} />
               </div>
             </div>
           </div>

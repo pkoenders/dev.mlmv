@@ -85,7 +85,7 @@ const NewsEvent = ({ data, pageContext, location }) => {
       </style> */}
 
       <Layout location={location}>
-        <NewsEventTemplate data={data} pageContext={pageContext} />
+        <NewsEventTemplate data={data} pageContext={pageContext} location={location} />
       </Layout >
     </>
   )

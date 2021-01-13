@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 //Collect the required form fields
-import contactStyles from './contactForm.module.scss'
+import contactStyles from './footerForm.module.scss'
 import SubmitThankYou from "./formFields/submitThankYou"
 import SubmitError from "./formFields/submitError"
 import FormCheckTerms from "./formFields/checkBoxTerms"
@@ -16,12 +16,12 @@ const encode = data => {
 }
 
 
-const FormContact = ({ location }) => {
+const FormContact = ({ location, peerName }) => {
     const { t } = useTranslation()
 
     const [inputName, setInputName] = useState(null)
     const [inputEmail, setInputEmail] = useState(null)
-    const [inputSubject, setInputSubject] = useState(null)
+    const [inputNumber, setInputNumber] = useState(null)
     const [inputMessage, setInputMessage] = useState(null)
     const [errorMessage, setErrorMsg] = useState(null)
     const [successMessage, setSuccessMsg] = useState(null)
@@ -32,8 +32,8 @@ const FormContact = ({ location }) => {
     const onEmailChange = e => {
         setInputEmail(e.target.value)
     }
-    const onSubjectChange = e => {
-        setInputSubject(e.target.value)
+    const onNumberChange = e => {
+        setInputNumber(e.target.value)
     }
     const onMessageChange = e => {
         setInputMessage(e.target.value)
@@ -47,7 +47,7 @@ const FormContact = ({ location }) => {
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,
-                subject: inputSubject,
+                number: inputNumber,
                 message: inputMessage
             })
         }).then(res => {
@@ -62,7 +62,7 @@ const FormContact = ({ location }) => {
     }
 
     return (
-        <div className={contactStyles.contactFormInput}>
+        <div className={contactStyles.form}>
             <form
                 name="ContactForm"
                 method="post"
@@ -71,6 +71,7 @@ const FormContact = ({ location }) => {
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
                 <span className={'inputfields'}>
+                    <h3>{t("accessibility:formTitle")}</h3>
                     <label htmlFor="name">
                         {t("common:inputName")}
                         <input
@@ -93,22 +94,15 @@ const FormContact = ({ location }) => {
                             onChange={onEmailChange}
                         />
                     </label>
-                    {/* <label htmlFor="contactNumber">
+                    <label htmlFor="contactNumber">
                         {t("common:inputContactNumber")}
                         <input
                             type="text"
                             name="contactNumber"
                             onChange={onNumberChange}
                         />
-                    </label> */}
-                    <label htmlFor="subject">
-                        {t("common:inputSubject")}
-                        <input
-                            type="text"
-                            name="subject"
-                            onChange={onSubjectChange}
-                        />
                     </label>
+
                     <label htmlFor="message">
                         {t("common:inputMessage")}
                         <textarea
@@ -120,11 +114,12 @@ const FormContact = ({ location }) => {
                     <FormCheckTerms />
                     <FormSubmit />
                 </span>
-
-                {errorMessage &&
+                {
+                    errorMessage &&
                     <SubmitError />
                 }
-                {successMessage &&
+                {
+                    successMessage &&
                     <SubmitThankYou />
                 }
             </form>

@@ -11,20 +11,13 @@ import IconNext from "../../images/svg/icon-next.inline.svg"
 import IconPrev from "../../images/svg/icon-prev.inline.svg"
 import IconBack from "../../images/svg/icon-back.inline.svg"
 
-//Collect the required form fields
-import formStyles from '../forms/asideForm.module.scss'
-import FormName from "../forms/formFields/name"
-import FormEmail from "../forms/formFields/email"
-import FormContactNum from "../forms/formFields/contactNumber"
-import FormMessage from "../forms/formFields/message"
-import FormCheckTerms from "../forms/formFields/checkBoxTerms"
-import FormSubmit from "../forms/formFields/buttonSubmitDisabled"
+import FormPeerSupporter from "../forms/formPeerSupporter"
 
 import IconGender from '../../images/svg/icon-gender.inline.svg'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 //import IconTime from '../../images/svg/icon-time.inline.svg'
 
-const PeerSupporterTemplate = ({ data, pageContext }) => {
+const PeerSupporterTemplate = ({ data, pageContext, location }) => {
   const { t, i18n } = useTranslation()
 
   const { sanityPeerSupporters } = data
@@ -35,7 +28,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
   const { next, previous } = pageContext
 
   //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
-  const submitUrl = "/" + i18n.language + "/thank-you"
+  //const submitUrl = "/" + i18n.language + "/thank-you"
 
 
   return (
@@ -144,28 +137,7 @@ const PeerSupporterTemplate = ({ data, pageContext }) => {
                   <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
                 }
               </div>
-
-              <div className={formStyles.form}>
-                <p>{t("peerSupporter:contactFormTitle")} {peerData.peerSupporterFullName.translate.split(' ', 1)[0]}</p>
-                <form
-                  name="PeerSupporters"
-                  method="POST"
-                  enctype="application/x-www-form-urlencoded"
-                  action={submitUrl}
-                  //action="/en/submit"
-                  data-netlify="true"
-                >
-                  <input type="hidden" name="form-name" value="PeerSupporters" />
-                  <input type="hidden" name="Source" value={`Peer Supporter - ${peerData.peerSupporterFullName.translate}`} />
-                  {/* <input type="hidden" name="Email" value={peerData.peerSupporterEmail} /> */}
-                  <FormName />
-                  <FormEmail />
-                  <FormContactNum />
-                  <FormMessage />
-                  <FormCheckTerms />
-                  <FormSubmit />
-                </form>
-              </div>
+              <FormPeerSupporter data={data} location={location} peerName={peerData.peerSupporterFullName.translate.split(' ', 1)[0]} />
             </div>
           </div>
         </section>
