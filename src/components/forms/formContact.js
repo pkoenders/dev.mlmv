@@ -3,11 +3,11 @@ import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 //Collect the required form fields
-import contactStyles from '../contactForm.module.scss'
-import SubmitThankYou from "./submitThankYou"
-import SubmitError from "./submitError"
-import FormCheckTerms from "./checkBoxTerms"
-import FormSubmit from "./buttonSubmitDisabled"
+import contactStyles from './contactForm.module.scss'
+import SubmitThankYou from "./formFields/submitThankYou"
+import SubmitError from "./formFields/submitError"
+import FormCheckTerms from "./formFields/checkBoxTerms"
+import FormSubmit from "./formFields/buttonSubmitDisabled"
 
 const encode = data => {
     return Object.keys(data)
@@ -21,6 +21,7 @@ const FormContact = ({ data, location, language }) => {
 
     const [inputName, setInputName] = useState(null)
     const [inputEmail, setInputEmail] = useState(null)
+    // const [inputNumber, setInputNumber] = useState(null)
     const [inputSubject, setInputSubject] = useState(null)
     const [inputMessage, setInputMessage] = useState(null)
     const [errorMessage, setErrorMsg] = useState(null)
@@ -31,6 +32,9 @@ const FormContact = ({ data, location, language }) => {
     const onEmailChange = e => {
         setInputEmail(e.target.value)
     }
+    // const onNumberChange = e => {
+    //     setInputNumber(e.target.value)
+    // }
     const onSubjectChange = e => {
         setInputSubject(e.target.value)
     }

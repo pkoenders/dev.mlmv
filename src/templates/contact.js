@@ -1,10 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-//import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import SectionContactForm from "../components/forms/contactForm"
+import BlockContent from "../components/common/blockContent"
+import IconWave from "../images/svg/icon-wave.inline.svg"
+import FormContact from "../components/forms/formContact"
 
+import contactStyles from '../components/forms/contactForm.module.scss'
 
 export const query = graphql`
 query($language: String, $locale: JSON) {
@@ -35,7 +38,7 @@ query($language: String, $locale: JSON) {
 `
 
 const ContactPage = ({ data, location, language }) => {
-  //const { t, i18n } = useTranslation("contact")
+  const { t, i18n } = useTranslation()
   return (
     <>
       <SEO
@@ -44,7 +47,21 @@ const ContactPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <div style={{ marginTop: '60px' }} >
-          <SectionContactForm data={data} language={language} location={location} />
+
+          <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
+            <div className={contactStyles.contactFormWrapper}>
+              <div className={contactStyles.contactForm}>
+                {location.pathname !== "/" + i18n.language
+                  ? <h1>{t("contact:title")}</h1>
+                  : ''
+                }
+                <IconWave />
+                <BlockContent blocks={data.sanityContactContent.contactContent.localized.translate} />
+                <FormContact data={data} language={language} location={location} />
+
+              </div>
+            </div>
+          </section>
         </div>
 
       </Layout>
