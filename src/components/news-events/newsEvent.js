@@ -116,28 +116,7 @@ const NewsEventTemplate = ({ data, location, pageContext }) => {
 
               {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
                 ?
-                <FormEvent data={data} location={location} />
-                // <div className={formStyles.form}>
-                //   <p>{t("newsEvents:attendingEvent")}</p>
-                //   <form
-                //     name="Events"
-                //     method="POST"
-                //     enctype="application/x-www-form-urlencoded"
-                //     action={submitUrl}
-                //     data-netlify="true"
-                //   // netlify-honeypot="hpfield"     
-                //   >
-                //     {/* <HoneyPot /> */}
-                //     <input type="hidden" name="form-name" value="Events" />
-                //     <input type="hidden" name="Source" value={`Event - ${newsEventData.newsEventName.translate}`} />
-                //     <FormName />
-                //     <FormEmail />
-                //     <FormContactNum />
-                //     <FormMessage />
-                //     <FormCheckTerms />
-                //     <FormSubmit />
-                //   </form>
-                // </div>
+                <FormEvent data={data} eventName={newsEventData.newsEventName.en} location={location} />
                 : ''
               }
 

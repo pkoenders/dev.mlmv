@@ -16,7 +16,7 @@ const encode = data => {
 }
 
 
-const FormContact = ({ location }) => {
+const FormContact = ({ eventName, location }) => {
     const { t } = useTranslation()
 
     const [inputName, setInputName] = useState(null)
@@ -44,6 +44,7 @@ const FormContact = ({ location }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
+                "eventName": eventName,
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,
@@ -70,6 +71,7 @@ const FormContact = ({ location }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="event" value={eventName} />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("newsEvents:attendingEvent")}</p>
