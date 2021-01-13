@@ -52,6 +52,7 @@ const ContactForm = ({ data, location, language }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
+                "location": e.target.getAttribute("location").value,
                 name: inputName,
                 email: inputEmail,
                 subject: inputSubject,
