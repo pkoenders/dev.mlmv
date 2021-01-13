@@ -13,7 +13,10 @@ import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
 import UsrCommentsSection from "../components/homepage/userComments"
-//import SectionContactForm from "../components/forms/contactForm"
+
+import IconWave from "../images/svg/icon-wave.inline.svg"
+import FormContact from "../components/forms/formContact"
+import contactStyles from '../components/forms/contactForm.module.scss'
 
 export const query = graphql`
   query($language: String, $locale: JSON) {
@@ -153,7 +156,15 @@ const IndexPage = ({ data, location, language }) => {
         <SupportSection />
         {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
-        {/* <SectionContactForm data={data} language={language} location={location} /> */}
+        <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
+          <div className={contactStyles.contactFormWrapper}>
+            <div className={contactStyles.contactForm}>
+              <IconWave />
+              <BlockContent blocks={data.sanityContactContent.contactContent.localized} />
+              <FormContact data={data} language={language} location={location} />
+            </div>
+          </div>
+        </section>
       </Layout>
     </>
   )

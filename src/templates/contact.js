@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
 import IconWave from "../images/svg/icon-wave.inline.svg"
 import FormContact from "../components/forms/formContact"
-
 import contactStyles from '../components/forms/contactForm.module.scss'
 
 export const query = graphql`
