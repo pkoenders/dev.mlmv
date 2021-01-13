@@ -8,10 +8,10 @@ import IconWave from "../../images/svg/icon-wave.inline.svg"
 import contactStyles from './contactForm.module.scss'
 import SubmitThankYou from "./formFields/submitThankYou"
 import SubmitError from "./formFields/submitError"
-import FormName from "./formFields/name"
-import FormEmail from "./formFields/email"
-import FormSubject from "./formFields/subject"
-import FormMessage from "./formFields/message"
+// import FormName from "./formFields/name"
+// import FormEmail from "./formFields/email"
+// import FormSubject from "./formFields/subject"
+// import FormMessage from "./formFields/message"
 import FormCheckTerms from "./formFields/checkBoxTerms"
 import FormSubmit from "./formFields/buttonSubmitDisabled"
 
@@ -28,45 +28,44 @@ const ContactForm = ({ data, location, language }) => {
     const { sanityContactContent } = data
     const contentData = sanityContactContent
 
-    const [errorMessage, setError] = useState(null)
-    const [successMessage, setSuccess] = useState(null)
-
-
-    //const formtUrl = "/" + i18n.language + "/" + location
+    const [inputName, setInputName] = useState(null)
+    const [inputEmail, setInputEmail] = useState(null)
+    const [inputSubject, setInputSubject] = useState(null)
+    const [inputMessage, setInputMessage] = useState(null)
+    const [errorMessage, setErrorMsg] = useState(null)
+    const [successMessage, setSuccessMsg] = useState(null)
+    const onChange = e => {
+        setInputName(e.target.value)
+        setInputEmail(e.target.value)
+        setInputSubject(e.target.value)
+        setInputMessage(e.target.value)
+    }
 
     const handleSubmit = (e) => {
-
-        fetch("/en/contact", {
+        fetch(location.pathname, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
                 name: inputName,
+                email: inputEmail,
+                subject: inputSubject,
+                message: inputMessage
             })
         }).then(res => {
             if (res.ok) {
-                setSuccess(` `)
+                setSuccessMsg(` `)
                 document.querySelector('.inputfields').classList.add('hide')
             }
         }).catch(error =>
-            setError(` `)
+            setErrorMsg(` `)
         )
         e.preventDefault()
     }
 
-    const [inputName, setInputName] = useState(null)
-    const onNameChange = e => {
-        setInputName(e.target.value)
-        //console.log("setInputName = " + inputName)
-    }
-
-
     return (
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
-
-
             <div className={contactStyles.contactFormWrapper}>
-
                 <div className={contactStyles.contactForm}>
                     {location.pathname !== "/" + i18n.language
                         ? <h1>{t("contact:title")}</h1>
@@ -82,23 +81,46 @@ const ContactForm = ({ data, location, language }) => {
                             onSubmit={handleSubmit}
                         >
                             <input type="hidden" name="form-name" value="ContactForm" />
-                            <input type="hidden" name="source" value="Contact form" />
+                            <input type="hidden" name="location" value="Contact form" />
                             <span className={'inputfields'}>
-                                {/* <FormName onChange={onChange} /> */}
                                 <label htmlFor="name">
                                     {t("common:inputName")}
                                     <input
                                         type="text"
                                         name="name"
+                                        value={inputName}
                                         placeholder={t("common:inputNamePlaceholder")}
                                         required
-                                        value={inputName}
-                                        onChange={onNameChange}
+                                        onChange={onChange}
                                     />
                                 </label>
-                                <FormEmail />
-                                <FormSubject />
-                                <FormMessage />
+                                <label htmlFor="email">
+                                    {t("common:inputEmail")}
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder={t("common:inputEmailPlaceholder")}
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                        required
+                                        onChange={onChange}
+                                    />
+                                </label>
+                                <label htmlFor="subject">
+                                    {t("common:inputSubject")}
+                                    <input
+                                        type="text"
+                                        name="subject"
+                                        onChange={onChange}
+                                    />
+                                </label>
+                                <label htmlFor="message">
+                                    {t("common:inputMessage")}
+                                    <textarea
+                                        name="message"
+                                        rows="5"
+                                        onChange={onChange}
+                                    />
+                                </label>
                                 <FormCheckTerms />
                                 <FormSubmit />
                             </span>
