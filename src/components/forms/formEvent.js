@@ -17,8 +17,7 @@ const encode = data => {
 
 
 const FormContact = ({ eventName, location }) => {
-    const { t, i18n } = useTranslation()
-    const translate = i18n.language
+    const { t } = useTranslation()
 
     // console.log("eventName = " + eventName.translate)
 

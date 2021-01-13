@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
@@ -38,9 +37,6 @@ export const query = graphql`
 `
 
 const AccessibilityPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation()
-
-  const submitUrl = "/" + i18n.language + "/thank-you"
 
   return (
     <>
