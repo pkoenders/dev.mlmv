@@ -44,7 +44,7 @@ const FormContact = ({ eventName, location }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                "eventName": eventName,
+                "event": eventName,
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,

@@ -44,7 +44,7 @@ const FormContact = ({ location, peerName, peerEmail }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                "peerEmail": peerEmail,
+                "emailFor": peerEmail,
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,

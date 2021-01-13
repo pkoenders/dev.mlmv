@@ -137,7 +137,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
                   <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
                 }
               </div>
-              <FormPeerSupporter data={data} location={location} peerName={peerData.peerSupporterFullName.translate.split(' ', 1)[0]} />
+              <FormPeerSupporter data={data} location={location} peerEmail={peerData.peerSupporterEmail} peerName={peerData.peerSupporterFullName.translate.split(' ', 1)[0]} />
             </div>
           </div>
         </section>
