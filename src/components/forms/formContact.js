@@ -44,7 +44,7 @@ const FormContact = ({ location }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                location: location.pathname,
+                "location": location.pathname,
                 name: inputName,
                 email: inputEmail,
                 subject: inputSubject,
@@ -70,6 +70,7 @@ const FormContact = ({ location }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <label htmlFor="name">
                         {t("common:inputName")}
@@ -87,25 +88,19 @@ const FormContact = ({ location }) => {
                         <input
                             type="email"
                             name="email"
+                            value={inputEmail}
                             placeholder={t("common:inputEmailPlaceholder")}
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                             required
                             onChange={onEmailChange}
                         />
                     </label>
-                    {/* <label htmlFor="contactNumber">
-                        {t("common:inputContactNumber")}
-                        <input
-                            type="text"
-                            name="contactNumber"
-                            onChange={onNumberChange}
-                        />
-                    </label> */}
                     <label htmlFor="subject">
                         {t("common:inputSubject")}
                         <input
                             type="text"
                             name="subject"
+                            value={inputSubject}
                             onChange={onSubjectChange}
                         />
                     </label>
@@ -114,6 +109,7 @@ const FormContact = ({ location }) => {
                         <textarea
                             name="message"
                             rows="5"
+                            value={inputMessage}
                             onChange={onMessageChange}
                         />
                     </label>

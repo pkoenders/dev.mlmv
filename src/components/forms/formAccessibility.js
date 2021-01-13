@@ -89,6 +89,7 @@ const FormContact = ({ location, peerName }) => {
                         <input
                             type="email"
                             name="email"
+                            value={inputEmail}
                             placeholder={t("common:inputEmailPlaceholder")}
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                             required
@@ -100,6 +101,7 @@ const FormContact = ({ location, peerName }) => {
                         <input
                             type="text"
                             name="contactNumber"
+                            value={inputNumber}
                             onChange={onNumberChange}
                         />
                     </label>
@@ -109,6 +111,7 @@ const FormContact = ({ location, peerName }) => {
                         <textarea
                             name="message"
                             rows="5"
+                            value={inputMessage}
                             onChange={onMessageChange}
                         />
                     </label>

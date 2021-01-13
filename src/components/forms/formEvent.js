@@ -44,7 +44,7 @@ const FormContact = ({ location }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                location: location.pathname,
+                "location": location.pathname,
                 name: inputName,
                 email: inputEmail,
                 number: inputNumber,
@@ -70,6 +70,7 @@ const FormContact = ({ location }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("newsEvents:attendingEvent")}</p>
                     <label htmlFor="name">
@@ -88,6 +89,7 @@ const FormContact = ({ location }) => {
                         <input
                             type="email"
                             name="email"
+                            value={inputEmail}
                             placeholder={t("common:inputEmailPlaceholder")}
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                             required
@@ -99,6 +101,7 @@ const FormContact = ({ location }) => {
                         <input
                             type="text"
                             name="contactNumber"
+                            value={inputNumber}
                             onChange={onNumberChange}
                         />
                     </label>
@@ -107,6 +110,7 @@ const FormContact = ({ location }) => {
                         {t("common:inputMessage")}
                         <textarea
                             name="message"
+                            value={inputMessage}
                             rows="5"
                             onChange={onMessageChange}
                         />
