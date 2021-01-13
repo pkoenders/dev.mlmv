@@ -45,10 +45,10 @@ const FormContact = ({ location, peerName }) => {
             body: encode({
                 "form-name": e.target.getAttribute("name"),
                 location: location.pathname,
-                name: inputName,
                 email: inputEmail,
                 number: inputNumber,
-                message: inputMessage
+                message: inputMessage,
+                name: inputName,
             })
         }).then(res => {
             if (res.ok) {
