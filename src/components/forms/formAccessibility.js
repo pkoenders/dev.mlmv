@@ -44,7 +44,7 @@ const FormContact = ({ location, peerName }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                location: location.pathname,
+                "location": location.pathname,
                 email: inputEmail,
                 number: inputNumber,
                 message: inputMessage,
@@ -70,6 +70,7 @@ const FormContact = ({ location, peerName }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <h3>{t("accessibility:formTitle")}</h3>
                     <label htmlFor="name">
