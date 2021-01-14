@@ -27,7 +27,7 @@ const NotFoundPage = ({ location }) => {
             <Layout location={location}>
                 {/* <BackgroundImage /> */}
 
-                <canvas class="catAnim" width="32" height="32"></canvas>
+                {/* <canvas class="catAnim" width="32" height="32"></canvas> */}
 
                 <DefaultSection>
                     <div className={"fourOfour"}>
