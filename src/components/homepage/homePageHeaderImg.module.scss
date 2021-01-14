@@ -29,6 +29,11 @@
             @include homePageTitle;
             font-weight: 700;
             line-height: 2.4rem;
+
+            @include respond-below(md) {
+                font-size: 1.4rem;
+                line-height: 2.0rem;
+            }
         }
     }
 
