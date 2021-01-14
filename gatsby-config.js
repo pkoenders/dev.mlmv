@@ -233,7 +233,7 @@ module.exports = {
     // `gatsby-plugin-offline`,
 
 
-    //`gatsby-plugin-netlify`,
+    // `gatsby-plugin-netlify`,
 
     // {
     //   resolve: `gatsby-plugin-netlify`,
@@ -247,6 +247,7 @@ module.exports = {
     //     generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
     //   },
     // },
+
     `gatsby-plugin-preact`
 
     // `gatsby-plugin-client-side-redirect` // keep it in last in list
