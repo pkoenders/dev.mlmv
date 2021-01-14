@@ -14,12 +14,6 @@ module.exports = {
   },
   plugins: [
 
-    // {
-    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-    //   options: {
-    //     devMode: false,
-    //   },
-    // },
 
     {
       resolve: `gatsby-source-sanity`,
@@ -65,8 +59,6 @@ module.exports = {
     //     exitEventName: 'sal:out', // Exit event name
     //   }
     // },
-
-    //`gatsby-plugin-preload-fonts`,
 
     {
       resolve: `gatsby-plugin-webfonts`,
