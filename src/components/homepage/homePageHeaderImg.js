@@ -1,8 +1,8 @@
 import React from "react"
 //import { useStaticQuery, graphql } from "gatsby"
 //import { useTranslation } from "react-i18next"
-//import Img from "gatsby-image"
-import Img from "gatsby-image/withIEPolyfill"
+import Img from "gatsby-image"
+//import Img from "gatsby-image/withIEPolyfill"
 import homePageHeaderImg from '../homepage/homePageHeaderImg.module.scss'
 
 
