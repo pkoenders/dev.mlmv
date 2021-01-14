@@ -6,7 +6,7 @@ import LogoMLMVHeader from "../../images/svg/logo-mlmv.inline.svg"
 import IconCloseMenu from "../../images/svg/icon-close.inline.svg"
 import IconLanguage from "../../images/svg/icon-language.inline.svg"
 
-import IconAbout from "../../images/svg/icon-info.inline.svg"
+import IconSupport from "../../images/svg/icon-support.inline.svg"
 import IconContact from "../../images/svg/icon-contact-us.inline.svg"
 import IconTerms from "../../images/svg/icon-terms.inline.svg"
 import IconAccessibilty from "../../images/svg/icon-accessible.inline.svg"
@@ -156,14 +156,14 @@ const Header = ({ location }) => {
             </li>
             <li>
               <Link
-                to={`/${i18n.language}/support-services`}
+                to={`/${i18n.language}/about`}
                 activeClassName={"activeNavItem"}
-                getProps={isPartiallyActive}
                 tabIndex="0"
-                title={t("common:mainNavSupportServices")}>
-                {t("common:mainNavSupportServices")}
+                title={t("common:mainNavAbout")}>
+                {t("common:mainNavAbout")}
               </Link>
             </li>
+
             <li>
               <Link
                 to={`/${i18n.language}/news-events`}
@@ -182,16 +182,21 @@ const Header = ({ location }) => {
                 {t("common:mainNavMore")}
               </button>
               <ul className="hide">
+
+
+
                 <li>
                   <Link
-                    to={`/${i18n.language}/about`}
+                    to={`/${i18n.language}/support-services`}
                     activeClassName={"activeNavItem"}
+                    getProps={isPartiallyActive}
                     tabIndex="0"
-                    title={t("common:mainNavAbout")}>
-                    <IconAbout aria-hidden="true" />
-                    {t("common:mainNavAbout")}
+                    title={t("common:mainNavSupportServices")}>
+                    <IconSupport aria-hidden="true" />
+                    {t("common:mainNavSupportServices")}
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to={`/${i18n.language}/contact`}

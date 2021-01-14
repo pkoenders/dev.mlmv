@@ -5,6 +5,7 @@ const i18next = require("i18next")
 const nodeFsBackend = require("i18next-fs-backend")
 
 const allLanguages = ["en", "mi"]
+//const allLanguages = ["en"]
 
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)

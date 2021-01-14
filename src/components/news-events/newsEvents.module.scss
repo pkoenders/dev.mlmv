@@ -144,6 +144,7 @@ div.wrapper {
 
                 .supporterInfo {
                     margin: 10px 0 35px 0;
+                    color: $txtColorA;
 
                     span {
                         display: inline-block;
@@ -154,6 +155,7 @@ div.wrapper {
                             margin-right: 5px;
                             height: auto;
                             vertical-align: middle;
+                            color: inherit;
                         }
                     }
                 }
@@ -184,6 +186,7 @@ div.wrapper {
                             width: 32px;
                             height: auto;
                             vertical-align: middle;
+                            color: inherit;
                         }
                     }
 

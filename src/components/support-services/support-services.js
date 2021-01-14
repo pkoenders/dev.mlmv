@@ -5,14 +5,14 @@ import { useTranslation } from "react-i18next"
 
 import filterStyles from '../common/filterList.module.scss'
 import resultsStyles from '../common/listResults.module.scss'
-import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
-import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
-import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
+import IconTagSelected from "../../images/svg/icon-tick.inline.svg"
+import IconTagUnSelected from "../../images/svg/icon-add.inline.svg"
+import IconReset from "../../images/svg/icon-clear.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 import IconLocation from '../../images/svg/icon-location.inline.svg'
-import IconPhone from '../../images/svg/icon-phone-primary.inline.svg'
-import IconOpenNew from '../../images/svg/icon-open-in-new-primary.inline.svg'
+import IconPhone from '../../images/svg/icon-phone.inline.svg'
+import IconExternal from '../../images/svg/icon-open-external.inline.svg'
 
 let allResultsTagList = []
 
@@ -133,11 +133,11 @@ const ListSupportServices = ({ data, location, language }) => {
         handleResetTagList()
         handleTagResultsReset()
         handleResetResultsTagList()
-        handleInputLabelStatusBlur()
+        handleInputStatusBlur()
         handleSearchIcon()
     }
 
-    function handleInputLabelStatusFocus() {
+    function handleInputStatusFocus() {
         handleSearchIcon()
         document.querySelector(".filterLabel").classList.add('active', 'focus')
 
@@ -148,7 +148,7 @@ const ListSupportServices = ({ data, location, language }) => {
         filterListByInput()
         //handleResetTagList()
     }
-    function handleInputLabelStatusBlur() {
+    function handleInputStatusBlur() {
         const inputValue = document.getElementById("filterInput")
         const inputLabel = document.querySelector(".filterLabel")
 
@@ -336,8 +336,8 @@ const ListSupportServices = ({ data, location, language }) => {
                                 name="FilterSupporters"
                                 placeholder={t("supportServices:filterPlaceholder")}
                                 onChange={handleInputFilter}
-                                onFocus={handleInputLabelStatusFocus}
-                                onBlur={handleInputLabelStatusBlur}
+                                onFocus={handleInputStatusFocus}
+                                onBlur={handleInputStatusBlur}
                             />
                             <button
                                 className={filterStyles.filterReset + ' filterReset hide'}
@@ -391,7 +391,7 @@ const ListSupportServices = ({ data, location, language }) => {
                                                     }
 
                                                     {edge.node.url !== null
-                                                        ? <a href={`http://${edge.node.url}`}><IconOpenNew aria-hidden="true" /><span>{edge.node.url}</span></a>
+                                                        ? <a href={`http://${edge.node.url}`}><IconExternal aria-hidden="true" /><span>{edge.node.url}</span></a>
                                                         : ''
                                                     }
 

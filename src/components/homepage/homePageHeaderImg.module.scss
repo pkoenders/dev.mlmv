@@ -15,7 +15,7 @@
         width: 100%;
         position: absolute;
         background: $primaryColor;
-        background: linear-gradient(0deg, rgba(18, 25, 35, 0) 75%, rgba(18, 25, 35, 1) 100%);
+        background: linear-gradient(0deg, rgba(18, 25, 35, 0) 66%, rgba(18, 25, 35, 1) 100%);
         z-index: 10000;
 
         span {
@@ -38,7 +38,7 @@
         display: block;
         margin-top: 0px;
         display: block;
-        opacity: .66;
+        opacity: .5;
 
         img {
             object-position: top !important;
@@ -49,5 +49,11 @@
             }
         }
     }
+}
 
+.spacer {
+    height: 0;
+    width: 0;
+    display: block;
+    margin-top: 60px;
 }

@@ -467,6 +467,7 @@ form {
   color: #ffffff !important;
   background-color: $tertiaryColor !important;
 
+
   span {
     svg {
       display: inline-block;
@@ -496,7 +497,7 @@ label.filterLabel.focus {
   padding: 5px 10px 0 10px;
   font-size: .8rem;
   font-weight: 400;
-  color: #0B132B;
+  color: $txtColor;
   background-color: #ffffff;
 }
 

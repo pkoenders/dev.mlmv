@@ -5,12 +5,11 @@ import Img from 'gatsby-image'
 
 import filterStyles from '../common/filterList.module.scss'
 import resultsStyles from '../common/listResults.module.scss'
-
-import IconTagSelected from "../../images/svg/icon-tick-tag.inline.svg"
-import IconTagUnSelected from "../../images/svg/icon-add-tag.inline.svg"
-import IconReset from "../../images/svg/icon-reset-filter.inline.svg"
+import IconTagSelected from "../../images/svg/icon-tick.inline.svg"
+import IconTagUnSelected from "../../images/svg/icon-add.inline.svg"
+import IconReset from "../../images/svg/icon-clear.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
-import IconRightPrimary from "../../images/svg/icon-next-primary.inline.svg"
+import IconForward from "../../images/svg/icon-forward.inline.svg"
 import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
 
 let allResultsTagList = []
@@ -24,6 +23,7 @@ const ListPeerSupporters = ({ data, language }) => {
     const { allSanityPeerSupporters } = data // data.markdownRemark holds your post data
     const peerListData = allSanityPeerSupporters
     const allPosts = peerListData.edges
+
 
     // Check if the tags filtering list has matching tags in the results. 
     // It is possible to create a tag in Sanity and not attached to a Peer supporter.
@@ -138,11 +138,11 @@ const ListPeerSupporters = ({ data, language }) => {
         handleResetTagList()
         handleTagResultsReset()
         handleResetResultsTagList()
-        handleInputLabelStatusBlur()
+        handleInputStatusBlur()
         handleSearchIcon()
     }
 
-    function handleInputLabelStatusFocus() {
+    function handleInputStatusFocus() {
         handleSearchIcon()
         document.querySelector(".filterLabel").classList.add('active', 'focus')
 
@@ -153,7 +153,7 @@ const ListPeerSupporters = ({ data, language }) => {
         filterListByInput()
         //handleResetTagList()
     }
-    function handleInputLabelStatusBlur() {
+    function handleInputStatusBlur() {
         const inputValue = document.getElementById("filterInput")
         const inputLabel = document.querySelector(".filterLabel")
 
@@ -337,8 +337,8 @@ const ListPeerSupporters = ({ data, language }) => {
                                 name="FilterSupporters"
                                 placeholder={t("peerSupporters:filterPlaceholder")}
                                 onChange={handleInputFilter}
-                                onFocus={handleInputLabelStatusFocus}
-                                onBlur={handleInputLabelStatusBlur}
+                                onFocus={handleInputStatusFocus}
+                                onBlur={handleInputStatusBlur}
                             />
                             <button
                                 className={filterStyles.filterReset + ' filterReset hide'}
@@ -384,7 +384,7 @@ const ListPeerSupporters = ({ data, language }) => {
                                                 <h2>{edge.node.peerSupporterFullName.translate}</h2>
                                                 <p>{edge.node.peerShortDescription.translate}</p>
                                                 <span className={resultsStyles.info}>
-                                                    <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <IconRightPrimary aria-hidden="true" className={resultsStyles.cta} /></p>
+                                                    <p>{edge.node.peerSupporterFullName.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <IconForward aria-hidden="true" className={resultsStyles.cta} /></p>
 
                                                 </span>
                                                 <ul className={"resultsTags"}>

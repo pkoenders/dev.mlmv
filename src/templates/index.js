@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-// import Img from "gatsby-image"
 import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
@@ -8,7 +7,6 @@ import BlockContent from "../components/common/blockContent"
 import HomepageStyles from "../components/homepage/homepageStyles.module.scss"
 import HeaderImg from "../components/homepage/homePageHeaderImg"
 import AlertSection from "../components/homepage/alerts"
-//import PromotedSupporters from "../components/homepage/homePageSupporters"
 import DefaultSection from "../components/defaultSection"
 import ProcessSection from "../components/homepage/mlmvProcess"
 import SupportSection from "../components/homepage/supportSection"
@@ -33,8 +31,24 @@ export const query = graphql`
     
     sanityHomepageSettings {
         homepageAlertsActive
-        homepageSupportsActive
         homepageCommentsActive
+    }
+
+    sanityHomepageHeader {
+      active
+      title {
+        translate(language: $language)
+      }
+      coverImage {
+        asset {
+          fluid(maxWidth: 1600) {
+              ...GatsbySanityImageFluid
+            }
+        }
+        alt {
+          translate(language: $language)
+        }
+      }
     }
 
     allSanityHomepageAlert {
@@ -71,45 +85,7 @@ export const query = graphql`
       homepageIntroActive
     }
     
-    allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
-        edges {
-            node {
-                order
-                peerSupporterActive
-                
-                peerSupporterEmail
-                slug {
-                    current
-                }
-                peerSupporterFullName {
-                    translate(language: $language)
-                }
-                peerSupporterFriendlyName {
-                    translate(language: $language)
-                }
-
-                peerShortDescription {
-                    translate(language: $language)
-                  }
-
-                tags {
-
-                    tagsTitle {
-                      translate(language: $language)
-                    }
-                }
-
-                coverImage {
-                    asset {
-                        fluid(maxWidth: 545) {
-                            ...GatsbySanityImageFluid
-                          }
-                    }
-                }
-            }
-        }
-    }
-
+  
     allSanityCommunityComments {
       edges {
         node {
@@ -135,7 +111,6 @@ export const query = graphql`
 
 const IndexPage = ({ data, location, language }) => {
   const { t, i18n } = useTranslation("index")
-  //const { i18n } = useTranslation("index")
 
   return (
     <>
@@ -154,7 +129,6 @@ const IndexPage = ({ data, location, language }) => {
         </DefaultSection>
         <ProcessSection />
         <SupportSection />
-        {/* <PromotedSupporters data={data} language={language} /> */}
         <UsrCommentsSection data={data} language={language} />
         <section className={contactStyles.contactFormSection + ' section-layout-wide'}>
           <div className={contactStyles.contactFormWrapper}>

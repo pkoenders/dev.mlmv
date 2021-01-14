@@ -2,32 +2,19 @@
 
 .footer {
   position: relative;
-
   color: #f6f4f2;
   padding: 60px 60px 60px 60px;
   background-color: $footerBgColor;
   text-align: center;
 
-
-
-
   >svg {
-    position: absolute;
-
-    //
-
-    left: 0px;
-    right: 0px;
-
-    width: 100% !important;
-    top: -50px;
-    height: 50px !important;
+    width: 100%;
+    height: 50px;
 
     @include respond-below(md) {
       top: -25px;
       height: 25px !important;
     }
-
   }
 
 
@@ -35,7 +22,7 @@
   a {
     z-index: 100 !important;
     position: relative;
-
+    //cursor: pointer;
 
     span {
       display: none;
@@ -91,6 +78,21 @@
         }
 
       }
+    }
+  }
+
+  .sanity {
+    display: inline-flex;
+    margin: 30px 0 0;
+    color: unset;
+
+    svg {
+      height: 20px;
+      width: auto;
+      //fill: $footerFgColor;
+      color: #7381AB;
+      color: #ffffff;
+      //color: $sanity;
     }
   }
 }

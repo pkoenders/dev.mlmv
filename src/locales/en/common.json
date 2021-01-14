@@ -37,5 +37,7 @@
   "submitContent": "We have recieved your enquiry and will get back to you soon.",
   "submitHeaderError": "Sorry!.",
   "submitContentError": "Looks like there was a problem receiving the form on our end.",
-  "submitCTA": "My Live My Voice"
+  "submitCTA": "My Live My Voice",
+  "alertPanel": "Alert panel",
+  "closeAlertPanel": "Close this alert panel"
 }

@@ -37,5 +37,7 @@
   "submitContent": "Kua riro i a maatau to pakirehua ka hoki wawe mai ano ki a koe.",
   "submitHeaderError": "Aroha mai!.",
   "submitContentError": "Te ahua nei i raru te rironga mai o te pepa i to maatau mutunga.",
-  "submitCTA": "Taku Ora Taku Reo"
+  "submitCTA": "Taku Ora Taku Reo",
+  "alertPanel": "Paewhiri Matohi",
+  "closeAlertPanel": "Katia tenei panui whakatupato"
 }

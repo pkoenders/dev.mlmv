@@ -151,6 +151,7 @@
                             width: auto;
                             vertical-align: middle;
                             float: right;
+                            color: $txtColorA;
 
                         }
                     }
@@ -192,7 +193,7 @@
                                 margin: 0;
                                 font-size: inherit;
                                 text-align: left;
-                                color: $txtColorA;
+                                color: inherit;
                             }
 
                             svg {
@@ -200,6 +201,7 @@
                                 margin: 0 15px 0 0;
                                 width: auto;
                                 vertical-align: middle;
+                                color: inherit;
 
                             }
 
@@ -207,13 +209,20 @@
                                 float: right;
                                 height: 32px;
                                 margin: -6px 0 0 auto;
+                                color: $tertiaryColor;
+                            }
+                        }
+
+                        a {
+                            svg {
+                                color: $tertiaryColor;
                             }
                         }
 
                         a:hover {
                             span {
-                                color: $tertiaryColor !important;
-                                text-decoration: none !important;
+                                color: $tertiaryColor;
+                                text-decoration: none;
                             }
                         }
 
@@ -287,4 +296,6 @@
             }
         }
     }
+
+
 }

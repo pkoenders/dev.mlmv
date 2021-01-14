@@ -1,9 +1,7 @@
 @import "src/styles/scss";
 
 .level0 {
-    background-color: $primaryColor;
     background-color: #6cb4bf;
-
 }
 
 .level1 {
@@ -44,9 +42,10 @@
         svg {
             pointer-events: none;
             width: auto;
-            height: 18px;
+            height: 22px;
             margin: 0;
             vertical-align: middle;
+            color: $primaryColor;
 
         }
     }

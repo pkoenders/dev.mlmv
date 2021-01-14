@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import footerStyles from './footer.module.scss'
 import LogoMLMVFooter from "../../images/svg/logo-mlmv-footer.inline.svg"
+import LogoSanity from "../../images/svg/logo-sanity.inline.svg"
 
 const Footer = ({ location }) => {
 
@@ -120,6 +121,13 @@ const Footer = ({ location }) => {
         </nav>
 
         <p className={footerStyles.copyRight}>© {new Date().getFullYear()} - {data.site.siteMetadata.title}</p>
+
+        {location.pathname === "/" + i18n.language
+          ? <a href="https://www.sanity.io" title="Structured content powered by Sanity.io" className={footerStyles.sanity} >
+            <LogoSanity />
+          </a>
+          : ''
+        }
       </footer>
     </>
   )

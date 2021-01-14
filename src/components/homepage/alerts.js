@@ -1,11 +1,11 @@
 import React from "react"
-//import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next"
 import BlockContent from "../common/blockContent"
 import alertStyles from '../homepage/alert.module.scss'
-import IconClose from "../../images/svg/icon-close-alerts.inline.svg"
+import IconClose from "../../images/svg/icon-close.inline.svg"
 
 const AlertsSection = ({ data, language }) => {
-  //const { t, i18n } = useTranslation("index")
+  const { t } = useTranslation()
 
   const { sanityHomepageSettings } = data
   const homepageAlertsActive = sanityHomepageSettings.homepageAlertsActive
@@ -56,7 +56,7 @@ const AlertsSection = ({ data, language }) => {
               >
                 <div
                   className={alertStyles.sectionInner}
-                  aria-label="Alert panel">
+                  aria-label={t("common:alertPanel")}>
                   <div>
                     {edge.node.homepageAlertTitle != null
                       ? <p><strong>{edge.node.homepageAlertTitle.translate}</strong></p>
@@ -73,11 +73,10 @@ const AlertsSection = ({ data, language }) => {
                   ? <button
                     type="button"
                     tabIndex="0"
-                    aria-label="Closes this alert panel"
+                    aria-label={t("common:closeAlertPanel")}
                     aria-controls="Alerts"
                     aria-expanded="false"
                     aria-pressed="false"
-                    onKeyPress={closeAlert}
                     onClick={closeAlert}
                   >
                     <IconClose aria-hidden="true" />

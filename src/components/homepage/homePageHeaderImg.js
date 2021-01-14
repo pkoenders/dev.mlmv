@@ -1,6 +1,6 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
+//import { useStaticQuery, graphql } from "gatsby"
+//import { useTranslation } from "react-i18next"
 //import Img from "gatsby-image"
 import Img from "gatsby-image/withIEPolyfill"
 import homePageHeaderImg from '../homepage/homePageHeaderImg.module.scss'
@@ -19,36 +19,41 @@ import homePageHeaderImg from '../homepage/homePageHeaderImg.module.scss'
  */
 
 const HomepageHeaderImage = ({ data, language }) => {
-  const { t } = useTranslation("index")
-  const headerImg = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1700, quality: 80) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
+  const active = data.sanityHomepageHeader.active
 
-  return (
-    <>
-      <div className={homePageHeaderImg.homepageHeaderImg + ' contentStart'}>
+  //const { t } = useTranslation("index")
+  // const headerImg = useStaticQuery(graphql`
+  //   query {
+  //     placeholderImage: file(relativePath: { eq: "images/mlmv-homepage-banner.jpg" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 1700, quality: 80) {
+  //           ...GatsbyImageSharpFluid_withWebp
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
+  if (active === true) {
+    return (
+      <section className={homePageHeaderImg.homepageHeaderImg + ' contentStart'}>
         <div className={homePageHeaderImg.imgTxt}>
-          <span>{t("index:headerImgOverlay")}</span>
+          <span>{data.sanityHomepageHeader.title.translate}</span>
         </div>
         <div className={homePageHeaderImg.img}>
-          <Img fluid={headerImg.placeholderImage.childImageSharp.fluid}
-            // objectFit="cover"
-            // objectPosition="50% 50%"
+          <Img
+            fluid={data.sanityHomepageHeader.coverImage.asset.fluid}
             loading="lazy"
-            alt="Banner image - Diasbled person in a wheelchair"
+            alt={data.sanityHomepageHeader.coverImage.alt.translate}
           />
         </div>
-      </div>
-    </>
-  )
+      </section>
+    )
+  } else {
+    return (
+      <span className={homePageHeaderImg.spacer}></span>
+    )
+  }
 }
 
 export default HomepageHeaderImage

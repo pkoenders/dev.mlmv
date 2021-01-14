@@ -130,7 +130,7 @@ header.headerNavWrapper {
       left: 88px;
       position: relative;
       width: 100%;
-      border-left: 1px solid #6FFFE9;
+      border-left: 1px solid $secondaryColor;
       overflow-x: scroll;
 
       .toggleMainMenu {
@@ -179,7 +179,7 @@ header.headerNavWrapper {
           bottom: 0px;
           display: flex;
           border-radius: 1.5px;
-          background: #6fffe9;
+          background: $secondaryColor;
           height: 1px;
           width: 0;
           left: -3px;
@@ -281,7 +281,7 @@ header.headerNavWrapper {
 
           a.activeNavItem {
             color: $headerBgColor;
-            background: #6fffe9;
+            background: $secondaryColor;
             border-radius: 3px;
             overflow: hidden;
           }
@@ -348,6 +348,7 @@ header.headerNavWrapper {
 
                 svg {
                   opacity: 1;
+                  color: $secondaryColor;
                 }
               }
 
@@ -365,6 +366,7 @@ header.headerNavWrapper {
 
                 svg {
                   opacity: 1;
+                  color: $secondaryColor;
                 }
               }
             }
@@ -441,6 +443,7 @@ header.headerNavWrapper {
         margin: 0 0 0 5px;
         vertical-align: middle;
         opacity: .66;
+        color: inherit;
       }
     }
 
