@@ -50,7 +50,8 @@
             }
 
             input[type=search] {
-                color: #0B132B;
+                color: $primaryColor;
+                ;
                 z-index: 2;
 
                 background-color: #ffffff;
@@ -63,7 +64,7 @@
                 border: none !important;
                 font-size: 1.1rem;
                 line-height: 1.0rem;
-                font-weight: 500;
+                font-weight: 400;
                 //border-bottom: 2px solid #0B132B !important;
                 border-radius: 3px;
 
