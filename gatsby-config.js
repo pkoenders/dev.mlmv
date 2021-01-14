@@ -21,8 +21,6 @@ module.exports = {
     //   },
     // },
 
-    `gatsby-plugin-preact`,
-
     {
       resolve: `gatsby-source-sanity`,
       options: {
@@ -257,9 +255,9 @@ module.exports = {
         generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
       },
     },
-
+    `gatsby-plugin-preact`
 
     // `gatsby-plugin-client-side-redirect` // keep it in last in list
 
-  ],
+  ]
 }
