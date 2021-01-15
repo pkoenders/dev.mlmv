@@ -50,7 +50,6 @@ const FormContact = ({ location, peerName }) => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                // "emailFor": peerEmail,
                 "location": location.pathname,
                 name: inputName,
                 email: inputEmail,
@@ -77,7 +76,6 @@ const FormContact = ({ location, peerName }) => {
                 onSubmit={handleSubmit}
             >
                 <input type="hidden" name="form-name" value="PeerSupporters" />
-                {/* <input type="hidden" name="emailFor" value={peerEmail} /> */}
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("peerSupporter:contactFormTitle")} {peerName}</p>
