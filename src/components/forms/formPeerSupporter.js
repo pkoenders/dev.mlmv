@@ -4,6 +4,10 @@ import { useTranslation } from "react-i18next"
 
 //Collect the required form fields
 import contactStyles from './asideForm.module.scss'
+import InputName from "./formFields/name"
+import InputEmail from "./formFields/email"
+import InputNumber from "./formFields/contactNumber"
+import InputMessage from "./formFields/message"
 import SubmitThankYou from "./formFields/submitThankYou"
 import SubmitError from "./formFields/submitError"
 import FormCheckTerms from "./formFields/checkBoxTerms"
@@ -16,7 +20,7 @@ const encode = data => {
 }
 
 
-const FormContact = ({ location, peerName, peerEmail }) => {
+const FormContact = ({ location, peerName }) => {
     const { t } = useTranslation()
 
     //console.log("peerEmail = " + peerEmail)
@@ -77,47 +81,10 @@ const FormContact = ({ location, peerName, peerEmail }) => {
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("peerSupporter:contactFormTitle")} {peerName}</p>
-                    <label htmlFor="name">
-                        {t("common:inputName")}
-                        <input
-                            type="text"
-                            name="name"
-                            value={inputName}
-                            placeholder={t("common:inputNamePlaceholder")}
-                            required
-                            onChange={onNameChange}
-                        />
-                    </label>
-                    <label htmlFor="email">
-                        {t("common:inputEmail")}
-                        <input
-                            type="email"
-                            name="email"
-                            value={inputEmail}
-                            placeholder={t("common:inputEmailPlaceholder")}
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                            required
-                            onChange={onEmailChange}
-                        />
-                    </label>
-                    <label htmlFor="number">
-                        {t("common:inputContactNumber")}
-                        <input
-                            type="text"
-                            name="number"
-                            value={inputNumber}
-                            onChange={onNumberChange}
-                        />
-                    </label>
-                    <label htmlFor="message">
-                        {t("common:inputMessage")}
-                        <textarea
-                            name="message"
-                            value={inputMessage}
-                            rows="5"
-                            onChange={onMessageChange}
-                        />
-                    </label>
+                    <InputName inputName={inputName} onNameChange={onNameChange} />
+                    <InputEmail inputEmail={inputEmail} onEmailChange={onEmailChange} />
+                    <InputNumber inputNumber={inputNumber} onNumberChange={onNumberChange} />
+                    <InputMessage inputMessage={inputMessage} onMessageChange={onMessageChange} />
                     <FormCheckTerms />
                     <FormSubmit />
                 </span>

@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 
-const Subject = () => {
+const Subject = ({ inputSubject, onSubjectChange }) => {
   const { t } = useTranslation("common")
   return (
     <label htmlFor="subject">
@@ -9,7 +9,9 @@ const Subject = () => {
       <input
         type="text"
         name="subject"
-        id="subject" />
+        value={inputSubject}
+        onChange={onSubjectChange}
+      />
     </label>
   )
 }
