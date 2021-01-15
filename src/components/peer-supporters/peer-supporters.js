@@ -8,6 +8,7 @@ import resultsStyles from '../common/listResults.module.scss'
 import NoResults from '../common/noResults'
 import ListTags from '../common/listTags'
 import FilterList from '../common/filterList'
+import ListResultsTags from '../common/listResultsTags'
 import IconForward from "../../images/svg/icon-forward.inline.svg"
 
 let allResultsTagList = []
@@ -280,16 +281,10 @@ const ListPeerSupporters = ({ data, language }) => {
                                                         : ''
                                                     }
                                                 </span>
+
                                                 {edge.node.tags !== null
                                                     ? <ul className={"resultsTags"}>
-                                                        {edge.node.tags.map((thisEdge, tagID) => (
-                                                            <li
-                                                                className={""}
-                                                                key={tagID}
-                                                            >
-                                                                {thisEdge.tagsTitle.translate}
-                                                            </li>
-                                                        ))}
+                                                        <ListResultsTags edge={edge} />
                                                     </ul>
                                                     : ''
                                                 }
