@@ -22,6 +22,7 @@
   "404Title": "Oops, this is embarrassing!",
   "404Para": "It appears that this page is missing.",
   "404Cta": "Take me back to the homepage",
+  "inputSearch": "Type a keyword",
   "inputName": "Your name (required)",
   "inputNamePlaceholder": "Your name",
   "inputEmail": "Your email address (required)",
@@ -38,6 +39,8 @@
   "submitHeaderError": "Sorry!.",
   "submitContentError": "Looks like there was a problem receiving the form on our end.",
   "submitCTA": "My Live My Voice",
+  "filterNoResultsPart1": "Oops! There are no results for",
+  "filterNoResultsPart2": "Try another keyword.",
   "alertPanel": "Alert panel",
   "closeAlertPanel": "Close this alert panel"
 }

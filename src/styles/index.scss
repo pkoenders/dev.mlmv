@@ -486,37 +486,10 @@ form {
   }
 }
 
-
 label.filterLabel.focus {
+  visibility: visible;
   border: 3px solid $tertiaryColor;
   border-bottom: none;
-  position: absolute;
-  width: auto;
-  display: flex;
-  top: -24px;
-  padding: 5px 10px 0 10px;
-  font-size: .8rem;
-  font-weight: 400;
-  color: $txtColor;
-  background-color: #ffffff;
-}
-
-label.filterLabel.focus:after {
-  content: '';
-  bottom: 0px;
-  position: absolute;
-  left: 0px;
-  height: 10px;
-  width: 100%;
-  background-color: #ffffff;
-  z-index: -1;
-}
-
-
-input#peerFilterInput.focus[type=search] {
-  color: $headerBgColor;
-  background-color: #ffffff;
-  outline: none;
 }
 
 button.filterReset.hide,

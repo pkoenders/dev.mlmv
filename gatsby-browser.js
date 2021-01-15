@@ -153,8 +153,6 @@ function toggleMainNav() {
             toggleMainMenu.classList.remove("open")
         }
     })
-
-
 }
 
 
@@ -186,11 +184,11 @@ function srollNav() {
         if (contentStart) {
             var rect = contentStart.getBoundingClientRect()
             headerNavWrapper.classList.remove("fillBground")
-            var rectHeight = rect.bottom / 2
+            var rectHeight = rect.top
             //console.log(rectHeight)
             //console.log(rect.top);
             //if (rect.bottom <= 61) {
-            if (rectHeight <= 100) {
+            if (rectHeight <= -60) {
                 headerNavWrapper.classList.add("fillBground")
             } else {
                 headerNavWrapper.classList.remove("fillBground")

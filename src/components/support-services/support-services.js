@@ -1,20 +1,21 @@
 import React, { useState } from "react"
-//import { Link, useStaticQuery, graphql } from "gatsby"
+// import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 //import Img from 'gatsby-image'
 
 import filterStyles from '../common/filterList.module.scss'
 import resultsStyles from '../common/listResults.module.scss'
-import IconTagSelected from "../../images/svg/icon-tick.inline.svg"
-import IconTagUnSelected from "../../images/svg/icon-add.inline.svg"
-import IconReset from "../../images/svg/icon-clear.inline.svg"
-import IconSearch from "../../images/svg/icon-search.inline.svg"
-import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
+import NoResults from '../common/noResults'
+import ListTags from '../common/listTags'
+import FilterList from '../common/filterList'
 import IconLocation from '../../images/svg/icon-location.inline.svg'
 import IconPhone from '../../images/svg/icon-phone.inline.svg'
 import IconExternal from '../../images/svg/icon-open-external.inline.svg'
 
 let allResultsTagList = []
+var filterValue = ""
+var tagItemValue = ""
+var tagSelectList = ""
 
 const ListSupportServices = ({ data, location, language }) => {
 
@@ -52,16 +53,11 @@ const ListSupportServices = ({ data, location, language }) => {
                 })
             }
         })
-        //console.log("allTagList = " + allTagList)
+        // console.log("allTagList = " + allTagList)
     }
 
-    // Set up some variables...
-    const emptyQuery = ""
-    var filterValue = ""
-    var tagItemValue = ""
-    var tagSelectList = ""
-
     // State for our query
+    const emptyQuery = ""
     const [state, setState] = useState({
         filteredData: [],
         query: emptyQuery
@@ -69,106 +65,74 @@ const ListSupportServices = ({ data, location, language }) => {
 
     // First deal with the tag select, When user click on tag list to filter the results query
     const handleTagSelect = event => {
-        //Reset any (input) filter values 
-        filterValue = ""
-
         //Get the tag data passed from the event click etc
         const tagItem = event.target
-        tagItemValue = event.target.id
-        //console.log("tagItemValue = " + tagItemValue)
+        tagItemValue = tagItem.id
+
+        // Toggle our tag so it looks selected!
+        tagItem.classList.toggle("selected")
+
+        if (tagItem.classList.contains("selected")) {
+            // If we toggle on tag, then add item to list 
+            tagSelectList = tagSelectList.concat(tagItemValue + ' ')
+        } else {
+            // If we toggle off tag, then remove item from list 
+            tagSelectList = tagSelectList.replace(tagItemValue + ' ', '')
+        }
+
+        // And update our Peer results 
+        filterListByTag()
 
         // Get our Peer Results Tags
         const resultsTags = document.querySelectorAll(".resultsTags li")
-        if ((document.getElementById("filterInput").value) !== "") {
-            // If the input fiels still has data in it, lets clear that
-            handleInputFilterReset()
-        } else {
-            // Toggle our tag so it looks selected!
-            tagItem.classList.toggle("selected")
 
-            if (tagItem.classList.contains("selected")) {
-                // If we toggle on tag, then add item from list 
-                tagSelectList = tagSelectList.concat(tagItemValue + ' ')
-            } else {
-                // If we toggle off tag, then remove item from list 
-                tagSelectList = tagSelectList.replace(tagItemValue + ' ', '')
-            }
-            //console.log("tagSelectList = " + tagSelectList)
-
-            //Then update the Peer results tags
-            updateResultsTagList(resultsTags, event)
-
-        }
-        // And update our Peer results 
-        filterListByTag()
+        //Then update the Peer results tags
+        updateResultsTagList(resultsTags, event)
     }
 
     // Filter input 
     const handleInputFilter = event => {
         filterValue = event.target.value
+        const filterLabel = document.querySelector(".filterLabel")
+
+        if (filterValue !== "") {
+            filterLabel.classList.add('focus')
+        } else {
+            filterLabel.classList.remove('focus')
+        }
+        handleSearchIcon()
         filterListByInput()
         handleTagResultsReset()
         handleResetTagList()
         handleResetResultsTagList()
-        handleSearchIcon()
-    }
-
-    // Add a filter input focus
-    function handleInputFilterPreSet() {
-        const inputValue = document.getElementById("filterInput")
-        //console.log("inputValue = " + inputValue.value)
-        if (inputValue.value !== "") {
-            inputValue.classList.add('focus')
-        } else {
-            inputValue.classList.remove('focus')
-        }
     }
 
     // Reset filter input value and tags to none
     function handleInputFilterReset() {
-        document.getElementById("filterInput").value = ""
+        const filterInput = document.querySelector("#filterInput")
+        filterInput.value = ""
         filterValue = ""
-        tagSelectList = ""
         filterListByInput()
-        handleResetTagList()
-        handleTagResultsReset()
-        handleResetResultsTagList()
+        handleSearchIcon()
         handleInputStatusBlur()
-        handleSearchIcon()
     }
 
-    function handleInputStatusFocus() {
-        handleSearchIcon()
-        document.querySelector(".filterLabel").classList.add('active', 'focus')
-
-        document.getElementById("filterInput").value = ""
-        filterValue = ""
-        tagSelectList = ""
-
-        filterListByInput()
-        //handleResetTagList()
-    }
+    // Remove focus on blur
     function handleInputStatusBlur() {
-        const inputValue = document.getElementById("filterInput")
-        const inputLabel = document.querySelector(".filterLabel")
-
-        if (inputValue.value === "") {
-            inputLabel.classList.remove('active', 'focus')
-        }
-
-        if (inputValue.value !== "") {
-            inputLabel.classList.remove('focus')
-        }
+        const filterLabel = document.querySelector(".filterLabel")
+        filterLabel.classList.remove('focus')
     }
 
+    // Toggle search icons
     function handleSearchIcon() {
+        const filterSearchIcon = document.querySelector(".filterSearchIcon")
+        const filterReset = document.querySelector(".filterReset")
         if (filterValue === "") {
-            document.querySelector(".filterSearchIcon").classList.remove('hide')
-            document.querySelector(".filterReset").classList.add('hide')
-        }
-        if (filterValue !== "") {
-            document.querySelector(".filterSearchIcon").classList.add('hide')
-            document.querySelector(".filterReset").classList.remove('hide')
+            filterSearchIcon.classList.remove('hide')
+            filterReset.classList.add('hide')
+        } else {
+            filterSearchIcon.classList.add('hide')
+            filterReset.classList.remove('hide')
         }
     }
 
@@ -224,7 +188,6 @@ const ListSupportServices = ({ data, location, language }) => {
         }
     }
 
-    //const handleInputFilter = event => {
     function filterListByInput() {
         const query = filterValue
         //console.log("query = " + query)
@@ -233,32 +196,19 @@ const ListSupportServices = ({ data, location, language }) => {
 
             const description = post.node.description.translate
             const title = post.node.title.translate
-            //console.log("title = " + title)
-
             var tagList = ''
             if (post.node.tags) {
                 post.node.tags.map((thisEdge, i) => (
                     tagList += thisEdge.tagsTitle.translate + ' '
                 ))
             }
-
             const tags = tagList
-            // console.log("query = " + query)
 
-            //console.log("query(input) = " + query)
             return (
                 description.toLowerCase().includes(query.toLowerCase()) ||
                 title.toLowerCase().includes(query.toLowerCase()) ||
                 tags.toLowerCase().includes(query.toLowerCase())
-
-                // (tags &&
-                //     tags
-                //         .join("")
-                //         .toLowerCase()
-                //         .includes(query.toLowerCase()))
-
             )
-
         })
         setState({
             query,
@@ -268,12 +218,10 @@ const ListSupportServices = ({ data, location, language }) => {
     }
 
     function updateLayout(filteredData) {
-
         if (filteredData.length === 0) {
             // peerResultsShow = false
             document.querySelector(".presentPeerResultsShow").style.display = "block"
             document.querySelector(".presentPeerTitleShow").style.display = "none"
-
         } else {
             //peerResultsShow = true
             document.querySelector(".presentPeerResultsShow").style.display = "none"
@@ -285,73 +233,12 @@ const ListSupportServices = ({ data, location, language }) => {
     const hasSearchResults = filteredData && query !== emptyQuery
     const posts = hasSearchResults ? filteredData : allPosts
 
-
     return (
         <>
-            <section className={filterStyles.listFilter + ' section-layout-wide'}>
-
-                <div className={filterStyles.wrapper}>
-
-                    <div className={filterStyles.filterTags} aria-label="Filter by tags">
-
-                        <div className={'tagList'}>
-                            {allTags.map((allTagsEdge, allTagsID) => {
-                                var tagMatchCount = allResultsTagList.filter((x) => (x === allTagsEdge.node.tagsTitle.translate)).length
-                                if (
-                                    tagMatchCount > 0
-                                ) {
-                                    return (
-                                        <button
-                                            key={allTagsID}
-                                            id={allTagsEdge.node.tagsTitle.translate}
-                                            className={'tagListItem focus-visible'}
-                                            aria-label={allTagsEdge.node.tagsTitle.translate + " tag, " + tagMatchCount + " results"}
-                                            tabIndex="0"
-                                            onMouseDown={handleInputFilterPreSet}
-                                            onClick={handleTagSelect}
-                                        >
-                                            <span aria-hidden="true">
-                                                <IconTagSelected />
-                                                <IconTagUnSelected />
-                                            </span>
-                                            {allTagsEdge.node.tagsTitle.translate}
-                                            <span>{tagMatchCount}</span>
-                                        </button>
-                                    )
-                                }
-                                return null;
-                            })}
-                        </div>
-                    </div>
-
-
-
-                    <div className={filterStyles.filterInput} >
-                        <form role="search">
-                            <label className={filterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("supportServices:filterPlaceholder")} </label>
-                            <input
-                                tabIndex="0"
-                                id="filterInput"
-                                type="search"
-                                name="FilterSupporters"
-                                placeholder={t("supportServices:filterPlaceholder")}
-                                onChange={handleInputFilter}
-                                onFocus={handleInputStatusFocus}
-                                onBlur={handleInputStatusBlur}
-                            />
-                            <button
-                                className={filterStyles.filterReset + ' filterReset hide'}
-                                aria-label="Clear keyword input field"
-                                type="reset"
-                                value="reset"
-                                tabIndex="0"
-                                onClick={handleInputFilterReset}
-                            >
-                                <IconReset aria-hidden="true" />
-                            </button>
-                            <IconSearch className={filterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
-                        </form>
-                    </div>
+            <section className={filterStyles.wrapper + ' section-layout-wide'}>
+                <div className={filterStyles.filter}>
+                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} />
+                    <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} />
                 </div>
             </section>
 
@@ -359,10 +246,8 @@ const ListSupportServices = ({ data, location, language }) => {
                 <div className={resultsStyles.wrapper}>
                     <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("supportServices:title")}</h1>
 
-                    <span className={'presentPeerResultsShow'} style={{ display: 'none' }}>
-                        {t("supportServices:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("supportServices:filterNoResultsPart2")}
-                        <br /><EmojiNoResult aria-hidden="true" />
-                    </span>
+                    <NoResults query={query} />
+
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {
                             if (
@@ -377,7 +262,6 @@ const ListSupportServices = ({ data, location, language }) => {
                                             <span className={resultsStyles.resultsContentWrapper}>
                                                 <h2>{edge.node.title.translate}</h2>
                                                 <p>{edge.node.description.translate}</p>
-
                                                 <span className={resultsStyles.info}>
 
                                                     {edge.node.location.location.translate !== null
@@ -397,16 +281,19 @@ const ListSupportServices = ({ data, location, language }) => {
 
                                                 </span>
 
-                                                <ul className={"resultsTags"}>
-                                                    {edge.node.tags.map((thisEdge, tagID) => (
-                                                        <li
-                                                            className={""}
-                                                            key={tagID}
-                                                        >
-                                                            {thisEdge.tagsTitle.translate}
-                                                        </li>
-                                                    ))}
-                                                </ul>
+                                                {edge.node.tags !== null
+                                                    ? <ul className={"resultsTags"}>
+                                                        {edge.node.tags.map((thisEdge, tagID) => (
+                                                            <li
+                                                                className={""}
+                                                                key={tagID}
+                                                            >
+                                                                {thisEdge.tagsTitle.translate}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    : ''
+                                                }
                                             </span>
                                         </div>
                                     </li>
