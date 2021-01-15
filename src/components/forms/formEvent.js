@@ -4,6 +4,13 @@ import { useTranslation } from "react-i18next"
 
 //Collect the required form fields
 import contactStyles from './asideForm.module.scss'
+
+import InputName from "./formFields/name"
+import InputEmail from "./formFields/email"
+// import InputSubject from "./formFields/subject"
+import InputNumber from "./formFields/contactNumber"
+import InputMessage from "./formFields/message"
+
 import SubmitThankYou from "./formFields/submitThankYou"
 import SubmitError from "./formFields/submitError"
 import FormCheckTerms from "./formFields/checkBoxTerms"
@@ -77,6 +84,8 @@ const FormContact = ({ eventName, location }) => {
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
                     <p>{t("newsEvents:attendingEvent")}</p>
+                    <InputName inputName={inputName} onNameChange={onNameChange} />
+                    {/*                     
                     <label htmlFor="name">
                         {t("common:inputName")}
                         <input
@@ -87,8 +96,10 @@ const FormContact = ({ eventName, location }) => {
                             required
                             onChange={onNameChange}
                         />
-                    </label>
-                    <label htmlFor="email">
+                    </label> */}
+
+                    <InputEmail inputEmail={inputEmail} onEmailChange={onEmailChange} />
+                    {/* <label htmlFor="email">
                         {t("common:inputEmail")}
                         <input
                             type="email"
@@ -99,8 +110,10 @@ const FormContact = ({ eventName, location }) => {
                             required
                             onChange={onEmailChange}
                         />
-                    </label>
-                    <label htmlFor="number">
+                    </label> */}
+
+                    <InputNumber inputNumber={inputNumber} onNumberChange={onNumberChange} />
+                    {/* <label htmlFor="number">
                         {t("common:inputContactNumber")}
                         <input
                             type="text"
@@ -108,8 +121,10 @@ const FormContact = ({ eventName, location }) => {
                             value={inputNumber}
                             onChange={onNumberChange}
                         />
-                    </label>
-                    <label htmlFor="message">
+                    </label> */}
+
+                    <InputMessage inputMessage={inputMessage} onMessageChange={onMessageChange} />
+                    {/* <label htmlFor="message">
                         {t("common:inputMessage")}
                         <textarea
                             name="message"
@@ -117,7 +132,7 @@ const FormContact = ({ eventName, location }) => {
                             rows="5"
                             onChange={onMessageChange}
                         />
-                    </label>
+                    </label> */}
                     <FormCheckTerms />
                     <FormSubmit />
                 </span>

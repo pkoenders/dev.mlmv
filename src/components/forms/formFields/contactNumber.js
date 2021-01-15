@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 
 
-const ContactNum = () => {
+const ContactNum = ({ inputNumber, onNumberChange }) => {
   const { t } = useTranslation()
 
   const handleContactNum = (e) => {
@@ -10,12 +10,13 @@ const ContactNum = () => {
   }
 
   return (
-    <label htmlFor="contactNumber">
+    <label htmlFor="number">
       {t("common:inputContactNumber")}
       <input
         type="text"
-        name="contactNumber"
-        onChange={handleContactNum}
+        name="number"
+        value={inputNumber}
+        onChange={onNumberChange}
       />
     </label>
   )
