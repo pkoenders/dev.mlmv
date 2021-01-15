@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-//import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 //Collect the required form fields

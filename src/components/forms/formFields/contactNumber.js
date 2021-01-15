@@ -5,10 +5,6 @@ import { useTranslation } from "react-i18next"
 const ContactNum = ({ inputNumber, onNumberChange }) => {
   const { t } = useTranslation()
 
-  const handleContactNum = (e) => {
-    let contactNumber = e.target.value
-  }
-
   return (
     <label htmlFor="number">
       {t("common:inputContactNumber")}

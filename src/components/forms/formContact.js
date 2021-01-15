@@ -1,7 +1,4 @@
 import React, { useState } from "react"
-//import { graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
-
 //Collect the required form fields
 import contactStyles from './contactForm.module.scss'
 import InputName from "./formFields/name"
@@ -21,7 +18,6 @@ const encode = data => {
 
 
 const FormContact = ({ location }) => {
-    const { t } = useTranslation()
 
     const [inputName, setInputName] = useState(null)
     const [inputEmail, setInputEmail] = useState(null)
