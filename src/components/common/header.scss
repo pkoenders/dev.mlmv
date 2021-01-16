@@ -259,7 +259,15 @@ header.headerNavWrapper {
 
         .toggleMainMenu {
           button {
-            display: block;
+            display: flex;
+            align-items: center;
+
+            svg {
+              color: inherit;
+              width: 15px;
+              height: auto;
+              margin: 0 0 0 10px;
+            }
           }
         }
 
@@ -299,8 +307,6 @@ header.headerNavWrapper {
 
           li.more {
             background-color: transparent;
-            //border: none !important;
-
           }
 
           ul {

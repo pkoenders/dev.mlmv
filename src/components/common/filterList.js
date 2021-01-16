@@ -5,7 +5,7 @@ import filterStyles from '../common/filterList.module.scss'
 import IconReset from "../../images/svg/icon-clear.inline.svg"
 import IconSearch from "../../images/svg/icon-search.inline.svg"
 
-const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilterReset }) => {
+const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilterReset, searchIcon }) => {
     const { t } = useTranslation("peerSupporters")
 
     return (
@@ -29,9 +29,8 @@ const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilte
                     tabIndex="0"
                     onClick={handleInputFilterReset}
                 >
-                    <IconReset aria-hidden="true" />
+                    {!searchIcon ? <IconSearch aria-hidden="true" /> : <IconReset aria-hidden="true" />}
                 </button>
-                <IconSearch className={filterStyles.filterSearchIcon + ' filterSearchIcon'} aria-hidden="true" />
             </form>
         </div>
     )

@@ -101,11 +101,16 @@ const ListSupportServices = ({ data, location, language }) => {
         } else {
             filterLabel.classList.remove('focus')
         }
+
         handleSearchIcon()
         filterListByInput()
         handleTagResultsReset()
-        handleResetTagList()
-        handleResetResultsTagList()
+        //handleTagResultsReset()
+    }
+
+    function handleFullReset() {
+        handleInputFilterReset()
+        handleTagResultsReset()
     }
 
     // Reset filter input value and tags to none
@@ -116,6 +121,7 @@ const ListSupportServices = ({ data, location, language }) => {
         filterListByInput()
         handleSearchIcon()
         handleInputStatusBlur()
+
     }
 
     // Remove focus on blur
@@ -125,24 +131,29 @@ const ListSupportServices = ({ data, location, language }) => {
     }
 
     // Toggle search icons
+    const [searchIcon, setSearchIcon] = useState(false);
     function handleSearchIcon() {
-        const filterSearchIcon = document.querySelector(".filterSearchIcon")
-        const filterReset = document.querySelector(".filterReset")
+        const searchIcon = document.querySelector(".filterSearchIcon")
         if (filterValue === "") {
-            filterSearchIcon.classList.remove('hide')
-            filterReset.classList.add('hide')
+            setSearchIcon(searchIcon);
         } else {
-            filterSearchIcon.classList.add('hide')
-            filterReset.classList.remove('hide')
+            setSearchIcon(!searchIcon);
         }
     }
 
     function handleTagResultsReset() {
         tagSelectList = ""
+        //var peerResults = document.querySelectorAll(".listResults li")
+        // for (var i = 0; i < peerResults.length; i++) {
+        //     peerResults[i].classList.remove("hide")
+        // }
+
         var peerResults = document.querySelectorAll(".listResults li")
         for (var i = 0; i < peerResults.length; i++) {
-            peerResults[i].classList.remove("hide")
+            peerResults[i].className = 'item'
+
         }
+        handleResetTagList()
     }
 
     function handleResetTagList() {
@@ -150,6 +161,7 @@ const ListSupportServices = ({ data, location, language }) => {
         for (var i = 0; i < tagList.length; i++) {
             tagList[i].classList.remove("selected")
         }
+        handleResetResultsTagList()
     }
 
     function handleResetResultsTagList() {
@@ -238,8 +250,8 @@ const ListSupportServices = ({ data, location, language }) => {
         <>
             <section className={filterStyles.wrapper + ' section-layout-wide'}>
                 <div className={filterStyles.filter}>
-                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} />
-                    <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} />
+                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleFullReset={handleFullReset} />
+                    <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />
                 </div>
             </section>
 

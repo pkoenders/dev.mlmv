@@ -447,6 +447,14 @@ form {
 }
 
 
+.tagList.open {
+  // max-height: 100px !important;
+  max-height: max-content !important;
+  transition: max-height 1.25s ease-in;
+
+
+
+}
 
 .tagListItem {
   //opacity: .66;
@@ -490,13 +498,6 @@ label.filterLabel.focus {
   visibility: visible;
   border: 3px solid $tertiaryColor;
   border-bottom: none;
-}
-
-button.filterReset.hide,
-svg.filterSearchIcon.hide,
-svg.filterSearchIconAlt.hide {
-  display: none;
-
 }
 
 .listResults li {

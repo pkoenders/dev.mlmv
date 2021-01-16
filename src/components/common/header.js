@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import { useTranslation } from "react-i18next"
@@ -10,6 +10,9 @@ import IconSupport from "../../images/svg/icon-support.inline.svg"
 import IconContact from "../../images/svg/icon-contact-us.inline.svg"
 import IconTerms from "../../images/svg/icon-terms.inline.svg"
 import IconAccessibilty from "../../images/svg/icon-accessible.inline.svg"
+
+import IconExpandMore from "../../images/svg/icon-expand-more.inline.svg"
+import IconExpandLess from "../../images/svg/icon-expand-less.inline.svg"
 import '../../styles/index.scss'
 import "../../styles/hamburger.scss"
 import "./header.scss"
@@ -44,6 +47,18 @@ const Header = ({ location }) => {
     currentLanguage = 'Māori'
   }
 
+  const [mainNavOpen, setMainNavOpen] = useState(false);
+  function toggleMainNav(e) {
+    const toggleMainBtn = e.target
+    document.addEventListener('click', function (event) {
+      var isClickInside = toggleMainBtn.contains(event.target);
+      if (isClickInside) {
+        setMainNavOpen(!mainNavOpen)
+      } else {
+        setMainNavOpen(mainNavOpen);
+      }
+    })
+  }
 
   function toggleMobileNav() {
     const headerNavHomepage = document.querySelector(".homePage")
@@ -177,14 +192,12 @@ const Header = ({ location }) => {
 
             <li className="toggleMainMenu">
               <button
-                id="toggleMainMenu"
+                onClick={toggleMainNav}
               >
                 {t("common:mainNavMore")}
+                {!mainNavOpen ? <IconExpandMore aria-hidden="true" /> : <IconExpandLess aria-hidden="true" />}
               </button>
-              <ul className="hide">
-
-
-
+              <ul className={!mainNavOpen ? '' : 'open'}>
                 <li>
                   <Link
                     to={`/${i18n.language}/support-services`}

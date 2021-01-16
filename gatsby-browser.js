@@ -10,7 +10,6 @@
 
 
 //import mediumZoom from 'medium-zoom'
-
 import { wrapWithI18nProvider } from "./src/components/wrapWithI18nProvider";
 export const wrapPageElement = wrapWithI18nProvider;
 
@@ -57,9 +56,9 @@ function ready() {
     // }
 
     resizeAllGridItems()
-    toggleMainNav()
     srollNav()
     canvasAnin()
+    checkTagListHeight()
 }
 
 
@@ -95,13 +94,22 @@ const resizeGridItem = item => {
         )
     item.style.gridRowEnd = `span ${rowSpan} `
     //console.log("Grid updated")
-},
-    resizeAllGridItems = () => {
-        const allItems = document.querySelectorAll(".item")
-        for (let x = 0; x < allItems.length; x += 1) {
-            resizeGridItem(allItems[x])
-        }
+}
+function resizeAllGridItems() {
+    const allItems = document.querySelectorAll(".item")
+    for (let x = 0; x < allItems.length; x += 1) {
+        resizeGridItem(allItems[x])
     }
+}
+function checkTagListHeight() {
+    const tagListWrapper = document.querySelector(".tagList > span")
+    const tagListMoreBtn = document.querySelector(".tagListMore")
+    if (tagListWrapper.clientHeight <= 38) {
+        tagListMoreBtn.style = "display:none;"
+    } else {
+        tagListMoreBtn.style = "display:flex;"
+    }
+}
 
 
 function runCanvasAnin(animItem) {
@@ -141,20 +149,6 @@ function runCanvasAnin(animItem) {
         run();
     }
 }
-
-function toggleMainNav() {
-    const toggleMainBtn = document.getElementById('toggleMainMenu');
-    const toggleMainMenu = document.querySelector(".toggleMainMenu ul")
-    document.addEventListener('click', function (event) {
-        var isClickInside = toggleMainBtn.contains(event.target);
-        if (isClickInside) {
-            toggleMainMenu.classList.toggle("open")
-        } else {
-            toggleMainMenu.classList.remove("open")
-        }
-    })
-}
-
 
 function srollNav() {
     const contentStart = document.querySelector(".contentStart")

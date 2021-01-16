@@ -9,7 +9,7 @@
         visibility: hidden;
         display: flex;
         position: absolute;
-        top: -24px;
+        top: -20px;
         left: 45px;
         z-index: 1;
         color: $primaryColor;
@@ -18,7 +18,7 @@
         padding: 5px 10px 0 10px;
         font-size: .8rem;
         font-weight: 400;
-        line-height: 1.0rem;
+        line-height: .8rem;
         white-space: nowrap;
 
         @include respond-below(md) {
@@ -43,11 +43,11 @@
         max-width: 1200px;
         margin: 0 auto;
 
+
         .filterInput {
             padding: 15px 30px 0;
             position: relative;
-            margin-top: 10px;
-            padding: 15px 30px 0;
+            margin-top: 5px;
             outline: none;
 
             @include respond-below(md) {
@@ -113,18 +113,10 @@
 
 
 
-            button.filterReset,
-            .filterSearchIcon,
-            .filterSearchIconAlt {
+            button.filterReset {
                 position: absolute;
                 top: 28px;
                 right: 45px;
-
-                @include respond-below(md) {
-                    right: 30px;
-                }
-
-
                 background-color: transparent;
                 padding: 0;
                 border: none;
@@ -133,24 +125,15 @@
                 height: 26px;
                 width: auto;
 
+                @include respond-below(md) {
+                    right: 30px;
+                }
 
                 svg {
                     height: inherit;
                     width: auto;
                     color: inherit;
                 }
-            }
-
-            .filterSearchIcon,
-            .filterSearchIconAlt {
-                pointer-events: none;
-            }
-
-            button.filterReset.hide,
-            .filterSearchIcon.hide,
-            .filterSearchIconAlt.hide {
-                display: none;
-
             }
 
             button:focus {
@@ -182,6 +165,7 @@
         .filterTags {
             margin: 0 30px 0px;
 
+
             @include respond-below(md) {
                 margin: 0 15px;
             }
@@ -194,88 +178,131 @@
                 margin: 0 15px;
             }
 
-
-            >div {
-                width: auto;
-                margin: 0px 0 0 0;
+            >span {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                width: fit-content;
+                flex-direction: row;
+                margin: 0 auto 10px;
 
                 button {
-                    font-size: .8rem;
-                    line-height: auto;
-                    font-weight: 400;
-                    width: auto;
-                    display: flex;
-                    margin: 4px;
-                    background-color: #627984;
-                    background-color: $txtColorA;
-                    color: #ffffff;
-
-                    box-shadow: $globalBoxShadowB;
+                    display: inherit;
+                    align-items: center;
                     border: none;
-                    padding: 2px 12px;
-                    border-radius: 999em;
-                    border-radius: .2rem;
-                    align-self: center;
+                    outline: none;
+                    padding: 0 15px;
+                    background-color: transparent;
+                    color: $txtColorA;
                     cursor: pointer;
+                    @include headerTxt;
+                    font-size: .9rem;
 
-                    span {
-                        pointer-events: none;
-                        display: flex;
-                        align-self: center;
+                    svg {
+                        color: inherit;
+                        width: 16px;
+                        height: auto;
+                        margin: -3px 0 0 5px;
                     }
+                }
 
-                    span:nth-child(1) {
-                        display: flex;
-
-                        svg {
-                            align-self: center;
-                            height: .8rem;
-                            height: auto;
-                            width: 14px;
-                            margin: 0px 5px 0px -2px;
-                            color: #495371;
-                        }
-
-                        svg:nth-child(1) {
-                            color: #ffffff;
-                        }
-                    }
-
-                    span:nth-child(2) {
-                        font-size: .8rem;
-                        line-height: 20px;
-                        height: 20px;
-                        display: flex;
-                        align-self: center;
-                        font-weight: 400;
-                        text-align: center;
-                        margin: 0 -2px 0 5px;
-                        border-radius: 999rem;
-                        background-color: #495371;
-                        padding: 1px 6px;
-                        //height: auto;
-                    }
+                button:nth-child(1) {
+                    // border-right: 1px solid #bbc6cb;
+                    // ;
                 }
 
                 button:hover {
-                    // box-shadow: $globalBoxShadowA;
-                    //border: 1px solid $headerBgColor;
+                    color: $tertiaryColor;
                 }
+            }
 
-                button:focus {
-                    outline: none;
-                }
 
-                /* Optional: Customize .focus-visible */
-                button:focus-visible {
-                    @include focusVisibleForDark;
-                }
+            >div {
+                overflow: hidden;
+                width: auto;
+                margin: 0;
+                max-height: 38px;
+                transition: max-height .25s ease-in-out;
 
-                button:-moz-focusring {
-                    @include focusVisibleForDark;
+
+                span {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    button {
+                        font-size: .8rem;
+                        line-height: auto;
+                        font-weight: 400;
+                        width: auto;
+                        display: flex;
+                        margin: 4px;
+                        background-color: #627984;
+                        background-color: $txtColorA;
+                        color: #ffffff;
+
+                        box-shadow: $globalBoxShadowB;
+                        border: none;
+                        padding: 2px 12px;
+                        border-radius: 999em;
+                        border-radius: .2rem;
+                        align-self: center;
+                        cursor: pointer;
+
+                        span {
+                            pointer-events: none;
+                            display: flex;
+                            align-self: center;
+                        }
+
+                        span:nth-child(1) {
+                            display: flex;
+
+                            svg {
+                                align-self: center;
+                                height: .8rem;
+                                height: auto;
+                                width: 14px;
+                                margin: 0px 5px 0px -2px;
+                                color: #495371;
+                            }
+
+                            svg:nth-child(1) {
+                                color: #ffffff;
+                            }
+                        }
+
+                        span:nth-child(2) {
+                            font-size: .8rem;
+                            line-height: 20px;
+                            height: 20px;
+                            display: flex;
+                            align-self: center;
+                            font-weight: 400;
+                            text-align: center;
+                            margin: 0 -2px 0 5px;
+                            border-radius: 999rem;
+                            background-color: #495371;
+                            padding: 1px 6px;
+                            //height: auto;
+                        }
+                    }
+
+                    button:hover {
+                        // box-shadow: $globalBoxShadowA;
+                        //border: 1px solid $headerBgColor;
+                    }
+
+                    button:focus {
+                        outline: none;
+                    }
+
+                    /* Optional: Customize .focus-visible */
+                    button:focus-visible {
+                        @include focusVisibleForDark;
+                    }
+
+                    button:-moz-focusring {
+                        @include focusVisibleForDark;
+                    }
                 }
             }
         }
