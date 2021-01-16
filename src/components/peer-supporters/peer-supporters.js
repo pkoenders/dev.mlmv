@@ -142,15 +142,9 @@ const ListPeerSupporters = ({ data, language }) => {
 
     function handleTagResultsReset() {
         tagSelectList = ""
-        //var peerResults = document.querySelectorAll(".listResults li")
-        // for (var i = 0; i < peerResults.length; i++) {
-        //     peerResults[i].classList.remove("hide")
-        // }
-
         var peerResults = document.querySelectorAll(".listResults li")
         for (var i = 0; i < peerResults.length; i++) {
             peerResults[i].className = 'item'
-
         }
         handleResetTagList()
     }

@@ -8,7 +8,7 @@ import IconReplay from "../../images/svg/icon-replay.inline.svg"
 // import IconForward from "../../images/svg/icon-replay.inline.svg"
 import filterStyles from '../common/filterList.module.scss'
 
-const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleFullReset }) => {
+const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleFullReset, tagSelect }) => {
     const { t } = useTranslation("peerSupporters")
     const [tagListOpen, setTagListOpen] = useState(false);
 

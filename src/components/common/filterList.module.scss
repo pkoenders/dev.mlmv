@@ -251,18 +251,20 @@
                             pointer-events: none;
                             display: flex;
                             align-self: center;
+
                         }
 
                         span:nth-child(1) {
                             display: flex;
+                            align-items: center;
+                            margin: 0 3px;
 
                             svg {
-                                align-self: center;
                                 height: .8rem;
                                 height: auto;
                                 width: 14px;
                                 margin: 0px 5px 0px -2px;
-                                color: #495371;
+                                color: #969ba9;
                             }
 
                             svg:nth-child(1) {
@@ -280,7 +282,7 @@
                             text-align: center;
                             margin: 0 -2px 0 5px;
                             border-radius: 999rem;
-                            background-color: #495371;
+                            background-color: #3e4867;
                             padding: 1px 6px;
                             //height: auto;
                         }
