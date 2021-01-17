@@ -31,6 +31,8 @@ const Header = ({ location }) => {
     newPathName += "/";
     newPathName += pathArray[i];
   }
+  //console.log("newPathName = " + newPathName)
+  //console.log("location.pathname = " + location.pathname)
 
 
   //const link = location.pathname

@@ -42,26 +42,26 @@ exports.createPages = async ({
               current
             }
 
-            peerSupporterFullName {
+            title {
               en
               mi
               sm
               hi
             }
-            peerSupporterFriendlyName {
+            shortName {
               en
               mi
               sm
               hi
             }
-            peerShortDescription {
+            description {
               en
               mi
               sm
               hi
             }
 
-            peerLongDescription {
+            longDescription {
               en {
                 _rawChildren
               }
@@ -98,7 +98,7 @@ exports.createPages = async ({
             slug{
               current
             }
-            peerSupporterFullName {
+            title {
               en
               mi
               sm
@@ -109,7 +109,7 @@ exports.createPages = async ({
             slug {
               current
             }
-            peerSupporterFullName {
+            title {
               en
               mi
               sm
@@ -155,26 +155,26 @@ exports.createPages = async ({
             }
 
 
-            peerSupporterFullName {
+            title {
               en
               mi
               sm
               hi
             }
-            peerSupporterFriendlyName {
+            shortName {
               en
               mi
               sm
               hi
             }
-            peerShortDescription {
+            description {
               en
               mi
               sm
               hi
             }
 
-            peerLongDescription {
+            longDescription {
               en {
                 _rawChildren
               }
@@ -202,7 +202,7 @@ exports.createPages = async ({
             slug{
               current
             }
-            peerSupporterFullName {
+            title {
               en
               mi
               sm
@@ -213,7 +213,7 @@ exports.createPages = async ({
             slug {
               current
             }
-            peerSupporterFullName {
+            title {
               en
               mi
               sm

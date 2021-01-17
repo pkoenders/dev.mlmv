@@ -41,8 +41,8 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
       `}
       </style>
       <SEO
-        title={peerData.peerSupporterFullName.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={peerData.peerShortDescription.translate}
+        title={peerData.title.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
+        description={peerData.description.translate}
       />
       <section className={prevNextStyles.prevNext + ' section-layout-wide prevNext'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
@@ -94,7 +94,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
 
             <div className={peerSupporterStyles.headerTitleWrapper}>
               <div className={peerSupporterStyles.headerTitle}>
-                <span><h1>{peerData.peerSupporterFullName.translate}</h1>
+                <span><h1>{peerData.title.translate}</h1>
                   <div className={peerSupporterStyles.headerProfileImg}>
                     <Img
                       fluid={peerData.coverImage.asset.fluid}
@@ -103,7 +103,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
                   </div>
                 </span>
                 <div className={peerSupporterStyles.headerDesciption}>
-                  <p>{peerData.peerShortDescription.translate}</p>
+                  <p>{peerData.description.translate}</p>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
 
           <div className={peerSupporterStyles.contentWrapper}>
             <div className={peerSupporterStyles.contentBlock}>
-              <BlockContent blocks={peerData.peerLongDescription.localized} />
+              <BlockContent blocks={peerData.longDescription.localized} />
             </div>
 
             <div className={peerSupporterStyles.contentComplementary}>
@@ -137,7 +137,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
                   <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
                 }
               </div>
-              <FormPeerSupporter data={data} location={location} peerEmail={peerData.peerSupporterEmail} peerName={peerData.peerSupporterFullName.translate.split(' ', 1)[0]} />
+              <FormPeerSupporter data={data} location={location} peerEmail={peerData.email} peerName={peerData.title.translate.split(' ', 1)[0]} />
             </div>
           </div>
         </section>

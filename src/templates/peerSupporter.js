@@ -24,13 +24,13 @@ export const query = graphql`
 
     sanityPeerSupporters(slug: { current: { eq: $slug } }) {
      
-      peerSupporterFullName {
+      title {
         translate(language: $language)
       }
-      peerSupporterFriendlyName {
+      shortName {
         translate(language: $language)
       }
-      peerSupporterEmail
+      email
       coverImage {
         asset {
             fluid(maxWidth: 600) {
@@ -55,10 +55,10 @@ export const query = graphql`
           translate(language: $language)
         }
       }
-      peerShortDescription {
+      description {
         translate(language: $language)
       }
-      peerLongDescription {
+      longDescription {
         localized(language: $locale)
       }
     }

@@ -5,7 +5,6 @@ import IconTagUnSelected from "../../images/svg/icon-add.inline.svg"
 import IconExpandMore from "../../images/svg/icon-expand-more.inline.svg"
 import IconExpandLess from "../../images/svg/icon-expand-less.inline.svg"
 import IconReplay from "../../images/svg/icon-replay.inline.svg"
-// import IconForward from "../../images/svg/icon-replay.inline.svg"
 import filterStyles from '../common/filterList.module.scss'
 
 const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleFullReset, tagSelect }) => {
@@ -40,9 +39,8 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
                                     className={'tagListItem focus-visible'}
                                     aria-label={allTagsEdge.node.tagsTitle.translate + " tag, " + tagMatchCount + " results"}
                                     tabIndex="0"
-
-                                    onClick={handleTagSelect}
                                     onClickCapture={handleInputFilterReset}
+                                    onClick={handleTagSelect}
                                 >
                                     <span aria-hidden="true">
                                         <IconTagSelected aria-hidden="true" />

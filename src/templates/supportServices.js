@@ -87,7 +87,7 @@ const SupportServicesTemplate = ({ data, pageContext, location, language }) => {
         description={data.sanitySupportServicesHomepage.description.translate}
       />
       <Layout location={location}>
-        <SectionSupportServices data={data} language={language} />
+        <SectionSupportServices data={data} location={location} language={language} />
       </Layout >
     </>
   )

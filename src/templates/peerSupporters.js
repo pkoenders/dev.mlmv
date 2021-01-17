@@ -42,24 +42,23 @@ export const query = graphql`
         edges {
             node {
                 order
-                peerSupporterActive
-                peerSupporterEmail
+                active
+                email
                 slug {
                     current
                 }
-                peerSupporterFullName {
+                title {
                     translate(language: $language)
                 }
-                peerSupporterFriendlyName {
+                shortName {
                     translate(language: $language)
                 }
 
-                peerShortDescription {
+                description {
                     translate(language: $language)
                   }
 
                 tags {
-
                     tagsTitle {
                       translate(language: $language)
                     }
@@ -94,7 +93,7 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
         description={data.sanityPeerSupportersHomepage.peerSupportersDescription.translate}
       />
       <Layout location={location}>
-        <SectionPeerSupporters data={data} language={language} />
+        <SectionPeerSupporters data={data} location={location} language={language} />
       </Layout >
     </>
   )
