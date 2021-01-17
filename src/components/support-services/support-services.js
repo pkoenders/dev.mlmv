@@ -14,6 +14,7 @@ import IconPhone from '../../images/svg/icon-phone.inline.svg'
 import IconExternal from '../../images/svg/icon-open-external.inline.svg'
 
 let allResultsTagList = []
+var resultsListCount = "0"
 var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
@@ -221,19 +222,7 @@ const ListSupportServices = ({ data, location, language }) => {
             query,
             filteredData,
         })
-        updateLayout(filteredData)
-    }
-
-    function updateLayout(filteredData) {
-        if (filteredData.length === 0) {
-            // peerResultsShow = false
-            document.querySelector(".presentPeerResultsShow").style.display = "block"
-            document.querySelector(".presentPeerTitleShow").style.display = "none"
-        } else {
-            //peerResultsShow = true
-            document.querySelector(".presentPeerResultsShow").style.display = "none"
-            document.querySelector(".presentPeerTitleShow").style.display = "block"
-        }
+        resultsListCount = filteredData.length
     }
 
     const { filteredData, query } = state
@@ -251,9 +240,9 @@ const ListSupportServices = ({ data, location, language }) => {
 
             <section className={resultsStyles.listResultsWrapper}>
                 <div className={resultsStyles.wrapper}>
-                    <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("supportServices:title")}</h1>
 
-                    <NoResults query={query} />
+                    {resultsListCount !== 0 && <h1>{t("supportServices:title")}</h1>}
+                    {resultsListCount === 0 && <NoResults query={query} />}
 
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {

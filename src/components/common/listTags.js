@@ -21,7 +21,7 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
     return (
         <div className={filterStyles.filterTags + " tagListWrapper"} aria-label="Filter by tags">
             <span>
-                <button className={"tagListMore"} onClick={toggleTagListView}>{!tagListOpen ? t("common:more") : t("common:less")} {!tagListOpen ? <IconExpandMore aria-hidden="true" /> : <IconExpandLess aria-hidden="true" />}</button>
+                <button className={"tagListMore"} onClick={toggleTagListView}>{t("common:more")} {!tagListOpen ? <IconExpandMore aria-hidden="true" /> : <IconExpandLess aria-hidden="true" />}</button>
                 {/* <button>Find out more about Peer supporters <IconForward aria-hidden="true" /></button> */}
                 <button onClick={handleFullReset}>{t("common:reset")}<IconReplay aria-hidden="true" /></button>
             </span>

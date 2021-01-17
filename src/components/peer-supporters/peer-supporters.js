@@ -12,6 +12,7 @@ import ListResultsTags from '../common/listResultsTags'
 import IconForward from "../../images/svg/icon-forward.inline.svg"
 
 let allResultsTagList = []
+var resultsListCount = "0"
 var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
@@ -110,6 +111,7 @@ const ListPeerSupporters = ({ data, language }) => {
     function handleFullReset() {
         handleInputFilterReset()
         handleTagResultsReset()
+
     }
 
     // Reset filter input value and tags to none
@@ -130,13 +132,13 @@ const ListPeerSupporters = ({ data, language }) => {
     }
 
     // Toggle search icons
-    const [searchIcon, setSearchIcon] = useState(false);
+    const [searchIcon, setSearchIcon] = useState(false)
     function handleSearchIcon() {
         const searchIcon = document.querySelector(".filterSearchIcon")
         if (filterValue === "") {
-            setSearchIcon(searchIcon);
+            setSearchIcon(searchIcon)
         } else {
-            setSearchIcon(!searchIcon);
+            setSearchIcon(!searchIcon)
         }
     }
 
@@ -220,20 +222,7 @@ const ListPeerSupporters = ({ data, language }) => {
             query,
             filteredData,
         })
-        updateLayout(filteredData)
-        return
-    }
-
-    function updateLayout(filteredData) {
-        if (filteredData.length === 0) {
-            // peerResultsShow = false
-            document.querySelector(".presentPeerResultsShow").style.display = "block"
-            document.querySelector(".presentPeerTitleShow").style.display = "none"
-        } else {
-            //peerResultsShow = true
-            document.querySelector(".presentPeerResultsShow").style.display = "none"
-            document.querySelector(".presentPeerTitleShow").style.display = "block"
-        }
+        resultsListCount = filteredData.length
     }
 
     const { filteredData, query } = state
@@ -251,9 +240,9 @@ const ListPeerSupporters = ({ data, language }) => {
 
             <section className={resultsStyles.listResultsWrapper}>
                 <div className={resultsStyles.wrapper}>
-                    <h1 className={'presentPeerTitleShow'} style={{ display: 'block' }}>{t("peerSupporters:title")}</h1>
 
-                    <NoResults query={query} />
+                    {resultsListCount !== 0 && <h1>{t("peerSupporters:title")}</h1>}
+                    {resultsListCount === 0 && <NoResults query={query} />}
 
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {

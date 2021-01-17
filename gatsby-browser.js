@@ -27,17 +27,18 @@ export const onServiceWorkerUpdateReady = () => {
 export const onRouteUpdate = () => {
     // Load page
     document.addEventListener("DOMContentLoaded", ready())
+    resizeAllGridItems()
     // mediumZoom('.images p span img', {
     //     //background: '#efeff0',
 
     //     background: '#ffffff',
     // })
 
-    "resize reload click keyup".split(" ").forEach(function (e) {
-        window.addEventListener(e, () => {
-            resizeAllGridItems()
-        })
-    })
+    // "resize reload click keyup".split(" ").forEach(function (e) {
+    //     window.addEventListener(e, () => {
+    //         resizeAllGridItems()
+    //     })
+    // })
 }
 
 function ready() {
@@ -51,11 +52,10 @@ function ready() {
 
 
 function toggleMainNav() {
-    const toggleMainBtn = document.querySelector('.toggleMainMenu');
-    //const toggleMainMenu = document.querySelector(".toggleMainMenu ul")
+    const toggleMainBtn = document.querySelector('.toggleMainMenu')
     document.addEventListener('click', function (event) {
-        var isClickInside = toggleMainBtn.contains(event.target);
-        console.log("click 1")
+        var isClickInside = toggleMainBtn.contains(event.target)
+        // console.log("click 1")
         if (isClickInside) {
             toggleMainBtn.classList.toggle("open")
         } else {
@@ -63,6 +63,7 @@ function toggleMainNav() {
         }
     })
 }
+
 function canvasAnin() {
     var animsToRun = [
         document.querySelector('.headAnim'),

@@ -182,16 +182,21 @@
                 display: flex;
                 width: fit-content;
                 flex-direction: row;
+                align-items: center;
                 margin: 0 auto 10px;
+                border: 1px solid #b0bec4;
+                box-shadow: $globalBoxShadowB;
+                border-radius: 3px;
 
                 button {
                     display: inherit;
-                    align-items: center;
+                    align-items: inherit;
                     border: none;
                     outline: none;
-                    padding: 0 15px;
+                    padding: 4px 15px;
                     background-color: transparent;
                     color: $txtColorA;
+                    //color: $tertiaryColor;
                     cursor: pointer;
                     @include headerTxt;
                     font-size: .85rem;
@@ -200,7 +205,7 @@
                         color: inherit;
                         width: 16px;
                         height: auto;
-                        margin: -3px 0 0 5px;
+                        margin: 0 0 0 5px;
                     }
                 }
 

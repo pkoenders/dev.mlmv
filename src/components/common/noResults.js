@@ -8,7 +8,7 @@ const NoResults = ({ query }) => {
 
     return (
         <>
-            <span className={'presentPeerResultsShow'} style={{ display: 'none' }}>
+            <span>
                 {t("common:filterNoResultsPart1")} '<strong> {query}</strong>'. {t("common:filterNoResultsPart2")}
                 <br /><EmojiNoResult aria-hidden="true" />
             </span>
