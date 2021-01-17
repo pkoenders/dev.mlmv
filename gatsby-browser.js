@@ -19,18 +19,12 @@ export const onServiceWorkerUpdateReady = () => {
         `Reload to display the latest version?`
     )
 
-
-
-
     if (answer === true) {
         window.location.reload()
     }
 }
 
 export const onRouteUpdate = () => {
-
-
-
     // Load page
     document.addEventListener("DOMContentLoaded", ready())
     // mediumZoom('.images p span img', {
@@ -42,26 +36,33 @@ export const onRouteUpdate = () => {
     "resize reload click keyup".split(" ").forEach(function (e) {
         window.addEventListener(e, () => {
             resizeAllGridItems()
-            //toggleMainNav()
         })
     })
-
-
 }
 
 function ready() {
-
-    // if (window.history.replaceState) {
-    //     window.history.replaceState(null, null, window.location.href);
-    // }
-
     resizeAllGridItems()
     srollNav()
     canvasAnin()
     checkTagListHeight()
+    toggleMainNav()
+
 }
 
 
+function toggleMainNav() {
+    const toggleMainBtn = document.querySelector('.toggleMainMenu');
+    //const toggleMainMenu = document.querySelector(".toggleMainMenu ul")
+    document.addEventListener('click', function (event) {
+        var isClickInside = toggleMainBtn.contains(event.target);
+        console.log("click 1")
+        if (isClickInside) {
+            toggleMainBtn.classList.toggle("open")
+        } else {
+            toggleMainBtn.classList.remove("open")
+        }
+    })
+}
 function canvasAnin() {
     var animsToRun = [
         document.querySelector('.headAnim'),
@@ -104,10 +105,12 @@ function resizeAllGridItems() {
 function checkTagListHeight() {
     const tagListWrapper = document.querySelector(".tagList > span")
     const tagListMoreBtn = document.querySelector(".tagListMore")
-    if (tagListWrapper.clientHeight <= 38) {
-        tagListMoreBtn.style = "display:none;"
-    } else {
-        tagListMoreBtn.style = "display:flex;"
+    if (tagListWrapper) {
+        if (tagListWrapper.clientHeight <= 38) {
+            tagListMoreBtn.style = "display:none;"
+        } else {
+            tagListMoreBtn.style = "display:flex;"
+        }
     }
 }
 

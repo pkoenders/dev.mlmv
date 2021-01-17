@@ -18,6 +18,9 @@ import "../../styles/hamburger.scss"
 import "./header.scss"
 
 
+
+
+
 const Header = ({ location }) => {
   // const { t, i18n } = useTranslation("common")
   const { t, i18n } = useTranslation("common")
@@ -47,18 +50,6 @@ const Header = ({ location }) => {
     currentLanguage = 'Māori'
   }
 
-  const [mainNavOpen, setMainNavOpen] = useState(false);
-  function toggleMainNav(e) {
-    const toggleMainBtn = e.target
-    document.addEventListener('click', function (event) {
-      var isClickInside = toggleMainBtn.contains(event.target);
-      if (isClickInside) {
-        setMainNavOpen(!mainNavOpen)
-      } else {
-        setMainNavOpen(mainNavOpen);
-      }
-    })
-  }
 
   function toggleMobileNav() {
     const headerNavHomepage = document.querySelector(".homePage")
@@ -191,13 +182,12 @@ const Header = ({ location }) => {
             </li>
 
             <li className="toggleMainMenu">
-              <button
-                onClick={toggleMainNav}
-              >
+              <button>
                 {t("common:mainNavMore")}
-                {!mainNavOpen ? <IconExpandMore aria-hidden="true" /> : <IconExpandLess aria-hidden="true" />}
+                <IconExpandMore aria-hidden="true" />
+                <IconExpandLess aria-hidden="true" />
               </button>
-              <ul className={!mainNavOpen ? '' : 'open'}>
+              <ul className={""}>
                 <li>
                   <Link
                     to={`/${i18n.language}/support-services`}
