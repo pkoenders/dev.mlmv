@@ -1,5 +1,5 @@
 import React from "react"
-import FilterListResults from '../common/filterListResults'
+import FilterListResults from '../common/filterListListResults'
 
 const ListPeerSupporters = ({ data, location }) => {
 
