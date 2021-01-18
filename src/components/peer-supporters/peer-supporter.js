@@ -53,7 +53,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
                   tabIndex="0"
                   to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
                 >
-                  <i className={"material-icons"} aria-hidden="true">chevron_left</i>
+                  <i className={"material-icons left"} aria-hidden="true">chevron_left</i>
                   {t("common:previous")}
                 </Link>
               }
@@ -116,10 +116,10 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
 
               <div className={peerSupporterStyles.supporterInfo}>
                 {peerData.gender.genderTitle &&
-                  <span><i className={"material-icons"}>face</i>{peerData.gender.genderTitle.translate}</span>
+                  <span><i className={"material-icons left"}>face</i>{peerData.gender.genderTitle.translate}</span>
                 }
                 {peerData.location.location.translate &&
-                  <span><i className={"material-icons"}>location_on</i>{peerData.location.location.translate}</span>
+                  <span><i className={"material-icons left"}>location_on</i>{peerData.location.location.translate}</span>
                 }
               </div>
               <FormPeerSupporter data={data} location={location} peerEmail={peerData.email} peerName={peerData.title.translate.split(' ', 1)[0]} />

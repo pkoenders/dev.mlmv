@@ -38,7 +38,7 @@
 
             button,
             a {
-                display: inline-flex;
+                display: flex;
                 align-items: center;
                 margin: 0 5px 0 0;
                 padding: 0;
@@ -47,8 +47,13 @@
                 background-color: transparent;
                 color: $txtColor;
                 text-transform: uppercase;
-                font-size: .7rem;
+                font-size: .8rem;
+                line-height: 0;
                 cursor: pointer;
+
+                i {
+                    font-size: 24px;
+                }
             }
 
             .alignRight {
@@ -56,9 +61,15 @@
                 align-items: center;
                 margin: 0 0 0 auto;
 
+                button,
+                a {}
+
+
                 button:last-child,
                 a:last-child {
-                    margin: 0 0 0 5px;
+                    margin: 0 0 0 15px !important;
+
+                    i {}
                 }
 
             }

@@ -43,6 +43,9 @@ canvas {
 
 
 .material-icons {
+  display: flex;
+  align-self: center;
+  width: fit-content;
   margin: 0 0 0 5px;
 }
 
