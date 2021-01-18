@@ -66,32 +66,30 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Material Icons",
-              strategy: 'cdn', // 'base64' || 'cdn'
+              family: `Material+Icons`,
+              // fontDisplay: 'swap',
+              strategy: 'base64', // 'base64' || 'cdn'
             },
 
             {
               family: "Roboto",
               variants: ["300", "400", "500", "700"],
-              strategy: 'cdn', // 'base64' || 'cdn'
+              // fontDisplay: 'swap',
+              strategy: 'base64', // 'base64' || 'cdn'
             },
             {
               family: "Merriweather",
               variants: ["400", "700", "900"],
-              strategy: 'cdn',
+              // fontDisplay: 'swap',
+              strategy: 'base64',
             },
 
             {
-              family: "Noto Serif",
+              family: "Noto+Serif",
               variants: ["700"],
-              text: '“ ”',
-              strategy: 'cdn',
+              text: `“ ”`,
+              strategy: 'base64',
             },
-
-
-
-
-
           ],
         },
         // formatAgents: {
@@ -102,7 +100,7 @@ module.exports = {
         // },
         // formats: ['woff2', 'woff'],
         //useMinify: true,
-        //usePreload: true,
+        //sePreload: true,
         // usePreconnect: false,
       },
     },
@@ -259,6 +257,5 @@ module.exports = {
     //`gatsby-plugin-preact`
 
     // `gatsby-plugin-client-side-redirect` // keep it in last in list
-
   ]
 }
