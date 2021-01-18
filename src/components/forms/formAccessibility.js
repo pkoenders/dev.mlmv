@@ -23,12 +23,12 @@ const encode = data => {
 const FormContact = ({ location }) => {
     const { t } = useTranslation()
 
-    const [inputName, setInputName] = useState(null)
-    const [inputEmail, setInputEmail] = useState(null)
-    const [inputNumber, setInputNumber] = useState(null)
-    const [inputMessage, setInputMessage] = useState(null)
-    const [errorMessage, setErrorMsg] = useState(null)
-    const [successMessage, setSuccessMsg] = useState(null)
+    const [inputName, setInputName] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
+    const [inputNumber, setInputNumber] = useState('')
+    const [inputMessage, setInputMessage] = useState('')
+    const [errorMessage, setErrorMsg] = useState('')
+    const [successMessage, setSuccessMsg] = useState('')
 
     const onNameChange = e => {
         setInputName(e.target.value)
@@ -43,12 +43,14 @@ const FormContact = ({ location }) => {
         setInputMessage(e.target.value)
     }
     const handleSubmit = (e) => {
+
+        //console.log('location.pathname = ' + location.pathname)
         fetch(location.pathname, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                "location": location.pathname,
+                "location": location.pathname + '/',
                 email: inputEmail,
                 number: inputNumber,
                 message: inputMessage,
