@@ -21,7 +21,7 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
                     <button className={'tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">unfold_more</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">unfold_less</i></>}</button>
                 </span> */}
                 <span>
-                    <button className={listTags.more + ' tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">unfold_more</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">unfold_less</i></>}</button>
+                    <button className={listTags.more + ' tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">arrow_drop_down</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">arrow_drop_up</i></>}</button>
 
                     {allTags.map((allTagsEdge, allTagsID) => {
                         var tagMatchCount = allResultsTagList.filter((x) => (x === allTagsEdge.node.tagsTitle.translate)).length

@@ -43,14 +43,11 @@ canvas {
 
 
 .material-icons {
-  display: flex;
-  align-self: center;
-  width: fit-content;
-  margin: 0 0 0 5px;
+  margin-left: 5px;
 }
 
 .material-icons.left {
-  margin: 0 5px 0 0;
+  margin-right: 5px;
 }
 
 /* Rules for using icons as black on a light background. */

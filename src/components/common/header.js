@@ -172,8 +172,8 @@ const Header = ({ location }) => {
             <li className="toggleMainMenu">
               <button>
                 {t("common:mainNavMore")}
-                <i className={"material-icons"} aria-hidden="true">unfold_more</i>
-                <i className={"material-icons"} aria-hidden="true">unfold_less</i>
+                <i className={"material-icons"} aria-hidden="true">arrow_drop_down</i>
+                <i className={"material-icons"} aria-hidden="true">arrow_drop_up</i>
               </button>
               <ul className={""}>
                 <li>

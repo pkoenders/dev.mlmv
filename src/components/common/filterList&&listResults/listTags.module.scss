@@ -29,7 +29,7 @@
                 outline: none;
                 background-color: transparent;
                 color: $txtColor;
-                text-transform: uppercase;
+                //text-transform: uppercase;
                 font-size: .8rem;
                 cursor: pointer;
                 box-shadow: none;
@@ -56,7 +56,7 @@
 
                 box-shadow: $globalBoxShadowB;
                 border: none;
-                padding: 2px 12px;
+                padding: 2px 12px 2px 8px;
                 border-radius: 999em;
                 border-radius: .2rem;
                 align-items: center;
@@ -93,7 +93,7 @@
                     align-self: center;
                     font-weight: 400;
                     text-align: center;
-                    margin: 0 -2px 0 5px;
+                    margin: 0 -2px 0 7px;
                     border-radius: 999rem;
                     background-color: #3e4867;
                     padding: 1px 6px;
