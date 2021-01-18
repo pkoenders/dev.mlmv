@@ -96,10 +96,12 @@ const FilterListResults = ({ data, location, allPosts, allTags }) => {
         //handleTagResultsReset()
     }
 
-    function handleFullReset() {
+    function handleFullReset(e) {
+        e.target.classList.toggle("spin")
         handleInputFilterReset()
         handleTagResultsReset()
         window.scrollTo(0, 0)
+
 
     }
 

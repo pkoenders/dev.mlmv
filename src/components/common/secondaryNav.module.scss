@@ -51,18 +51,27 @@
                 line-height: 0rem;
                 cursor: pointer;
 
+
                 i {
+                    pointer-events: none;
                     font-size: 24px;
                 }
             }
+
+
+
+
 
             .alignRight {
                 display: flex;
                 align-items: center;
                 margin: 0 0 0 auto;
 
-                button,
-                a {}
+                // button,
+                // a {}
+
+
+
 
 
                 button:last-child,

@@ -25,7 +25,7 @@ const SecondaryNav = ({ handleFullReset, location }) => {
                     }
                     <span className={secondaryNav.alignRight}>
                         {/* <button className={'tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">unfold_more</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">unfold_less</i></>}</button> */}
-                        <button onClick={handleFullReset}>{t("common:reset")}<i className={"material-icons"} aria-hidden="true">autorenew</i></button>
+                        <button onClick={handleFullReset} className={"rotateBtn"}>{t("common:reset")}<i className={"material-icons"} aria-hidden="true">autorenew</i></button>
                     </span>
                 </div>
             </nav>
