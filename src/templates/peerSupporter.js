@@ -67,13 +67,13 @@ export const query = graphql`
 const PeerSupporterTemplate = ({ data, pageContext, location }) => {
   return (
     <>
-      {/* <style type="text/css">
+      <style type="text/css">
         {`
         body  {
-         background-color:  #d9e6ec;
+         background-color:  #ffffff !important;
         }
       `}
-      </style> */}
+      </style>
       <Layout location={location}>
         <PeerSupporterPage data={data} pageContext={pageContext} location={location} />
       </Layout >

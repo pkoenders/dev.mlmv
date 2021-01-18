@@ -1,0 +1,142 @@
+@import "src/styles/scss";
+
+.wrapper {
+
+    position: relative;
+    padding: 15px 15px 0 15px;
+
+    form {
+        //padding: 15px;
+
+        label {
+            display: none;
+        }
+
+        // .filterLabel {
+        //     visibility: hidden;
+        //     display: flex;
+        //     position: absolute;
+        //     top: -20px;
+        //     left: 45px;
+        //     z-index: 1;
+        //     color: $primaryColor;
+        //     background-color: #ffffff;
+        //     width: auto;
+        //     padding: 5px 10px 0 10px;
+        //     font-size: .8rem;
+        //     font-weight: 400;
+        //     line-height: .8rem;
+        //     white-space: nowrap;
+
+        //     @include respond-below(md) {
+        //         left: 30px;
+        //         //right: 60px;
+        //     }
+        // }
+
+        // .filterLabel:after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: -5px;
+        //     left: 0px;
+        //     height: 10px;
+        //     width: 100%;
+        //     background-color: #ffffff;
+        //     z-index: -1;
+        // }
+
+        input[type=search] {
+            color: $primaryColor;
+            z-index: 2;
+
+            background-color: #ffffff;
+            padding: 15px 60px 15px 15px;
+            @include respond-below(md) {
+                padding: 15px 30px 15px 15px;
+            }
+
+            //border: none !important;
+            border: 1px solid #c1d1d8;
+            font-size: 1.1rem;
+            line-height: 1.0rem;
+            font-weight: 400;
+            //border-bottom: 2px solid #0B132B !important;
+            border-radius: 3px;
+
+        }
+
+
+        input[type=search]:focus {
+            color: $headerBgColor;
+            background-color: #ffffff;
+            outline: 3px solid $tertiaryColor !important;
+
+        }
+
+        input[type=search]:focus-visible {
+            @include focusVisibleForDark;
+        }
+
+        input[type=search]:-moz-focusring {
+            @include focusVisibleForDark;
+        }
+
+
+        input[type=search]::placeholder,
+        input[type=search]::-webkit-input-placeholder {
+            color: $primaryColor;
+            opacity: 1;
+            font-size: 1rem;
+        }
+
+
+        button.filterReset {
+            position: absolute;
+            top: 28px;
+            right: 30px;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            z-index: 1;
+            cursor: pointer;
+            height: 28px;
+            width: auto;
+
+            @include respond-below(md) {
+                right: 30px;
+            }
+
+            i {
+                font-size: 30px;
+                color: inherit;
+            }
+        }
+
+        button:hover {
+            i {
+                color: $tertiaryColor;
+            }
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+
+        /* Optional: Customize .focus-visible */
+        button:focus-visible {
+            @include focusVisibleForDark;
+        }
+
+        button:-moz-focusring {
+            @include focusVisibleForDark;
+        }
+
+        span {
+            text-align: center;
+            display: block;
+            font-size: 1.1rem;
+            margin: 10px 30px 0;
+        }
+    }
+}

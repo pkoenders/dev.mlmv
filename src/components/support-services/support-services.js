@@ -1,5 +1,5 @@
 import React from "react"
-import FilterListResults from '../common/filterListListResults'
+import FilterListListResults from '../common/filterList&&listResults/filterList&&listResults'
 
 const ListPeerSupporters = ({ data, location }) => {
 
@@ -16,7 +16,7 @@ const ListPeerSupporters = ({ data, location }) => {
     const allTags = listSanityTags.edges
 
     return (
-        <FilterListResults allPosts={allPosts} allTags={allTags} location={location} />
+        <FilterListListResults allPosts={allPosts} allTags={allTags} location={location} />
     )
 }
 export default ListPeerSupporters

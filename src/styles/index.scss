@@ -22,6 +22,53 @@ canvas {
   opacity: .25;
 }
 
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+
+
+.material-icons {
+  margin: 0 0 0 5px;
+}
+
+.material-icons.left {
+  margin: 0 5px 0 0;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+
 .fourOfour {
   z-index: 10;
   display: block;
@@ -278,7 +325,7 @@ form {
   display: none;
 }
 
-.prevNext.slide {
+.secondaryNav.slide {
   will-change: transform;
   transition: all .4s;
   top: 0px;
@@ -430,7 +477,6 @@ form {
 
 
 .contentWrapper {
-  //width: 66.6%;
   margin: 0 15%;
 
   @include respond-below(sm) {
@@ -446,25 +492,18 @@ form {
   line-height: 1.8rem;
 }
 
-
 .tagList.open {
-  // max-height: 100px !important;
   max-height: max-content !important;
   transition: max-height 1.25s ease-in;
-
-
-
 }
 
 .tagListItem {
-  //opacity: .66;
-
   span {
-    svg {
+    i {
       display: none;
     }
 
-    svg:nth-child(2) {
+    i:nth-child(2) {
       display: inline-block;
     }
   }
@@ -475,14 +514,12 @@ form {
   color: #ffffff !important;
   background-color: $tertiaryColor !important;
 
-
   span {
-    svg {
+    i {
       display: flex;
-
     }
 
-    svg:nth-child(2) {
+    i:nth-child(2) {
       display: none;
     }
   }
@@ -490,14 +527,7 @@ form {
   span:nth-child(2) {
     color: #ffffff;
     background-color: #942662 !important;
-
   }
-}
-
-label.filterLabel.focus {
-  visibility: visible;
-  border: 3px solid $tertiaryColor;
-  border-bottom: none;
 }
 
 .listResults li {

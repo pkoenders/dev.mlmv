@@ -1,6 +1,9 @@
 @import "src/styles/scss";
 
-div.wrapper {
+.wrapper {
+    height: -webkit-fill-available;
+    background-color: #ffffff;
+
     section.header {
         background-color: $pageBgColor;
         background: linear-gradient(180deg, rgba(217, 230, 236, 1) 96%, rgba(208, 219, 224, 1) 100%);
@@ -81,23 +84,17 @@ div.wrapper {
 
                     p {
                         color: $txtColorA;
-                        margin: 15px 0;
+                        margin: 10px 0;
                         font-weight: 400;
                         font-size: .8rem;
                         display: flex;
                         flex-direction: row;
+                        align-items: center;
                         width: 100%;
 
-                        svg {
-                            height: 22px;
-                            margin: -4px 15px 0 0;
+                        i {
+                            margin: -4px 10px 0 0;
                             width: auto;
-                            vertical-align: middle;
-                        }
-
-                        span {
-                            display: block;
-                            line-height: 1.0rem;
                         }
                     }
                 }

@@ -158,10 +158,10 @@ header.headerNavWrapper {
           z-index: 10000;
         }
 
-        svg {
+        i {
           padding: 0;
           margin: 0 0 0px 15px;
-          height: 1.1rem;
+          font-size: 28px;
           width: auto;
           vertical-align: middle;
         }
@@ -232,7 +232,7 @@ header.headerNavWrapper {
 
         li {
           a {
-            svg {
+            i {
               display: none;
             }
           }
@@ -262,14 +262,11 @@ header.headerNavWrapper {
             display: flex;
             align-items: center;
 
-            svg {
+            i {
               color: inherit;
-              width: 15px;
-              height: auto;
-              margin: 0 0 0 10px;
             }
 
-            svg:nth-child(2) {
+            i:nth-child(2) {
               display: none;
             }
           }
@@ -277,11 +274,11 @@ header.headerNavWrapper {
 
         .toggleMainMenu.open {
           button {
-            svg {
+            i {
               display: none;
             }
 
-            svg:nth-child(2) {
+            i:nth-child(2) {
               display: flex;
             }
           }
@@ -357,9 +354,9 @@ header.headerNavWrapper {
                 display: flex;
                 flex-direction: column;
 
-                svg {
+                i {
                   display: block;
-                  height: 22px;
+                  font-size: 28px;
                   width: auto;
                   margin: 0 auto;
                   opacity: .33;
@@ -372,7 +369,7 @@ header.headerNavWrapper {
                 border-radius: 0px;
                 overflow: hidden;
 
-                svg {
+                i {
                   opacity: 1;
                   color: $secondaryColor;
                 }
@@ -390,7 +387,7 @@ header.headerNavWrapper {
 
               a:hover {
 
-                svg {
+                i {
                   opacity: 1;
                   color: $secondaryColor;
                 }
@@ -453,18 +450,15 @@ header.headerNavWrapper {
       height: fit-content;
       background-color: transparent;
 
-      svg {
-        width: 22px;
-        height: auto;
-        margin: 0 0 0 5px;
-        vertical-align: middle;
+      i {
+
         opacity: .66;
         color: inherit;
       }
     }
 
     button:hover {
-      svg {
+      i {
         opacity: 1;
       }
     }

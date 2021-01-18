@@ -2,7 +2,6 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import BlockContent from "../common/blockContent"
 import alertStyles from '../homepage/alert.module.scss'
-import IconClose from "../../images/svg/icon-close.inline.svg"
 
 const AlertsSection = ({ data, language }) => {
   const { t } = useTranslation()
@@ -21,8 +20,6 @@ const AlertsSection = ({ data, language }) => {
     sessionStorage.setItem(event.target.parentNode.id, "True");
     //console.log('alertPanel = ' + alertPanel)
   }
-
-
 
   if (homepageAlertsActive === true) {
     return (
@@ -79,7 +76,7 @@ const AlertsSection = ({ data, language }) => {
                     aria-pressed="false"
                     onClick={closeAlert}
                   >
-                    <IconClose aria-hidden="true" />
+                    <i className={"material-icons"} aria-hidden="true">clear</i>
                   </button>
                   : ''
                 }

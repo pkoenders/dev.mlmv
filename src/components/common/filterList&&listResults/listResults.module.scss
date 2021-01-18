@@ -9,7 +9,7 @@
 
     }
 
-    div.wrapper {
+    .wrapper {
         max-width: 1200px;
         margin: 0 auto;
         text-align: center;
@@ -48,9 +48,9 @@
 
         ul {
             display: grid;
-            padding: 0 30px;
+            padding: 0 15px;
             grid-gap: 30px;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: min-content;
             list-style: none;
             margin: 0px;
@@ -147,15 +147,16 @@
                         font-size: 1.2rem;
                         line-height: 1.6rem;
                         text-align: left;
+                        display: flex;
+                        align-items: center;
                         color: inherit !important;
                         font-family: 'Roboto', sans-serif;
 
-                        svg {
-                            height: 28px;
-                            margin: -3px 0 0 5px;
+                        i {
+                            font-size: 34px;
+                            margin: 0 0 0 auto;
                             width: auto;
-                            vertical-align: middle;
-                            float: right;
+                            //float: right;
                             color: $txtColorA;
                         }
                     }
@@ -177,51 +178,48 @@
                         margin: 15px 0 0;
                         padding: 5px 0;
                         border-top: 1px solid #c3c8d6;
+                        text-align: left;
 
                         p,
                         a {
                             margin: 10px 0;
-
                             font-size: .9rem;
                             line-height: 22px;
-
                             display: flex;
                             flex-direction: row;
-                            width: 100%;
-                            color: $txtColorA;
                             align-items: center;
+                            color: $txtColorA;
 
-                            span {
-                                margin: 0;
-                                font-size: inherit;
-                                text-align: left;
-                                color: inherit;
-                            }
-
-                            svg {
+                            i {
+                                display: flex;
                                 height: 22px;
-                                margin: 0 15px 0 0;
+                                margin: 0 10px 0 0;
                                 width: auto;
                                 color: inherit;
 
                             }
 
-                            svg.cta {
-                                height: 32px;
-                                margin: 0 0 0 auto;
+                            i.cta {
+                                font-size: 45px;
+                                line-height: inherit;
+                                align-self: flex-start;
+                                width: 38px;
+                                margin: 0 0 0 auto !important;
                                 color: $tertiaryColor;
                             }
                         }
 
                         a {
-                            svg {
+                            i {
                                 color: $tertiaryColor;
                             }
                         }
 
                         a:hover {
-                            span {
-                                color: $tertiaryColor;
+                            color: $tertiaryColor !important;
+
+                            i {
+                                color: inherit;
                                 text-decoration: none;
                             }
                         }

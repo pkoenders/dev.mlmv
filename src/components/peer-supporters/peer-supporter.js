@@ -1,35 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
-//import { useStaticQuery, graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import SEO from '../seo/seo'
 import Img from 'gatsby-image'
 import BlockContent from "../common/blockContent"
 import peerSupporterStyles from './peer-supporter.module.scss'
-import prevNextStyles from '../common/prevNext.module.scss'
-import IconNext from "../../images/svg/icon-next.inline.svg"
-import IconPrev from "../../images/svg/icon-prev.inline.svg"
-import IconBack from "../../images/svg/icon-back.inline.svg"
+import secondaryNav from '../common/secondaryNav.module.scss'
+
 
 import FormPeerSupporter from "../forms/formPeerSupporter"
 
-import IconGender from '../../images/svg/icon-gender.inline.svg'
-import IconLocation from '../../images/svg/icon-location.inline.svg'
-//import IconTime from '../../images/svg/icon-time.inline.svg'
-
 const PeerSupporterTemplate = ({ data, pageContext, location }) => {
   const { t, i18n } = useTranslation()
-
   const { sanityPeerSupporters } = data
   const peerData = sanityPeerSupporters
-
   const { sanityPeerSupportersHomepage } = data
   const peerDataHome = sanityPeerSupportersHomepage
   const { next, previous } = pageContext
-
-  //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
-  //const submitUrl = "/" + i18n.language + "/thank-you"
-
 
   return (
     <>
@@ -44,43 +31,41 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
         title={peerData.title.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={peerData.description.translate}
       />
-      <section className={prevNextStyles.prevNext + ' section-layout-wide prevNext'}>
+      <section className={secondaryNav.wrapper + ' section-layout-wide secondaryNav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
             <Link
               aria-label={t("common:back")}
               role="menuitem"
               tabIndex="0"
-              className={prevNextStyles.prev}
               to={`/${i18n.language}/peer-supporters/`}
             >
-              <IconBack aria-hidden="true" />
-              <span>{t("common:back")}</span>
+              <i className={"material-icons"} aria-hidden="true">arrow_back</i>
+              {t("common:back")}
             </Link>
 
 
-            <span>{previous &&
-              <Link
-                aria-label="Link to previous page"
-                role="menuitem"
-                tabIndex="0"
-                className={prevNextStyles.prev}
-                to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
-              >
-                <IconPrev aria-hidden="true" />
-                <span>{t("common:previous")}</span>
-              </Link>
-            }
+            <span className={secondaryNav.alignRight}>
+              {previous &&
+                <Link
+                  aria-label="Link to previous page"
+                  role="menuitem"
+                  tabIndex="0"
+                  to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
+                >
+                  <i className={"material-icons"} aria-hidden="true">chevron_left</i>
+                  {t("common:previous")}
+                </Link>
+              }
               {next &&
                 <Link
                   aria-label="Link to next page"
                   role="menuitem"
                   tabIndex="0"
-                  className={prevNextStyles.next}
                   to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
                 >
-                  <span>{t("common:next")}</span>
-                  <IconNext aria-hidden="true" />
+                  {t("common:next")}
+                  <i className={"material-icons"} aria-hidden="true">chevron_right</i>
                 </Link>
               }
             </span>
@@ -131,10 +116,10 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
 
               <div className={peerSupporterStyles.supporterInfo}>
                 {peerData.gender.genderTitle &&
-                  <span><IconGender aria-hidden="true" />{peerData.gender.genderTitle.translate}</span>
+                  <span><i className={"material-icons"}>face</i>{peerData.gender.genderTitle.translate}</span>
                 }
                 {peerData.location.location.translate &&
-                  <span><IconLocation aria-hidden="true" />{peerData.location.location.translate}</span>
+                  <span><i className={"material-icons"}>location_on</i>{peerData.location.location.translate}</span>
                 }
               </div>
               <FormPeerSupporter data={data} location={location} peerEmail={peerData.email} peerName={peerData.title.translate.split(' ', 1)[0]} />

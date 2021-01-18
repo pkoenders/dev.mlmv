@@ -9,13 +9,7 @@ import 'moment/min/locales'
 import BlockContent from "../common/blockContent"
 
 import newsEvents from './newsEvents.module.scss'
-import prevNextStyles from '../common/prevNext.module.scss'
-// import IconNext from "../../images/svg/icon-next.inline.svg"
-// import IconPrev from "../../images/svg/icon-prev.inline.svg"
-import IconBack from "../../images/svg/icon-back.inline.svg"
-import IconEvent from '../../images/svg/icon-event.inline.svg'
-import IconLocation from '../../images/svg/icon-location.inline.svg'
-import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
+import secondaryNav from '../common/secondaryNav.module.scss'
 
 import FormEvent from "../forms/formEvent"
 
@@ -24,16 +18,10 @@ const NewsEventTemplate = ({ data, location, pageContext }) => {
   const { t, i18n } = useTranslation()
   const translate = i18n.language
   moment.locale(translate)
-
   const { sanityNewsEvent } = data
   const newsEventData = sanityNewsEvent
-
   const { sanityNewsEventsHomepage } = data
   const newsEventDataHome = sanityNewsEventsHomepage
-
-
-  //const submitUrl = "/" + i18n.language + "/thank-you?t=" + Math.floor(Date.now() / 1000)
-  //const submitUrl = "/" + i18n.language + "/thank-you"
 
 
   //const { next, previous } = pageContext
@@ -52,20 +40,19 @@ const NewsEventTemplate = ({ data, location, pageContext }) => {
         title={newsEventData.newsEventName.translate + ' - ' + newsEventDataHome.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
         description={newsEventData.shortDescription.translate}
       />
-      <section className={prevNextStyles.prevNext + ' section-layout-wide prevNext'}>
+
+      <section className={secondaryNav.wrapper + ' section-layout-wide secondaryNav'}>
         <nav aria-label="Navigate to previous page or next page" role="navigation" >
           <div role="menu">
             <Link
               aria-label={t("common:back")}
               role="menuitem"
               tabIndex="0"
-              className={prevNextStyles.prev}
               to={`/${i18n.language}/news-events/`}
             >
-              <IconBack aria-hidden="true" />
-              <span>{t("common:back")}</span>
+              <i className={"material-icons"} aria-hidden="true">arrow_back</i>
+              {t("common:back")}
             </Link>
-
           </div>
         </nav>
       </section>
@@ -87,17 +74,17 @@ const NewsEventTemplate = ({ data, location, pageContext }) => {
               <div className={newsEvents.headerInfo}>
 
                 {newsEventData.newsEventType.newsEventTypeTitle === 'Event'
-                  ? <p><IconEvent aria-hidden="true" /><span>{t("common:starts")}: {moment(newsEventData.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                  ? <p><i className={"material-icons"} aria-hidden="true">event</i>{t("common:starts")}: {moment(newsEventData.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
                   : ''
                 }
 
                 {newsEventData.newsEventType.newsEventTypeTitle !== 'News' && newsEventData.endTime !== null
-                  ? <p><IconTimeLapse aria-hidden="true" /><span>{t("common:ends")}: {moment(newsEventData.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                  ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(newsEventData.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
                   : ''
                 }
 
                 {newsEventData.location !== null
-                  ? <p><IconLocation aria-hidden="true" /><span>{newsEventData.location.location.translate}</span></p>
+                  ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{newsEventData.location.location.translate}</p>
                   : ''
                 }
 

@@ -194,21 +194,20 @@ div.peerSupporterWrapper {
                 }
 
                 .supporterInfo {
-                    padding: 0 0 15px;
+                    padding: 0 0 5px;
                     border-bottom: 1px solid #c1d1d8;
 
                     span {
-                        display: inline-block;
+                        display: inline-flex;
+                        align-items: center;
                         margin-right: 15px;
                         color: $txtColorA;
                         font-weight: 400;
                         font-size: .8rem;
 
-                        svg {
-                            width: 25px;
+                        i {
                             margin-right: 5px;
-                            height: auto;
-                            vertical-align: middle;
+                            font-size: 28px;
                             color: inherit;
                         }
                     }

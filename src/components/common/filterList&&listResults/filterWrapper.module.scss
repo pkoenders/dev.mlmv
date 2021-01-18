@@ -1,0 +1,25 @@
+@import "src/styles/scss";
+
+.wrapper {
+    padding: $globalSecionPadding;
+    padding: 15px 0 0 0;
+    margin-top: 60px !important;
+
+    .filter {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 15px 0;
+
+        @include respond-below(md) {
+            padding: 15px 15px 0;
+        }
+
+        @include respond-below(sm) {
+            padding: 15px 15px 0;
+        }
+
+        @include respond-below(xs) {
+            padding: 15px 15px 0;
+        }
+    }
+}

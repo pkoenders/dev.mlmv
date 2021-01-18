@@ -76,13 +76,13 @@ const NewsEvent = ({ data, pageContext, location }) => {
   return (
     <>
 
-      {/* <style type="text/css">
+      <style type="text/css">
         {`
         body  {
-         background-color:  #d9e6ec;
+         background-color:  #ffffff !important;
         }
       `}
-      </style> */}
+      </style>
 
       <Layout location={location}>
         <NewsEventTemplate data={data} pageContext={pageContext} location={location} />

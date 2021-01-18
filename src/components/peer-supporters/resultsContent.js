@@ -1,19 +1,18 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import ListResultsTags from '../common/listResultsTags'
-import resultsStyles from '../common/listResults.module.scss'
-import IconForward from "../../images/svg/icon-forward.inline.svg"
+import ListResultsTags from '../common/filterList&&listResults/listResultsTags'
+import listResults from '../common/filterList&&listResults/listResults.module.scss'
 
 const ResultsContent = ({ edge }) => {
     const { t } = useTranslation("peerSupporters")
 
     return (
-        <span className={resultsStyles.resultsContentWrapper}>
+        <span className={listResults.resultsContentWrapper}>
             <h2>{edge.node.title.translate}</h2>
             <p>{edge.node.description.translate}</p>
-            <span className={resultsStyles.info}>
+            <span className={listResults.info}>
                 {edge.node.title.translate !== null
-                    ? <p> {edge.node.title.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <IconForward aria-hidden="true" className={resultsStyles.cta} /></p>
+                    ? <p> {edge.node.title.translate.split(' ', 1)[0]} {t("peerSupporters:supporterCanHelp")} <i className={listResults.cta + ' material-icons'} aria-hidden="true">arrow_forward</i></p>
                     : ''
                 }
             </span>

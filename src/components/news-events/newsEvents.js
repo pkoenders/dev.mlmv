@@ -4,26 +4,20 @@ import { useTranslation } from "react-i18next"
 import Img from 'gatsby-image'
 import moment from 'moment'
 import 'moment/min/locales'
-import resultsStyles from '../common/listResults.module.scss'
-import IconEvent from '../../images/svg/icon-event.inline.svg'
-import IconLocation from '../../images/svg/icon-location.inline.svg'
-import IconTime from '../../images/svg/icon-time.inline.svg'
-import IconTimeLapse from '../../images/svg/icon-timelapse.inline.svg'
+import listResults from '../common/filterList&&listResults/listResults.module.scss'
 
 const ListNewsEvents = ({ data, language }) => {
     const { t, i18n } = useTranslation("newsEvents")
     const translate = i18n.language
     moment.locale(translate)
-    // console.log('language + ' + translate)
-    // console.log('moment + ' + moment.locale(translate))
 
     const { allSanityNewsEvent } = data // data.markdownRemark holds your post data
     const newsEventListData = allSanityNewsEvent
     const allPosts = newsEventListData.edges
     return (
         <>
-            <section className={resultsStyles.listResultsWrapper} style={{ marginTop: '90px' }}>
-                <div className={resultsStyles.wrapper}>
+            <section className={listResults.listResultsWrapper} style={{ marginTop: '90px' }}>
+                <div className={listResults.wrapper}>
                     <div>
                         <h1>{t("newsEvents:title")}</h1>
                         <ul className={"grid"}>
@@ -60,42 +54,43 @@ const ListNewsEvents = ({ data, language }) => {
                                                     : ''
                                                 }
 
-                                                <span className={resultsStyles.resultsContentWrapper}>
+                                                <span className={listResults.resultsContentWrapper}>
 
                                                     <h2>
+                                                        {edge.node.newsEventName.translate}
                                                         {edge.node.newsEventType.newsEventTypeTitle === 'Event'
-                                                            ? <IconEvent aria-hidden="true" />
+                                                            ? <i className={"material-icons"} aria-hidden="true">event</i>
                                                             : ''
                                                         }
-                                                        {edge.node.newsEventName.translate}
+
 
                                                     </h2>
 
 
                                                     {edge.node.newsEventType.newsEventTypeTitle === 'News' && edge.node.publishedAt !== null
-                                                        ? <p className={resultsStyles.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
+                                                        ? <p className={listResults.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
                                                         : ''
                                                     }
                                                     <p>{edge.node.shortDescription.translate}</p>
 
-                                                    <span className={resultsStyles.info}>
+                                                    <span className={listResults.info}>
                                                         {edge.node.startTime !== null
-                                                            ? <p><IconTime aria-hidden="true" /><span>{t("common:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><i className={"material-icons"} aria-hidden="true">schedule</i>{t("common:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
                                                             : ''
                                                         }
 
                                                         {edge.node.endTime !== null
-                                                            ? <p><IconTimeLapse aria-hidden="true" /><span>{t("common:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</span></p>
+                                                            ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
                                                             : ''
                                                         }
 
                                                         {edge.node.location !== null
-                                                            ? <p><IconLocation aria-hidden="true" /><span>{edge.node.location.location.translate}</span></p>
+                                                            ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{edge.node.location.location.translate}</p>
                                                             : ''
                                                         }
                                                     </span>
 
-                                                    <span className={resultsStyles.cta + ' buttonSecondary'}>{t("common:findOutMore")}</span>
+                                                    <span className={listResults.cta + ' buttonSecondary'}>{t("common:findOutMore")}</span>
                                                 </span>
                                             </Link>
                                         </li>

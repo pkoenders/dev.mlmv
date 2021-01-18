@@ -1,6 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import EmojiNoResult from "../../images/svg/emoji-rolling-eyes.inline.svg"
+import EmojiNoResult from "../../../images/svg/emoji-rolling-eyes.inline.svg"
 
 
 const NoResults = ({ query }) => {

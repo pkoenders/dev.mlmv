@@ -1,25 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import { useTranslation } from "react-i18next"
 import LogoMLMVHeader from "../../images/svg/logo-mlmv.inline.svg"
-import IconCloseMenu from "../../images/svg/icon-close.inline.svg"
-import IconLanguage from "../../images/svg/icon-language.inline.svg"
 
-import IconSupport from "../../images/svg/icon-support.inline.svg"
-import IconContact from "../../images/svg/icon-contact-us.inline.svg"
-import IconTerms from "../../images/svg/icon-terms.inline.svg"
-import IconAccessibilty from "../../images/svg/icon-accessible.inline.svg"
-
-import IconExpandMore from "../../images/svg/icon-expand-more.inline.svg"
-import IconExpandLess from "../../images/svg/icon-expand-less.inline.svg"
 import '../../styles/index.scss'
 import "../../styles/hamburger.scss"
 import "./header.scss"
-
-
-
-
 
 const Header = ({ location }) => {
   // const { t, i18n } = useTranslation("common")
@@ -186,8 +172,8 @@ const Header = ({ location }) => {
             <li className="toggleMainMenu">
               <button>
                 {t("common:mainNavMore")}
-                <IconExpandMore aria-hidden="true" />
-                <IconExpandLess aria-hidden="true" />
+                <i className={"material-icons"} aria-hidden="true">unfold_more</i>
+                <i className={"material-icons"} aria-hidden="true">unfold_less</i>
               </button>
               <ul className={""}>
                 <li>
@@ -197,7 +183,7 @@ const Header = ({ location }) => {
                     getProps={isPartiallyActive}
                     tabIndex="0"
                     title={t("common:mainNavSupportServices")}>
-                    <IconSupport aria-hidden="true" />
+                    <i className={"material-icons"} aria-hidden="true">support</i>
                     {t("common:mainNavSupportServices")}
                   </Link>
                 </li>
@@ -208,7 +194,7 @@ const Header = ({ location }) => {
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
                     title={t("common:mainNavContact")}>
-                    <IconContact aria-hidden="true" />
+                    <i className={"material-icons"} aria-hidden="true">contact_page</i>
                     {t("common:mainNavContact")}
                   </Link>
                 </li>
@@ -218,7 +204,7 @@ const Header = ({ location }) => {
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
                     title={t("common:mainNavTerms")}>
-                    <IconTerms aria-hidden="true" />
+                    <i className={"material-icons"} aria-hidden="true">playlist_add_check</i>
                     {t("common:mainNavTerms")}
                   </Link>
                 </li>
@@ -228,7 +214,7 @@ const Header = ({ location }) => {
                     activeClassName={"activeNavItem"}
                     tabIndex="0"
                     title={t("common:mainNavAccessibility")}>
-                    <IconAccessibilty aria-hidden="true" />
+                    <i className={"material-icons"} aria-hidden="true">accessibility_new</i>
                     {t("common:mainNavAccessibility")}
                   </Link>
                 </li>
@@ -241,7 +227,7 @@ const Header = ({ location }) => {
                 tabIndex="0"
                 onClick={toggleMobileNav}>
                 {t("common:mainNavCloseMenu")}
-                <IconCloseMenu aria-hidden="true" />
+                <i className={"material-icons"} aria-hidden="true">clear</i>
               </button>
             </li>
           </ul>
@@ -255,7 +241,7 @@ const Header = ({ location }) => {
               aria-label={'Current language is set to ' + currentLanguage + ' Click to change'}
             >
               {/* {currentLanguage} */}
-              <IconLanguage aria-hidden="true" />
+              <i className={"material-icons"} aria-hidden="true">language</i>
             </button>
 
             <ul>

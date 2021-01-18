@@ -65,6 +65,13 @@ module.exports = {
       options: {
         fonts: {
           google: [
+
+            {
+              family: "Material+Icons",
+              fontDisplay: 'swap',
+              strategy: 'cdn', // 'base64' || 'cdn'
+            },
+
             {
               family: "Roboto",
               variants: ["300", "400", "500", "700"],
@@ -196,7 +203,7 @@ module.exports = {
       options: {
         name: `My Life My Voice`,
         short_name: `MLMV`,
-        start_url: `/en`,
+        start_url: `/`,
         background_color: `#121923`,
         theme_color: `#121923`,
         lang: `en`,

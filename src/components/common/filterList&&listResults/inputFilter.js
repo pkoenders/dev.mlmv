@@ -1,17 +1,15 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 
-import filterStyles from '../common/filterList.module.scss'
-import IconReset from "../../images/svg/icon-clear.inline.svg"
-import IconSearch from "../../images/svg/icon-search.inline.svg"
+import inputFilter from './inputFilter.module.scss'
 
 const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilterReset, searchIcon }) => {
     const { t } = useTranslation("peerSupporters")
 
     return (
-        <div className={filterStyles.filterInput} >
+        <div className={inputFilter.wrapper} >
             <form role="search">
-                <label className={filterStyles.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("common:inputSearch")} </label>
+                <label className={inputFilter.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("common:inputSearch")} </label>
                 <input
                     tabIndex="0"
                     id="filterInput"
@@ -22,14 +20,14 @@ const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilte
                     onBlur={handleInputStatusBlur}
                 />
                 <button
-                    className={filterStyles.filterReset + ' filterReset hide'}
+                    className={inputFilter.filterReset + ' filterReset hide'}
                     aria-label="Clear keyword input field"
                     type="reset"
                     value="reset"
                     tabIndex="0"
                     onClick={handleInputFilterReset}
                 >
-                    {!searchIcon ? <IconSearch aria-hidden="true" /> : <IconReset aria-hidden="true" />}
+                    {!searchIcon ? <i className={"material-icons"} aria-hidden="true">search</i> : <i className={"material-icons"} aria-hidden="true">clear</i>}
                 </button>
             </form>
         </div>

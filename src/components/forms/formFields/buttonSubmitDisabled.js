@@ -1,6 +1,5 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import IconSend from "../../../images/svg/icon-send.inline.svg"
 
 const Submit = () => {
   const { t } = useTranslation()
@@ -13,7 +12,7 @@ const Submit = () => {
       className="buttonSecondary"
       disabled
     >
-      <IconSend aria-hidden="true" />
+      <i className={"material-icons"} aria-hidden="true">sendd</i>
       {t("common:inputSubmit")}
     </button>
   )

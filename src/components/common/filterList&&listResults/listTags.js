@@ -1,29 +1,10 @@
-import React, { useState } from "react"
-import { useTranslation } from "react-i18next"
-import IconTagSelected from "../../images/svg/icon-tick.inline.svg"
-import IconTagUnSelected from "../../images/svg/icon-add.inline.svg"
-import IconExpandMore from "../../images/svg/icon-expand-more.inline.svg"
-import IconExpandLess from "../../images/svg/icon-expand-less.inline.svg"
-import IconReplay from "../../images/svg/icon-replay.inline.svg"
-import filterStyles from '../common/filterList.module.scss'
+import React from "react"
+import listTags from './listTags.module.scss'
 
 const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleFullReset, tagSelect }) => {
-    const { t } = useTranslation("peerSupporters")
-    const [tagListOpen, setTagListOpen] = useState(false);
-
-    function toggleTagListView() {
-        const tagList = document.querySelector(".tagList")
-        tagList.classList.toggle("open")
-        setTagListOpen(!tagListOpen);
-    }
-
+    //const { t } = useTranslation("peerSupporters")
     return (
-        <div className={filterStyles.filterTags + " tagListWrapper"} aria-label="Filter by tags">
-            <span>
-                <button className={"tagListMore"} onClick={toggleTagListView}>{t("common:more")} {!tagListOpen ? <IconExpandMore aria-hidden="true" /> : <IconExpandLess aria-hidden="true" />}</button>
-                {/* <button>Find out more about Peer supporters <IconForward aria-hidden="true" /></button> */}
-                <button onClick={handleFullReset}>{t("common:reset")}<IconReplay aria-hidden="true" /></button>
-            </span>
+        <div className={listTags.wrapper + " tagListWrapper"} aria-label="Filter by tags">
             <div className={'tagList'}>
                 <span>
                     {allTags.map((allTagsEdge, allTagsID) => {
@@ -43,8 +24,8 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
                                     onClick={handleTagSelect}
                                 >
                                     <span aria-hidden="true">
-                                        <IconTagSelected aria-hidden="true" />
-                                        <IconTagUnSelected aria-hidden="true" />
+                                        <i className={"material-icons"} aria-hidden="true">done</i>
+                                        <i className={"material-icons"} aria-hidden="true">add</i>
                                     </span>
                                     {allTagsEdge.node.tagsTitle.translate}
                                     <span>{tagMatchCount}</span>

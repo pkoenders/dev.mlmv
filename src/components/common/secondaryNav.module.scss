@@ -1,6 +1,6 @@
 @import "src/styles/scss";
 
-.prevNext {
+.wrapper {
     z-index: 100;
     transition: all .25s linear;
     position: sticky;
@@ -18,6 +18,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 15px;
 
         @include respond-below(md) {
@@ -27,63 +28,63 @@
         }
 
         div {
-            flex-basis: 66.6%;
+            display: flex;
+            align-items: center;
+            flex-basis: 100%;
 
             @include respond-below(md) {
                 flex-basis: 100%;
             }
 
-            display: flex;
-
+            button,
             a {
+                display: inline-flex;
+                align-items: center;
+                margin: 0 5px 0 0;
+                padding: 0;
+                border: none;
+                outline: none;
+                background-color: transparent;
                 color: $txtColor;
+                text-transform: uppercase;
+                font-size: .7rem;
+                cursor: pointer;
+            }
 
-                span {
-                    text-transform: uppercase;
-                    font-size: .7rem;
+            .alignRight {
+                display: flex;
+                align-items: center;
+                margin: 0 0 0 auto;
+
+                button:last-child,
+                a:last-child {
+                    margin: 0 0 0 5px;
                 }
 
-                svg {
-                    display: inline-block;
-                    width: 20px;
-                    height: auto;
-                    vertical-align: middle;
-                    margin: 0px 10px 0 0;
+            }
+
+            button:hover,
+            a:hover {
+                outline: none;
+                color: $tertiaryColor;
+                text-decoration: none;
+
+                i {
                     color: inherit;
                 }
             }
 
-            span {
-                margin-left: auto;
-
-                a {
-                    svg {
-                        width: 10px;
-                    }
-                }
-
-                a.prev {
-                    margin-right: 0px;
-                }
-
-                a.next {
-                    margin-left: 30px;
-
-                    svg {
-                        margin: -2px 0 0 10px;
-
-                    }
-                }
-            }
-
+            button:focus,
             a:focus {
                 outline: none;
             }
 
+            button:focus-visible,
             a:focus-visible {
                 @include focusVisibleForDark;
             }
 
+            button:focus,
             a:-moz-focusring {
                 @include focusVisibleForDark;
             }

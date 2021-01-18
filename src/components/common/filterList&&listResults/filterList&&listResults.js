@@ -1,14 +1,16 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import filterStyles from '../common/filterList.module.scss'
-import resultsStyles from '../common/listResults.module.scss'
+import SecondayNav from './secondaryNav'
+import ListTags from './listTags'
+import FilterList from './inputFilter'
+import NoResults from './noResults'
 
-import FilterListResults from '../commonn/filterListResults'
-import NoResults from '../common/noResults'
-import ListTags from '../common/listTags'
-import FilterList from '../common/filterList'
-import PeerResultsWrapper from './resultsWrapper'
+import PeerResultsWrapper from '../../peer-supporters/resultsWrapper'
+import SupportServicesWrapper from '../../support-services/resultsWrapper'
+
+import listResults from './listResults.module.scss'
+import filterWrapper from './filterWrapper.module.scss'
 
 let allResultsTagList = []
 var resultsListCount = "0"
@@ -16,27 +18,9 @@ var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
 
-const ListPeerSupporters = ({ data, location, language }) => {
+const FilterListResults = ({ data, location, allPosts, allTags }) => {
 
-    const { t } = useTranslation("peerSupporters")
-
-    //const currentPath = location.pathname.includes("peer-supporters")
-
-    //console.log("currentPath = " + currentPath)
-
-    // Since we are creating a Template for language support, get Peer Supports data from node gatsby Node
-    const { allSanityPeerSupporters } = data // data.markdownRemark holds your post data
-    const peerListData = allSanityPeerSupporters
-    const allPosts = peerListData.edges
-
-    // Check if the tags filtering list has matching tags in the results. 
-    // It is possible to create a tag in Sanity and not attached to a Peer supporter.
-    // We don't want return an empty result
-    const { allSanityTags } = data
-    const listSanityTags = allSanityTags
-    const allTags = listSanityTags.edges
-
-    // <FilterListResults allPosts={allPosts} allTags={allTags} />
+    const { t } = useTranslation('common')
 
     checkForEmptyTags()
     function checkForEmptyTags() {
@@ -115,6 +99,7 @@ const ListPeerSupporters = ({ data, location, language }) => {
     function handleFullReset() {
         handleInputFilterReset()
         handleTagResultsReset()
+        window.scrollTo(0, 0)
 
     }
 
@@ -203,11 +188,12 @@ const ListPeerSupporters = ({ data, location, language }) => {
     function filterListByInput() {
         const query = filterValue
         //console.log("query = " + query)
-        const posts = peerListData.edges || []
+        const posts = allPosts || []
         const filteredData = posts.filter(post => {
 
-            const description = post.node.description.translate
             const title = post.node.title.translate
+            const description = post.node.description.translate
+
             var tagList = ''
             if (post.node.tags) {
                 post.node.tags.map((thisEdge, i) => (
@@ -235,28 +221,43 @@ const ListPeerSupporters = ({ data, location, language }) => {
 
     return (
         <>
-            <section className={filterStyles.wrapper + ' section-layout-wide'}>
-                <div className={filterStyles.filter}>
+            <SecondayNav location={location} handleFullReset={handleFullReset} />
+            <section className={filterWrapper.wrapper + ' section-layout-wide'}>
+                <div className={filterWrapper.filter}>
                     <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleFullReset={handleFullReset} />
                     <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />
                 </div>
             </section>
 
-            <section className={resultsStyles.listResultsWrapper}>
-                <div className={resultsStyles.wrapper}>
+            <section className={listResults.listResultsWrapper}>
+                <div className={listResults.wrapper}>
 
-                    {resultsListCount !== 0 && <h1>{t("peerSupporters:title")}</h1>}
+
+                    {resultsListCount !== 0 &&
+                        <>
+                            {location.pathname.includes("peer-supporters") === true &&
+                                <h1>{t("peerSupporters:title")}</h1>
+                            }
+
+                            {location.pathname.includes("support-services") === true &&
+                                <h1>{t("supportServices:title")}</h1>
+                            }
+                        </>
+                    }
+
                     {resultsListCount === 0 && <NoResults query={query} />}
 
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {
-                            if (
-                                edge.node.active === true
-                            ) {
+                            if (edge.node.active === true) {
                                 return (
                                     <li key={postID} className={"item"}>
                                         {location.pathname.includes("peer-supporters") === true &&
                                             <PeerResultsWrapper edge={edge} />
+                                        }
+
+                                        {location.pathname.includes("support-services") === true &&
+                                            <SupportServicesWrapper edge={edge} />
                                         }
                                     </li>
                                 )
@@ -271,4 +272,4 @@ const ListPeerSupporters = ({ data, location, language }) => {
     );
 }
 
-export default ListPeerSupporters
+export default FilterListResults

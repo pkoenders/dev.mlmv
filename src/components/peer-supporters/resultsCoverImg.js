@@ -1,6 +1,6 @@
 import React from "react"
 import Img from 'gatsby-image'
-import resultsStyles from '../common/listResults.module.scss'
+import listResults from '../common/filterList&&listResults/listResults.module.scss'
 
 const ResultsCoverImge = ({ edge }) => {
 
@@ -13,7 +13,7 @@ const ResultsCoverImge = ({ edge }) => {
                             fluid={edge.node.coverImage.asset.fluid}
                             loading="lazy"
                         />
-                        <span className={resultsStyles.resultsContentImgOverlay}></span>
+                        <span className={listResults.resultsContentImgOverlay}></span>
                     </>
                     : ''
             }

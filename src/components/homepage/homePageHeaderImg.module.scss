@@ -29,6 +29,7 @@
             @include homePageTitle;
             font-weight: 700;
             line-height: 2.4rem;
+            text-shadow: 0px 0px 4px $primaryColor;
 
             @include respond-below(md) {
                 font-size: 1.4rem;
