@@ -87,7 +87,7 @@ const Header = ({ location }) => {
     //console.log("Language Selector")
     const localeSeletor = document.querySelector('.localeSeletor')
     const localeSeletorList = document.querySelector('.localeSeletor ul')
-    const localeSeletorIconExpand = document.querySelector('.localeSeletor button svg')
+    const localeSeletorIconExpand = document.querySelector('.localeSeletor button')
     localeSeletor.classList.toggle("bground")
     localeSeletorList.classList.toggle("show")
     localeSeletorIconExpand.classList.toggle("open")

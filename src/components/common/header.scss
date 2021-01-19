@@ -146,9 +146,9 @@ header.headerNavWrapper {
         span,
         button {
 
-          font-size: 1.4rem;
-          line-height: 1.8rem;
-
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          font-weight: 300;
           color: #ffffff;
           padding: 15px 30px;
           position: relative;
@@ -246,10 +246,10 @@ header.headerNavWrapper {
 
         display: flex;
         margin: 0;
-        padding: 0px 0;
+        padding: 0;
         top: 0;
         left: 0;
-        right: 0px;
+        right: 0;
         width: 100%;
         overflow: visible;
         text-align: center;
@@ -259,8 +259,9 @@ header.headerNavWrapper {
 
         .toggleMainMenu {
           button {
-            display: flex;
+            display: inline-flex;
             align-items: center;
+
 
             i {
               margin: 0 0 0 5px;
@@ -270,6 +271,10 @@ header.headerNavWrapper {
             i:nth-child(2) {
               display: none;
             }
+          }
+
+          button:after {
+            height: 0px;
           }
         }
 
@@ -293,16 +298,18 @@ header.headerNavWrapper {
 
         li {
           display: flex;
-          align-self: center;
-          margin: 0px 3px;
+          align-items: center;
+          margin: 0 4px;
 
           a,
           button {
             @include headerTxt;
-            padding: 1px 15px 0px;
-            display: inline-flex;
-            height: auto;
+            padding: 10px 15px;
+            display: flex;
             background-color: transparent;
+            height: auto;
+
+
           }
 
           a.activeNavItem {
@@ -329,6 +336,8 @@ header.headerNavWrapper {
             background-color: transparent;
           }
 
+
+
           ul {
             background-color: $headerBgColor;
             position: absolute;
@@ -351,7 +360,7 @@ header.headerNavWrapper {
 
             li {
               a {
-                padding-top: 10px;
+                padding-top: 0px;
                 display: flex;
                 flex-direction: column;
 
@@ -359,7 +368,7 @@ header.headerNavWrapper {
                   display: block;
                   font-size: 28px;
                   width: auto;
-                  margin: 0 auto;
+                  margin: 0 auto 10px;
                   opacity: .33;
                 }
               }
@@ -401,6 +410,10 @@ header.headerNavWrapper {
         li.hide {
           display: none;
         }
+
+
+
+
       }
     }
   }
@@ -452,17 +465,15 @@ header.headerNavWrapper {
       background-color: transparent;
 
       i {
-
-        opacity: .66;
         color: inherit;
       }
     }
 
-    button:hover {
-      i {
-        opacity: 1;
-      }
-    }
+    // button:hover {
+    //   i {
+    //     opacity: 1;
+    //   }
+    // }
 
     button:focus {
       outline: none;

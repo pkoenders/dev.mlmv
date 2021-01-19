@@ -226,8 +226,9 @@ const FilterListResults = ({ data, location, allPosts, allTags }) => {
             <SecondayNav location={location} handleFullReset={handleFullReset} />
             <section className={filterWrapper.wrapper + ' section-layout-wide'}>
                 <div className={filterWrapper.filter}>
-                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleFullReset={handleFullReset} />
                     <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />
+                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleFullReset={handleFullReset} />
+
                 </div>
             </section>
 

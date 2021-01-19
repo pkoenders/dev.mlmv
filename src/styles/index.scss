@@ -332,26 +332,27 @@ form {
 }
 
 
-.rotateBtn{
-  i{
-  transform: rotate(360deg);
-  transition: all .3s linear;
+.rotateBtn {
+  i {
+    transform: rotate(-360deg);
+    transition: all .3s linear;
   }
 }
 
 .rotateBtn.spin {
   i {
     animation: spin .3s;
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
   }
 }
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
   }
 }
 

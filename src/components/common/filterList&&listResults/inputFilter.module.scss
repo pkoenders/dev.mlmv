@@ -1,13 +1,25 @@
 @import "src/styles/scss";
 
 .wrapper {
+    margin: 15px 25% 0 25%;
+    padding: 0;
 
-    position: relative;
-    margin: 0;
-    padding: 10px 0 0 0;
+    @include respond-below(md) {
+        margin: 15px 15% 0 15%;
+    }
+
+    @include respond-below(sm) {
+        margin: 15px 15px 0 15px;
+    }
+
+    @include respond-below(xs) {
+        margin: 15px 15px 0 15px;
+    }
 
     form {
-        //padding: 15px;
+        position: relative;
+        display: flex;
+        align-items: center;
 
         label {
             display: none;
@@ -47,40 +59,39 @@
         // }
 
         input[type=search] {
+            // position: absolute;
             color: $primaryColor;
             z-index: 2;
 
             background-color: #ffffff;
-            padding: 15px 60px 15px 15px;
+            padding: 15px 60px 15px 30px;
 
-            @include respond-below(md) {
-                padding: 15px 30px 15px 15px;
-            }
 
             //border: none !important;
             border: 1px solid #c1d1d8;
             font-size: 1.1rem;
             line-height: 1.0rem;
             font-weight: 400;
-            //border-bottom: 2px solid #0B132B !important;
-            border-radius: 3px;
-
+            //border-radius: 3px;
+            border-radius: 999rem;
+            box-shadow: $globalBoxShadowB;
         }
 
 
         input[type=search]:focus {
             color: $headerBgColor;
             background-color: #ffffff;
-            outline: 3px solid $tertiaryColor !important;
+            // outline: 3px solid $tertiaryColor !important;
+            outline: none !important;
 
         }
 
         input[type=search]:focus-visible {
-            @include focusVisibleForDark;
+            //@include focusVisibleForDark;
         }
 
         input[type=search]:-moz-focusring {
-            @include focusVisibleForDark;
+            //@include focusVisibleForDark;
         }
 
 
@@ -89,13 +100,15 @@
             color: $primaryColor;
             opacity: 1;
             font-size: 1rem;
+            position: relative;
+
         }
 
 
         button.filterReset {
             position: absolute;
-            top: 23px;
-            right: 15px;
+            //top: 12px;
+            right: 25px;
             background-color: transparent;
             padding: 0;
             border: none;
@@ -103,10 +116,8 @@
             cursor: pointer;
             height: 28px;
             width: auto;
+            z-index: 10;
 
-            @include respond-below(md) {
-                right: 15px;
-            }
 
             i {
                 font-size: 30px;

@@ -1,24 +1,27 @@
 @import "src/styles/scss";
 
 .wrapper {
-    margin: 0;
-    padding: 10px 0 0 0;
+    display: flex;
+    margin: 15px 0 0 0;
+    padding: 0;
+
 
     div {
         overflow: hidden;
         width: auto;
         margin: 0;
-        max-height: 38px;
+        max-height: 36px;
         transition: max-height .25s ease-in-out;
+        justify-items: center;
 
         span {
-            // display: inline-flex;
-            // flex-wrap: wrap;
+            //display: inline-flex;
+            //flex-wrap: wrap;
             // flex-direction: row;
             position: relative;
             display: block;
             float: left;
-
+            justify-content: center;
 
             button.more {
                 display: flex;
@@ -76,6 +79,7 @@
 
                     i {
                         height: auto;
+                        font-size: 18px;
                         color: #969ba9;
                         margin: 0;
                     }

@@ -12,7 +12,6 @@
     border-bottom: 1px solid #c1d1d8;
     box-shadow: $globalBoxShadowB;
 
-
     nav {
         max-width: 1200px;
         margin: 0 auto;
@@ -48,7 +47,7 @@
                 color: $txtColor;
                 //text-transform: uppercase;
                 font-size: .8rem;
-                line-height: 0rem;
+                line-height: initial;
                 cursor: pointer;
 
 
@@ -58,29 +57,15 @@
                 }
             }
 
-
-
-
-
             .alignRight {
                 display: flex;
                 align-items: center;
                 margin: 0 0 0 auto;
 
-                // button,
-                // a {}
-
-
-
-
-
                 button:last-child,
                 a:last-child {
                     margin: 0 0 0 15px !important;
-
-                    i {}
                 }
-
             }
 
             button:hover,
