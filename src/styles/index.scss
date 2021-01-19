@@ -558,13 +558,14 @@ form {
 }
 
 .listResults li {
-  display: block;
-  //opacity: 1;
-  animation: fadeResults 200ms;
+  display: flex;
+  animation: fadeResults 250ms;
 }
 
 .listResults li.hide {
+  animation: fadeResults 250ms;
   display: none;
+
 }
 
 @keyframes fadeResults {
@@ -576,10 +577,6 @@ form {
     opacity: 1;
   }
 }
-
-
-
-
 
 .level-0,
 .level-1,
