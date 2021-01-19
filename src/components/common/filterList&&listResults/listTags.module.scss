@@ -10,9 +10,8 @@
         overflow: hidden;
         width: auto;
         margin: 0;
-        max-height: 36px;
+        max-height: 37px;
         transition: max-height .25s ease-in-out;
-        justify-items: center;
 
         span {
             //display: inline-flex;
@@ -37,7 +36,7 @@
                 cursor: pointer;
                 box-shadow: none;
                 //position: absolute;
-                margin-right: 0;
+                margin-right: 3px;
                 padding: 2px 0 2px 5px;
             }
 

@@ -107,7 +107,7 @@ function checkTagListHeight() {
     const tagListWrapper = document.querySelector(".tagList > span")
     const tagListMoreBtn = document.querySelector(".tagListMore")
     if (tagListWrapper) {
-        if (tagListWrapper.clientHeight <= 38) {
+        if (tagListWrapper.clientHeight <= 40) {
             tagListMoreBtn.style = "display:none;"
         } else {
             tagListMoreBtn.style = "display:flex;"

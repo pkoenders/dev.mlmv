@@ -64,7 +64,7 @@
             z-index: 2;
 
             background-color: #ffffff;
-            padding: 15px 60px 15px 30px;
+            padding: 15px 60px 15px 60px;
 
 
             //border: none !important;
@@ -107,20 +107,22 @@
 
         button.filterReset {
             position: absolute;
-            //top: 12px;
-            right: 25px;
+            display: flex;
+            left: 15px;
             background-color: transparent;
             padding: 0;
             border: none;
             z-index: 1;
             cursor: pointer;
-            height: 28px;
+            height: auto;
             width: auto;
             z-index: 10;
+            //color: $txtColorA;
+            color: #9196a5;
 
 
             i {
-                font-size: 30px;
+                font-size: 26px;
                 color: inherit;
             }
         }
