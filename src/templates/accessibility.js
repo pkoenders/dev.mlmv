@@ -12,8 +12,10 @@ export const query = graphql`
   query($language: String, $locale: JSON) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -22,32 +24,31 @@ export const query = graphql`
     }
 
     sanityAccessibilityContent {
-      accessibilityContent {
+      title {
+        translate(language: $language)
+      }
+      description {
+        translate(language: $language)
+      }
+      content {
         localized(language: $locale)
       }
-      accessibilityTitle {
-        translate(language: $language)
-      }
-      accessibilityDescription {
-        translate(language: $language)
-      }
-      accessibilityContentActive
     }
-}
+  }
 `
 
 const AccessibilityPage = ({ data, location, language }) => {
-
   return (
     <>
       <SEO
-        title={data.sanityAccessibilityContent.accessibilityTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityAccessibilityContent.accessibilityDescription.translate}
+        title={data.sanityAccessibilityContent.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityAccessibilityContent.description.translate}
       />
       <Layout location={location}>
         <DefaultSection>
           <div className={'contentWrapper'}>
-            <BlockContent blocks={data.sanityAccessibilityContent.accessibilityContent.localized} />
+            <h1>{data.sanityAccessibilityContent.title.translate}</h1>
+            <BlockContent blocks={data.sanityAccessibilityContent.content.localized} />
           </div>
         </DefaultSection>
 

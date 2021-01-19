@@ -12,8 +12,10 @@ export const query = graphql`
 query($language: String, $locale: JSON) {
     
   sanitySiteSettings {
-    siteTitle
-    siteDescription
+    title
+    description{
+      translate(language: $language)
+    }
     coverImage {
       asset {
         url
@@ -22,27 +24,26 @@ query($language: String, $locale: JSON) {
   }
 
     sanityContactContent {
-      contactTitle {
+      title {
         translate(language: $language)
       }
-      contactDescription {
+      description {
         translate(language: $language)
       }
-      contactContent {
+      content {
         localized(language: $locale)
       }
-      contactContentActive
     }
-}
+  }
 `
 
 const ContactPage = ({ data, location, language }) => {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   return (
     <>
       <SEO
-        title={data.sanityContactContent.contactTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityContactContent.contactDescription.translate}
+        title={data.sanityContactContent.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityContactContent.description.translate}
       />
       <Layout location={location}>
         <div style={{ marginTop: '60px' }} >
@@ -51,11 +52,11 @@ const ContactPage = ({ data, location, language }) => {
             <div className={contactStyles.contactFormWrapper}>
               <div className={contactStyles.contactForm}>
                 {location.pathname !== "/" + i18n.language
-                  ? <h1>{t("contact:title")}</h1>
+                  ? <h1>{data.sanityContactContent.title.translate}</h1>
                   : ''
                 }
                 <IconWave />
-                <BlockContent blocks={data.sanityContactContent.contactContent.localized} />
+                <BlockContent blocks={data.sanityContactContent.content.localized} />
                 <FormContact data={data} language={language} location={location} />
               </div>
             </div>

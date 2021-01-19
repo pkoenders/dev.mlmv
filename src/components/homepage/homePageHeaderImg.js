@@ -38,7 +38,7 @@ const HomepageHeaderImage = ({ data, language }) => {
     return (
       <section className={homePageHeaderImg.homepageHeaderImg + ' contentStart'}>
         <div className={homePageHeaderImg.imgTxt}>
-          <span>{data.sanityHomepageHeader.title.translate}</span>
+          <h1>{data.sanityHomepageHeader.title.translate}</h1>
         </div>
         <div className={homePageHeaderImg.img}>
           <Img

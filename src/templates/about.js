@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-//import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
@@ -10,8 +9,10 @@ export const query = graphql`
   query($language: String, $locale: JSON) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -20,33 +21,31 @@ export const query = graphql`
     }
 
     sanityAboutContent {
-      aboutTitle {
+      title {
         translate(language: $language)
       }
-      aboutDescription {
+      description {
         translate(language: $language)
       }
-      aboutContent {
+      content {
         localized(language: $locale)
       }
-      aboutContentActive
     }
-}
+  }
 `
 
 const AboutPage = ({ data, location, language }) => {
-  //const { t, i18n } = useTranslation("aboutus")
-
   return (
     <>
       <SEO
-        title={data.sanityAboutContent.aboutTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityAboutContent.aboutDescription.translate}
+        title={data.sanityAboutContent.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityAboutContent.description.translate}
       />
       <Layout location={location}>
         <DefaultSection>
           <div className={'contentWrapper'}>
-            <BlockContent blocks={data.sanityAboutContent.aboutContent.localized} />
+            <h1>{data.sanityAboutContent.title.translate}</h1>
+            <BlockContent blocks={data.sanityAboutContent.content.localized} />
           </div>
         </DefaultSection>
       </Layout>

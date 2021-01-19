@@ -312,29 +312,28 @@ exports.createPages = async ({
               current
             }
           
-            newsEventName {
+            title {
               en
               mi
               sm
               hi
             }
-            newsEventType {
+            type {
               newsEventTypeTitle
             }
 
-            addToHomepage
-            itemActive
+            active
             publishedAt
             expiryDate
 
-            shortDescription {
+            description {
               en
               mi
               sm
               hi
             }
 
-            longDescription {
+            content {
               en {
                 _rawChildren
               }
@@ -364,7 +363,7 @@ exports.createPages = async ({
             slug{
               current
             }
-            newsEventName {
+            title {
               en
               mi
               sm
@@ -375,7 +374,7 @@ exports.createPages = async ({
             slug {
               current
             }
-            newsEventName {
+            title {
               en
               mi
               sm
@@ -414,29 +413,28 @@ exports.createPages = async ({
               current
             }
           
-            newsEventName {
+            title {
               en
               mi
               sm
               hi
             }
-            newsEventType {
+            type {
               newsEventTypeTitle
             }
 
-            addToHomepage
-            itemActive
+            active
             publishedAt
             expiryDate
 
-            shortDescription {
+            description {
               en
               mi
               sm
               hi
             }
 
-            longDescription {
+            content {
               en {
                 _rawChildren
               }
@@ -463,10 +461,14 @@ exports.createPages = async ({
           }
 
           previous {
+            id
+            active
+            expiryDate
+            endTime
             slug{
               current
             }
-            newsEventName {
+            title {
               en
               mi
               sm
@@ -474,10 +476,14 @@ exports.createPages = async ({
             }
           }
           next {
+            id
+            active
+            expiryDate
+            endTime
             slug {
               current
             }
-            newsEventName {
+            title {
               en
               mi
               sm
@@ -520,19 +526,6 @@ exports.createPages = async ({
       context: {},
     }),
     ["common", "contact"],
-    createPage
-  )
-
-  // Contact page - Thank-you
-  const submitTemplate = path.resolve(`src/templates/thank-you.js`)
-  await buildI18nPages(
-    null,
-    (_, language) => ({
-      path: `/${language}/thank-you`,
-      component: submitTemplate,
-      context: {},
-    }),
-    ["common", "submit"],
     createPage
   )
 

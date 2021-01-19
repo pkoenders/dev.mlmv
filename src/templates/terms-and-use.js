@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-//import { useTranslation } from "react-i18next"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
 import BlockContent from "../components/common/blockContent"
@@ -10,8 +9,10 @@ export const query = graphql`
   query($language: String, $locale: JSON) {
     
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -20,31 +21,30 @@ export const query = graphql`
     }
 
     sanityTermsOfUseContent {
-      termsOfUseContent {
+      title {
+        translate(language: $language)
+      }
+      description{
+        translate(language: $language)
+      }
+      content {
         localized(language: $locale)
       }
-      termsOfUseTitle {
-        translate(language: $language)
-      }
-      termsOfUseDescription{
-        translate(language: $language)
-      }
-      termsOfUseContentActive
     }
-}
+  }
 `
 const TermsPage = ({ data, location, language }) => {
-  // const { t, i18n } = useTranslation("aboutus")
   return (
     <>
       <SEO
-        title={data.sanityTermsOfUseContent.termsOfUseTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityTermsOfUseContent.termsOfUseDescription.translate}
+        title={data.sanityTermsOfUseContent.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityTermsOfUseContent.description.translate}
       />
       <Layout location={location}>
         <DefaultSection>
           <div className={'contentWrapper'}>
-            <BlockContent blocks={data.sanityTermsOfUseContent.termsOfUseContent.localized} />
+            <h1>{data.sanityTermsOfUseContent.title.translate}</h1>
+            <BlockContent blocks={data.sanityTermsOfUseContent.content.localized} />
           </div>
         </DefaultSection>
       </Layout>

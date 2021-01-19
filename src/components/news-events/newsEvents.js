@@ -19,7 +19,7 @@ const ListNewsEvents = ({ data, language }) => {
             <section className={listResults.listResultsWrapper} style={{ marginTop: '90px' }}>
                 <div className={listResults.wrapper}>
                     <div>
-                        <h1>{t("newsEvents:title")}</h1>
+                        <h1>{data.sanityNewsEventsHomepage.title.translate}</h1>
                         <ul className={"grid"}>
                             {allPosts.map((edge, postID) => {
                                 var expiryDate = edge.node.expiryDate
@@ -38,14 +38,14 @@ const ListNewsEvents = ({ data, language }) => {
                                     endTimeParsed = currentTimeParsed
                                 }
 
-                                if ((edge.node.itemActive === true) && (expiryDateParsed >= currentTimeParsed) && (endTimeParsed >= currentTimeParsed)) {
+                                if ((edge.node.active === true) && (expiryDateParsed >= currentTimeParsed) && (endTimeParsed >= currentTimeParsed)) {
                                     return (
                                         <li
                                             key={postID}
                                             className={"item"}
                                         >
                                             <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
-                                                {edge.node.coverImage !== null
+                                                {edge.node.coverImage.asset !== null
                                                     ?
                                                     <Img
                                                         fluid={edge.node.coverImage.asset.fluid}
@@ -57,8 +57,8 @@ const ListNewsEvents = ({ data, language }) => {
                                                 <span className={listResults.resultsContentWrapper}>
 
                                                     <h2>
-                                                        {edge.node.newsEventName.translate}
-                                                        {edge.node.newsEventType.newsEventTypeTitle === 'Event'
+                                                        {edge.node.title.translate}
+                                                        {edge.node.type.newsEventType === 'Event'
                                                             ? <i className={"material-icons"} aria-hidden="true">event</i>
                                                             : ''
                                                         }
@@ -67,11 +67,11 @@ const ListNewsEvents = ({ data, language }) => {
                                                     </h2>
 
 
-                                                    {edge.node.newsEventType.newsEventTypeTitle === 'News' && edge.node.publishedAt !== null
+                                                    {edge.node.type.newsEventType === 'News' && edge.node.publishedAt !== null
                                                         ? <p className={listResults.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
                                                         : ''
                                                     }
-                                                    <p>{edge.node.shortDescription.translate}</p>
+                                                    <p>{edge.node.description.translate}</p>
 
                                                     <span className={listResults.info}>
                                                         {edge.node.startTime !== null

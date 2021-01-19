@@ -25,16 +25,16 @@ const AlertsSection = ({ data, language }) => {
     return (
       <>
         {alertData.map((edge, alertID) => {
-          var expirayDate = edge.node.homepageAlertExpirey
+          var expirayDate = edge.node.expirey
           var expirayDateParsed = Date.parse(expirayDate)
           var currentTime = Date()
           var currentTimeParsed = Date.parse(currentTime)
           var sessionActive
-          const alertLevel = edge.node.alertLevel.alertLevel
+          const alertLevel = edge.node.level.alertLevel;
 
           //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
           if (typeof window !== 'undefined') {
-            sessionActive = sessionStorage.getItem(edge.node.homepageAlertName)
+            sessionActive = sessionStorage.getItem(edge.node.title)
           }
 
           //console.log("expirayDateParsed = " + expirayDateParsed)
@@ -44,7 +44,7 @@ const AlertsSection = ({ data, language }) => {
             return null
           }
 
-          if ((edge.node.homepageAlertActive === true) && (sessionActive !== "True")) {
+          if ((edge.node.active === true) && (sessionActive !== "True")) {
             return (
               <section
                 className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
@@ -55,18 +55,18 @@ const AlertsSection = ({ data, language }) => {
                   className={alertStyles.sectionInner}
                   aria-label={t("common:alertPanel")}>
                   <div>
-                    {edge.node.homepageAlertTitle != null
-                      ? <p><strong>{edge.node.homepageAlertTitle.translate}</strong></p>
+                    {edge.node.title != null
+                      ? <p><strong>{edge.node.title.translate}</strong></p>
                       : ''
                     }
 
-                    {edge.node.homepageAlertDescription != null
-                      ? <BlockContent blocks={edge.node.homepageAlertDescription.localized} />
+                    {edge.node.description != null
+                      ? <BlockContent blocks={edge.node.description.localized} />
                       : ''
                     }
                   </div>
                 </div>
-                {edge.node.homepageAlertDismiss === true
+                {edge.node.dismiss === true
                   ? <button
                     type="button"
                     tabIndex="0"

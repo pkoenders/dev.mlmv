@@ -28,7 +28,7 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
       `}
       </style>
       <SEO
-        title={peerData.title.translate + ' - ' + peerDataHome.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
+        title={peerData.title.translate + ' - ' + peerDataHome.title.translate + ' | ' + data.sanitySiteSettings.title}
         description={peerData.description.translate}
       />
       <section className={secondaryNav.wrapper + ' section-layout-wide secondaryNav'}>

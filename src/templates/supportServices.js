@@ -8,8 +8,10 @@ export const query = graphql`
   query($language: String) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -18,10 +20,10 @@ export const query = graphql`
     }
 
     sanitySupportServicesHomepage {
-      description {
+      title {
         translate(language: $language)
       }
-      title {
+      description {
         translate(language: $language)
       }
     }
@@ -83,7 +85,7 @@ const SupportServicesTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanitySupportServicesHomepage.title.translate + ' | ' + data.sanitySiteSettings.siteTitle}
+        title={data.sanitySupportServicesHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
         description={data.sanitySupportServicesHomepage.description.translate}
       />
       <Layout location={location}>

@@ -55,7 +55,7 @@ function toggleMainNav() {
     const toggleMainBtn = document.querySelector('.toggleMainMenu')
     document.addEventListener('click', function (event) {
         var isClickInside = toggleMainBtn.contains(event.target)
-        // console.log("click 1")
+        //console.log("click 1")
         if (isClickInside) {
             toggleMainBtn.classList.toggle("open")
         } else {

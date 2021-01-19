@@ -1,4 +1,6 @@
 {
-  "title": "News & events",
-  "attendingEvent": "Do you plan to attend this event? Let us know."
+  "attendingEvent": "Do you plan to attend this event? Let us know.",
+  "errorTitle": "Oops, this is embarrassing!",
+  "errorPara": "It appears that this page is now outdated or not relevent.",
+  "errorCta": "Take me back to News & events"
 }

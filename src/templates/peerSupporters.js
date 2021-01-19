@@ -7,11 +7,13 @@ import SectionPeerSupporters from "../components/peer-supporters/peer-supporters
 
 
 export const query = graphql`
-  query($language: String) {
+  query($language: String, $locale: JSON) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -20,11 +22,14 @@ export const query = graphql`
     }
 
     sanityPeerSupportersHomepage {
-      peerSupportersDescription {
+      title {
         translate(language: $language)
       }
-      peerSupportersTitle {
+      description {
         translate(language: $language)
+      }
+      content {
+        localized(language: $locale)
       }
     }
 
@@ -89,8 +94,8 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityPeerSupportersHomepage.peerSupportersTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityPeerSupportersHomepage.peerSupportersDescription.translate}
+        title={data.sanityPeerSupportersHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityPeerSupportersHomepage.description.translate}
       />
       <Layout location={location}>
         <SectionPeerSupporters data={data} location={location} language={language} />

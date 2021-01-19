@@ -86,7 +86,7 @@ header.headerNavWrapper {
       margin: 0 0 auto 0;
       width: fit-content;
       white-space: nowrap;
-      align-self: top;
+      align-items: center;
       height: 59px;
       padding: 0 15px;
       background-color: $headerBgColor;
@@ -99,7 +99,7 @@ header.headerNavWrapper {
       }
 
       @include respond-below(sm) {
-        display: block;
+        display: flex;
       }
     }
 
@@ -168,6 +168,12 @@ header.headerNavWrapper {
 
         a:hover {
           text-decoration: none !important;
+        }
+
+        a.activeNavItem {
+          pointer-events: none !important;
+          border-left: 5px solid $secondaryColor;
+          margin-left: -5px;
         }
 
         a:after,
@@ -304,7 +310,7 @@ header.headerNavWrapper {
           a,
           button {
             @include headerTxt;
-            padding: 10px 15px;
+            padding: 8px 16px;
             display: flex;
             background-color: transparent;
             height: auto;
@@ -317,6 +323,9 @@ header.headerNavWrapper {
             background: $secondaryColor;
             border-radius: 3px;
             overflow: hidden;
+
+            border-left: none;
+            margin-left: 0;
           }
 
           a:after,

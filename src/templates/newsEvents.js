@@ -8,8 +8,10 @@ export const query = graphql`
   query($language: String) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -18,10 +20,10 @@ export const query = graphql`
     }
 
     sanityNewsEventsHomepage {
-      newsEventsHomepageDescription {
+      title {
         translate(language: $language)
       }
-      newsEventsHomepageTitle {
+      description {
         translate(language: $language)
       }
     }
@@ -30,14 +32,14 @@ export const query = graphql`
         edges {
             node {
                 order
-                itemActive
+                active
                 slug {
                     current
                 }
-                newsEventName {
+                title {
                     translate(language: $language)
                 }
-                newsEventType {
+                type {
                   newsEventTypeTitle
                 }
 
@@ -52,17 +54,14 @@ export const query = graphql`
                   )
 
                 endTime
-                  
-
+            
                 location {
                   location {
                     translate(language: $language)
                   }
                 }
 
-                addToHomepage
-
-                shortDescription {
+                description {
                     translate(language: $language)
                   }
 
@@ -92,8 +91,8 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityNewsEventsHomepage.newsEventsHomepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityNewsEventsHomepage.newsEventsHomepageDescription.translate}
+        title={data.sanityNewsEventsHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityNewsEventsHomepage.description.translate}
       />
       <Layout location={location}>
         <SectionNewsEvents data={data} language={language} />

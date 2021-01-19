@@ -21,12 +21,12 @@ const UserCommentsSection = ({ data, language }) => {
             <ul>
               {allComments.map((edge, commentsID) => {
                 if (
-                  edge.node.communityCommentAddToHomepage === true
+                  edge.node.addToHomepage === true
                 ) {
                   return (
                     <li key={commentsID} >
-                      <p>{edge.node.communityCommentFriendlyName.translate}</p>
-                      <p>{edge.node.communityComment.translate}</p>
+                      <p>{edge.node.shortName.translate}</p>
+                      <p>{edge.node.content.translate}</p>
                     </li>
                   )
                 } else {

@@ -1,4 +1,6 @@
 {
-  "title": "Nga Korero me nga huihuinga",
-  "attendingEvent": "Kei te whakaaro koe ki te haere ki tenei huihuinga? Kia mohio taatau."
+  "attendingEvent": "Kei te whakaaro koe ki te haere ki tenei huihuinga? Kia mohio taatau.",
+  "errorTitle": "Whakahokia ahau ki nga Korero me nga Takahanga!",
+  "errorPara": "Te ahua nei kua koroheke tenei whaarangi inaianei kua kore ranei e tukuna.",
+  "errorCta": "Whakahokia ahau ki nga Korero me nga huihuinga"
 }

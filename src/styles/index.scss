@@ -76,12 +76,12 @@ canvas {
   padding: 90px 15px;
   width: fit-content;
   text-align: center;
-  color: #ffffff;
+  color: $pageBgColor;
   position: relative;
 
   h1,
   p {
-    color: $whiteText;
+    color: inherit;
   }
 
   svg {
@@ -92,7 +92,6 @@ canvas {
 
   a,
   a:hover {
-    margin-top: 60px;
     padding: 15px 30px;
   }
 }

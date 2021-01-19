@@ -9,7 +9,7 @@ const SupportSection = () => {
         <section className={supportStyles.supportSection + ' section-layout-wide'}>
             <div className={supportStyles.supportSectionWrapper}>
                 <div className={supportStyles.content}>
-                    <h2>{t("index:supportSection")}</h2>
+                    <p>{t("index:supportSection")}</p>
                 </div>
 
                 <div className={supportStyles.image}>

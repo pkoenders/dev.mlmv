@@ -7,8 +7,10 @@ export const query = graphql`
   query($slug: String!, $language: String, $locale: JSON) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -17,7 +19,7 @@ export const query = graphql`
     }
     
     sanityPeerSupportersHomepage {
-      peerSupportersTitle {
+      title {
         translate(language: $language)
       }
     }

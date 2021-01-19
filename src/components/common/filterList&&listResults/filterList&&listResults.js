@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useTranslation } from "react-i18next"
 
 import SecondayNav from './secondaryNav'
 import ListTags from './listTags'
@@ -18,14 +17,15 @@ var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
 
-const FilterListResults = ({ data, location, allPosts, allTags }) => {
+const FilterListResults = ({ location, currentPage, allPosts, allTags }) => {
 
-    const { t } = useTranslation('common')
+    // Check if the tags filtering list has matching tags in the results. 
+    // It is possible to create a tag in Sanity and not attached to a Peer supporter.
+    // We don't want return an empty result, so lets...
+    // Get the Tag list
 
     checkForEmptyTags()
     function checkForEmptyTags() {
-
-        // Get the Tag list
         var allTagList = []
         allTags.forEach((allTagsEdge) => {
             allTagList.push(allTagsEdge.node.tagsTitle.translate)
@@ -45,7 +45,7 @@ const FilterListResults = ({ data, location, allPosts, allTags }) => {
         // console.log("allTagList = " + allTagList)
     }
 
-    // State for our query
+    // State for our input query
     const emptyQuery = ""
     const [state, setState] = useState({
         filteredData: [],
@@ -235,17 +235,8 @@ const FilterListResults = ({ data, location, allPosts, allTags }) => {
             <section className={listResults.listResultsWrapper}>
                 <div className={listResults.wrapper}>
 
-
                     {resultsListCount !== 0 &&
-                        <>
-                            {location.pathname.includes("peer-supporters") === true &&
-                                <h1>{t("peerSupporters:title")}</h1>
-                            }
-
-                            {location.pathname.includes("support-services") === true &&
-                                <h1>{t("supportServices:title")}</h1>
-                            }
-                        </>
+                        <h1>{currentPage.title.translate}</h1>
                     }
 
                     {resultsListCount === 0 && <NoResults query={query} />}

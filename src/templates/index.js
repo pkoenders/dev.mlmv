@@ -20,8 +20,10 @@ export const query = graphql`
   query($language: String, $locale: JSON) {
 
     sanitySiteSettings {
-      siteTitle
-      siteDescription
+      title
+      description{
+        translate(language: $language)
+      }
       coverImage {
         asset {
           url
@@ -51,58 +53,55 @@ export const query = graphql`
       }
     }
 
-    allSanityHomepageAlert {
+    allSanityHomepageAlert(sort: {order: ASC, fields: order}) {
       edges {
         node {
-          homepageAlertTitle {
+          order
+          title {
             translate(language: $language)
           }
-          homepageAlertDescription {
+          description {
             localized(language: $locale)
           }
-          alertLevel {
+          level {
             alertLevel
           }
-          homepageAlertName
-          homepageAlertActive
-          homepageAlertExpirey
-          homepageAlertDismiss
+          active
+          expirey
+          dismiss
         }
       }
     }
 
     sanityHomepageIntro {
-      homepageTitle{
-        translate(language: $language)
-      }
-      homepageDescription {
+      title{
         translate(language: $language)
       }
 
-      homepageIntroContent {
+      content {
         localized(language: $locale)
       }
-      homepageIntroActive
+      active
     }
     
   
     allSanityCommunityComments {
       edges {
         node {
-          communityCommentFriendlyName {
+          shortName {
             translate(language: $language)
           }
-          communityComment {
+          content {
             translate(language: $language)
           }
-          communityCommentActive
-          communityCommentAddToHomepage
+          active
+          addToHomepage
         }
       }
     }
 
     sanityContactContent {
-      contactContent {
+      content {
         localized(language: $locale)
       }
     }
@@ -115,15 +114,15 @@ const IndexPage = ({ data, location, language }) => {
   return (
     <>
       <SEO
-        title={data.sanityHomepageIntro.homepageTitle.translate + ' | ' + data.sanitySiteSettings.siteTitle}
-        description={data.sanityHomepageIntro.homepageDescription.translate}
+        title={data.sanityHomepageIntro.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanitySiteSettings.description.translate}
       />
       <Layout location={location}>
         <HeaderImg data={data} language={language} />
         <AlertSection data={data} language={language} />
         <DefaultSection>
           <div className={HomepageStyles.homepageIntro}>
-            <BlockContent blocks={data.sanityHomepageIntro.homepageIntroContent.localized} />
+            <BlockContent blocks={data.sanityHomepageIntro.content.localized} />
             <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >{t("index:ctaViewPeerSupports")}</Link>
           </div>
         </DefaultSection>
@@ -134,7 +133,7 @@ const IndexPage = ({ data, location, language }) => {
           <div className={contactStyles.contactFormWrapper}>
             <div className={contactStyles.contactForm}>
               <IconWave />
-              <BlockContent blocks={data.sanityContactContent.contactContent.localized} />
+              <BlockContent blocks={data.sanityContactContent.content.localized} />
               <FormContact data={data} language={language} location={location} />
             </div>
           </div>
