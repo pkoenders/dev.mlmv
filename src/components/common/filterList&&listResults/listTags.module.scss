@@ -24,11 +24,11 @@
 
             button.more {
                 @include secondayNavTxt;
+                line-height: inherit;
                 display: flex;
                 align-items: center;
                 float: right;
                 border: none;
-
                 margin-right: 3px;
                 padding: 2px 0 2px 5px;
 

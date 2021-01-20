@@ -12,10 +12,11 @@ import listResults from './listResults.module.scss'
 import filterWrapper from './filterWrapper.module.scss'
 
 let allResultsTagList = []
-var resultsListCount = "0"
+
 var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
+var resultsListCount = 0
 
 const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleModal }) => {
 
@@ -25,6 +26,21 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
     // Get the Tag list
 
     checkForEmptyTags()
+
+
+    // Toggle Results Hrader
+    const [resultsHeader, setResultsHeader] = useState(true)
+    function handleResultsHeader() {
+        if (resultsListCount === 0) {
+            setResultsHeader(null)
+        }
+        if (resultsListCount > 0) {
+            setResultsHeader(true)
+        }
+    }
+    //handleResultsHeader()
+
+
     function checkForEmptyTags() {
         var allTagList = []
         allTags.forEach((allTagsEdge) => {
@@ -85,6 +101,7 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
         handleSearchIcon()
         filterListByInput()
         handleTagResultsReset()
+        handleResultsHeader()
         //handleTagResultsReset()
     }
 
@@ -102,6 +119,8 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
         filterValue = ""
         filterListByInput()
         handleSearchIcon()
+        handleResultsHeader()
+
     }
 
     // Toggle search icons
@@ -114,6 +133,8 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
             setSearchIcon(!searchIcon)
         }
     }
+
+
 
     function handleTagResultsReset() {
         tagSelectList = ""
@@ -198,6 +219,7 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
             filteredData,
         })
         resultsListCount = filteredData.length
+        //console.log("filteredData = " + filteredData.length)
     }
 
     const { filteredData, query } = state
@@ -220,11 +242,7 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
             <section className={listResults.listResultsWrapper}>
                 <div className={listResults.wrapper}>
 
-                    {resultsListCount !== 0 &&
-                        <h1>{currentPage.title.translate}</h1>
-                    }
-
-                    {resultsListCount === 0 && <NoResults query={query} />}
+                    {resultsHeader ? <h1>{currentPage.title.translate}</h1> : <NoResults query={query}></NoResults>}
 
                     <ul className={"grid listResults"}>
                         {posts.map((edge, postID) => {
