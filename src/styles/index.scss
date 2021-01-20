@@ -502,20 +502,26 @@ form {
 
 
 
-.contentWrapper {
-  margin: 0 15%;
+// .contentWrapper {
+//   margin: 0 15%;
 
-  @include respond-below(sm) {
-    margin: 0;
-  }
+//   @include respond-below(sm) {
+//     margin: 0;
+//   }
 
-  padding: 30px 15px;
-}
+//   padding: 30px 15px;
+// }
 
 .introParapgraph {
   color: #66758D;
   font-size: 1.4rem;
   line-height: 1.8rem;
+}
+
+
+
+.listResults.hide {
+  display: none !important;
 }
 
 .tagList.open {

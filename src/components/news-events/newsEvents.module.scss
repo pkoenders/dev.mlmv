@@ -26,7 +26,8 @@
             }
 
             p {
-                color: $pageBgColor;
+                color: $footerBgColor;
+                ;
             }
 
             p:nth-child(1) {
@@ -43,7 +44,7 @@
         bottom: 0;
         left: 0;
         background-color: $pageBgColor;
-        background-color: $footerBgColor;
+        //background-color: $footerBgColor;
         //filter: blur(2px);
         //opacity: .90;
         z-index: -1;

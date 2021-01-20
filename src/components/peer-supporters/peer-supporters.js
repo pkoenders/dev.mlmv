@@ -1,5 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import FilterListListResults from '../common/filterList&&listResults/filterList&&listResults'
+import ModalContent from './modalContent'
+
+
+
 
 const ListPeerSupporters = ({ data, location }) => {
 
@@ -15,8 +19,19 @@ const ListPeerSupporters = ({ data, location }) => {
     const listSanityTags = allSanityTags
     const allTags = listSanityTags.edges
 
+    const [modalStatus, setModalStatus] = useState(false)
+    function toggleModal() {
+        window.scrollTo(0, 0)
+        setModalStatus(!modalStatus)
+    }
+
     return (
-        <FilterListListResults currentPage={currentPage} allPosts={allPosts} allTags={allTags} location={location} />
+        <>
+            {!modalStatus
+                ? <FilterListListResults toggleModal={toggleModal} currentPage={currentPage} allPosts={allPosts} allTags={allTags} location={location} />
+                : <ModalContent toggleModal={toggleModal} currentPage={currentPage} />
+            }
+        </>
     )
 }
 export default ListPeerSupporters

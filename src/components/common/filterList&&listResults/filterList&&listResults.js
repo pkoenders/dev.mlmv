@@ -17,7 +17,7 @@ var filterValue = ""
 var tagItemValue = ""
 var tagSelectList = ""
 
-const FilterListResults = ({ location, currentPage, allPosts, allTags }) => {
+const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleModal }) => {
 
     // Check if the tags filtering list has matching tags in the results. 
     // It is possible to create a tag in Sanity and not attached to a Peer supporter.
@@ -223,7 +223,7 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags }) => {
 
     return (
         <>
-            <SecondayNav location={location} handleFullReset={handleFullReset} />
+            <SecondayNav location={location} handleFullReset={handleFullReset} toggleModal={toggleModal} />
             <section className={filterWrapper.wrapper + ' section-layout-wide'}>
                 <div className={filterWrapper.filter}>
                     <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />

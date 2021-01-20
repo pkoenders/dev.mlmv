@@ -39,6 +39,11 @@ export const onRouteUpdate = () => {
     //         resizeAllGridItems()
     //     })
     // })
+
+
+    document.addEventListener('click', function (e) {
+        srollNav()
+    })
 }
 
 function ready() {

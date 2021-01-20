@@ -46,10 +46,10 @@ const AccessibilityPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <div className={'contentWrapper'}>
-            <h1>{data.sanityAccessibilityContent.title.translate}</h1>
-            <BlockContent blocks={data.sanityAccessibilityContent.content.localized} />
-          </div>
+
+          <h1>{data.sanityAccessibilityContent.title.translate}</h1>
+          <BlockContent blocks={data.sanityAccessibilityContent.content.localized} />
+
         </DefaultSection>
 
         <section className={footerStyles.form}>

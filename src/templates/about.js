@@ -43,10 +43,8 @@ const AboutPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <div className={'contentWrapper'}>
-            <h1>{data.sanityAboutContent.title.translate}</h1>
-            <BlockContent blocks={data.sanityAboutContent.content.localized} />
-          </div>
+          <h1>{data.sanityAboutContent.title.translate}</h1>
+          <BlockContent blocks={data.sanityAboutContent.content.localized} />
         </DefaultSection>
       </Layout>
     </>

@@ -1,7 +1,5 @@
 @import "src/styles/scss";
 
-
-
 .container {
     margin: 0px 0 0 0;
     display: flex;
@@ -16,15 +14,31 @@
         flex-wrap: wrap;
         justify-content: center;
         margin: 0 auto;
+        position: relative;
+
+        .modalContent {
+            display: block;
+            background-color: #ffffff;
+
+            .wrapper {
+                display: block;
+                padding: 0;
+
+                p:nth-child(1) {
+                    @include homePageTitle;
+                }
+            }
+        }
     }
 }
 
 .defaultSection {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 992px;
+    //  margin: 0 auto;
     margin: 60px auto 0 auto;
+    padding: 60px 15px 60px 15px;
 
     @include respond-below(sm) {
-        margin: 60px auto 0 auto;
+        padding: 60px 15px 15px 15px
     }
 }

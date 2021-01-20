@@ -1,11 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import secondaryNav from '../secondaryNav.module.scss'
-
-const SecondaryNav = ({ handleFullReset, location }) => {
-    const { t, i18n } = useTranslation()
+const SecondaryNav = ({ handleFullReset, location, toggleModal }) => {
+    const { t } = useTranslation()
 
     return (
         <section className={secondaryNav.wrapper + ' section-layout-wide secondaryNav'}>
@@ -13,14 +12,8 @@ const SecondaryNav = ({ handleFullReset, location }) => {
                 <div role="menu">
                     {location.pathname.includes("peer-supporters") === true &&
                         <>
-                            <Link
-                                aria-label={t("common:back")}
-                                role="menuitem"
-                                tabIndex="0"
-                                to={`/${i18n.language}/peer-supporters/`}>
-                                <i className={"material-icons left"} aria-hidden="true">help_outline</i>
-                                Peer supporters info
-                            </Link>
+                            <button className={'closeModal'} onClickCapture={toggleModal}><i className={"material-icons"} aria-hidden="true">arrow_forward</i>{t('peerSupporters:about')}</button>
+
                         </>
                     }
                     <span className={secondaryNav.alignRight}>

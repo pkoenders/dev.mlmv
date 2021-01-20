@@ -42,10 +42,8 @@ const TermsPage = ({ data, location, language }) => {
       />
       <Layout location={location}>
         <DefaultSection>
-          <div className={'contentWrapper'}>
-            <h1>{data.sanityTermsOfUseContent.title.translate}</h1>
-            <BlockContent blocks={data.sanityTermsOfUseContent.content.localized} />
-          </div>
+          <h1>{data.sanityTermsOfUseContent.title.translate}</h1>
+          <BlockContent blocks={data.sanityTermsOfUseContent.content.localized} />
         </DefaultSection>
       </Layout>
     </>
