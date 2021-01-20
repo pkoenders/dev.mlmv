@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import SecondaryNavWrapper from "../../common/secondaryNavWrapper"
 import SecondayNav from './secondaryNav'
 import ListTags from './listTags'
 import FilterList from './inputFilter'
@@ -82,14 +82,6 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
     // Filter input 
     const handleInputFilter = event => {
         filterValue = event.target.value
-        const filterLabel = document.querySelector(".filterLabel")
-
-        if (filterValue !== "") {
-            filterLabel.classList.add('focus')
-        } else {
-            filterLabel.classList.remove('focus')
-        }
-
         handleSearchIcon()
         filterListByInput()
         handleTagResultsReset()
@@ -101,8 +93,6 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
         handleInputFilterReset()
         handleTagResultsReset()
         window.scrollTo(0, 0)
-
-
     }
 
     // Reset filter input value and tags to none
@@ -112,14 +102,6 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
         filterValue = ""
         filterListByInput()
         handleSearchIcon()
-        handleInputStatusBlur()
-
-    }
-
-    // Remove focus on blur
-    function handleInputStatusBlur() {
-        const filterLabel = document.querySelector(".filterLabel")
-        filterLabel.classList.remove('focus')
     }
 
     // Toggle search icons
@@ -158,6 +140,7 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
     }
 
     const updateResultsTagList = (resultsTags, event) => {
+        //console.log("Update tag")
         for (var i = 0; i < resultsTags.length; i++) {
             resultsTags[i].innerText === event.target.id && resultsTags[i].classList.toggle("selected")
         }
@@ -223,12 +206,14 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
 
     return (
         <>
-            <SecondayNav location={location} handleFullReset={handleFullReset} toggleModal={toggleModal} />
+            <SecondaryNavWrapper>
+                <SecondayNav location={location} handleFullReset={handleFullReset} toggleModal={toggleModal} />
+            </SecondaryNavWrapper>
+
             <section className={filterWrapper.wrapper + ' section-layout-wide'}>
                 <div className={filterWrapper.filter}>
-                    <FilterList handleInputFilter={handleInputFilter} handleInputStatusBlur={handleInputStatusBlur} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />
-                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleFullReset={handleFullReset} />
-
+                    <FilterList handleInputFilter={handleInputFilter} handleInputFilterReset={handleInputFilterReset} searchIcon={searchIcon} />
+                    <ListTags allTags={allTags} allResultsTagList={allResultsTagList} handleInputFilterReset={handleInputFilterReset} handleTagSelect={handleTagSelect} handleTagResultsReset={handleTagResultsReset} />
                 </div>
             </section>
 

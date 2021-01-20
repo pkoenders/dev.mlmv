@@ -20,79 +20,77 @@
         align-items: center;
         padding: 0 15px;
 
+
+
+        display: flex;
+        align-items: center;
+        flex-basis: 100%;
+
         @include respond-below(md) {
             width: 100%;
             position: relative;
             top: 0px;
         }
 
-        div {
+
+
+        @include respond-below(md) {
+            flex-basis: 100%;
+        }
+
+        button,
+        a {
+            @include secondayNavTxt;
             display: flex;
             align-items: center;
-            flex-basis: 100%;
+            margin: 0 5px 0 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
 
-            @include respond-below(md) {
-                flex-basis: 100%;
-            }
-
-            button,
-            a {
-                display: flex;
-                align-items: center;
-                margin: 0 5px 0 0;
-                padding: 0;
-                border: none;
-                outline: none;
-                background-color: transparent;
-                color: $txtColor;
-                //text-transform: uppercase;
-                font-size: .8rem;
-                line-height: initial;
-                cursor: pointer;
-
-
-                i {
-                    pointer-events: none;
-                    font-size: 24px;
-                }
-            }
-
-            .alignRight {
-                display: flex;
-                align-items: center;
-                margin: 0 0 0 auto;
-
-                button:last-child,
-                a:last-child {
-                    margin: 0 0 0 15px !important;
-                }
-            }
-
-            button:hover,
-            a:hover {
-                outline: none;
-                color: $tertiaryColor;
-                text-decoration: none;
-
-                i {
-                    color: inherit;
-                }
-            }
-
-            button:focus,
-            a:focus {
-                outline: none;
-            }
-
-            button:focus-visible,
-            a:focus-visible {
-                @include focusVisibleForDark;
-            }
-
-            button:focus,
-            a:-moz-focusring {
-                @include focusVisibleForDark;
+            i {
+                pointer-events: none;
+                font-size: 24px;
             }
         }
+
+        .alignRight {
+            display: flex;
+            align-items: center;
+            margin: 0 0 0 auto;
+
+            button:last-child,
+            a:last-child {
+                margin: 0 0 0 15px !important;
+            }
+        }
+
+        button:hover,
+        a:hover {
+            outline: none;
+            color: $tertiaryColor;
+            text-decoration: none;
+
+            i {
+                color: inherit;
+            }
+        }
+
+        button:focus,
+        a:focus {
+            outline: none;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            @include focusVisibleForDark;
+        }
+
+        button:focus,
+        a:-moz-focusring {
+            @include focusVisibleForDark;
+        }
+
     }
 }

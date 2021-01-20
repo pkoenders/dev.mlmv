@@ -1,78 +1,15 @@
 import React from "react"
-import { Link } from "gatsby"
-import { useTranslation } from "react-i18next"
-import SEO from '../seo/seo'
 import Img from 'gatsby-image'
+import peerSupporterStyles from './peerSupporter.module.scss'
 import BlockContent from "../common/blockContent"
-import peerSupporterStyles from './peer-supporter.module.scss'
-import secondaryNav from '../common/secondaryNav.module.scss'
-
-
 import FormPeerSupporter from "../forms/formPeerSupporter"
 
-const PeerSupporterTemplate = ({ data, pageContext, location }) => {
-  const { t, i18n } = useTranslation()
+const PeerSupporterItem = ({ data, location }) => {
   const { sanityPeerSupporters } = data
   const peerData = sanityPeerSupporters
-  const { sanityPeerSupportersHomepage } = data
-  const peerDataHome = sanityPeerSupportersHomepage
-  const { next, previous } = pageContext
 
   return (
     <>
-      <style type="text/css">
-        {`
-        body  {
-         background-color:  #d9e6ec;
-        }
-      `}
-      </style>
-      <SEO
-        title={peerData.title.translate + ' - ' + peerDataHome.title.translate + ' | ' + data.sanitySiteSettings.title}
-        description={peerData.description.translate}
-      />
-      <section className={secondaryNav.wrapper + ' section-layout-wide secondaryNav'}>
-        <nav aria-label="Navigate to previous page or next page" role="navigation" >
-          <div role="menu">
-            <Link
-              aria-label={t("common:back")}
-              role="menuitem"
-              tabIndex="0"
-              to={`/${i18n.language}/peer-supporters/`}
-            >
-              <i className={"material-icons"} aria-hidden="true">arrow_back</i>
-              {t("common:back")}
-            </Link>
-
-
-            <span className={secondaryNav.alignRight}>
-              {previous &&
-                <Link
-                  aria-label="Link to previous page"
-                  role="menuitem"
-                  tabIndex="0"
-                  to={`/${i18n.language}/peer-supporters/${previous.slug.current}`}
-                >
-                  <i className={"material-icons left"} aria-hidden="true">chevron_left</i>
-                  {t("common:previous")}
-                </Link>
-              }
-              {next &&
-                <Link
-                  aria-label="Link to next page"
-                  role="menuitem"
-                  tabIndex="0"
-                  to={`/${i18n.language}/peer-supporters/${next.slug.current}`}
-                >
-                  {t("common:next")}
-                  <i className={"material-icons"} aria-hidden="true">chevron_right</i>
-                </Link>
-              }
-            </span>
-          </div>
-        </nav>
-      </section>
-
       <div className={peerSupporterStyles.peerSupporterWrapper}>
         <section className={peerSupporterStyles.header}>
           <div className={peerSupporterStyles.headerWrapper}>
@@ -131,4 +68,4 @@ const PeerSupporterTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default PeerSupporterTemplate
+export default PeerSupporterItem

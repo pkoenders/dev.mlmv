@@ -1,7 +1,10 @@
 import React from "react"
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
-import PeerSupporterPage from "../components/peer-supporters/peer-supporter"
+import SEO from '../components/seo/seo'
+import SecondaryNavWrapper from "../components/common/secondaryNavWrapper"
+import SecondaryNavItem from "../components/peer-supporters/secondaryNavItem"
+import PeerSupporterItem from "../components/peer-supporters/item"
 
 export const query = graphql`
   query($slug: String!, $language: String, $locale: JSON) {
@@ -66,22 +69,32 @@ export const query = graphql`
     }
   }
 `
-const PeerSupporterTemplate = ({ data, pageContext, location }) => {
+const PeerSupporter = ({ data, pageContext, location }) => {
   return (
     <>
-      <style type="text/css">
-        {`
-        body  {
-         background-color:  #ffffff !important;
-        }
-      `}
-      </style>
       <Layout location={location}>
-        <PeerSupporterPage data={data} pageContext={pageContext} location={location} />
+
+        <style type="text/css">
+          {`
+                body  {
+                 background-color: #ffffff !important;
+                 }
+             `}
+        </style>
+
+        <SEO
+          title={data.sanityPeerSupporters.title.translate + ' - ' + data.sanityPeerSupportersHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
+          description={data.sanityPeerSupporters.description.translate}
+        />
+        <SecondaryNavWrapper>
+          <SecondaryNavItem data={data} pageContext={pageContext} />
+        </SecondaryNavWrapper>
+
+        <PeerSupporterItem data={data} pageContext={pageContext} location={location} />
       </Layout >
     </>
   )
 }
-export default PeerSupporterTemplate
+export default PeerSupporter
 
 

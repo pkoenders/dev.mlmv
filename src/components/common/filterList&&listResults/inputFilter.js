@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import inputFilter from './inputFilter.module.scss'
 
-const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilterReset, searchIcon }) => {
+const FilterList = ({ handleInputFilter, handleInputFilterReset, searchIcon }) => {
     const { t } = useTranslation("peerSupporters")
 
     return (
@@ -17,7 +17,6 @@ const FilterList = ({ handleInputFilter, handleInputStatusBlur, handleInputFilte
                     name="filterInput"
                     placeholder={t("common:inputSearch")}
                     onChange={handleInputFilter}
-                    onBlur={handleInputStatusBlur}
                 />
                 <button
                     className={inputFilter.filterReset + ' filterReset hide'}

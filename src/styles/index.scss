@@ -3,10 +3,11 @@
 @import "./checkbox-radios";
 
 html {
-  background-color: $primaryColor;
+  background-color: $pageBgColor;
 }
 
 body {
+  background-color: $pageBgColor;
   background-color: #ffffff;
 }
 
@@ -38,16 +39,6 @@ canvas {
 
 .material-icons.md-48 {
   font-size: 48px;
-}
-
-
-
-.material-icons {
-  margin-left: 5px;
-}
-
-.material-icons.left {
-  margin-right: 5px;
 }
 
 /* Rules for using icons as black on a light background. */
@@ -85,7 +76,7 @@ canvas {
   }
 
   svg {
-    width: 150px;
+    width: 120px;
     margin-top: 30px;
     height: auto;
   }
@@ -500,28 +491,10 @@ form {
 }
 
 
-
-
-// .contentWrapper {
-//   margin: 0 15%;
-
-//   @include respond-below(sm) {
-//     margin: 0;
-//   }
-
-//   padding: 30px 15px;
-// }
-
 .introParapgraph {
   color: #66758D;
   font-size: 1.4rem;
   line-height: 1.8rem;
-}
-
-
-
-.listResults.hide {
-  display: none !important;
 }
 
 .tagList.open {
@@ -563,14 +536,14 @@ form {
 }
 
 .listResults li {
-  display: flex;
+  display: block;
+  //visibility: visible;
   animation: fadeResults 250ms;
 }
 
 .listResults li.hide {
-  animation: fadeResults 250ms;
+  //animation: fadeResults 250ms;
   display: none;
-
 }
 
 @keyframes fadeResults {

@@ -1,55 +1,30 @@
 @import "src/styles/scss";
 
+.error {
+    display: block;
+    background-color: $pageBgColor;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    padding: 30px 15px 60px 15px;
+
+    svg {
+        width: 120px;
+        margin-top: 30px;
+        height: auto;
+    }
+
+    p {
+        color: $footerBgColor;
+    }
+
+    p:nth-child(1) {
+        @include homePageTitle;
+    }
+}
+
 .wrapper {
     background-color: #ffffff;
     position: relative;
-
-
-    .notCurrent {
-        position: absolute;
-        display: flex;
-        align-items: top;
-        text-align: center;
-        justify-content: center;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding-top: 60px;
-        z-index: 10;
-
-        span {
-            svg {
-                width: 150px;
-                margin-top: 30px;
-                height: auto;
-            }
-
-            p {
-                color: $footerBgColor;
-                ;
-            }
-
-            p:nth-child(1) {
-                @include homePageTitle;
-            }
-        }
-    }
-
-    .notCurrent:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: $pageBgColor;
-        //background-color: $footerBgColor;
-        //filter: blur(2px);
-        //opacity: .90;
-        z-index: -1;
-    }
-
 
     section.header {
         background-color: $pageBgColor;

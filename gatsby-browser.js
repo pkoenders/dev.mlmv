@@ -41,12 +41,13 @@ export const onRouteUpdate = () => {
     // })
 
 
-    document.addEventListener('click', function (e) {
-        srollNav()
-    })
+
 }
 
 function ready() {
+    document.addEventListener('click', function (e) {
+        srollNav()
+    })
     resizeAllGridItems()
     srollNav()
     canvasAnin()

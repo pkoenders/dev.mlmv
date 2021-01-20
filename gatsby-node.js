@@ -31,7 +31,7 @@ exports.createPages = async ({
   )
 
   // Peer Supporters Page
-  const peerSupportersTemplate = path.resolve(`src/templates/peerSupporters.js`)
+  const peerSupportersTemplate = path.resolve(`src/templates/peerSupporterList.js`)
   const peerSupporters = await graphql(`
     {
       allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
@@ -143,7 +143,7 @@ exports.createPages = async ({
   )
 
   //Peer Supporter Pages (Templates)
-  const peerSupporterTemplate = path.resolve(`./src/templates/peerSupporter.js`)
+  const peerSupporterTemplate = path.resolve(`./src/templates/peerSupporterItem.js`)
   const peerSupporter = await graphql(`
     {
       allSanityPeerSupporters(sort: {fields: order, order: ASC}) {
@@ -153,7 +153,6 @@ exports.createPages = async ({
             slug {
               current
             }
-
 
             title {
               en
@@ -301,7 +300,7 @@ exports.createPages = async ({
 
 
   // News and events (List)
-  const newsEventsTemplate = path.resolve(`src/templates/newsEvents.js`)
+  const newsEventsTemplate = path.resolve(`src/templates/newsEventList.js`)
   const newsEvents = await graphql(`
     {
       allSanityNewsEvent(sort: {fields: order, order: ASC}) {
@@ -402,7 +401,7 @@ exports.createPages = async ({
   )
 
   // News Events Page (Templates)
-  const newsEventTemplate = path.resolve(`./src/templates/newsEvent.js`)
+  const newsEventTemplate = path.resolve(`./src/templates/newsEventItem.js`)
   const newsEvent = await graphql(`
     {
       allSanityNewsEvent(sort: {fields: order, order: ASC}) {

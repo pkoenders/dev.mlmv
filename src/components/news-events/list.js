@@ -6,7 +6,7 @@ import moment from 'moment'
 import 'moment/min/locales'
 import listResults from '../common/filterList&&listResults/listResults.module.scss'
 
-const ListNewsEvents = ({ data, language }) => {
+const NewsEventsList = ({ data, language }) => {
     const { t, i18n } = useTranslation("newsEvents")
     const translate = i18n.language
     moment.locale(translate)
@@ -107,4 +107,4 @@ const ListNewsEvents = ({ data, language }) => {
     );
 }
 
-export default ListNewsEvents
+export default NewsEventsList

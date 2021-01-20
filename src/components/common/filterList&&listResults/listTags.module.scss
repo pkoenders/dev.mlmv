@@ -23,21 +23,15 @@
             justify-content: center;
 
             button.more {
+                @include secondayNavTxt;
                 display: flex;
                 align-items: center;
                 float: right;
-                //order: -1;
                 border: none;
-                outline: none;
-                background-color: transparent;
-                color: $txtColor;
-                //text-transform: uppercase;
-                font-size: .8rem;
-                cursor: pointer;
-                box-shadow: none;
-                //position: absolute;
+
                 margin-right: 3px;
                 padding: 2px 0 2px 5px;
+
             }
 
             button.more:hover {

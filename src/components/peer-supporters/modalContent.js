@@ -1,6 +1,7 @@
 import React from "react"
 import modalContent from '../layout.module.scss'
-import SecondayNav from './secondaryNav'
+import SecondaryNavWrapper from "../common/secondaryNavWrapper"
+import SecondayNavModal from './secondaryNavModal'
 import DefaultWrapper from "../defaultWrapper"
 import BlockContent from "../common/blockContent"
 
@@ -13,7 +14,9 @@ const Modal = ({ location, currentPage, toggleModal }) => {
     return (
         <>
             <section className={modalContent.modalContent + ' modalContent'} >
-                <SecondayNav toggleModal={toggleModal} location={location} />
+                <SecondaryNavWrapper>
+                    <SecondayNavModal toggleModal={toggleModal} location={location} />
+                </SecondaryNavWrapper>
                 <DefaultWrapper>
                     <div className={modalContent.wrapper}>
                         <h1>{currentPage.title.translate}</h1>

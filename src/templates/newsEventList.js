@@ -2,12 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import SEO from '../components/seo/seo'
 import Layout from "../components/layout"
-import SectionPeerSupporters from "../components/peer-supporters/peer-supporters"
-
-
+import NewsEventList from "../components/news-events/list"
 
 export const query = graphql`
-  query($language: String, $locale: JSON) {
+  query($language: String) {
 
     sanitySiteSettings {
       title
@@ -21,56 +19,55 @@ export const query = graphql`
       }
     }
 
-    sanityPeerSupportersHomepage {
+    sanityNewsEventsHomepage {
       title {
         translate(language: $language)
       }
       description {
         translate(language: $language)
       }
-      content {
-        localized(language: $locale)
-      }
     }
 
-    allSanityTags(sort: {fields: tagsTitle___en, order: ASC}) {
-      edges {
-          node {
-              tagsTitle {
-                  translate(language: $language)
-              }
-          }
-      }
-    }
-
-    allSanityPeerSupporters(sort: {order: ASC, fields: order}) {
+    allSanityNewsEvent(sort: {fields: publishedAt, order: DESC}) {
         edges {
             node {
                 order
                 active
-                email
                 slug {
                     current
                 }
                 title {
                     translate(language: $language)
                 }
-                shortName {
+                type {
+                  newsEventTypeTitle
+                }
+
+                publishedAt
+                  (
+                  locale: $language
+                  )
+                expiryDate
+                startTime
+                  (
+                  locale: $language
+                  )
+
+                endTime
+            
+                location {
+                  location {
                     translate(language: $language)
+                  }
                 }
 
                 description {
                     translate(language: $language)
                   }
 
-                tags {
-                    tagsTitle {
-                      translate(language: $language)
-                    }
-                }
-
                 coverImage {
                     asset {
+                      id
                         fluid(maxWidth: 545) {
                             ...GatsbySanityImageFluid
                           }
@@ -82,7 +79,7 @@ export const query = graphql`
 }
 `
 
-const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
+const NewsEvents = ({ data, pageContext, location, language }) => {
 
   return (
     <>
@@ -94,14 +91,14 @@ const PeerSupportersTemplate = ({ data, pageContext, location, language }) => {
       `}
       </style>
       <SEO
-        title={data.sanityPeerSupportersHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
-        description={data.sanityPeerSupportersHomepage.description.translate}
+        title={data.sanityNewsEventsHomepage.title.translate + ' | ' + data.sanitySiteSettings.title}
+        description={data.sanityNewsEventsHomepage.description.translate}
       />
       <Layout location={location}>
-        <SectionPeerSupporters data={data} location={location} language={language} />
+        <NewsEventList data={data} language={language} />
       </Layout >
     </>
   )
 }
 
-export default PeerSupportersTemplate
+export default NewsEvents

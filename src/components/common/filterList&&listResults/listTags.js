@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import listTags from './listTags.module.scss'
 
-const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleFullReset, tagSelect }) => {
+const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTagSelect, handleTagResultsReset }) => {
     const { t } = useTranslation()
 
     const [tagListOpen, setTagListOpen] = useState(false);
@@ -14,15 +14,23 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
         setTagListOpen(!tagListOpen)
     }
 
+    function clearInput(e) {
+        const filterInput = document.querySelector("#filterInput")
+        if (filterInput.value !== "") {
+            handleInputFilterReset(e)
+            handleTagResultsReset()
+        }
+    }
+
+    function handleSelct(e) {
+        handleTagSelect(e)
+    }
+
     return (
         <div className={listTags.wrapper + " tagListWrapper"} aria-label="Filter by tags">
             <div className={'tagList'}>
-                {/* <span className={listTags.more}>
-                    <button className={'tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">unfold_more</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">unfold_less</i></>}</button>
-                </span> */}
                 <span>
                     <button className={listTags.more + ' tagListMore'} onClick={toggleTagListView}>{!tagListOpen ? <>{t("common:moreTags")}<i className={"material-icons"} aria-hidden="true">arrow_drop_down</i></> : <>{t("common:lessTags")}<i className={"material-icons"} aria-hidden="true">arrow_drop_up</i></>}</button>
-
                     {allTags.map((allTagsEdge, allTagsID) => {
                         var tagMatchCount = allResultsTagList.filter((x) => (x === allTagsEdge.node.tagsTitle.translate)).length
                         if (
@@ -35,9 +43,9 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
                                     id={allTagsEdge.node.tagsTitle.translate}
                                     className={'tagListItem focus-visible'}
                                     aria-label={allTagsEdge.node.tagsTitle.translate + " tag, " + tagMatchCount + " results"}
-                                    tabIndex="0"
-                                    onClickCapture={handleInputFilterReset}
-                                    onClick={handleTagSelect}
+                                    onMouseDown={clearInput}
+                                    onKeyDown={clearInput}
+                                    onClick={handleSelct}
                                 >
                                     <span aria-hidden="true">
                                         <i className={"material-icons"} aria-hidden="true">done</i>
