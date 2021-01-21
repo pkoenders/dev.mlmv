@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import BlockContent from "../common/blockContent"
 import alertStyles from '../homepage/alert.module.scss'
 
-const AlertsSection = ({ data, language }) => {
+const Alerts = ({ data }) => {
   const { t } = useTranslation()
 
   const { sanityHomepageSettings } = data
@@ -18,7 +18,7 @@ const AlertsSection = ({ data, language }) => {
     const alertPanel = event.target.parentNode
     alertPanel.remove()
     sessionStorage.setItem(event.target.parentNode.id, "True");
-    //console.log('alertPanel = ' + alertPanel)
+    console.log('alertPanel = ' + alertPanel)
   }
 
   if (homepageAlertsActive === true) {
@@ -34,7 +34,7 @@ const AlertsSection = ({ data, language }) => {
 
           //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
           if (typeof window !== 'undefined') {
-            sessionActive = sessionStorage.getItem(edge.node.title)
+            sessionActive = sessionStorage.getItem(edge.node.title.translate)
           }
 
           //console.log("expirayDateParsed = " + expirayDateParsed)
@@ -47,9 +47,9 @@ const AlertsSection = ({ data, language }) => {
           if ((edge.node.active === true) && (sessionActive !== "True")) {
             return (
               <section
-                className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels level0 ${alertLevel}`}
+                className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels ${alertLevel}`}
                 key={alertID}
-                id={edge.node.homepageAlertName}
+                id={edge.node.title.translate}
               >
                 <div
                   className={alertStyles.sectionInner}
@@ -93,4 +93,4 @@ const AlertsSection = ({ data, language }) => {
   }
 }
 
-export default AlertsSection
+export default Alerts
