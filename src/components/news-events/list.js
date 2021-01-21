@@ -38,62 +38,64 @@ const NewsEventsList = ({ data, language }) => {
                                     endTimeParsed = currentTimeParsed
                                 }
 
-                                if ((edge.node.active === true) && (expiryDateParsed >= currentTimeParsed) && (endTimeParsed >= currentTimeParsed)) {
-                                    return (
-                                        <li
-                                            key={postID}
-                                            className={"item"}
-                                        >
-                                            <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
-                                                {edge.node.coverImage.asset
-                                                    ?
-                                                    <Img
-                                                        fluid={edge.node.coverImage.asset.fluid}
-                                                        loading="lazy"
-                                                    />
-                                                    : ' '
-                                                }
-
-                                                <span className={listResults.resultsContentWrapper}>
-
-                                                    <h2>
-                                                        {edge.node.title.translate}
-                                                        {edge.node.type.newsEventType === 'Event'
-                                                            ? <i className={"material-icons"} aria-hidden="true">event</i>
-                                                            : ''
-                                                        }
-                                                    </h2>
-
-
-                                                    {edge.node.type.newsEventType === 'News' && edge.node.publishedAt !== null
-                                                        ? <p className={listResults.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
-                                                        : ''
+                                if (typeof window !== 'undefined') {
+                                    if ((edge.node.active === true) && (expiryDateParsed >= currentTimeParsed) && (endTimeParsed >= currentTimeParsed)) {
+                                        return (
+                                            <li
+                                                key={postID}
+                                                className={"item"}
+                                            >
+                                                <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
+                                                    {edge.node.coverImage.asset
+                                                        ?
+                                                        <Img
+                                                            fluid={edge.node.coverImage.asset.fluid}
+                                                            loading="lazy"
+                                                        />
+                                                        : ' '
                                                     }
-                                                    <p>{edge.node.description.translate}</p>
 
-                                                    <span className={listResults.info}>
-                                                        {edge.node.startTime !== null
-                                                            ? <p><i className={"material-icons"} aria-hidden="true">schedule</i>{t("common:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
+                                                    <span className={listResults.resultsContentWrapper}>
+
+                                                        <h2>
+                                                            {edge.node.title.translate}
+                                                            {edge.node.type.newsEventType === 'Event'
+                                                                ? <i className={"material-icons"} aria-hidden="true">event</i>
+                                                                : ''
+                                                            }
+                                                        </h2>
+
+
+                                                        {edge.node.type.newsEventType === 'News' && edge.node.publishedAt !== null
+                                                            ? <p className={listResults.date}>{moment(edge.node.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
                                                             : ''
                                                         }
+                                                        <p>{edge.node.description.translate}</p>
 
-                                                        {edge.node.endTime !== null
-                                                            ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
-                                                            : ''
-                                                        }
+                                                        <span className={listResults.info}>
+                                                            {edge.node.startTime !== null
+                                                                ? <p><i className={"material-icons"} aria-hidden="true">schedule</i>{t("common:starts")}: {moment(edge.node.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
+                                                                : ''
+                                                            }
 
-                                                        {edge.node.location !== null
-                                                            ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{edge.node.location.location.translate}</p>
-                                                            : ''
-                                                        }
+                                                            {edge.node.endTime !== null
+                                                                ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(edge.node.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
+                                                                : ''
+                                                            }
+
+                                                            {edge.node.location !== null
+                                                                ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{edge.node.location.location.translate}</p>
+                                                                : ''
+                                                            }
+                                                        </span>
+                                                        <button className={listResults.cta + ' buttonTertiary'}>{t("common:findOutMore")}</button>
                                                     </span>
-                                                    <button className={listResults.cta + ' buttonTertiary'}>{t("common:findOutMore")}</button>
-                                                </span>
-                                            </Link>
-                                        </li>
-                                    )
-                                } else {
-                                    return null
+                                                </Link>
+                                            </li>
+                                        )
+                                    } else {
+                                        return null
+                                    }
                                 }
                             })}
                         </ul>
