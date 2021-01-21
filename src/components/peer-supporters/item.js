@@ -17,10 +17,13 @@ const PeerSupporterItem = ({ data, location }) => {
             <div className={item.headerTitle}>
               <span>
                 <h1>{peerData.title.translate}</h1>
-                <Img
-                  fluid={peerData.coverImage.asset.fluid}
-                  loading="lazy"
-                />
+                {peerData.coverImage.asset !== null
+                  ? <Img
+                    fluid={peerData.coverImage.asset.fluid}
+                    loading="lazy"
+                  />
+                  : ''
+                }
               </span>
               {/* <span className={peerSupporterStyles.headerDesciption}> */}
               <p>{peerData.description.translate}</p>

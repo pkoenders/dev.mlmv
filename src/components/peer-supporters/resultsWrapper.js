@@ -9,7 +9,7 @@ const ResultsWrapper = ({ edge }) => {
 
     return (
         <Link to={`/${i18n.language}/peer-supporters/${edge.node.slug.current}`} className={"item-content"} >
-            {/* <ResultsCoverImge edge={edge} /> */}
+            <ResultsCoverImge edge={edge} />
             <ResultsContent edge={edge} />
         </Link>
     )
