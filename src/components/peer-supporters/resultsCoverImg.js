@@ -6,7 +6,7 @@ const ResultsCoverImge = ({ edge }) => {
 
     return (
         <>
-            {edge.node.coverImage.asset !== null
+            {edge.node.coverImage.asset
                 ? <>
                     <Img
                         fluid={edge.node.coverImage.asset.fluid}

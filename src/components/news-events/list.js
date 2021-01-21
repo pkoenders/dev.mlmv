@@ -45,7 +45,7 @@ const NewsEventsList = ({ data, language }) => {
                                             className={"item"}
                                         >
                                             <Link className={"item-content"} to={`/${i18n.language}/news-events/${edge.node.slug.current}`}>
-                                                {edge.node.coverImage.asset !== null
+                                                {edge.node.coverImage.asset
                                                     ?
                                                     <Img
                                                         fluid={edge.node.coverImage.asset.fluid}
