@@ -6,13 +6,13 @@
     position: relative;
 
 
+
     h3 {
         text-align: center;
 
     }
 
     .sectionInner {
-        display: block;
         max-width: 1200px;
         padding: 60px 0px;
         margin: 0 auto;
@@ -25,7 +25,7 @@
         h3 {
             @include h1Title;
             font-size: 1.6rem;
-            line-height: 2.2rem;
+            line-height: 2.0rem;
             font-weight: 400;
             color: #543407;
             padding: 0 30px;
@@ -33,45 +33,49 @@
 
 
         ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: left;
+            display: grid;
+            padding: 15px;
+            grid-gap: 15px 30px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 0;
             list-style: none;
-            margin: 0;
-            width: 100%;
+            margin: 0px;
+            align-content: space-between;
+            justify-content: space-around;
+
+            @include respond-below(lg) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include respond-below(md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include respond-below(sm) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include respond-below(xs) {
+
+                grid-template-columns: repeat(1, 1fr);
+            }
 
 
             li {
                 display: block;
-                border-radius: 3px;
                 position: relative;
-                flex-basis: calc(33% - 60px);
-                margin: 15px;
-                padding: 15px 30px;
-                // background-color: $pageBgColor;
+                height: max-content;
+                transition: all 0.2s ease-in-out;
+                text-align: left;
                 background-color: #ffffff;
+                border-radius: $globalBorderRadiusA;
                 box-shadow: $globalBoxShadowA;
-
-
-                @include respond-below(md) {
-                    flex-basis: calc(47% - 7.5px);
-                    margin: 15px;
-                }
-
-                @include respond-below(sm) {
-                    flex-basis: calc(45% - 7.5px);
-                    margin: 15px;
-                }
-
-                @include respond-below(xs) {
-                    flex-basis: calc(100% - 7.5px);
-                }
-
+                width: 100%;
+                padding: 15px;
 
                 p {
-                    color: $primaryColor;
-                    color: #363c46;
+                    color: $txtColor;
+                    //color: #363c46;
                     margin: 0;
 
                 }
@@ -84,7 +88,6 @@
                 }
 
                 p:nth-child(2) {
-                    //font-family: 'Tinos', serif;
                     margin: 0 25px;
                     display: inline-block;
                     line-height: 1.3rem;

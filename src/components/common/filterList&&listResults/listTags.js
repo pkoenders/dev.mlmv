@@ -43,8 +43,7 @@ const ListTags = ({ allTags, allResultsTagList, handleInputFilterReset, handleTa
                                     id={allTagsEdge.node.tagsTitle.translate}
                                     className={'tagListItem focus-visible'}
                                     aria-label={allTagsEdge.node.tagsTitle.translate + " tag, " + tagMatchCount + " results"}
-                                    onMouseDown={clearInput}
-                                    onKeyDown={clearInput}
+                                    onMouseUp={clearInput}
                                     onClick={handleSelct}
                                 >
                                     <span aria-hidden="true">

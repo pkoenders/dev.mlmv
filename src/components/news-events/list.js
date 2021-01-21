@@ -62,8 +62,6 @@ const NewsEventsList = ({ data, language }) => {
                                                             ? <i className={"material-icons"} aria-hidden="true">event</i>
                                                             : ''
                                                         }
-
-
                                                     </h2>
 
 
@@ -89,8 +87,7 @@ const NewsEventsList = ({ data, language }) => {
                                                             : ''
                                                         }
                                                     </span>
-
-                                                    <span className={listResults.cta + ' buttonSecondary'}>{t("common:findOutMore")}</span>
+                                                    <button className={listResults.cta + ' buttonTertiary'}>{t("common:findOutMore")}</button>
                                                 </span>
                                             </Link>
                                         </li>

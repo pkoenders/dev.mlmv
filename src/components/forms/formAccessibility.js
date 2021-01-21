@@ -78,7 +78,7 @@ const FormContact = ({ location }) => {
                 <input type="hidden" name="form-name" value="Accessibility" />
                 <input type="hidden" name="location" value={location.pathname} />
                 <span className={'inputfields'}>
-                    <h3>{t("accessibility:formTitle")}</h3>
+                    <p>{t("accessibility:formTitle")}</p>
                     <InputName inputName={inputName} onNameChange={onNameChange} />
                     <InputEmail inputEmail={inputEmail} onEmailChange={onEmailChange} />
                     <InputNumber inputNumber={inputNumber} onNumberChange={onNumberChange} />

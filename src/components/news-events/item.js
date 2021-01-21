@@ -1,11 +1,10 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import Img from 'gatsby-image'
 import moment from 'moment'
 import 'moment/min/locales'
 import BlockContent from "../common/blockContent"
 
-import newsEvents from './newsEvents.module.scss'
+import item from '../common/item.module.scss'
 import FormEvent from "../forms/formEvent"
 
 const NewsEventItem = ({ data, location }) => {
@@ -17,50 +16,46 @@ const NewsEventItem = ({ data, location }) => {
 
   return (
     <>
-      <div className={newsEvents.wrapper}>
-        <section className={newsEvents.header}>
-          <div className={newsEvents.headerWrapper}>
-            <div className={newsEvents.headerTitleWrapper}>
-              <div className={newsEvents.headerTitle}>
-                <span>
+      <div className={item.wrapper}>
+        <div className={item.header}>
+          <div className={item.headerWrapper}>
+            <div className={item.headerTitle}>
+              <span>
+                <h1>{newsEventData.title.translate}</h1>
+              </span>
+              {newsEventData.type.newsEventTypeTitle === 'News' && newsEventData.publishedAt !== null
+                ? <p>{moment(newsEventData.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
+                : ''
+              }
+            </div>
+            <div className={item.headerInfo}>
 
-                  <h1>{newsEventData.title.translate}</h1>
-                  {newsEventData.type.newsEventTypeTitle === 'News' && newsEventData.publishedAt !== null
-                    ? <p>{moment(newsEventData.publishedAt).local(true).format(`ddd DD MMM YYYY - h:mm a`)}</p>
-                    : ''
-                  }
-                </span>
-              </div>
+              {newsEventData.type.newsEventTypeTitle === 'Event'
+                ? <p><i className={"material-icons"} aria-hidden="true">event</i>{t("common:starts")}: {moment(newsEventData.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
+                : ''
+              }
 
-              <div className={newsEvents.headerInfo}>
+              {newsEventData.type.newsEventTypeTitle !== 'News' && newsEventData.endTime !== null
+                ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(newsEventData.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
+                : ''
+              }
 
-                {newsEventData.type.newsEventTypeTitle === 'Event'
-                  ? <p><i className={"material-icons"} aria-hidden="true">event</i>{t("common:starts")}: {moment(newsEventData.startTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
-                  : ''
-                }
+              {newsEventData.location !== null
+                ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{newsEventData.location.location.translate}</p>
+                : ''
+              }
 
-                {newsEventData.type.newsEventTypeTitle !== 'News' && newsEventData.endTime !== null
-                  ? <p><i className={"material-icons"} aria-hidden="true">timelapse</i>{t("common:ends")}: {moment(newsEventData.endTime).local(true).format(`ddd DD MMM, YYYY - h:mm a`)}</p>
-                  : ''
-                }
-
-                {newsEventData.location !== null
-                  ? <p><i className={"material-icons"} aria-hidden="true">location_on</i>{newsEventData.location.location.translate}</p>
-                  : ''
-                }
-
-              </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section className={newsEvents.content}>
-          <div className={newsEvents.contentWrapper}>
-            <div className={newsEvents.contentBlock}>
+        <div className={item.content}>
+          <div className={item.contentWrapper}>
+            <div className={item.contentBlock}>
               <BlockContent blocks={newsEventData.content.localized} />
             </div>
 
-            <div className={newsEvents.contentComplementary}>
+            <div className={item.contentComplementary}>
 
               {newsEventData.type.newsEventTypeTitle === 'Event'
                 ?
@@ -68,18 +63,9 @@ const NewsEventItem = ({ data, location }) => {
                 : ''
               }
 
-              {newsEventData.coverImage.asset !== null
-                ?
-                <Img
-                  fluid={newsEventData.coverImage.asset.fluid}
-                  loading="lazy"
-                />
-                : ''
-              }
             </div>
           </div>
-        </section>
-
+        </div>
       </div>
     </>
   )

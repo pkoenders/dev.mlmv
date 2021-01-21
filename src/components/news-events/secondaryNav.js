@@ -14,8 +14,6 @@ const SecondaryNav = ({ pageContext }) => {
     <>
       <Link
         aria-label={t("common:back")}
-        role="menuitem"
-        tabIndex="0"
         to={`/${i18n.language}/news-events/`}
       >
         <i className={"material-icons"} aria-hidden="true">arrow_back</i>
@@ -26,8 +24,6 @@ const SecondaryNav = ({ pageContext }) => {
         {previous &&
           <Link
             aria-label="Link to previous page"
-            role="menuitem"
-            tabIndex="0"
             to={`/${i18n.language}/news-events/${previous.slug.current}`}
           >
             <i className={"material-icons left"} aria-hidden="true">chevron_left</i>
@@ -38,8 +34,6 @@ const SecondaryNav = ({ pageContext }) => {
         {next &&
           <Link
             aria-label="Link to next page"
-            role="menuitem"
-            tabIndex="0"
             to={`/${i18n.language}/news-events/${next.slug.current}`}
           >
             {t("common:next")}

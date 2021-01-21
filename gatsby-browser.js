@@ -34,17 +34,29 @@ export const onRouteUpdate = () => {
     //     background: '#ffffff',
     // })
 
-    // "resize reload click keyup".split(" ").forEach(function (e) {
+    // "resize reload change".split(" ").forEach(function (e) {
     //     window.addEventListener(e, () => {
     //         resizeAllGridItems()
     //     })
     // })
 
+    // window.addEventListener('resize', function (e) {
+    //     resizeAllGridItems()
+    // })
+
+    "resize reload click keydown keyup".split(" ").forEach(function (e) {
+        window.addEventListener(e, () => {
+            resizeAllGridItems()
+        })
+    })
 
 
 }
 
 function ready() {
+
+
+
     document.addEventListener('click', function (e) {
         srollNav()
     })
@@ -53,6 +65,8 @@ function ready() {
     canvasAnin()
     checkTagListHeight()
     toggleMainNav()
+
+
 
 }
 
@@ -88,6 +102,7 @@ function canvasAnin() {
 
 // Resize grid
 const resizeGridItem = item => {
+
     const grid = document.querySelector(".grid"),
         rowHeight = parseInt(
             window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
@@ -96,17 +111,23 @@ const resizeGridItem = item => {
             window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
         ),
         rowSpan = Math.ceil(
-            (item.querySelector(".item-content").getBoundingClientRect().height +
+            // (item.querySelector(".item-content").getBoundingClientRect().height +
+            //     rowGap) /
+            // (rowHeight + rowGap)
+
+            (item.getBoundingClientRect().height +
                 rowGap) /
             (rowHeight + rowGap)
         )
-    item.style.gridRowEnd = `span ${rowSpan} `
+    item.style.gridRowEnd = `span ${rowSpan}`
     //console.log("Grid updated")
+
 }
 function resizeAllGridItems() {
-    const allItems = document.querySelectorAll(".item")
+    const allItems = document.querySelectorAll(".grid li")
     for (let x = 0; x < allItems.length; x += 1) {
         resizeGridItem(allItems[x])
+        //console.log("allItems = " + allItems)
     }
 }
 function checkTagListHeight() {

@@ -1,6 +1,6 @@
 import React from "react"
 import Img from 'gatsby-image'
-import peerSupporterStyles from './peerSupporter.module.scss'
+import item from '../common/item.module.scss'
 import BlockContent from "../common/blockContent"
 import FormPeerSupporter from "../forms/formPeerSupporter"
 
@@ -10,48 +10,47 @@ const PeerSupporterItem = ({ data, location }) => {
 
   return (
     <>
-      <div className={peerSupporterStyles.peerSupporterWrapper}>
-        <section className={peerSupporterStyles.header}>
-          <div className={peerSupporterStyles.headerWrapper}>
+      <div className={item.wrapper}>
+        <div className={item.header}>
+          <div className={item.headerWrapper}>
 
-            <div className={peerSupporterStyles.headerTitleWrapper}>
-              <div className={peerSupporterStyles.headerTitle}>
-                <span><h1>{peerData.title.translate}</h1>
-                  <div className={peerSupporterStyles.headerProfileImg}>
-                    <Img
-                      fluid={peerData.coverImage.asset.fluid}
-                      loading="lazy"
-                    />
-                  </div>
-                </span>
-                <div className={peerSupporterStyles.headerDesciption}>
-                  <p>{peerData.description.translate}</p>
-                </div>
-              </div>
-
-              <div className={peerSupporterStyles.contentTags}>
-                <ul>
-                  {peerData.tags.map((edge, tagid) => (
-                    <li key={tagid}>
-                      <span>{edge.tagsTitle.translate}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className={item.headerTitle}>
+              <span>
+                <h1>{peerData.title.translate}</h1>
+                <Img
+                  fluid={peerData.coverImage.asset.fluid}
+                  loading="lazy"
+                />
+              </span>
+              {/* <span className={peerSupporterStyles.headerDesciption}> */}
+              <p>{peerData.description.translate}</p>
+              {/* </span> */}
             </div>
+
+
+            <div className={item.headerInfo}>
+              <ul className={item.tags}>
+                {peerData.tags.map((edge, tagid) => (
+                  <li key={tagid}>
+                    <span>{edge.tagsTitle.translate}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
-        </section>
+        </div>
 
-        <section className={peerSupporterStyles.content}>
+        <div className={item.content}>
 
-          <div className={peerSupporterStyles.contentWrapper}>
-            <div className={peerSupporterStyles.contentBlock}>
+          <div className={item.contentWrapper}>
+            <div className={item.contentBlock}>
               <BlockContent blocks={peerData.longDescription.localized} />
             </div>
 
-            <div className={peerSupporterStyles.contentComplementary}>
+            <div className={item.contentComplementary}>
 
-              <div className={peerSupporterStyles.supporterInfo}>
+              <div className={item.supporterInfo}>
                 {peerData.gender.genderTitle &&
                   <span><i className={"material-icons left"}>face</i>{peerData.gender.genderTitle.translate}</span>
                 }
@@ -62,7 +61,7 @@ const PeerSupporterItem = ({ data, location }) => {
               <FormPeerSupporter data={data} location={location} peerEmail={peerData.email} peerName={peerData.title.translate.split(' ', 1)[0]} />
             </div>
           </div>
-        </section>
+        </div>
       </div >
     </>
   )

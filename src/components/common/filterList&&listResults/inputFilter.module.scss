@@ -22,41 +22,9 @@
         align-items: center;
 
         label {
-            display: none;
+            position: absolute;
+            top: -1000000rem;
         }
-
-        // .filterLabel {
-        //     visibility: hidden;
-        //     display: flex;
-        //     position: absolute;
-        //     top: -20px;
-        //     left: 45px;
-        //     z-index: 1;
-        //     color: $primaryColor;
-        //     background-color: #ffffff;
-        //     width: auto;
-        //     padding: 5px 10px 0 10px;
-        //     font-size: .8rem;
-        //     font-weight: 400;
-        //     line-height: .8rem;
-        //     white-space: nowrap;
-
-        //     @include respond-below(md) {
-        //         left: 30px;
-        //         //right: 60px;
-        //     }
-        // }
-
-        // .filterLabel:after {
-        //     content: '';
-        //     position: absolute;
-        //     bottom: -5px;
-        //     left: 0px;
-        //     height: 10px;
-        //     width: 100%;
-        //     background-color: #ffffff;
-        //     z-index: -1;
-        // }
 
         input[type=search] {
             // position: absolute;
@@ -64,7 +32,7 @@
             z-index: 2;
 
             background-color: #ffffff;
-            padding: 10px 60px 10px 55px;
+            padding: 10px 60px 10px 45px;
             //border: none !important;
             border: 1px solid #c1d1d8;
             font-size: 1.1rem;

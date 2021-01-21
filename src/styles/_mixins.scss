@@ -34,6 +34,11 @@
   letter-spacing: .05rem;
 }
 
+@mixin itemHeaderBgColor {
+  background-color: $pageBgColor;
+  background: linear-gradient(180deg, rgba(217, 230, 236, 1) 96%, rgba(208, 219, 224, 1) 100%);
+}
+
 
 @mixin focusVisibleForDark {
   outline: 3px solid $tertiaryColor !important;

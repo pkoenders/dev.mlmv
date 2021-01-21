@@ -108,14 +108,9 @@ const Header = ({ location }) => {
             </span>
           }
 
-          {/* <Link to={`/${i18n.language}`} tabIndex="0" aria-label="Link to homepage">
-            <LogoMLMVHeader alt={"Logo My Life my Voice"} />
-          </Link> */}
-
           <button
             className="hamburger hamburger--squeeze"
             type="button"
-            tabIndex="0"
             aria-label="Open and Close navigation menu"
             aria-controls="mainNavigation"
             aria-expanded="false"
@@ -133,7 +128,6 @@ const Header = ({ location }) => {
               <Link
                 to={`/${i18n.language}`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavMLMV")}>
                 {t("common:mainNavMLMV")}
               </Link>
@@ -143,7 +137,6 @@ const Header = ({ location }) => {
                 to={`/${i18n.language}/peer-supporters`}
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
-                tabIndex="0"
                 title={t("common:mainNavPeerSupporters")}>
                 {t("common:mainNavPeerSupporters")}
               </Link>
@@ -152,7 +145,6 @@ const Header = ({ location }) => {
               <Link
                 to={`/${i18n.language}/about`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavAbout")}>
                 {t("common:mainNavAbout")}
               </Link>
@@ -163,7 +155,6 @@ const Header = ({ location }) => {
                 to={`/${i18n.language}/news-events`}
                 activeClassName={"activeNavItem"}
                 getProps={isPartiallyActive}
-                tabIndex="0"
                 title={t("common:mainNavNewsEvents")}>
                 {t("common:mainNavNewsEvents")}
               </Link>
@@ -181,7 +172,6 @@ const Header = ({ location }) => {
                     to={`/${i18n.language}/support-services`}
                     activeClassName={"activeNavItem"}
                     getProps={isPartiallyActive}
-                    tabIndex="0"
                     title={t("common:mainNavSupportServices")}>
                     <i className={"material-icons"} aria-hidden="true">support</i>
                     {t("common:mainNavSupportServices")}
@@ -192,7 +182,6 @@ const Header = ({ location }) => {
                   <Link
                     to={`/${i18n.language}/contact`}
                     activeClassName={"activeNavItem"}
-                    tabIndex="0"
                     title={t("common:mainNavContact")}>
                     <i className={"material-icons"} aria-hidden="true">contact_page</i>
                     {t("common:mainNavContact")}
@@ -202,7 +191,6 @@ const Header = ({ location }) => {
                   <Link
                     to={`/${i18n.language}/terms-and-use`}
                     activeClassName={"activeNavItem"}
-                    tabIndex="0"
                     title={t("common:mainNavTerms")}>
                     <i className={"material-icons"} aria-hidden="true">playlist_add_check</i>
                     {t("common:mainNavTerms")}
@@ -212,7 +200,6 @@ const Header = ({ location }) => {
                   <Link
                     to={`/${i18n.language}/accessibility`}
                     activeClassName={"activeNavItem"}
-                    tabIndex="0"
                     title={t("common:mainNavAccessibility")}>
                     <i className={"material-icons"} aria-hidden="true">accessibility_new</i>
                     {t("common:mainNavAccessibility")}
@@ -224,7 +211,6 @@ const Header = ({ location }) => {
 
             <li className="closeMenu breakNav hide">
               <button
-                tabIndex="0"
                 onClick={toggleMobileNav}>
                 {t("common:mainNavCloseMenu")}
                 <i className={"material-icons"} aria-hidden="true">clear</i>
@@ -236,7 +222,6 @@ const Header = ({ location }) => {
           <div className="localeSeletor" aria-label="Select language">
             <button
               name="selectLanguage"
-              tabIndex="0"
               onClick={handleLanguageSelector}
               aria-label={'Current language is set to ' + currentLanguage + ' Click to change'}
             >
@@ -251,7 +236,6 @@ const Header = ({ location }) => {
                   <Link
                     to={`/en${newPathName}`}
                     hrefLang="en"
-                    tabIndex="0"
                     title="Switch language to English(NZ)" >
                     English
                   </Link>
@@ -263,7 +247,6 @@ const Header = ({ location }) => {
                   <Link
                     to={`/mi${newPathName}`}
                     hrefLang="mi"
-                    tabIndex="0"
                     title="Switch language to Māori">
                     Māori
                   </Link>
@@ -272,7 +255,6 @@ const Header = ({ location }) => {
             </ul>
           </div>
         </nav>
-
       </header >
     </>
   )

@@ -14,12 +14,11 @@ section.form {
         }
 
         >div {
-
             @include respond-below(sm) {
                 margin: 0;
             }
 
-            h3 {
+            p {
                 color: #ffffff;
                 font-size: 1.4rem;
             }
@@ -46,7 +45,12 @@ section.form {
                 }
 
                 button {
-                    margin: 15px 0;
+                    margin: 15px auto;
+                    align-items: center;
+                    line-height: initial;
+                    padding: 15px 30px;
+
+                    i {}
                 }
             }
         }

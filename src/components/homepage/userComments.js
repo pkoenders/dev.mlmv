@@ -18,13 +18,13 @@ const UserCommentsSection = ({ data, language }) => {
         <section className={userCommentsStyles.sectionWrapper + ' section-layout-wide'}>
           <div className={userCommentsStyles.sectionInner}>
             <h3>{t("index:communityCommentsTitle")}</h3>
-            <ul>
+            <ul className={'grid'}>
               {allComments.map((edge, commentsID) => {
                 if (
                   edge.node.addToHomepage === true
                 ) {
                   return (
-                    <li key={commentsID} >
+                    <li key={commentsID} className={'item'}>
                       <p>{edge.node.shortName.translate}</p>
                       <p>{edge.node.content.translate}</p>
                     </li>

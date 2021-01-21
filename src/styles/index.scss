@@ -266,24 +266,20 @@ button.buttonTertiary:focus,
 .buttonTertiary:focus {
   padding: 1em 2em;
   color: $txtColor;
-  border: 1px solid $txtColor;
-  //border-bottom: 2px solid $txtColor;
+  border: none;
+
+  //border: 1px solid $txtColor;
+  border-bottom: 2px solid $tertiaryColor;
+  border-radius: 0;
   background-color: #ffffff;
+  box-shadow: none;
 }
 
 button.buttonTertiary.isActive,
-.buttonTertiary.isActive {
-  border: 1px solid $txtColor;
-  //border-bottom: 2px solid $txtColor;
-  background-color: #ffffff;
-}
+.buttonTertiary.isActive {}
 
 button.buttonTertiary:hover,
-.buttonTertiary:hover {
-  border: 1px solid $txtColor;
-  //border-bottom: 2px solid $txtColor;
-  //background-color: transparent;
-}
+.buttonTertiary:hover {}
 
 .checkbox {
   display: inline-flex;
@@ -490,6 +486,9 @@ form {
   }
 }
 
+.closeModal {
+  text-transform: uppercase;
+}
 
 .introParapgraph {
   color: #66758D;
@@ -543,7 +542,7 @@ form {
 
 .listResults li.hide {
   //animation: fadeResults 250ms;
-  display: none;
+  display: none !important;
 }
 
 @keyframes fadeResults {

@@ -1,27 +1,13 @@
 @import "src/styles/scss";
 
+.grid {}
+
 .listResultsWrapper {
     padding: 0 0 60px 0;
     margin: 0;
 
     @include respond-below(md) {
         padding: 0;
-
-    }
-
-
-
-    .resultsInfo:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: $pageBgColor;
-        //filter: blur(2px);
-        //opacity: .90;
-        z-index: 0;
     }
 
     .wrapper {
@@ -42,7 +28,6 @@
             @include respond-below(sm) {
                 //margin-top: 15px;
             }
-
         }
 
 
@@ -64,15 +49,13 @@
         ul {
             display: grid;
             padding: 0 15px;
-            grid-gap: 30px;
+            grid-gap: 20px 30px;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: min-content;
+            grid-auto-rows: 0;
             list-style: none;
             margin: 0px;
             align-content: space-between;
             justify-content: space-around;
-            position: relative;
-            height: auto;
 
             @include respond-below(lg) {
                 //padding: 0 15px;
@@ -85,52 +68,47 @@
             }
 
             @include respond-below(sm) {
+
                 grid-template-columns: repeat(2, 1fr);
             }
 
             @include respond-below(xs) {
                 padding: 0 15px 15px 15px;
-                grid-gap: 15px;
+                grid-gap: 30px;
                 grid-template-columns: repeat(1, 1fr);
             }
-
-
         }
 
 
         ul li {
+            margin-bottom: 30px;
+            display: block;
             position: relative;
             height: max-content;
             transition: all 0.2s ease-in-out;
             z-index: 5;
-            position: relative;
             border-radius: $globalBorderRadiusA;
             box-shadow: $globalBoxShadowA;
             width: 100%;
             overflow: hidden;
-            justify-items: center;
+            background-color: #ffffff;
 
             a,
             .itemContent {
-                color: $txtColor !important;
-                background-color: #ffffff;
-                color: $primaryColor;
-                height: 100%;
                 display: block;
                 width: 100%;
-                float: left;
+                height: max-content;
+                color: $txtColor !important;
 
+                color: $primaryColor;
 
                 >div {
                     overflow: hidden;
 
                     img {
                         display: block;
-                        width: 100% !important;
-                        height: 100% !important;
-                        margin: 0;
-                        border-radius: 0px;
-                        transition: all 0.2s ease-in-out !important;
+                        width: 100%;
+                        height: auto;
                     }
                 }
 
@@ -138,41 +116,34 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    display: block;
                     width: 100%;
                     padding: 100% 0 0 0;
                     margin: 0;
-                    background: rgb(18, 25, 35);
                     background: linear-gradient(180deg, rgba(18, 25, 35, 0) 75%, rgba(18, 25, 35, 1) 100%);
                     opacity: .20;
                 }
 
-                span.resultsContentWrapper {
-                    display: block;
-                    padding: 15px 15px 0 15px;
+                .resultsContentWrapper {
+                    padding: 15px;
                     border-top: 1px solid #c3c8d6;
                     text-align: left;
-                    margin: 0px 0px 0;
-                    //color: $primaryColor;
-
-
+                    margin: 0;
 
                     h2 {
                         font-weight: 700;
                         margin: 0 0 0 0;
                         font-size: 1.2rem;
-                        line-height: 1.6rem;
                         text-align: left;
                         display: flex;
                         align-items: center;
                         color: inherit !important;
                         font-family: 'Roboto', sans-serif;
+                        line-height: initial;
 
                         i {
-                            font-size: 34px;
+                            font-size: 36px;
                             margin: 0 0 0 auto;
                             width: auto;
-                            //float: right;
                             color: $txtColorA;
                         }
                     }
@@ -186,7 +157,6 @@
                         line-height: 1.3rem;
                         color: inherit;
                         float: none;
-
                     }
 
                     span.info {
@@ -200,27 +170,24 @@
                         a {
                             margin: 10px 0;
                             font-size: .9rem;
-                            line-height: 22px;
+                            line-height: initial;
                             display: flex;
                             flex-direction: row;
                             align-items: center;
                             color: $txtColorA;
 
                             i {
-                                display: flex;
-                                height: 22px;
+                                height: 24px;
                                 margin: 0 10px 0 0;
                                 width: auto;
                                 color: inherit;
-
                             }
 
                             i.cta {
-                                font-size: 45px;
-                                line-height: inherit;
-                                align-self: flex-start;
-                                width: 38px;
-                                margin: 0 0 0 auto !important;
+                                font-size: 46px;
+                                line-height: initial;
+                                max-width: 38px;
+                                margin: -22px 0 0 auto !important;
                                 color: $tertiaryColor;
                             }
                         }
@@ -239,13 +206,12 @@
                                 text-decoration: none;
                             }
                         }
-
                     }
 
-                    span.cta {
+                    button.cta {
                         display: table;
-                        margin: 20px auto 15px;
-                        padding: 5px 20px;
+                        margin: 15px auto;
+                        padding: 0px 20px;
                         font-size: .8rem;
                     }
 
@@ -255,7 +221,7 @@
                         display: flex;
                         flex-wrap: wrap;
                         grid-gap: 0;
-                        margin: 0 0 11px 0;
+                        margin: 0 0 -4px 0;
                         padding: 0;
 
                         li {
@@ -280,11 +246,6 @@
 
             a:hover {
                 text-decoration: none !important;
-                // color: $primaryColor !important;
-
-                h3 {
-                    //text-decoration: underline;
-                }
 
                 img {
                     transform: scale(1.033);

@@ -6,23 +6,16 @@
   padding: 60px 60px 60px 60px;
   background-color: $footerBgColor;
   text-align: center;
+  z-index: 1;
 
   >svg {
-    width: 100%;
-    height: 50px;
-
-    @include respond-below(md) {
-      top: -25px;
-      height: 25px !important;
-    }
+    width: 60px;
+    height: auto;
   }
-
-
 
   a {
     z-index: 100 !important;
     position: relative;
-    //cursor: pointer;
 
     span {
       display: none;

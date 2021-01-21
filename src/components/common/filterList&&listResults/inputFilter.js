@@ -9,7 +9,7 @@ const FilterList = ({ handleInputFilter, handleInputFilterReset, searchIcon }) =
     return (
         <div className={inputFilter.wrapper} >
             <form role="search">
-                <label className={inputFilter.filterLabel + ' filterLabel'} htmlFor="filterInput">{t("common:inputSearch")} </label>
+                <label htmlFor="filterInput">{t("common:inputSearch")} </label>
                 <input
                     tabIndex="0"
                     id="filterInput"

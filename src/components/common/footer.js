@@ -34,8 +34,7 @@ const Footer = ({ location }) => {
 
       <footer className={footerStyles.footer}>
         <Link to={`/${i18n.language}`} title={t("common:mainNavHome")} >
-          <span>{t("common:mainNavHome")}</span>
-          <LogoMLMVFooter />
+          <LogoMLMVFooter aria-hidden="true" />
         </Link>
 
         <nav>
@@ -43,7 +42,6 @@ const Footer = ({ location }) => {
             <Link
               to={`/${i18n.language}`}
               activeClassName={"activeNavItem"}
-              tabIndex="0"
               title={t("common:mainNavMLMV")}>
               {t("common:mainNavMLMV")}
             </Link>
@@ -53,7 +51,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/peer-supporters`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavPeerSupporters")}>
                 {t("common:mainNavPeerSupporters")}
               </Link>
@@ -63,7 +60,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/support-services`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavSupportServices")}>
                 {t("common:mainNavSupportServices")}
               </Link>
@@ -73,7 +69,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/news-events`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavNewsEvents")}>
                 {t("common:mainNavNewsEvents")}
               </Link>
@@ -83,7 +78,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/about`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavAbout")}>
                 {t("common:mainNavAbout")}
               </Link>
@@ -93,7 +87,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/contact`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavContact")}>
                 {t("common:mainNavContact")}
               </Link>
@@ -103,7 +96,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/terms-and-use`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavTerms")}>
                 {t("common:mainNavTerms")}
               </Link>
@@ -112,7 +104,6 @@ const Footer = ({ location }) => {
               <Link
                 to={`/${i18n.language}/accessibility`}
                 activeClassName={"activeNavItem"}
-                tabIndex="0"
                 title={t("common:mainNavAccessibility")}>
                 {t("common:mainNavAccessibility")}
               </Link>
