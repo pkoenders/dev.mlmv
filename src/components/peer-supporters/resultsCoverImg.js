@@ -6,16 +6,15 @@ const ResultsCoverImge = ({ edge }) => {
 
     return (
         <>
-            {
-                edge.node.coverImage.asset.fluid !== null
-                    ? <>
-                        <Img
-                            fluid={edge.node.coverImage.asset.fluid}
-                            loading="lazy"
-                        />
-                        <span className={listResults.resultsContentImgOverlay}></span>
-                    </>
-                    : ''
+            {edge.node.coverImage.asset !== null
+                ? <>
+                    <Img
+                        fluid={edge.node.coverImage.asset.fluid}
+                        loading="lazy"
+                    />
+                    <span className={listResults.resultsContentImgOverlay}></span>
+                </>
+                : ''
             }
         </>
     )
