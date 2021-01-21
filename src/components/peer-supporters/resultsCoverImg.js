@@ -14,7 +14,7 @@ const ResultsCoverImge = ({ edge }) => {
                     />
                     <span className={listResults.resultsContentImgOverlay}></span>
                 </>
-                : ''
+                : ' '
             }
         </>
     )

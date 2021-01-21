@@ -51,7 +51,7 @@ const NewsEventsList = ({ data, language }) => {
                                                         fluid={edge.node.coverImage.asset.fluid}
                                                         loading="lazy"
                                                     />
-                                                    : ''
+                                                    : ' '
                                                 }
 
                                                 <span className={listResults.resultsContentWrapper}>
