@@ -4,7 +4,6 @@ import BlockContent from "../common/blockContent"
 import alertStyles from './alert.module.scss'
 
 
-var sessionActive = null
 
 const Alerts = ({ data }) => {
   const { t } = useTranslation()
