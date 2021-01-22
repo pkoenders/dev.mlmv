@@ -39,7 +39,7 @@ const Alerts = ({ data }) => {
           if (typeof window !== 'undefined') {
             sessionActive = sessionStorage.getItem(edge.node.title.translate)
           }
-
+          //console.log("sessionActive = " + sessionActive)
           //console.log("expirayDateParsed = " + expirayDateParsed)
           //console.log("currentTimeParsed = " + currentTimeParsed)
 
@@ -47,7 +47,7 @@ const Alerts = ({ data }) => {
             return null
           }
 
-          if ((edge.node.active === true) && (sessionActive !== "True")) {
+          if ((edge.node.active === true) && (sessionActive === null)) {
             return (
               <section
                 className={alertStyles.sectionWrapper + ` section-layout-wide alertLevels ${alertLevel}`}
@@ -58,12 +58,12 @@ const Alerts = ({ data }) => {
                   className={alertStyles.sectionInner}
                   aria-label={t("common:alertPanel")}>
                   <div>
-                    {edge.node.title != null
+                    {edge.node.title !== null
                       ? <p><strong>{edge.node.title.translate}</strong></p>
                       : ''
                     }
 
-                    {edge.node.description != null
+                    {edge.node.description !== null
                       ? <BlockContent blocks={edge.node.description.localized} />
                       : ''
                     }
