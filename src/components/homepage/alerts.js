@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import BlockContent from "../common/blockContent"
 import alertStyles from '../homepage/alert.module.scss'
 
-var sessionActive = ''
+
 
 const Alerts = ({ data }) => {
   const { t } = useTranslation()
@@ -18,10 +18,10 @@ const Alerts = ({ data }) => {
 
   const closeAlert = event => {
     const alertPanel = event.target.parentNode
-    alertPanel.remove()
     if (typeof window !== 'undefined') {
       sessionStorage.setItem(event.target.parentNode.id, "True")
     }
+    alertPanel.remove()
     //console.log('alertPanel = ' + alertPanel)
   }
 
@@ -33,10 +33,11 @@ const Alerts = ({ data }) => {
           var expirayDateParsed = Date.parse(expirayDate)
           var currentTime = Date()
           var currentTimeParsed = Date.parse(currentTime)
-          var alertLevel = edge.node.level.alertLevel;
+          var alertLevel = edge.node.level.alertLevel
+          var sessionActive = ''
 
           //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
-          if (typeof window !== 'undefined') {
+          if ((typeof window !== 'undefined') || (typeof window !== null)) {
             sessionActive = sessionStorage.getItem(edge.node.title.translate)
           }
           //console.log("sessionActive = " + sessionActive)
