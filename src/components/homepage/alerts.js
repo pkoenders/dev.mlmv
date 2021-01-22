@@ -58,12 +58,12 @@ const Alerts = ({ data }) => {
                   className={alertStyles.sectionInner}
                   aria-label={t("common:alertPanel")}>
                   <div>
-                    {edge.node.title !== null
+                    {edge.node.title.translate !== null
                       ? <p><strong>{edge.node.title.translate}</strong></p>
                       : ''
                     }
 
-                    {edge.node.description !== null
+                    {edge.node.description.localized !== null
                       ? <BlockContent blocks={edge.node.description.localized} />
                       : ''
                     }
