@@ -1,7 +1,9 @@
 @import "src/styles/scss";
 
-.Section {
-    padding: 0px 0 !important;
+.wrapper {
+    background-color: $pageBgColor;
+
+    padding: 60px 0;
 
     h2 {
         text-align: center;
@@ -11,7 +13,8 @@
     .SectionOutterWrapper {
         max-width: 1200px;
         margin: 0 auto;
-        border-radius: 999rem;
+        //border-radius: 999rem;
+        border-radius: $globalBorderRadiusA;
 
         @include respond-below(md) {
             border-radius: 0px;
@@ -53,9 +56,13 @@
                     align-self: center;
                     margin: 15px 0px;
                     background-color: $pageBgColor;
-                    border-radius: 9999rem;
-                    width: 75px;
-                    height: 75px;
+                    background-color: #ffffff;
+                    //background-color: #78DCC8;
+                    // background-color: $secondaryColor;
+                    //border-radius: 9999rem;
+                    border-radius: $globalBorderRadiusA;
+                    width: 60px;
+                    height: 60px;
 
                     p {
                         display: inline-block;
@@ -64,9 +71,9 @@
                         align-self: center;
                         align-items: center;
                         color: #75797d;
-                        font-size: 2.0rem;
+                        font-size: 1.4rem;
                         font-family: 'Merriweather',
-serif;
+                            serif;
                         font-weight: 700;
                         margin: 0 0 4px 0;
 
@@ -76,17 +83,20 @@ serif;
         }
     }
 
-    .SectionOutterWrapper:nth-child(odd) {
+    .SectionOutterWrapper:nth-child(even) {
         background-color: #ffffff;
     }
 
 
     .SectionOutterWrapper:nth-child(even) {
         background-color: $pageBgColor;
+        background-color: #ffffff;
+        // background-color: #78DCC8;
 
         .steps {
             div {
                 background-color: #ffffff;
+                background-color: $pageBgColor;
             }
         }
     }

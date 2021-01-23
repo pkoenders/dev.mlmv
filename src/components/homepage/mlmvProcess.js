@@ -8,7 +8,7 @@ const MLMVProcessSection = () => {
     // const tagsTranslate = i18n.language
     return (
         <>
-            <section className={mlmvProcessStyles.Section + ' section-layout-wide'}>
+            <section className={mlmvProcessStyles.wrapper + ' section-layout-wide'}>
                 <div className={mlmvProcessStyles.SectionOutterWrapper}>
                     <div className={mlmvProcessStyles.SectionInnerWrapper}>
                         <div className={mlmvProcessStyles.steps}>

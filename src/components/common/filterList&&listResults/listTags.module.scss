@@ -11,12 +11,8 @@
         width: auto;
         margin: 0;
         max-height: 37px;
-        transition: max-height .25s ease-in-out;
 
         span {
-            //display: inline-flex;
-            //flex-wrap: wrap;
-            // flex-direction: row;
             position: relative;
             display: block;
             float: left;
@@ -40,22 +36,21 @@
 
             button {
                 font-size: .8rem;
-                line-height: auto;
-                font-weight: 300;
+                line-height: initial;
+                font-weight: 400;
                 //letter-spacing: .025rem;
                 width: auto;
                 display: flex;
                 float: left;
                 margin: 4px;
-                background-color: #627984;
-                background-color: $txtColorA;
-                color: #ffffff;
-
+                color: $primaryColor;
+                background-color: $secondaryColorA;
+                //border: 1px solid #bbc6cb;
                 box-shadow: $globalBoxShadowB;
                 border: none;
-                padding: 2px 12px 2px 8px;
+                padding: 5px 12px 5px 8px;
                 border-radius: 999em;
-                border-radius: .2rem;
+                //border-radius: .2rem;
                 align-items: center;
                 cursor: pointer;
 
@@ -74,7 +69,7 @@
                     i {
                         height: auto;
                         font-size: 18px;
-                        color: #969ba9;
+                        color: #37a58e;
                         margin: 0;
                     }
 
@@ -93,7 +88,7 @@
                     text-align: center;
                     margin: 0 -2px 0 7px;
                     border-radius: 999rem;
-                    background-color: #3e4867;
+                    background-color: $secondaryColorB;
                     padding: 1px 6px;
                     //height: auto;
                 }

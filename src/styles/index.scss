@@ -95,12 +95,11 @@ canvas {
 a.skipLink {
   background: #000000;
   color: #ffffff;
-  // height: 30px;
-  // left: 50%;
+
   padding: 8px;
   position: absolute;
-  transform: translateY(-100%);
-  transition: transform 0.3s;
+  top: -99rem;
+  //transform: translateY(-100%);
 }
 
 a.skipLink:focus {
@@ -320,39 +319,26 @@ form {
 
 .rotateBtn {
   i {
-    transform: rotate(-360deg);
     transition: all .3s linear;
   }
 }
 
-.rotateBtn.spin {
-  i {
-    animation: spin .3s;
-    transform: rotate(-180deg);
-  }
-}
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
+// @keyframes spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
 
-  to {
-    transform: rotate(-180deg);
-  }
-}
-
-
-
-
+//   to {
+//     transform: rotate(-180deg);
+//   }
+// }
 
 #SRLLightbox {
   z-index: 10000;
 }
 
 #SRLLightbox {
-
-
   @include respond-below(sm) {
     //top:50px !important;
     bottom: 0px !important
@@ -386,104 +372,13 @@ form {
 .medium-zoom-image {
   // border: 1px solid #ffffff !important;
   // border-radius: 3px;
-
   // overflow: hidden;
-
-
   // transform: none;
 }
 
 .medium-zoom-image--opened {
   z-index: 100001;
   box-shadow: 0 0 10px 0 #5f5b5b9e !important;
-
-}
-
-
-
-/* Make clicks pass-through */
-#nprogress {
-  pointer-events: none;
-}
-
-#nprogress .bar {
-  background: #99dfbe;
-
-  position: fixed;
-  z-index: 100005;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 2px;
-}
-
-/* Fancy blur effect */
-#nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px #99dfbe, 0 0 5px #99dfbe;
-  opacity: 1.0;
-
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-  -ms-transform: rotate(3deg) translate(0px, -4px);
-  transform: rotate(3deg) translate(0px, -4px);
-}
-
-/* Remove these to get rid of the spinner */
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 15px;
-  right: 15px;
-}
-
-#nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
-  box-sizing: border-box;
-
-  border: solid 2px transparent;
-  border-top-color: #99dfbe;
-  border-left-color: #99dfbe;
-  border-radius: 50%;
-
-  -webkit-animation: nprogress-spinner 400ms linear infinite;
-  animation: nprogress-spinner 400ms linear infinite;
-}
-
-.nprogress-custom-parent {
-  overflow: hidden;
-  position: relative;
-}
-
-.nprogress-custom-parent #nprogress .spinner,
-.nprogress-custom-parent #nprogress .bar {
-  position: absolute;
-}
-
-@-webkit-keyframes nprogress-spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes nprogress-spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .closeModal {
@@ -498,7 +393,6 @@ form {
 
 .tagList.open {
   max-height: max-content !important;
-  transition: max-height 1.25s ease-in;
 }
 
 .tagListItem {
@@ -530,7 +424,7 @@ form {
 
   span:nth-child(2) {
     color: #ffffff;
-    background-color: #942662 !important;
+    background-color: #b96693 !important;
   }
 }
 

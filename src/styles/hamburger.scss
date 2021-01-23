@@ -22,7 +22,7 @@
     .hamburger-inner::after {
       width: 30px;
       height: 2px;
-      background-color: $secondaryColor;
+      background-color: $secondaryColorA;
       border-radius: 1.5px;
     }
 
@@ -38,7 +38,7 @@
   }
 
   .hamburger-label {
-    color: $secondaryColor;
+    color: $secondaryColorA;
     float: left;
     margin: 0px 8px 0 0;
   }

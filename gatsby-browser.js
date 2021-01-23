@@ -44,7 +44,7 @@ export const onRouteUpdate = () => {
     //     resizeAllGridItems()
     // })
 
-    "resize reload click keydown keyup".split(" ").forEach(function (e) {
+    "resize reload click keydown keyup orientationchange".split(" ").forEach(function (e) {
         window.addEventListener(e, () => {
             resizeAllGridItems()
         })
@@ -54,9 +54,6 @@ export const onRouteUpdate = () => {
 }
 
 function ready() {
-
-
-
     document.addEventListener('click', function (e) {
         srollNav()
     })
@@ -65,9 +62,6 @@ function ready() {
     canvasAnin()
     checkTagListHeight()
     toggleMainNav()
-
-
-
 }
 
 

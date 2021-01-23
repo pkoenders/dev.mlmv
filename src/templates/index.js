@@ -118,14 +118,23 @@ const IndexPage = ({ data, location, language }) => {
         description={data.sanitySiteSettings.description.translate}
       />
       <Layout location={location}>
+
+        <style type="text/css">
+          {`
+                body  {
+                 background-color: #121923 !important;
+                 }
+             `}
+        </style>
+
         <HeaderImg data={data} language={language} />
         <AlertSection data={data} language={language} />
-        <DefaultSection>
+        <section className={HomepageStyles.wrapper}>
           <div className={HomepageStyles.homepageIntro}>
             <BlockContent blocks={data.sanityHomepageIntro.content.localized} />
             <Link to={`/${i18n.language}/peer-supporters`} className={'buttonSecondary'} >{t("index:ctaViewPeerSupports")}</Link>
           </div>
-        </DefaultSection>
+        </section>
         <ProcessSection />
         <SupportSection />
         <UsrCommentsSection data={data} language={language} />

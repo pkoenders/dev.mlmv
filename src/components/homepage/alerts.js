@@ -33,12 +33,12 @@ const Alerts = ({ data }) => {
           var currentTimeParsed = Date.parse(currentTime)
           var alertLevel = edge.node.level.alertLevel
 
-
+          var sessionActive
           //When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
           if (typeof window !== 'undefined') {
             sessionActive = sessionStorage.getItem(edge.node.title.translate)
           } else {
-            var sessionActive = null
+            sessionActive = null
           }
           //console.log("sessionActive = " + sessionActive)
           //console.log("expirayDateParsed = " + expirayDateParsed)

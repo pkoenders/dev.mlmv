@@ -8,14 +8,14 @@ header.headerNavWrapper.slide {
 }
 
 header.headerNavWrapper {
-  display: flex !important;
   position: fixed;
-  flex-direction: row;
-  width: 100%;
+
+  //width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
   z-index: 100000;
   will-change: transform;
-  // transition: all 0.4s;
-  // transform: translate(0, 0);
   transition: all .4s;
   height: 60px;
 
@@ -26,16 +26,20 @@ header.headerNavWrapper {
     background-color: #0b132b00;
     transition: all 0.4s;
     width: 100%;
+    height: inherit;
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
 
 
-
     a.brand,
     span.brand {
       order: 0;
+      display: flex;
+      align-items: stretch;
+      padding: 15px;
+      height: 60px;
 
       @include respond-below(sm) {
         order: 1;
@@ -49,13 +53,9 @@ header.headerNavWrapper {
       top: 0px;
       left: 0px;
 
-      span {
-        display: none;
-      }
-
       svg {
-        padding: 10px 15px;
-        height: 60px;
+        // 
+        height: 100%;
         width: auto;
       }
     }
@@ -128,7 +128,7 @@ header.headerNavWrapper {
       left: 88px;
       position: relative;
       width: 100%;
-      border-left: 1px solid $secondaryColor;
+      border-left: 1px solid $secondaryColorA;
       overflow-x: scroll;
 
       .toggleMainMenu {
@@ -172,7 +172,7 @@ header.headerNavWrapper {
 
         a.activeNavItem {
           pointer-events: none !important;
-          border-left: 5px solid $secondaryColor;
+          border-left: 5px solid $secondaryColorA;
           margin-left: -5px;
         }
 
@@ -183,7 +183,7 @@ header.headerNavWrapper {
           bottom: 0px;
           display: flex;
           border-radius: 1.5px;
-          background: $secondaryColor;
+          background: $secondaryColorA;
           height: 1px;
           width: 0;
           left: -3px;
@@ -297,8 +297,6 @@ header.headerNavWrapper {
 
           ul {
             top: 0px;
-            //transform: translate(0, -0px);
-            //transition: top 1s linear;
           }
         }
 
@@ -319,7 +317,7 @@ header.headerNavWrapper {
           }
 
           a.activeNavItem {
-            color: $headerBgColor;
+            color: #ffffff;
             background: $secondaryColor;
             border-radius: 3px;
             overflow: hidden;
@@ -331,12 +329,14 @@ header.headerNavWrapper {
           a:after,
           button:after {
             content: '';
+            background-color: $secondaryColor;
             left: 50%;
             transition: all 150ms ease-in-out;
           }
 
           a:hover:after,
           button:hover:after {
+
             width: 100%;
             left: 0px;
           }
@@ -396,12 +396,11 @@ header.headerNavWrapper {
 
               a.activeNavItem:after {
                 content: '';
+
                 left: 50%;
                 transition: all 150ms ease-in-out;
                 width: 100%;
                 left: 0px;
-
-
               }
 
               a:hover {
@@ -412,17 +411,12 @@ header.headerNavWrapper {
                 }
               }
             }
-
           }
         }
 
         li.hide {
           display: none;
         }
-
-
-
-
       }
     }
   }
@@ -477,12 +471,6 @@ header.headerNavWrapper {
         color: inherit;
       }
     }
-
-    // button:hover {
-    //   i {
-    //     opacity: 1;
-    //   }
-    // }
 
     button:focus {
       outline: none;

@@ -2,13 +2,16 @@
 
 .wrapper {
     z-index: 100;
-    transition: all .25s linear;
     position: sticky;
+    display: flex;
+    flex-direction: row;
     padding: 15px 0 15px 0;
     background-color: $pageBgColor;
     top: 60px;
+    left: 0px;
+    right: 0px;
     will-change: transform;
-    transition: all .4s;
+    transition: all .25s linear;
     border-bottom: 1px solid #c1d1d8;
     box-shadow: $globalBoxShadowB;
 
@@ -64,6 +67,7 @@
         a:hover {
             outline: none;
             color: $tertiaryColor;
+            //color: $secondaryColor;
             text-decoration: none;
 
             i {
