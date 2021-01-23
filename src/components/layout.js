@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import SEO from './seo/seo'
 
 //import { useStaticQuery, graphql } from "gatsby"
 import Header from "./common/header"
