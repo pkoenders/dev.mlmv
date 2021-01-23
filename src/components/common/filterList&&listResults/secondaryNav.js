@@ -10,7 +10,7 @@ const SecondaryNav = ({ handleFullReset, location, toggleModal }) => {
         <>
             {location.pathname.includes("peer-supporters") === true &&
                 <>
-                    <button className={'closeModal'} onClickCapture={toggleModal}><i className={"material-icons"} aria-hidden="true">help_center</i>&nbsp;{t('peerSupporters:about')}</button>
+                    <button className={'closeModal'} onClickCapture={toggleModal}><i className={"material-icons"} aria-hidden="true">double_arrow</i>&nbsp;{t('peerSupporters:about')}</button>
                 </>
             }
             <span className={secondaryNav.alignRight}>
