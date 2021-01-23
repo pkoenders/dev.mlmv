@@ -9,7 +9,7 @@
 
 @mixin h1Title {
   text-align: center;
-  color: $primaryColor;
+  color: $secondaryColor;
   font-family: 'Merriweather', serif;
   font-size: 1.8rem;
   font-weight: 900;
@@ -29,6 +29,7 @@
   text-align: center;
   font-family: 'Merriweather', serif;
   font-weight: 900;
+  // color: $secondaryColor;
   font-size: 1.8rem;
   line-height: 2.3rem;
   letter-spacing: .05rem;

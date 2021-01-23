@@ -25,8 +25,9 @@
             text-align: center;
             margin: 60px auto 0;
             padding: 15px 30px;
-            color: #ffffff;
+
             @include homePageTitle;
+            color: #ffffff;
             font-weight: 700;
             line-height: 2.4rem;
             text-shadow: 0px 0px 6px $primaryColor;

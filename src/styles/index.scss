@@ -424,7 +424,8 @@ form {
 
   span:nth-child(2) {
     color: #ffffff;
-    background-color: #b96693 !important;
+    //background-color: #b96693 !important;
+    background-color: $tertiaryColorA !important;
   }
 }
 
