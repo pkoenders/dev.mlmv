@@ -96,7 +96,7 @@
         .steps {
             div {
                 background-color: #ffffff;
-                background-color: $pageBgColor;
+                background-color: $pageBgColor !important;
             }
         }
     }
