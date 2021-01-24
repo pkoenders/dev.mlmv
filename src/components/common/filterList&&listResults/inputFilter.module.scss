@@ -99,20 +99,6 @@
             }
         }
 
-        button:focus {
-            outline: none;
-        }
-
-
-        /* Optional: Customize .focus-visible */
-        button:focus-visible {
-            @include focusVisibleForDark;
-        }
-
-        button:-moz-focusring {
-            @include focusVisibleForDark;
-        }
-
         span {
             text-align: center;
             display: block;

@@ -107,12 +107,9 @@ const FilterListResults = ({ location, currentPage, allPosts, allTags, toggleMod
     }
 
     function handleFullReset(e) {
-
         handleInputFilterReset()
         handleTagResultsReset()
         window.scrollTo(0, 0)
-        //e.target.classList.toggle("spin")
-        console.log("rotate = " + resultsListCount)
         e.target.querySelector('i').style = 'transform: rotate(' + rot + 'deg)'
         rot -= 180;
     }

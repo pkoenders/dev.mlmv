@@ -73,20 +73,5 @@
                 color: inherit;
             }
         }
-
-        button:focus,
-        a:focus {
-            outline: none;
-        }
-
-        button:focus-visible,
-        a:focus-visible {
-            @include focusVisibleForDark;
-        }
-
-        button:focus,
-        a:-moz-focusring {
-            @include focusVisibleForDark;
-        }
     }
 }

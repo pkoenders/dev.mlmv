@@ -132,17 +132,17 @@ a:hover {
   text-decoration: underline;
 }
 
+a:focus,
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 button:focus-visible {
-  @include focusVisibleForDark;
-}
-
-a:-moz-focusring,
-input:-moz-focusring,
-textarea:-moz-focusring,
-button:-moz-focusring {
   @include focusVisibleForDark;
 }
 

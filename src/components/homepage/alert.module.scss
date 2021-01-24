@@ -48,18 +48,6 @@
         }
     }
 
-    button:focus {
-        outline: none;
-    }
-
-    button:focus-visible {
-        @include focusVisibleForDark;
-    }
-
-    button:-moz-focusring {
-        @include focusVisibleForDark;
-    }
-
     div.sectionInner {
         display: block;
         max-width: 768px;
@@ -68,11 +56,6 @@
         text-align: center;
         padding: 15px 45px;
         color: #ffffff !important;
-
-
-        @include respond-below(sm) {
-            //padding: 15px 0;
-        }
 
         .div {
             p {

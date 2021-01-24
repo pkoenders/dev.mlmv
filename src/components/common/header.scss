@@ -183,7 +183,7 @@ header.headerNavWrapper {
           bottom: 0px;
           display: flex;
           border-radius: 1.5px;
-          background: $secondaryColorA;
+          background-color: $secondaryColorA;
           height: 1px;
           width: 0;
           left: -3px;
@@ -194,35 +194,6 @@ header.headerNavWrapper {
         button:hover:after {
           width: 100%;
         }
-
-        a:focus,
-        button:focus {
-          outline: none;
-        }
-
-        button:focus {
-          outline: none;
-        }
-
-        /* Optional: Customize .focus-visible */
-        a:focus-visible {
-          @include focusVisibleForDark;
-        }
-
-
-
-        button:focus-visible {
-          @include focusVisibleForDark;
-        }
-
-        a:-moz-focusring {
-          @include focusVisibleForDark;
-        }
-
-        button:-moz-focusring {
-          @include focusVisibleForDark;
-        }
-
       }
 
       li.hide {
@@ -329,7 +300,8 @@ header.headerNavWrapper {
           a:after,
           button:after {
             content: '';
-            background-color: $secondaryColor;
+            //background-color: $secondaryColor;
+            background-color: #ffffff;
             left: 50%;
             transition: all 150ms ease-in-out;
           }

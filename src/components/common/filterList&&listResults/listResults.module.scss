@@ -250,18 +250,6 @@
                     filter: grayscale(0);
                 }
             }
-
-            a:focus {
-                outline: none;
-            }
-
-            a:focus-visible {
-                @include focusVisibleForDark;
-            }
-
-            a:-moz-focusring {
-                @include focusVisibleForDark;
-            }
         }
     }
 }

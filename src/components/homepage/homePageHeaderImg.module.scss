@@ -30,8 +30,7 @@
             color: #ffffff;
             font-weight: 700;
             line-height: 2.4rem;
-            text-shadow: 0px 0px 6px $primaryColor;
-
+           // text-shadow: 0px 0px 6px $primaryColor;
             @include respond-below(md) {
                 font-size: 1.4rem;
                 line-height: 2.0rem;

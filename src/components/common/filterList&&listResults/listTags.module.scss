@@ -90,21 +90,7 @@
                     border-radius: 999rem;
                     background-color: $secondaryColorB;
                     padding: 1px 6px;
-                    //height: auto;
                 }
-            }
-
-            button:focus {
-                outline: none;
-            }
-
-            /* Optional: Customize .focus-visible */
-            button:focus-visible {
-                @include focusVisibleForDark;
-            }
-
-            button:-moz-focusring {
-                @include focusVisibleForDark;
             }
         }
     }

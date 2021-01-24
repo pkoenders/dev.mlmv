@@ -2,6 +2,7 @@
 
 .wrapper {
     background-color: $pageBgColor;
+
     .homepageIntro {
         padding: 60px 15px;
         max-width: 1200px;
@@ -15,6 +16,7 @@
 
         p {
             color: $txtColor;
+
             font-size: 1.1rem;
             line-height: 1.5rem;
         }
@@ -25,7 +27,5 @@
             margin: 30px 0 0 0;
             padding: 1.6em 2.4em;
         }
-
-
     }
 }
