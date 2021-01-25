@@ -44,6 +44,7 @@
             border: none;
             outline: none;
             background-color: transparent;
+            text-align: left;
 
             i {
                 pointer-events: none;
@@ -59,6 +60,7 @@
             button:last-child,
             a:last-child {
                 margin: 0 0 0 15px !important;
+                text-align: right;
             }
         }
 
